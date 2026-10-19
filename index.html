@@ -1,9 +1,9 @@
-<!doctype html><!-- build 2026-10-16 chatcall2 --><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><meta name="theme-color" content="#eef0f3"><meta name="description" content="撮影用のチャット・SMS・ロック画面を編集して、タップで再生。"><link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='9' fill='%234f7cff'/%3E%3Cpath d='M8 9h16v11H15l-6 5v-5H8z' fill='white'/%3E%3C/svg%3E"><style>body{margin:0}:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}img{max-width:100%}
+<!doctype html><!-- build 2026-10-19 callfill --><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><meta name="theme-color" content="#eef0f3"><meta name="description" content="撮影用のチャット・SMS・ロック画面を編集して、タップで再生。"><link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='9' fill='%234f7cff'/%3E%3Cpath d='M8 9h16v11H15l-6 5v-5H8z' fill='white'/%3E%3C/svg%3E"><style>body{margin:0}:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}img{max-width:100%}
 body{font-size:16px} .fld>span,.sec h3,.hint,.pv-note{font-size:14px}.btn.sm{font-size:14px}
 .transport{display:flex;flex-wrap:wrap;justify-content:center;gap:8px}#play-count{font-size:14px;color:var(--muted)}
 #fs.native-bars .sb,#fs.native-bars .sb-off,#fs.native-bars .home{display:none}
 #fs{padding-top:env(safe-area-inset-top);padding-bottom:env(safe-area-inset-bottom);background:#fff;user-select:none;-webkit-user-select:none;-webkit-touch-callout:none}
-#fsExit{opacity:0}#fsExit:focus-visible{opacity:1}body.playing{overflow:hidden}
+#fsExit{opacity:0;display:none!important}#fsExit:focus-visible{opacity:1}body.playing{overflow:hidden}
 #fs.native-bars .c-in-row,#fs.native-bars .s-in-row{padding-bottom:12px}
 @media(max-width:600px){body{padding-inline:10px}.app{padding-top:12px}.pv{padding:14px 8px}.main{gap:16px}.acts{gap:6px}.btn{padding:9px 11px}.tabs{width:100%;justify-content:center}.brand{font-size:16px}.sec{padding:12px}.it-top .time{width:76px}.it select.inp,.it .time,.seg button{font-size:14px}}
 .call-screen{height:100%;position:relative;color:#fff;background:linear-gradient(160deg,#182337,#36475a 55%,#15202e);display:flex;flex-direction:column}.call-person{text-align:center;padding:62px 24px 20px}.call-avatar{width:100px;height:100px;border-radius:50%;background:#ffffff20;margin:0 auto 24px;display:grid;place-items:center;font-size:44px}.call-name{font-size:34px;line-height:1.3;overflow-wrap:anywhere}.call-label{font-size:18px;color:#d2dbe5;margin-top:12px}.call-actions{display:flex;justify-content:space-between;text-align:center;margin-top:auto;padding:30px 48px 72px;font-size:14px}.call-circle{width:76px;height:76px;border-radius:50%;display:grid;place-items:center;margin-bottom:14px}.decline{background:#ed4b55;transform:rotate(135deg)}.accept{background:#32be75}#fs.lock-wallpaper .call-screen,#fs.lock-wallpaper .scr-call{background:transparent}.tabs{flex-wrap:wrap}
@@ -358,20 +358,20 @@ details.sec.fold>.sec-body{padding:14px 16px 16px;display:flex;flex-direction:co
 .nt-top{font-size:12.5px;color:#66666b}.nt-from{font-size:15px;font-weight:600;line-height:1.3;margin-top:1px}.nt-txt{font-size:15px;line-height:1.3}
 .lk-btn{background:rgba(30,30,34,.5);-webkit-backdrop-filter:blur(20px);backdrop-filter:blur(20px)}
 
-.call-screen.cc{background:#3f5870;overflow:hidden;align-items:center}
+.call-screen.cc{background:#3f5870;overflow:hidden;align-items:center}#fs.in-call{padding-top:0!important;padding-bottom:0!important}
 .cc>*{position:relative;z-index:1}
 .cc>.cc-bg{position:absolute;inset:-60px;background-size:cover;background-position:center;filter:blur(38px) saturate(1.15);z-index:0}
 .cc>.cc-veil{position:absolute;inset:0;background:linear-gradient(180deg,rgba(55,80,110,.35),rgba(30,40,55,.55));z-index:0}
-.cc .cc-person{text-align:center;padding:96px 24px 0;width:100%}
+.cc .cc-person{text-align:center;padding:calc(96px + var(--sa-top,0px)) 24px 0;width:100%}
 .cc .cc-av{width:150px;height:150px;border-radius:50%;margin:0 auto 22px;display:grid;place-items:center;font-size:56px;font-weight:700;color:#fff;box-shadow:0 2px 18px rgba(0,0,0,.18)}
 .cc .cc-name{font-size:23px;font-weight:700}
 .cc .cc-sub{font-size:17px;opacity:.85;margin-top:6px;font-variant-numeric:tabular-nums}
 .cc .cc-dots{display:flex;gap:7px;justify-content:center;margin-top:34px}
 .cc .cc-dots i{width:5px;height:5px;border-radius:50%;background:#10c68a;opacity:.9}
 .cc .cc-dots i:nth-child(-n+3){background:#34b4d6}
-.cc .cc-ctrl{position:absolute;left:0;right:0;bottom:170px;display:flex;justify-content:space-around;align-items:flex-start;text-align:center;font-size:12px}
+.cc .cc-ctrl{position:absolute;left:0;right:0;bottom:calc(170px + var(--sa-bot,0px));display:flex;justify-content:space-around;align-items:flex-start;text-align:center;font-size:12px}
 .cc .cc-ctrl div{display:flex;flex-direction:column;align-items:center;gap:8px;width:30%}.cc .cc-ctrl small{line-height:1.25}
-.cc .cc-end{position:absolute;left:50%;bottom:62px;transform:translateX(-50%);width:68px;height:68px;border-radius:50%;border:0;background:#ff3b5c;display:grid;place-items:center;padding:0}
+.cc .cc-end{position:absolute;left:50%;bottom:calc(62px + var(--sa-bot,0px));transform:translateX(-50%);width:68px;height:68px;border-radius:50%;border:0;background:#ff3b5c;display:grid;place-items:center;padding:0}
 .c-callbar{display:flex;justify-content:space-around;padding:14px 0 12px;background:#f4f5f7;color:#6b7280}.c-callbar.dk{background:#111;color:#9aa0aa}
 .c-callbar span{display:flex;flex-direction:column;align-items:center;gap:6px}.c-callbar small{font-size:12px}
 .bub.rec{padding:0;min-width:210px;overflow:hidden}
@@ -1168,12 +1168,13 @@ function openFs(){watching=null;outgoingChatCall=null;callLog=[];stopCallTimer()
   try{const r=fs.requestFullscreen&&fs.requestFullscreen(); if(r&&r.catch) r.catch(()=>{})}catch(e){}
   toast('タップで次へ・右上を3回連続タップで終了',3000);
 }
-function closeFs(){{const wv=document.getElementById('wvid');if(wv)try{wv.pause()}catch(e){}}watching=null;setThemeColor('#eef0f3');document.documentElement.classList.remove('shoot-lock');document.documentElement.style.removeProperty('--shoot-wallpaper');previewN=play.n;fs.hidden=true;document.body.classList.remove('playing');renderPreview(); try{if(document.fullscreenElement)document.exitFullscreen()}catch(e){}}
+function closeFs(){outgoingChatCall=null;stopCallTimer();{const wv=document.getElementById('wvid');if(wv)try{wv.pause()}catch(e){}}watching=null;setThemeColor('#eef0f3');document.documentElement.classList.remove('shoot-lock');document.documentElement.style.removeProperty('--shoot-wallpaper');previewN=play.n;fs.hidden=true;document.body.classList.remove('playing');renderPreview(); try{if(document.fullscreenElement)document.exitFullscreen()}catch(e){}}
 function setThemeColor(c){const m=document.querySelector('meta[name=theme-color]');if(m)m.setAttribute('content',c)}
 function layoutFs(fresh){
   const callMode=S.mode==='sequence'&&!['lock','ended','banner'].includes(callOverride?.n===play.n?callOverride.kind:sceneAt(play.n).kind);
   const lockMode=S.mode==='lock'||S.mode==='sequence';
   fs.classList.toggle('lock-wallpaper',lockMode);
+  fs.classList.remove('in-call');const cs0=getComputedStyle(fs),insT=parseFloat(cs0.paddingTop)||0,insB=parseFloat(cs0.paddingBottom)||0;fs.classList.toggle('in-call',!!outgoingChatCall);
   document.documentElement.classList.toggle('shoot-lock',lockMode);
   // Paint the wallpaper on the full viewport, including both safe-area paddings.
   // The inner screen keeps controls clear of the system bars without cropping the wallpaper.
@@ -1182,10 +1183,11 @@ function layoutFs(fresh){
     fs.style.backgroundImage=wall;
     fs.style.backgroundSize='cover';fs.style.backgroundPosition='center';fs.style.backgroundColor='#0e1a3a';
     document.documentElement.style.setProperty('--shoot-wallpaper',fs.style.backgroundImage);
-  }else{fs.style.backgroundImage='none';const wbg=outgoingChatCall?'#3f5870':watching?(watching.short?'#000':'#0f0f0f'):'#fff';fs.style.backgroundColor=wbg;setThemeColor(watching?wbg:'#eef0f3');document.documentElement.style.removeProperty('--shoot-wallpaper')}
+  }else{fs.style.backgroundImage='none';const wbg=outgoingChatCall?'#3f5870':watching?(watching.short?'#000':'#0f0f0f'):'#fff';fs.style.backgroundColor=wbg;setThemeColor(outgoingChatCall?'#415a72':watching?wbg:'#eef0f3');document.documentElement.style.removeProperty('--shoot-wallpaper')}
   const styles=getComputedStyle(fs),top=parseFloat(styles.paddingTop)||0,bottom=parseFloat(styles.paddingBottom)||0;const vw=Math.min(innerWidth,document.documentElement.clientWidth||innerWidth),vh=innerHeight-top-bottom; let k=vw/W,h=vh/k,left=0;fsScreen.style.top=top+'px';
   if(h<640){k=vh/H;h=H;left=(vw-W*k)/2}
   fsScreen.style.setProperty('--native-top',(parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--device-top'))||0)/k+'px');
+  fsScreen.style.setProperty('--sa-top',(outgoingChatCall?insT/k:0)+'px');fsScreen.style.setProperty('--sa-bot',(outgoingChatCall?insB/k:0)+'px');
   fsScreen.style.left=left+'px'; fsScreen.style.transform=`scale(${k})`;
   fsScreen.innerHTML=renderScreen({height:h,reveal:play.n,fresh,live:true});scrollConversation(fsScreen);
 }
@@ -1292,7 +1294,10 @@ function handlePlaybackKey(e){
 document.addEventListener('keydown',handlePlaybackKey);
 document.addEventListener('fullscreenchange',()=>{if(!document.fullscreenElement&&!fs.hidden)closeFs()});
 /* Exit only by tapping the top-right corner 3 times within 1.5s (prevents accidental exits while filming). */
-let exitTaps=[];function exitTap(){const now=performance.now();exitTaps=exitTaps.filter(t=>now-t<1500);exitTaps.push(now);if(exitTaps.length>=3){exitTaps=[];closeFs()}}
+let exitTaps=[];function exitTap(){const now=performance.now();exitTaps=exitTaps.filter(t=>now-t<2000);exitTaps.push(now);if(exitTaps.length>=3){exitTaps=[];closeFs()}}
+// 左下の見えない領域を3回連続タップで編集に戻る（入力欄・キーボード・各ボタンはそのまま動く）
+function inExitZone(e){const r=fs.getBoundingClientRect();const w=Math.min(170,Math.max(110,r.width*.32));const sa=parseFloat(getComputedStyle(fs).paddingBottom)||0;return e.clientX>=r.left&&e.clientX<=r.left+w&&e.clientY<=r.bottom&&e.clientY>=r.bottom-Math.max(sa,0)-110}
+fs.addEventListener('click',e=>{if(fs.hidden||!inExitZone(e))return;if(e.target.closest('.c-field,.s-field,.prop-send,[data-prop-key],.prop-keyboard'))return;if(!e.target.closest('button,a,input,textarea,[data-chat-call],[data-call],[data-desktop],[data-watch],[data-watch-land],[data-watch-back],[data-video-step],[data-vid-tab],[data-talk-step],[data-swipe-target]')){e.stopPropagation();e.preventDefault()}exitTap()},true);
 fs.addEventListener('contextmenu',e=>e.preventDefault());
 /* Channel page: swipe right -> previous tab (ホーム), swipe left -> next tab. Swipes inside the おすすめ carousel scroll it instead. */
 let vSwipe=null,vidSwipeIgnoreUntil=0;

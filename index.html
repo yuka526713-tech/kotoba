@@ -1,4 +1,4 @@
-<!doctype html><!-- build 2026-10-19 callfill --><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><meta name="theme-color" content="#eef0f3"><meta name="description" content="撮影用のチャット・SMS・ロック画面を編集して、タップで再生。"><link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='9' fill='%234f7cff'/%3E%3Cpath d='M8 9h16v11H15l-6 5v-5H8z' fill='white'/%3E%3C/svg%3E"><style>body{margin:0}:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}img{max-width:100%}
+<!doctype html><!-- build 2026-10-19 callbubble-k --><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><meta name="theme-color" content="#eef0f3"><meta name="description" content="撮影用のチャット・SMS・ロック画面を編集して、タップで再生。"><link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='9' fill='%234f7cff'/%3E%3Cpath d='M8 9h16v11H15l-6 5v-5H8z' fill='white'/%3E%3C/svg%3E"><style>body{margin:0}:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}img{max-width:100%}
 body{font-size:16px} .fld>span,.sec h3,.hint,.pv-note{font-size:14px}.btn.sm{font-size:14px}
 .transport{display:flex;flex-wrap:wrap;justify-content:center;gap:8px}#play-count{font-size:14px;color:var(--muted)}
 #fs.native-bars .sb,#fs.native-bars .sb-off,#fs.native-bars .home{display:none}
@@ -150,6 +150,8 @@ textarea.inp{resize:vertical;line-height:1.5}
 .home.light i{background:#fff}
 
 .c-head{background:#fff;flex:none;border-bottom:1px solid #e6e8ec}
+.typing-end{margin:10px 0 4px;padding:12px 14px;border:1.5px dashed #9bb0e8;border-radius:12px;background:#f3f6ff;display:flex;flex-direction:column;gap:6px}.typing-end-t{font-size:12px;font-weight:700;color:#3c55b5}.typing-end .chk{font-size:14px;font-weight:600}.typing-end small{font-size:12px;color:#6b7280}
+.typing-opt{display:flex;align-items:center;gap:8px;margin-top:8px;font-size:13px;color:#4a5160}
 .c-bar{height:48px;display:flex;align-items:center;padding:0 14px 0 6px;gap:4px}
 .c-back{display:flex;align-items:center;font-size:16px;font-weight:500;min-width:48px}
 .c-title{flex:1;font-size:17px;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
@@ -262,7 +264,7 @@ body.playing{overflow:hidden}
 html.shoot-lock,html.shoot-lock body{background-color:#0e1a3a;background-image:var(--shoot-wallpaper);background-size:cover;background-position:center;background-attachment:fixed}
 /* Keep the system's light status text legible in the editor and light chat screens. */
 @media(display-mode:standalone){
- html:not(.shoot-lock)::before{content:'';position:fixed;inset:0 0 auto;height:env(safe-area-inset-top);background:#101827;z-index:51;pointer-events:none}
+ html:not(.shoot-lock)::before{content:'';position:fixed;inset:0 0 auto;height:env(safe-area-inset-top);background:var(--fs-top,#101827);z-index:51;pointer-events:none}
  body:not(.playing) .app{padding-top:calc(16px + env(safe-area-inset-top))}
 }
 .call-screen{height:100%;position:relative;color:#fff;background:linear-gradient(160deg,#182337,#36475a 55%,#15202e);display:flex;flex-direction:column}.call-person{text-align:center;padding:62px 24px 20px}.call-avatar{width:100px;height:100px;border-radius:50%;background:#ffffff20;margin:0 auto 24px;display:grid;place-items:center;font-size:44px}.call-name{font-size:34px;line-height:1.3;overflow-wrap:anywhere}.call-label{font-size:18px;color:#d2dbe5;margin-top:12px}.call-actions{display:flex;justify-content:space-between;text-align:center;margin-top:auto;padding:30px 48px 72px;font-size:14px}.call-circle{width:76px;height:76px;border-radius:50%;display:grid;place-items:center;margin-bottom:14px}.decline{background:#ed4b55;transform:rotate(135deg)}.accept{background:#32be75}#fs.lock-wallpaper .call-screen,#fs.lock-wallpaper .scr-call{background:transparent}.tabs{flex-wrap:wrap}
@@ -358,6 +360,40 @@ details.sec.fold>.sec-body{padding:14px 16px 16px;display:flex;flex-direction:co
 .nt-top{font-size:12.5px;color:#66666b}.nt-from{font-size:15px;font-weight:600;line-height:1.3;margin-top:1px}.nt-txt{font-size:15px;line-height:1.3}
 .lk-btn{background:rgba(30,30,34,.5);-webkit-backdrop-filter:blur(20px);backdrop-filter:blur(20px)}
 
+/* ---- LINE call on a locked iPhone ---- */
+.line-call{--lg-in:linear-gradient(180deg,#7d7d7d 0%,#7c7d7d 15%,#7a7b7a 30%,#7a7976 45%,#797773 60%,#767774 75%,#757978 90%,#757a7a 100%);--lg-on:linear-gradient(180deg,#7d7d7d 0%,#7c7d7d 15%,#777878 30%,#6d6d6a 45%,#605f5a 60%,#5a5853 75%,#585853 88%,#545959 100%);height:100%;position:relative;color:#fff;display:flex;flex-direction:column;overflow:hidden;font-family:-apple-system,BlinkMacSystemFont,"Hiragino Sans","Hiragino Kaku Gothic ProN","Noto Sans JP",sans-serif;-webkit-user-select:none;user-select:none;-webkit-touch-callout:none}
+.line-call.call{background:var(--lg-in);padding-bottom:66px}
+.line-call.connected,.line-call.ended{background:var(--lg-on);padding-bottom:50px}
+#fs.native-bars .line-call.call{padding-bottom:35px}#fs.native-bars .line-call.connected,#fs.native-bars .line-call.ended{padding-bottom:19px}
+#fs.native-bars .line-island,#fs.native-bars .line-mic{display:none}
+.line-call .sb{position:relative;z-index:2}.line-call .sb-l{display:flex;align-items:center;gap:6px;min-width:0}
+.line-island{position:absolute;top:11px;left:50%;margin-left:-86px;width:167px;height:37px;border-radius:19px;background:#000;z-index:3}
+.line-island svg{position:absolute;left:13px;top:11px}
+.line-island i{position:absolute;left:104px;top:15px;width:7px;height:7px;border-radius:50%;background:radial-gradient(circle at 40% 35%,#f8a455,#ea8a37)}
+.line-mic{position:absolute;top:23px;left:284px;width:13px;height:13px;border-radius:50%;background:#000;z-index:3}
+.line-mic:after{content:"";position:absolute;left:3px;top:3px;width:7px;height:7px;border-radius:50%;background:radial-gradient(circle at 40% 35%,#f8a455,#ea8a37)}
+.line-head{margin-top:60px;height:26px;display:flex;align-items:center;justify-content:center;gap:5px;font-size:20px;font-weight:600;color:rgba(255,255,255,.52);white-space:nowrap;font-variant-numeric:tabular-nums}
+.line-head svg{width:17px;height:17px;flex:none}
+#fs.native-bars .line-head{margin-top:51px}
+.line-name{margin-top:1px;text-align:center;font-size:31px;font-weight:700;line-height:1.2;padding:0 18px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.line-sp{flex:1}
+.line-btn{display:grid;place-items:center;border-radius:50%;box-sizing:border-box;background:linear-gradient(180deg,rgba(255,255,255,.25),rgba(255,255,255,.15));border:1px solid rgba(35,35,33,.4);box-shadow:inset 0 1.5px 1.5px rgba(255,255,255,.42),inset 0 -1.5px 2px rgba(255,255,255,.16);color:#fff;padding:0;font:inherit}
+.line-btn.red{background:linear-gradient(180deg,#d63a2e,#c92f24);border-color:#e4574c;box-shadow:inset 0 1px 1px rgba(255,255,255,.4),inset 0 -1px 2px rgba(0,0,0,.12)}
+.line-act{display:flex;justify-content:space-between;padding:0 28px;margin-bottom:20px}
+.line-sm{width:100px;display:flex;flex-direction:column;align-items:center}
+.line-sm .line-btn{width:45px;height:45px}
+.line-lbl{margin-top:6px;font-size:14px;line-height:18px;text-align:center;color:#fff}
+.line-slide{position:relative;margin:0 32px;height:91px;box-sizing:border-box;padding:6px;border-radius:46px;display:flex;align-items:center;background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.28);box-shadow:inset 0 1.5px 2px rgba(255,255,255,.55),inset 0 -1.5px 2px rgba(255,255,255,.22),0 2px 10px rgba(0,0,0,.06)}
+.line-handle{width:79px;height:79px;border-radius:50%;background:#fff;display:grid;place-items:center;flex:none;box-shadow:0 4px 12px rgba(0,0,0,.16);touch-action:none;position:relative;z-index:2}
+.line-st{position:absolute;left:92px;right:0;top:0;bottom:0;display:flex;align-items:center;justify-content:center;padding-right:8px;font-size:22px;font-weight:500;letter-spacing:.02em;color:rgba(255,255,255,.52);pointer-events:none}
+.line-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:23px 0;padding:0 19px}
+.line-cell{display:flex;flex-direction:column;align-items:center}
+.line-cell .line-btn{width:79px;height:79px}
+.line-cell .line-lbl{margin-top:5px}
+.line-call.ended .line-head{color:rgba(255,255,255,.27)}.line-call.ended .line-head svg{opacity:.4}
+.line-call.ended .line-name{opacity:.5}
+.line-call.ended .line-btn svg{opacity:.5}
+.line-call.ended .line-btn.red svg{opacity:.55}
 .call-screen.cc{background:#3f5870;overflow:hidden;align-items:center}#fs.in-call{padding-top:0!important;padding-bottom:0!important}
 .cc>*{position:relative;z-index:1}
 .cc>.cc-bg{position:absolute;inset:-60px;background-size:cover;background-position:center;filter:blur(38px) saturate(1.15);z-index:0}
@@ -373,7 +409,7 @@ details.sec.fold>.sec-body{padding:14px 16px 16px;display:flex;flex-direction:co
 .cc .cc-ctrl div{display:flex;flex-direction:column;align-items:center;gap:8px;width:30%}.cc .cc-ctrl small{line-height:1.25}
 .cc .cc-end{position:absolute;left:50%;bottom:calc(62px + var(--sa-bot,0px));transform:translateX(-50%);width:68px;height:68px;border-radius:50%;border:0;background:#ff3b5c;display:grid;place-items:center;padding:0}
 .c-callbar{display:flex;justify-content:space-around;padding:14px 0 12px;background:#f4f5f7;color:#6b7280}.c-callbar.dk{background:#111;color:#9aa0aa}
-.c-callbar span{display:flex;flex-direction:column;align-items:center;gap:6px}.c-callbar small{font-size:12px}
+.c-callbar span,.c-callbar button{display:flex;flex-direction:column;align-items:center;gap:6px}.c-callbar button{border:0;background:none;color:inherit;font:inherit;padding:0 34px;cursor:pointer}.c-callbar small{font-size:12px}
 .bub.rec{padding:0;min-width:210px;overflow:hidden}
 .rec-top{display:flex;align-items:center;gap:12px;padding:12px 14px}
 .rec-ic{width:42px;height:42px;border-radius:50%;background:rgba(0,0,0,.28);display:grid;place-items:center;flex:none}
@@ -397,7 +433,7 @@ details.sec.fold>.sec-body{padding:14px 16px 16px;display:flex;flex-direction:co
     <div class="editor" id="editor"></div>
     <div class="pv" id="pv">
       <div class="dev-wrap"><div class="device"><div class="screenbox" id="screen"></div></div></div>
-      <div class="transport"><button class="btn" data-act="rewind">最初から</button><button class="btn" data-act="previous">一つ戻す</button><button class="btn pri" data-act="next">次へ →</button><button class="btn" data-act="all">すべて表示</button></div><div class="transport" style="margin-top:8px"><button class="btn sm" data-act="export">この画面を保存</button><button class="btn sm pri" data-act="saveprev">全部まとめて保存</button></div><div id="play-count" role="status"></div><p class="pv-note">「撮影を始める」で画面をタップすると、次のメッセージ・通知が届きます。Bluetoothキーボードの K キーでも進められます。編集に戻るときは画面の右上を3回連続でタップ。</p>
+      <div class="transport"><button class="btn" data-act="rewind">最初から</button><button class="btn" data-act="previous">一つ戻す</button><button class="btn pri" data-act="next">次へ →</button><button class="btn" data-act="all">すべて表示</button></div><div class="transport" style="margin-top:8px"><button class="btn sm" data-act="export">この画面を保存</button><button class="btn sm pri" data-act="saveprev">全部まとめて保存</button></div><div id="play-count" role="status"></div><p class="pv-note">「撮影を始める」で画面をタップすると、次のメッセージ・通知が届きます。Bluetoothキーボードの K キーでも進められます。編集に戻るときは画面の左下を3回連続でタップ。</p>
     </div>
   </div>
 </div>
@@ -424,7 +460,7 @@ function defaults(){
     mode:'chat',
     phone:{wall:null,chatName:'ことば',smsName:'メッセージ',videoName:'ナガメ',chatIcon:null,smsIcon:null,videoIcon:null},
     status:{time:'21:47',battery:38,signal:3,wifi:true,show:true,carrier:''},
-    chat:{name:'美咲',unread:3,avatar:null,avColor:'#e58a6d',accent:'#4f7cff',bg:'sky',bgImg:null,showName:false,typing:true,draft:'',
+    chat:{name:'美咲',unread:3,avatar:null,avColor:'#e58a6d',accent:'#4f7cff',bg:'sky',bgImg:null,showName:false,typing:false,callDur:'',callFrom:'',draft:'',
       messages:[
         {id:uid(),type:'date',text:'9月27日(日)'},
         m('them','今日はありがとう。楽しかった','22:14'),
@@ -525,6 +561,8 @@ function renderPages(){
  if(editing)menu='<div class="adds"><button class="btn pri" data-act="chapter-confirm">この内容で確定</button><button class="btn" data-act="page" data-v="preview">プレビューを見る →</button></div>';
  if(page==='chapter')menu='<button class="btn pri" data-act="page" data-v="modes">画面を選ぶ →</button>';
  if(page==='files')menu='<section class="sec"><h3>iCloud Driveで作品を持ち運ぶ</h3><p class="hint">自動同期ではありません。書き出したファイルを、もう一方の端末で読み込みます。</p><ol class="hint"><li>「全作品を書き出す」を押します。</li><li>共有画面で「ファイルに保存」→「iCloud Drive」を選びます。</li><li>もう一方の端末で「作品ファイルを読み込む」から同じファイルを選びます。</li></ol><p class="hint">読み込んだ章は追加されます。既存の章は上書きされません。繰り返し読み込むと章が増えます。撮影前に内容を確認してください。</p></section>'+ '<div class="file-actions"><button class="page-card" data-act="book-export">全作品を書き出す ↓</button><button class="page-card" data-act="save-script">この章だけを書き出す ↓</button><button class="page-card" data-act="load-script">作品ファイルを読み込む ↑</button><button class="page-card" data-act="ocr-photo">写真から下書きを作る（ロック画面）📷</button><p class="hint">「写真から下書きを作る」は、ロック画面のスクリーンショットの文字を自動で読み取ります（初回のみネット接続が必要）。読み間違いがあるので、できた章で必ず確認してください。この端末に自動保存されます。別の端末へ移すときは、書き出したファイルを読み込んでください。</p></div>';
+ const APP_VER='2026.10.19-k';
+ if(page==='home'||page==='files')menu+=`<p class="hint app-ver">アプリのバージョン：${APP_VER}</p>`;
  document.getElementById('page-menu').innerHTML=menu;
  for(const el of document.querySelectorAll('#editor > .sec'))el.hidden=false;
  if(preview)requestAnimationFrame(fitPreview);
@@ -565,18 +603,19 @@ function ic(n,s,col,sw,fill){s=s||24;col=col||'#111';return `<svg width="${s}" h
 function eic(n,s){return `<svg width="${s||16}" height="${s||16}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">${P[n]}</svg>`}
 
 /* ---------- status bar ---------- */
-function sb(light,leftText){
+function sb(light,leftText,after,opt){
   const st=S.status; if(!st.show) return '<div class="sb-off"></div>';
   const col=light?'#fff':'#111';
   const n=Math.max(0,Math.min(4,+st.signal||0)); let sig='';
   if(n===0) sig=`<span style="color:${col}">圏外</span>`;
-  else { let r=''; for(let i=0;i<4;i++){const h=4+i*2.7;r+=`<rect x="${i*4.6}" y="${12-h}" width="3.2" height="${h}" rx="1" fill="${col}" opacity="${i<n?1:.3}"/>`} sig=`<svg width="18" height="12" viewBox="0 0 18 12">${r}</svg>`; }
+  else { let r=''; for(let i=0;i<4;i++){const h=4+i*2.7;r+=`<rect x="${i*4.6}" y="${12-h}" width="3.2" height="${h}" rx="1" fill="${col}" opacity="${i<n?1:.3}"/>`} sig=`<svg width="18" height="12" viewBox="0 0 18 12">${r}</svg>`+(opt&&opt.net&&!st.wifi?`<span style="font-size:15.5px;font-weight:500;margin-left:-1px">${opt.net}</span>`:''); }
   const wifi=st.wifi?`<svg width="16" height="12" viewBox="0 0 16 12" fill="none" stroke="${col}" stroke-width="1.9" stroke-linecap="round"><path d="M1.5 4.3a9.5 9.5 0 0 1 13 0"/><path d="M4.2 7.1a5.8 5.8 0 0 1 7.6 0"/><circle cx="8" cy="10" r="1.3" fill="${col}" stroke="none"/></svg>`:'';
   const p=Math.max(0,Math.min(100,+st.battery||0))/100;
   const bcol=p<=.2?'#ff3b30':col;
-  const bat=`<svg width="27" height="13" viewBox="0 0 27 13"><rect x=".5" y=".5" width="23" height="12" rx="3.6" fill="none" stroke="${col}" opacity=".45"/><rect x="2" y="2" width="${Math.max(1.5,20*p).toFixed(1)}" height="9" rx="2.2" fill="${bcol}"/><path d="M25 4.5v4c.8-.3 1.3-1.1 1.3-2s-.5-1.7-1.3-2z" fill="${col}" opacity=".5"/></svg>`;
+  const pc=Math.round(p*100),bw=25*p;
+  const bat=opt&&opt.batNum?`<svg width="28" height="13" viewBox="0 0 28 13"><rect width="25" height="13" rx="4.2" fill="#fff" opacity=".45"/>${p>=.99?'<rect width="25" height="13" rx="4.2" fill="#fff"/>':`<path d="M4.2 0H${Math.max(bw,4.2).toFixed(1)}V13H4.2A4.2 4.2 0 0 1 0 8.8V4.2A4.2 4.2 0 0 1 4.2 0z" fill="#fff"/>`}<path d="M26.3 4.4v4.2c.8-.3 1.4-1.1 1.4-2.1s-.6-1.8-1.4-2.1z" fill="#fff" opacity=".45"/><text x="12.5" y="10.4" font-size="10.5" font-weight="700" text-anchor="middle" fill="#808080" font-family="-apple-system,Arial,sans-serif">${pc}</text></svg>`:`<svg width="27" height="13" viewBox="0 0 27 13"><rect x=".5" y=".5" width="23" height="12" rx="3.6" fill="none" stroke="${col}" opacity=".45"/><rect x="2" y="2" width="${Math.max(1.5,20*p).toFixed(1)}" height="9" rx="2.2" fill="${bcol}"/><path d="M25 4.5v4c.8-.3 1.3-1.1 1.3-2s-.5-1.7-1.3-2z" fill="${col}" opacity=".5"/></svg>`;
   const left=leftText!=null?`<span style="font-size:15px;font-weight:500">${esc(leftText)}</span>`:esc(st.time);
-  return `<div class="sb" style="color:${col}"><span class="sb-l">${left}</span><span class="sb-r">${sig}${wifi}${bat}</span></div>`;
+  return `<div class="sb" style="color:${col}"><span class="sb-l">${left}${after||''}</span><span class="sb-r">${sig}${wifi}${bat}</span></div>`;
 }
 
 /* ---------- visible slice for playback ---------- */
@@ -589,8 +628,8 @@ function avatarHtml(c,size){
 }
 function chatBubble(m,acc){
   if(m.type==='image') return `<div class="bub pic">${m.img?`<img src="${m.img}" alt="">`:'<div class="noimg">画像</div>'}</div>`;
-  if(m.type==='call'&&m.dur!==undefined){
-    return `<div class="bub rec"><div class="rec-top"><span class="rec-ic">${ic('phone',22,'#fff',2)}</span><span><b>${esc(m.text)}</b><small>${esc(m.dur)}</small></span></div><div class="rec-note"><span class="rec-nic">${ic('note',14,'#fff',2)}</span>${esc(m.note||'着信音・呼出音')}<i>›</i></div></div>`;
+  if(m.type==='call'&&m.dur!==undefined&&String(m.dur).trim()!==''){
+    return `<div class="bub rec"><div class="rec-top"><span class="rec-ic">${ic('phone',22,'#fff',2)}</span><span><b>${esc(m.text)}</b><small>${esc(normDur(m.dur))}</small></span></div><div class="rec-note"><span class="rec-nic">${ic('note',14,'#fff',2)}</span>${esc(m.note||'着信音・呼出音')}<i>›</i></div></div>`;
   }
   if(m.type==='call'){
     const me=m.from==='me';
@@ -616,13 +655,13 @@ function chatScreen(o){
   });
   const allShown=o.reveal==null||o.reveal>=all.length;
   const next=o.reveal!=null&&o.reveal<all.length?all[o.reveal]:null;
-  if((c.typing&&allShown)||(next&&isMsg(next)&&next.from==='them')){
+  if((c.typing&&allShown)||(next&&isMsg(next)&&next.from==='them'&&next.type==='text'&&next.typingBefore===true)){
     const cont=prev==='them';
     out+=`<div class="c-row them${cont?' cont':''}">${cont?'<div class="c-av sp"></div>':avatarHtml(c)}<div class="c-col"><div class="c-line"><div class="bub dots"><i></i><i></i><i></i></div></div></div></div>`;
   }
   const d=o.live?typing.text:c.draft;
-  return `<div class="c-head">${sb(false)}<div class="c-bar"><div class="c-back">${ic('back',26,'#1d1d1f',2.2)}${c.unread?`<span>${esc(c.unread)}</span>`:''}</div><div class="c-title">${esc(c.name)}</div><div class="c-icons">${ic('search',22,'#1d1d1f')}<button data-chat-call aria-label="音声通話をかける" style="border:0;background:none;padding:8px;color:inherit">${ic('phone',22,'#1d1d1f')}</button>${ic('menu',22,'#1d1d1f')}</div></div></div>`
-   +(o.live&&callLog.length?`<div class="c-callbar${dk?' dk':''}"><span>${ic('phone',26,'currentColor',1.8)}<small>音声通話</small></span><span>${ic('vcam',26,'currentColor',1.8)}<small>ビデオ通話</small></span></div>`:'')
+  return `<div class="c-head">${sb(false)}<div class="c-bar"><div class="c-back">${ic('back',26,'#1d1d1f',2.2)}${c.unread?`<span>${esc(c.unread)}</span>`:''}</div><div class="c-title">${esc(c.name)}</div><div class="c-icons">${ic('search',22,'#1d1d1f')}<button data-chat-call aria-label="通話メニューを開く" style="border:0;background:none;padding:8px;color:inherit">${ic('phone',22,'#1d1d1f')}</button>${ic('menu',22,'#1d1d1f')}</div></div></div>`
+   +(o.live&&chatCallMenu?`<div class="c-callbar${dk?' dk':''}"><button type="button" data-chat-call-go aria-label="音声通話をかける">${ic('phone',26,'currentColor',1.8)}<small>音声通話</small></button><button type="button" data-chat-call-video aria-label="ビデオ通話">${ic('vcam',26,'currentColor',1.8)}<small>ビデオ通話</small></button></div>`:'')
    +`<div class="c-body${dk?' dk':''}" style="${bg};--acc:${c.accent}">${out}</div>`
    +`<div class="c-in"><div class="c-in-row">${ic('plus',24,'#555b66')}${ic('camera',24,'#555b66')}${ic('image',24,'#555b66')}<div class="c-field${d?'':' ph'}${o.live&&typing.open?' typing-active':''}" ${o.live?'role="button" tabindex="0" aria-label="台本を入力"':''}><span class="tx">${d?nl(esc(d)):'メッセージを入力'}</span>${ic('smile',20,'#8a8f99')}</div>${o.live?`<button class="prop-send c-send" aria-label="送信" ${canSend()?'':'disabled'} style="background:${c.accent}">${ic('send',17,'#fff',2)}</button>`:d?`<div class="c-send" style="background:${c.accent}">${ic('send',17,'#fff',2)}</div>`:ic('mic',24,'#555b66')}</div><div class="home"><i></i></div></div>`;
 }
@@ -765,15 +804,17 @@ function talksScreen(o){
 function talksEditor(){const target=targetTalk();return `<p class="hint">K キーで「一覧 → 左スワイプ → 削除確認 → 削除後」と進みます。削除する相手の行を左にスワイプすると右側に「削除」が現れます。それをタップすると中央に確認画面が出ます。右に戻すと閉じます。「最初から」で元に戻る撮影用の演出です。保存した台本は消えません。</p><div class="list" data-list="talks.items">${S.talks.items.map((x,i)=>`<div class="it neutral" data-i="${i}"><div class="it-top"><button class="btn sm ${x===target?'pri':''}" data-act="talk-target">${x===target?'この人を削除':'削除する相手に設定'}</button><button class="ib" data-act="up" aria-label="上へ">↑</button><button class="ib" data-act="down" aria-label="下へ">↓</button><button class="ib" data-act="del" aria-label="一覧から外す">×</button></div><label class="fld"><span>名前</span><input class="inp" data-f="name" maxlength="100" value="${esc(x.name)}"></label><label class="fld"><span>最後のメッセージ</span><input class="inp" data-f="text" value="${esc(x.text)}"></label><div class="row"><label class="fld"><span>時刻</span><input class="inp" data-f="time" value="${esc(x.time)}"></label><label class="fld"><span>未読数</span><input class="inp" type="number" min="0" max="999" data-num="1" data-f="unread" value="${x.unread}"></label></div><label class="fld"><span>アイコンの色</span><input type="color" data-f="color" value="${x.color}"></label>${upl('アイコン画像','msgimg')}</div>`).join('')}</div><button class="btn" data-act="talk-add">＋ 相手を追加</button>`}
 const CALLBG='linear-gradient(160deg,#182337,#36475a 55%,#15202e)';
 function sceneAt(n){return S.sequence.steps[Math.max(0,Math.min(S.sequence.steps.length-1,n||0))]||{kind:'lock',count:0}}
-let callOverride=null;let outgoingChatCall=null;
+let callOverride=null;let outgoingChatCall=null;let chatCallMenu=false;
 let callLog=[],callStart=0,callTimer=null;
 function fmtDur(ms){const s=Math.max(1,Math.round(ms/1000));return Math.floor(s/60)+':'+String(s%60).padStart(2,'0')}
 function fmtClock(ms){const s=Math.max(0,Math.floor(ms/1000));return String(Math.floor(s/60)).padStart(2,'0')+':'+String(s%60).padStart(2,'0')}
 function stopCallTimer(){if(callTimer){clearInterval(callTimer);callTimer=null}}
-function startCallTimer(){stopCallTimer();callStart=Date.now();callTimer=setInterval(()=>{const el=document.querySelector('.call-timer');if(el)el.textContent=fmtClock(Date.now()-callStart)},400)}
+function parseDurMs(v){const m=String(v||'').trim().match(/^(\d{1,3})[:：](\d{1,2})$/);return m?((+m[1])*60+(+m[2]))*1000:0}
+function normDur(v){v=String(v||'').trim();const m=v.match(/^(\d{1,3})[:：](\d{1,2})$/);return m?(+m[1])+':'+String(+m[2]).padStart(2,'0'):v}
+function startCallTimer(){stopCallTimer();callStart=Date.now()-parseDurMs(S.chat.callFrom);callTimer=setInterval(()=>{const el=document.querySelector('.call-timer');if(el)el.textContent=fmtClock(Date.now()-callStart)},400)}
 function endChatCall(){
   const st=outgoingChatCall;
-  const m=st==='connected'?{type:'call',from:'me',text:'音声通話',dur:fmtDur(Date.now()-callStart),time:S.status.time,read:true,note:'着信音・呼出音'}:{type:'call',from:'me',text:'キャンセル',cancel:1,time:S.status.time};
+  const m=st==='connected'?{type:'call',from:'me',text:'音声通話',dur:(S.chat.callDur&&S.chat.callDur.trim()?normDur(S.chat.callDur):fmtDur(Date.now()-callStart)),time:S.status.time,read:true,note:'着信音・呼出音'}:{type:'call',from:'me',text:'キャンセル',cancel:1,time:S.status.time};
   callLog.push({m,at:vis(S.chat.messages,{reveal:play.n}).length});
   stopCallTimer();callStart=0;outgoingChatCall=null;layoutFs(false);
 }
@@ -785,7 +826,42 @@ function chatCallScreen(state,o){
   <div class="cc-ctrl"><div>${ic('mic',30,'#fff',1.8)}<small>マイクを<br>オフ</small></div><div>${ic('vcam',30,'#fff',1.8)}<small>ビデオ通話を<br>開始</small></div><div>${ic('spk',30,'#fff',1.8)}<small>スピーカーを<br>オン</small></div></div>
   <button type="button" class="cc-end" data-call="ended" aria-label="通話を終了">${ic('x',34,'#fff',2.4)}</button><div class="home light"></div></div>`;
 }
+/* ---- LINE call on a locked iPhone (incoming / connected / ended) ---- */
+const LINEBG_IN='linear-gradient(180deg,#7d7d7d 0%,#7c7d7d 15%,#7a7b7a 30%,#7a7976 45%,#797773 60%,#767774 75%,#757978 90%,#757a7a 100%)';
+const LINEBG_ON='linear-gradient(180deg,#7d7d7d 0%,#7c7d7d 15%,#777878 30%,#6d6d6a 45%,#605f5a 60%,#5a5853 75%,#585853 88%,#545959 100%)';
+const LI={
+ bell:'<svg width="17" height="17" viewBox="0 0 24 24" fill="#fff"><path d="M12 3a6 6 0 0 0-6 6c0 5.2-2.2 6.8-2.2 6.8h16.4S18 14.2 18 9a6 6 0 0 0-6-6zM9.8 18.2a2.3 2.3 0 0 0 4.4 0z"/><path d="M3.5 2.8l17 17.4" stroke="#7d7d7d" stroke-width="4.2" stroke-linecap="round"/><path d="M3.5 2.8l17 17.4" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg>',
+ lock:'<svg width="11" height="15" viewBox="0 0 11 15"><path d="M2.6 6.4V4.5a2.9 2.9 0 0 1 5.8 0v1.9" fill="none" stroke="#d2d2d2" stroke-width="1.5"/><rect x="0.6" y="6" width="9.8" height="8.4" rx="2.1" fill="#d2d2d2"/></svg>',
+ app:'<svg viewBox="0 0 24 24"><rect width="24" height="24" rx="5.6" fill="#141414"/><ellipse cx="12" cy="10.9" rx="8.1" ry="6.5" fill="#fff"/><path d="M9.3 15.6l-.5 3.6 4.3-3z" fill="#fff"/><text x="12" y="12.5" font-size="4.7" font-weight="900" text-anchor="middle" fill="#141414" font-family="Arial,Helvetica,sans-serif">LINE</text></svg>',
+ chat:'<svg width="26" height="26" viewBox="0 0 24 24" fill="#fff"><path d="M12 3.2c-5.1 0-9.2 3.1-9.2 7 0 2.2 1.3 4.2 3.4 5.5-.1 1.4-.7 2.6-1.6 3.6 2-.2 3.7-1 4.9-2.2.8.2 1.6.2 2.5.2 5.1 0 9.2-3.1 9.2-7s-4.1-7.1-9.2-7.1z"/></svg>',
+ alarm:'<svg width="25" height="25" viewBox="0 0 24 24"><path d="M4.2 5.2A4 4 0 0 1 8.6 3.6L4 8.1a4 4 0 0 1 .2-2.9zM19.8 5.2a4 4 0 0 0-4.4-1.6L20 8.1a4 4 0 0 0-.2-2.9z" fill="#fff"/><circle cx="12" cy="13.3" r="7.6" fill="#fff"/><path d="M12 8.6v4.9l3.1 1.8" fill="none" stroke="#8d8c88" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M6.6 20.4 5 22M17.4 20.4 19 22" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/></svg>',
+ spk:'<svg width="38" height="38" viewBox="0 0 24 24"><path d="M3 9.4h3.4L11.4 5v14l-5-4.4H3z" fill="#fff"/><path d="M14.2 9.1a4.1 4.1 0 0 1 0 5.8M16.6 6.6a7.6 7.6 0 0 1 0 10.8M18.9 4.6a10.6 10.6 0 0 1 0 14.8" fill="none" stroke="#fff" stroke-width="1.7" stroke-linecap="round"/></svg>',
+ vid:'<svg width="38" height="38" viewBox="0 0 24 24" fill="#fff"><rect x="1.8" y="6" width="13.6" height="12" rx="2.8"/><path d="M16.6 10.4l5-2.9c.5-.3 1.1.1 1.1.7v7.6c0 .6-.6 1-1.1.7l-5-2.9z"/></svg>',
+ mic:'<svg width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="2.8" width="6" height="11.2" rx="3"/><path d="M5.2 11.2a6.8 6.8 0 0 0 13.6 0M12 18v3.4M8.2 21.4h7.6"/><path d="M4.6 3.8l14.8 16.6" stroke="#7a7975" stroke-width="4"/><path d="M4.6 3.8l14.8 16.6"/></svg>',
+ dots:'<svg width="38" height="38" viewBox="0 0 24 24" fill="#fff"><circle cx="5.2" cy="12" r="1.7"/><circle cx="12" cy="12" r="1.7"/><circle cx="18.8" cy="12" r="1.7"/></svg>',
+ pad:'<svg width="38" height="38" viewBox="0 0 24 24" fill="#fff">'+[5.4,12,18.6].flatMap(y=>[5.4,12,18.6].map(x=>`<circle cx="${x}" cy="${y}" r="2.1"/>`)).join('')+'</svg>',
+ end:'<svg width="42" height="42" viewBox="0 0 24 24" fill="#fff"><path d="M12 9.3c-3.4 0-6.4 1.2-8.7 3.4-.5.5-.5 1.3 0 1.8l1.3 1.3c.4.4 1 .5 1.5.2l2.3-1.4c.4-.3.7-.7.7-1.2v-1c.9-.3 1.8-.4 2.9-.4s2 .1 2.9.4v1c0 .5.3.9.7 1.2l2.3 1.4c.5.3 1.1.2 1.5-.2l1.3-1.3c.5-.5.5-1.3 0-1.8C18.4 10.5 15.4 9.3 12 9.3z"/></svg>',
+ chev:'<svg width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="#4676ee" stroke-width="2.9" stroke-linecap="round" stroke-linejoin="round"><path d="M9 4.6l7.4 7.4L9 19.4"/></svg>'
+};
+function parseClock(s){const m=String(s||'').match(/^(\d{1,3}):(\d{2})$/);return m?(+m[1]*60+ +m[2])*1000:1000}
+function sceneKindOf(sc){return callOverride?.n===play.n&&!fs.hidden?callOverride.kind:sc.kind}
+function lineState(){if(S.mode!=='sequence')return null;const sc=sceneAt(play.n);const k=sceneKindOf(sc);return sc.app==='line'&&['call','connected','ended'].includes(k)?k:null}
+let lineT0=0,lineTimer=null;
+function stopLineTimer(){if(lineTimer){clearInterval(lineTimer);lineTimer=null}lineT0=0}
+function syncLineTimer(){const sc=sceneAt(play.n);if(fs.hidden||lineState()!=='connected'){stopLineTimer();return}if(!lineTimer){lineT0=Date.now()-parseClock(sc.duration);lineTimer=setInterval(()=>{const el=document.querySelector('.line-timer');if(el)el.textContent=fmtClock(Date.now()-lineT0)},300);const el=document.querySelector('.line-timer');if(el)el.textContent=fmtClock(Date.now()-lineT0)}}
+function lineCallScreen(scene,kind,o={}){
+ const name=esc(scene.name||S.chat.name||'');
+ const clock=fmtClock(lineTimer&&o.live?Date.now()-lineT0:parseClock(scene.duration));
+ const head=kind==='connected'?`LINE オーディオ – <span class="line-timer">${clock}</span>`:kind==='ended'?'LINE オーディオ終了':'LINE オーディオ…';
+ const cell=(btn,label,red)=>`<div class="line-cell">${red&&kind==='connected'?`<button type="button" class="line-btn red" data-call="ended" aria-label="終了">${btn}</button>`:`<div class="line-btn${red?' red':''}">${btn}</div>`}<span class="line-lbl">${label}</span></div>`;
+ const body=kind==='call'
+  ?`<div class="line-act"><div class="line-sm"><div class="line-btn">${LI.chat}</div><span class="line-lbl">メッセージを<br>送信</span></div><div class="line-sm"><div class="line-btn">${LI.alarm}</div><span class="line-lbl">あとで通知</span></div></div><div class="line-slide"><div class="line-handle" role="button" aria-label="スライドで応答">${LI.chev}</div><span class="line-st">スライドで応答</span></div>`
+  :`<div class="line-grid">${cell(LI.spk,'オーディオ')}${cell(LI.vid,'ビデオ')}${cell(LI.mic,'消音')}${cell(LI.dots,'その他')}${cell(LI.end,'終了',1)}${cell(LI.pad,'キーパッド')}</div>`;
+ return `<div class="line-call ${kind}">${sb(true,null,LI.bell,{net:'5G',batNum:1})}<div class="line-island">${LI.lock}${kind==='connected'?'<i></i>':''}</div>${kind==='ended'?'<span class="line-mic"></span>':''}<div class="line-head">${LI.app}<span>${head}</span></div><div class="line-name">${name}</div><div class="line-sp"></div>${body}</div>`;
+}
+function goCall(kind){const next=S.sequence.steps.findIndex((v,i)=>i>play.n&&v.kind===kind);if(next>=0){play.n=next;callOverride=null}else{callOverride={n:play.n,kind}}layoutFs(false)}
 function callScreen(scene,o={}){const kind=callOverride?.n===play.n&&!fs.hidden?callOverride.kind:scene.kind;const active=kind==='connected',ended=kind==='ended',outgoing=kind==='outgoing';
+if(scene.app==='line'&&['call','connected','ended'].includes(kind))return lineCallScreen(scene,kind,o);
 if(ended){const dest=scene.returnTo||'chat';if(dest==='video')return videoScreen({...o,reveal:0});if(dest==='sms')return smsScreen({...o,reveal:null});if(dest==='lock')return lockScreen({...o,reveal:scene.count});return chatScreen({...o,reveal:null,chat:{...S.chat,name:scene.name||S.chat.name,typing:false,messages:[...S.chat.messages,{type:'call',from:'me',text:'音声通話 '+(scene.duration||'00:12'),time:S.status.time,read:false}]}});}
 if(kind==='banner')return `<div style="height:100%;position:relative">${scene.returnTo==='sms'?smsScreen({...o,reveal:null}):videoScreen({...o,reveal:0})}<div style="position:absolute;top:58px;left:8px;right:8px;padding:14px;background:#f5f5f8;color:#151515;border-radius:22px;box-shadow:0 4px 24px #0003;display:flex;align-items:center;gap:12px"><span style="flex:1"><small>${esc(S.phone.chatName)} 音声通話</small><br><b>${esc(scene.name)}</b></span><button class="call-circle decline" style="width:44px;height:44px;margin:0;border:0" data-call="ended">${ic('phone',24,'white')}</button><button class="call-circle accept" style="width:44px;height:44px;margin:0;border:0" data-call="connected">${ic('phone',24,'white')}</button></div></div>`;
 return `<div class="call-screen">${sb(true)}<div class="call-person"><div class="call-avatar">${esc(initial(scene.name))}</div><div class="call-name">${esc(scene.name)}</div><div class="call-label">${active?'通話中 · '+esc(scene.duration||'00:12'):ended?'通話終了':outgoing?'呼び出し中':esc(S.phone.chatName)+' 音声通話'}</div></div>${active?'<div style="display:flex;justify-content:space-evenly;text-align:center;color:white"><span>マイク<br>オン</span><span>スピーカー<br>オフ</span></div>':''}<div class="call-actions" style="justify-content:${active||ended||outgoing?'center':'space-between'}">${ended?'<div>通話が終了しました</div>':`<div><button type="button" style="border:0" class="call-circle decline" data-call="ended" aria-label="${active?'通話を終了':'拒否'}">${ic('phone',32,'#fff')}</button><span>${active?'終了':'拒否'}</span></div>${active||outgoing?'':`<div><button type="button" style="border:0" class="call-circle accept" data-call="connected" aria-label="応答">${ic('phone',32,'#fff')}</button><span>応答</span></div>`}`}</div><div class="home light"></div></div>`}
@@ -859,9 +935,12 @@ function msgList(key){
     let body;
     if(m.type==='image') body=`<div class="av-edit"><div class="thumb" style="${m.img?`background-image:url(${m.img})`:''}"></div>${upl('画像を選ぶ','msgimg')}</div>`;
     else body=`<textarea class="inp" data-f="text" rows="${Math.min(4,Math.max(1,String(m.text||'').split('\n').length))}" placeholder="${m.type==='date'?'例：今日 / 9月28日(月)':m.type==='system'?'例：メッセージの送信を取り消しました':m.type==='call'?'例：不在着信 / 音声通話 3:12':'メッセージ'}">${esc(m.text)}</textarea>`;
+    if(m.type==='call')body+=`<div class="row call-opt"><label class="fld"><span>通話時間（例 3:12）</span><input class="inp" data-f="dur" value="${esc(m.dur||'')}" placeholder="例：3:12"></label><label class="fld"><span>下の小さな表示</span><input class="inp" data-f="note" value="${esc(m.note||'')}" placeholder="着信音・呼出音"></label></div>`;
+    if(isChat&&msg&&m.from==='them'&&m.type==='text')body+=`<label class="chk typing-opt"><input type="checkbox" data-f="typingBefore"${m.typingBefore?' checked':''}>このメッセージの直前に「入力中…」（・・・）を出す</label>`;
     return `<div class="it message-item ${cls}" data-i="${i}"><div class="message-heading"><span>${ic(msg?'bubble':'cal',17,'currentColor')} ${i+1} · ${msg?(m.from==='me'?'自分':'相手'):esc(TYPES[m.type])}</span><small>${esc(m.time||'')} <span aria-label="長押しで並べ替え">⠿</span></small></div>${body}<details class="message-options"><summary>${ic('menu',16,'currentColor')} メッセージの設定</summary>${top}</details></div>`;
   }).join('');
-  return `<div class="list" data-list="${key}.messages">${items}</div><div class="adds"><button class="btn sm" data-act="add" data-list="${key}.messages" data-kind="them">＋ 相手</button><button class="btn sm" data-act="add" data-list="${key}.messages" data-kind="me">＋ 自分</button><button class="btn sm" data-act="add" data-list="${key}.messages" data-kind="image">＋ 画像</button><button class="btn sm" data-act="add" data-list="${key}.messages" data-kind="date">＋ 日付</button>${isChat?`<button class="btn sm" data-act="add" data-list="${key}.messages" data-kind="system">＋ お知らせ</button>`:''}</div>`;
+  const endTyping=isChat?`<div class="typing-end"><span class="typing-end-t">一番最後のメッセージのあと</span>${chk('chat.typing','相手の「入力中…」（・・・）を出す')}<small>チェックしなければ出ません。</small></div>`:'';
+  return `<div class="list" data-list="${key}.messages">${items}</div>${endTyping}<div class="adds"><button class="btn sm" data-act="add" data-list="${key}.messages" data-kind="them">＋ 相手</button><button class="btn sm" data-act="add" data-list="${key}.messages" data-kind="me">＋ 自分</button><button class="btn sm" data-act="add" data-list="${key}.messages" data-kind="image">＋ 画像</button><button class="btn sm" data-act="add" data-list="${key}.messages" data-kind="date">＋ 日付</button><button class="btn sm" data-act="add" data-list="${key}.messages" data-kind="call">＋ 通話履歴</button>${isChat?`<button class="btn sm" data-act="add" data-list="${key}.messages" data-kind="system">＋ お知らせ</button>`:''}</div>`;
 }
 function bulkBox(key){
   return sec('台本からまとめて入力',`<p class="hint">1行に1メッセージ。<code>相手: 本文</code> <code>自分: 本文</code>、時刻は末尾に <code>[21:30]</code>、日付の区切りは <code>--- 今日</code>${key==='chat'?'、お知らせは <code># 本文</code>':''}。</p><textarea class="inp" id="bulk-${key}" rows="5" placeholder="--- 今日&#10;相手: 今どこ？ [21:32]&#10;自分: もうすぐ着く [21:35]"></textarea><div class="adds"><button class="btn sm" data-act="bulk" data-key="${key}" data-m="append">末尾に追加</button><button class="btn sm" data-act="bulk" data-key="${key}" data-m="replace">全部置き換え</button></div>`);
@@ -871,7 +950,7 @@ function notifList(){
   const dl=k=>`<datalist id="hl-${k}">${histGet(k).map(x=>`<option value="${esc(x)}">`).join('')}</datalist>`;
   return `${dl('label')}${dl('sender')}<p class="hint">台本は上から順に届きます。画面では最新の通知が一番上に表示されます。「アプリ名」は空欄なら標準の名前になります。以前に入力した名前は、入力欄をタップすると候補に出ます。</p><div class="list" data-list="lock.notifs">${items}</div><div class="adds"><button class="btn sm" data-act="nadd">＋ 通知を追加</button></div>`;
 }
-function sequenceEditor(){return `<p class="hint">撮影開始 → 通知なしのロック画面 → K で通知 → K で全画面の着信。下の「通知」で本文や差出人を編集できます。通知数は上から何件を表示するかです。着信は撮影用の表示で、実際の電話は発信しません。</p><div class="list" data-list="sequence.steps">${S.sequence.steps.map((a,i)=>`<div class="it neutral" data-i="${i}"><div class="it-top"><strong>${i+1}</strong><select class="inp" data-f="kind" aria-label="シーンの種類"><option value="lock" ${a.kind==='lock'?'selected':''}>ロック画面</option><option value="call" ${a.kind==='call'?'selected':''}>ことば・着信</option><option value="banner" ${a.kind==='banner'?'selected':''}>他のアプリに着信</option><option value="outgoing" ${a.kind==='outgoing'?'selected':''}>自分から発信</option><option value="connected" ${a.kind==='connected'?'selected':''}>ことば・通話中</option><option value="ended" ${a.kind==='ended'?'selected':''}>ことば・通話終了</option></select><button class="ib" data-act="up" aria-label="上へ">↑</button><button class="ib" data-act="down" aria-label="下へ">↓</button><button class="ib" data-act="del" aria-label="削除">×</button></div>${a.kind!=='lock'?`<label class="fld"><span>通話相手</span><input class="inp" data-f="name" value="${esc(a.name)}"></label><label class="fld"><span>通話時間（台本）</span><input class="inp" data-f="duration" value="${esc(a.duration||'00:12')}"></label><label class="fld"><span>通話前・終了後の画面</span><select class="inp" data-f="returnTo">${Object.entries({chat:'ことば・チャット',sms:'SMS',video:'ナガメ・動画',lock:'ロック画面'}).map(([k,v])=>`<option value="${k}" ${(a.returnTo||'chat')===k?'selected':''}>${v}</option>`).join('')}</select></label>`:`<label class="fld"><span>表示する通知数（0＝通知なし）</span><input class="inp" type="number" min="0" max="300" data-num="1" data-f="count" value="${a.count}"></label>`}<button class="btn sm" data-act="scene-preview">このシーンを確認</button></div>`).join('')}</div><div class="adds"><button class="btn sm" data-act="scene-add" data-kind="lock">＋ ロック画面</button><button class="btn sm" data-act="scene-add" data-kind="call">＋ 着信</button><button class="btn sm" data-act="scene-add" data-kind="connected">＋ 通話中</button><button class="btn sm" data-act="scene-add" data-kind="ended">＋ 通話終了</button></div>`}
+function sequenceEditor(){return `<p class="hint">撮影開始 → 通知なしのロック画面 → K で通知 → K で全画面の着信。下の「通知」で本文や差出人を編集できます。通知数は上から何件を表示するかです。着信は撮影用の表示で、実際の電話は発信しません。</p><div class="list" data-list="sequence.steps">${S.sequence.steps.map((a,i)=>`<div class="it neutral" data-i="${i}"><div class="it-top"><strong>${i+1}</strong><select class="inp" data-f="kind" aria-label="シーンの種類"><option value="lock" ${a.kind==='lock'?'selected':''}>ロック画面</option><option value="call" ${a.kind==='call'?'selected':''}>着信</option><option value="banner" ${a.kind==='banner'?'selected':''}>他のアプリに着信</option><option value="outgoing" ${a.kind==='outgoing'?'selected':''}>自分から発信</option><option value="connected" ${a.kind==='connected'?'selected':''}>通話中</option><option value="ended" ${a.kind==='ended'?'selected':''}>通話終了</option></select><button class="ib" data-act="up" aria-label="上へ">↑</button><button class="ib" data-act="down" aria-label="下へ">↓</button><button class="ib" data-act="del" aria-label="削除">×</button></div>${a.kind!=='lock'?`${['call','connected','ended'].includes(a.kind)?`<label class="fld"><span>画面のデザイン</span><select class="inp" data-f="app"><option value="kotoba" ${a.app!=='line'?'selected':''}>ことば（アプリの着信画面）</option><option value="line" ${a.app==='line'?'selected':''}>LINE（iPhoneがロック中の着信画面）</option></select></label>`:''}<label class="fld"><span>通話相手</span><input class="inp" data-f="name" value="${esc(a.name)}"></label><label class="fld"><span>${a.app==='line'?'通話時間（この数字から動き出す）':'通話時間（台本）'}</span><input class="inp" data-f="duration" value="${esc(a.duration||'00:12')}"></label>${a.app==='line'&&['call','connected','ended'].includes(a.kind)?'':`<label class="fld"><span>通話前・終了後の画面</span><select class="inp" data-f="returnTo">${Object.entries({chat:'ことば・チャット',sms:'SMS',video:'ナガメ・動画',lock:'ロック画面'}).map(([k,v])=>`<option value="${k}" ${(a.returnTo||'chat')===k?'selected':''}>${v}</option>`).join('')}</select></label>`}`:`<label class="fld"><span>表示する通知数（0＝通知なし）</span><input class="inp" type="number" min="0" max="300" data-num="1" data-f="count" value="${a.count}"></label>`}<button class="btn sm" data-act="scene-preview">このシーンを確認</button></div>`).join('')}</div><div class="adds"><button class="btn sm" data-act="scene-add" data-kind="lock">＋ ロック画面</button><button class="btn sm" data-act="scene-add" data-kind="call">＋ 着信</button><button class="btn sm" data-act="scene-add" data-kind="connected">＋ 通話中</button><button class="btn sm" data-act="scene-add" data-kind="ended">＋ 通話終了</button></div><div class="adds"><button class="btn sm pri" data-act="scene-add-line">＋ LINEの着信（ロック中）一式</button></div><p class="hint">「LINEの着信」は、iPhoneがロックされている間にLINE通話が来たときの画面です（着信 → スライドで応答 → 通話中 → 終了）。着信中は「つまみを右へスライド」か「画面中央をタップ」で応答になります。通話中の時間は、通話時間欄の数字から動き出します。</p>`}
 function renderEditor(){
   document.getElementById('tabs').innerHTML=[['chat','チャット'],['sms','SMS'],['lock','ロック画面'],['sequence','連続シーン'],['talks','トーク一覧・削除'],['video','動画・チャンネル']].map(([k,l])=>`<button type="button" data-act="tab" data-v="${k}" class="${S.mode===k?'on':''}">${l}</button>`).join('');
   const m=S.mode; let h='';
@@ -885,10 +964,11 @@ function renderEditor(){
     const av=c.avatar?`background-image:url(${c.avatar})`:`background:${c.avColor}`;
     h+=sec('トーク相手',row(fld('名前',txt('chat.name')),fld('未読数',num('chat.unread',0,9999)))
       +`<div class="av-edit"><div class="av-prev" style="${av}">${c.avatar?'':esc(initial(c.name))}</div>${upl('アイコン画像','chat.avatar')}${c.avatar?'<button class="btn sm ghost" data-act="clear" data-path="chat.avatar">画像を外す</button>':swatches('chat.avColor',AVCOL.map(v=>[v,v]))}</div>`
-      +row(chk('chat.showName','吹き出しの上に名前'),chk('chat.typing','入力中…を表示'))
+      +row(chk('chat.showName','吹き出しの上に名前'))
       +fld('入力欄の文字（空欄で「メッセージを入力」）',txt('chat.draft','打ちかけの文章')));
+    h+=sec('通話の時間',row(fld('通話の長さ（通話のあと履歴に残る時間）',txt('chat.callDur','例：3:12（空欄＝実際にかかった時間）')),fld('通話画面のタイマーの開始',txt('chat.callFrom','例：0:00（空欄＝0:00から）')))+`<p class="hint">再生中に、上の電話ボタン →「音声通話」→ 応答 → 終了 と進めると、チャットに通話の履歴が残ります。「通話の長さ」に 3:12 と入れると、実際に何秒話しても「音声通話 3:12」と出ます。「タイマーの開始」に 12:30 と入れると、通話画面の時間が 12:30 から動き出します。</p>`,'電話ボタンを押したときの通話時間',{open:true});
     h+=sec('見た目',fld('自分の吹き出しの色',swatches('chat.accent',ACCENTS.map(([v,l])=>[v,l]))) + fld('背景',`<div class="av-edit">${swatches('chat.bg',Object.entries(CHATBG).map(([k,b])=>[k,b.n,b.v]),'chat.bgImg')}${upl('チャット背景写真を選ぶ','chat.bgImg')}${c.bgImg?'<button class="btn sm ghost" data-act="clear" data-path="chat.bgImg">画像を外す</button>':''}</div>`));
-    h+=sec('メッセージ',`<p class="hint">自分の文字メッセージの「入力シーン」から撮影できます。文字キーで台詞が一文字ずつ現れます。「入力後に消す」を選ぶと送信されません。⌫ または K で一文字ずつ削除し、空欄になったら K で次へ。「入力済みから削除シーン」では完成した文章から始められます。</p>`+msgList('chat'));
+    h+=sec('メッセージ',`<p class="hint">自分の文字メッセージの「入力シーン」から撮影できます。文字キーで台詞が一文字ずつ現れます。「入力後に消す」を選ぶと送信されません。⌫ または K で一文字ずつ削除し、空欄になったら K で次へ。「入力済みから削除シーン」では完成した文章から始められます。</p><p class="hint">「入力中…」は、相手のメッセージごとに「直前に出す」を選べます（チェックしたものだけ）。一番最後のメッセージのあとに出したいときは、メッセージ一覧の一番下にある「一番最後のメッセージのあと」を選びます。どちらも選ばなければ出ません。</p><p class="hint">再生中に画面上の電話ボタンを押すと、その下に「音声通話／ビデオ通話」の2つのボタンが出ます。左の「音声通話」を押したときだけ発信画面になります。どちらかを押すか、通話が終わると、この2つは消えます。</p>`+msgList('chat'));
     h+=bulkBox('chat');
   } else if(m==='sms'){
     h+=sec('相手',fld('名前または電話番号',txt('sms.name','090-0000-0000'))+fld('自分の吹き出しの色',swatches('sms.accent',[['#2d6cdf','ブルー'],['#1fa99a','ティール'],['#6b5bd6','インディゴ'],['#3a3f4b','チャコール']])));
@@ -904,7 +984,7 @@ function renderEditor(){
     h+=sec('通知',notifList());
   }
   if(m==='sequence')h=sec('連続シーン',sequenceEditor())+h;
-  h+=sec('撮影モード（全画面表示のとき）',chk('play.nativeBars','撮影中は模擬ステータスバー・下部バーを隠す（スマホ向け）')+(isSceneMode()?'<p class="hint">K キーまたは画面タップで、次のシーンへ。← キーで戻ります。「最初から」で最初のシーンに戻せます。</p>':chk('play.tap',m==='lock'?'タップすると通知が1件ずつ届く':'タップすると次のメッセージが1件ずつ出る')+fld(m==='lock'?'最初は隠しておく通知の数（最後から）':'最初は隠しておくメッセージの数（最後から）',num('play.hide',0,99)))+`<p class="hint">${m==='lock'||isSceneMode()?'':'相手のメッセージが出る前は「入力中…」が表示されます。'}終了：画面右上を3回連続タップ、または Esc キー。Bluetoothキーボード：K キーで次へ（長押しは1回のみ）、← キーで戻る。「入力後に消す」のシーンでは K で一文字ずつ削除し、空欄で K を押すと次へ進みます。入力欄をタップすると台本どおりに入力できます。</p>`);
+  h+=sec('撮影モード（全画面表示のとき）',chk('play.nativeBars','撮影中は模擬ステータスバー・下部バーを隠す（スマホ向け）')+(isSceneMode()?'<p class="hint">K キーまたは画面タップで、次のシーンへ。← キーで戻ります。「最初から」で最初のシーンに戻せます。</p>':chk('play.tap',m==='lock'?'タップすると通知が1件ずつ届く':'タップすると次のメッセージが1件ずつ出る')+fld(m==='lock'?'最初は隠しておく通知の数（最後から）':'最初は隠しておくメッセージの数（最後から）',num('play.hide',0,99)))+`<p class="hint">${m==='lock'||isSceneMode()?'':'相手のメッセージが出る前は「入力中…」が表示されます。'}終了：画面左下を3回連続タップ、または Esc キー。Bluetoothキーボード：K キーで次へ（長押しは1回のみ）、← キーで戻る。「入力後に消す」のシーンでは K で一文字ずつ削除し、空欄で K を押すと次へ進みます。入力欄をタップすると台本どおりに入力できます。</p>`);
   h+=sec('撮影・書き出し',`<p class="hint">スマホで撮影する場合は、Safariの共有メニューから「ホーム画面に追加」し、そのアイコンから開いてください。端末の時計・電池・ホームバーはWebアプリでは変更できません。撮影は「撮影を始める」から直接タップして進められます。設定した時計や電池を含む静止画が必要な場合はPNGを書き出せます。書き出しには上の「ステータスバーを表示」の設定が反映されます。</p>`+fld('画像の縦横比',sel('export.size',[['device','この端末の画面に合わせる'],['std','標準（1170×2532）']]))+`<div class="adds"><button class="btn sm" data-act="export">今の画面を保存</button><button class="btn sm" data-act="frames">連番PNGで保存</button></div><p class="hint">編集内容はこの端末に自動保存。別の端末へ移すときは「台本を保存」→「台本・画像を開く」を使ってください。書き出したPNG画像も、「台本・画像を開く」で選ぶと設定を元に戻せます（動画ファイルは含まれません）。</p>`);
   document.getElementById('editor').innerHTML=h;
   for(const hint of document.querySelectorAll('#editor .sec-body > .hint, #editor .sec > .hint')){if(hint.textContent.length<75)continue;const help=document.createElement('details');help.className='editor-help';const summary=document.createElement('summary');summary.textContent='使い方を見る';hint.before(help);help.append(summary,hint);}
@@ -966,7 +1046,7 @@ document.addEventListener('input',e=>{
     const list=get(it.parentElement.dataset.list); const item=list[+it.dataset.i];
     item[t.dataset.f]=val(t);
     if(t.dataset.f==='type'){ if(isMsg(item)&&!item.from) item.from='them'; if(item.type==='call'&&!item.text) item.text='不在着信'; }
-    commit(t.dataset.f==='type'||t.dataset.f==='read'||t.dataset.f==='kind'||t.dataset.f==='draftOnly'||t.dataset.f==='target');
+    commit(t.dataset.f==='type'||t.dataset.f==='read'||t.dataset.f==='kind'||t.dataset.f==='app'||t.dataset.f==='draftOnly'||t.dataset.f==='target');
   }
 });
 document.addEventListener('change',e=>{const h=e.target&&e.target.dataset&&e.target.dataset.hist;if(h)histAdd(h,e.target.value)});
@@ -1089,7 +1169,8 @@ document.addEventListener('click',e=>{
     case 'tab': previewN=null; S.mode=b.dataset.v; commit(true); break;
     case 'setv': set(b.dataset.path,b.dataset.v); if(b.dataset.clear) set(b.dataset.clear,null); commit(true); break;
     case 'clear': set(b.dataset.path,null); commit(true); break;
-    case 'scene-add': S.sequence.steps.push({kind:b.dataset.kind,count:1,name:S.chat.name,returnTo:'chat',duration:'00:12'});commit(true);break;
+    case 'scene-add': S.sequence.steps.push({kind:b.dataset.kind,count:1,name:S.chat.name,returnTo:'chat',duration:'00:12',app:'kotoba'});commit(true);break;
+    case 'scene-add-line': {if(S.sequence.steps.length+3>300){toast('シーンは300件までです');break}const nm=S.chat.name||'';for(const k of ['call','connected','ended'])S.sequence.steps.push({kind:k,count:1,name:nm,returnTo:'chat',duration:'00:01',app:'line'});commit(true);break}
     case 'scene-preview':previewN=i;renderPreview();go('preview');break;
     case 'erase-scene':previewN=i;openFs();beginTyping();if(typing.open){typing.text=typing.goal;layoutFs(false)}break;
     case 'type-scene': previewN=i;openFs();beginTyping();break;
@@ -1103,6 +1184,7 @@ document.addEventListener('click',e=>{
       if(k==='me'){n.from='me';n.read=true}
       if(k==='image'){n.type='image';n.from='me';n.read=true}
       if(k==='date'){n.type='date';n.text='今日';delete n.from}
+      if(k==='call'){n.type='call';n.from='me';n.read=true;n.text='音声通話';n.dur='3:12';n.note=''}
       if(k==='system'){n.type='system';delete n.from}
       L.push(n); commit(true);
       const el=document.querySelector(`[data-list="${b.dataset.list}"] > [data-i="${L.length-1}"] textarea`); if(el) el.focus();
@@ -1166,12 +1248,12 @@ function openFs(){watching=null;outgoingChatCall=null;callLog=[];stopCallTimer()
   fs.classList.toggle('native-bars',!window.kotobaNative && S.play.nativeBars);document.body.classList.add('playing');
   fs.hidden=false; layoutFs(false);
   try{const r=fs.requestFullscreen&&fs.requestFullscreen(); if(r&&r.catch) r.catch(()=>{})}catch(e){}
-  toast('タップで次へ・右上を3回連続タップで終了',3000);
+  toast('タップで次へ・左下を3回連続タップで終了',3000);
 }
-function closeFs(){outgoingChatCall=null;stopCallTimer();{const wv=document.getElementById('wvid');if(wv)try{wv.pause()}catch(e){}}watching=null;setThemeColor('#eef0f3');document.documentElement.classList.remove('shoot-lock');document.documentElement.style.removeProperty('--shoot-wallpaper');previewN=play.n;fs.hidden=true;document.body.classList.remove('playing');renderPreview(); try{if(document.fullscreenElement)document.exitFullscreen()}catch(e){}}
+function closeFs(){outgoingChatCall=null;chatCallMenu=false;stopCallTimer();stopLineTimer();{const wv=document.getElementById('wvid');if(wv)try{wv.pause()}catch(e){}}watching=null;setThemeColor('#eef0f3');document.documentElement.classList.remove('shoot-lock');document.documentElement.style.removeProperty('--shoot-wallpaper');document.documentElement.style.removeProperty('--fs-top');document.documentElement.style.removeProperty('background');document.body.style.removeProperty('background');previewN=play.n;fs.hidden=true;document.body.classList.remove('playing');renderPreview(); try{if(document.fullscreenElement)document.exitFullscreen()}catch(e){}}
 function setThemeColor(c){const m=document.querySelector('meta[name=theme-color]');if(m)m.setAttribute('content',c)}
 function layoutFs(fresh){
-  const callMode=S.mode==='sequence'&&!['lock','ended','banner'].includes(callOverride?.n===play.n?callOverride.kind:sceneAt(play.n).kind);
+  const lineK=lineState();const callMode=S.mode==='sequence'&&(!!lineK||!['lock','ended','banner'].includes(callOverride?.n===play.n?callOverride.kind:sceneAt(play.n).kind));
   const lockMode=S.mode==='lock'||S.mode==='sequence';
   fs.classList.toggle('lock-wallpaper',lockMode);
   fs.classList.remove('in-call');const cs0=getComputedStyle(fs),insT=parseFloat(cs0.paddingTop)||0,insB=parseFloat(cs0.paddingBottom)||0;fs.classList.toggle('in-call',!!outgoingChatCall);
@@ -1179,17 +1261,18 @@ function layoutFs(fresh){
   // Paint the wallpaper on the full viewport, including both safe-area paddings.
   // The inner screen keeps controls clear of the system bars without cropping the wallpaper.
   if(lockMode){
-    const wall=callMode?CALLBG:S.lock.wallImg?`url("${S.lock.wallImg}")`:(WALLS[S.lock.wall]||WALLS.night);
+    const wall=lineK?(lineK==='call'?LINEBG_IN:LINEBG_ON):callMode?CALLBG:S.lock.wallImg?`url("${S.lock.wallImg}")`:(WALLS[S.lock.wall]||WALLS.night);
     fs.style.backgroundImage=wall;
     fs.style.backgroundSize='cover';fs.style.backgroundPosition='center';fs.style.backgroundColor='#0e1a3a';
     document.documentElement.style.setProperty('--shoot-wallpaper',fs.style.backgroundImage);
-  }else{fs.style.backgroundImage='none';const wbg=outgoingChatCall?'#3f5870':watching?(watching.short?'#000':'#0f0f0f'):'#fff';fs.style.backgroundColor=wbg;setThemeColor(outgoingChatCall?'#415a72':watching?wbg:'#eef0f3');document.documentElement.style.removeProperty('--shoot-wallpaper')}
+    document.documentElement.style.removeProperty('--fs-top');document.documentElement.style.removeProperty('background');document.body.style.removeProperty('background');
+  }else{fs.style.backgroundImage='none';const wbg=outgoingChatCall?'#3f5870':watching?(watching.short?'#000':'#0f0f0f'):'#fff';fs.style.backgroundColor=wbg;setThemeColor(outgoingChatCall?'#415a72':watching?wbg:'#eef0f3');{const topC=outgoingChatCall?'#415a72':watching?wbg:S.mode==='sms'?'#f6f6f8':(S.mode==='chat'||S.mode==='talks'||S.mode==='video')?'#fff':'#101827';const hs=document.documentElement.style;hs.setProperty('--fs-top',topC);hs.setProperty('background',wbg,'important');document.body.style.setProperty('background',wbg,'important')}document.documentElement.style.removeProperty('--shoot-wallpaper')}
   const styles=getComputedStyle(fs),top=parseFloat(styles.paddingTop)||0,bottom=parseFloat(styles.paddingBottom)||0;const vw=Math.min(innerWidth,document.documentElement.clientWidth||innerWidth),vh=innerHeight-top-bottom; let k=vw/W,h=vh/k,left=0;fsScreen.style.top=top+'px';
   if(h<640){k=vh/H;h=H;left=(vw-W*k)/2}
   fsScreen.style.setProperty('--native-top',(parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--device-top'))||0)/k+'px');
   fsScreen.style.setProperty('--sa-top',(outgoingChatCall?insT/k:0)+'px');fsScreen.style.setProperty('--sa-bot',(outgoingChatCall?insB/k:0)+'px');
   fsScreen.style.left=left+'px'; fsScreen.style.transform=`scale(${k})`;
-  fsScreen.innerHTML=renderScreen({height:h,reveal:play.n,fresh,live:true});scrollConversation(fsScreen);
+  fsScreen.innerHTML=renderScreen({height:h,reveal:play.n,fresh,live:true});scrollConversation(fsScreen);syncLineTimer();
 }
 
 function canSend(){return !modeList()[typing.index]?.draftOnly&&typing.index>=0&&typing.goal.length>0&&typing.text===typing.goal}
@@ -1239,12 +1322,23 @@ function endSwipe(e,cancelled){
  if(d.row.hasPointerCapture(e.pointerId))d.row.releasePointerCapture(e.pointerId);
 }
 fs.addEventListener('pointerup',e=>endSwipe(e,false));fs.addEventListener('pointercancel',e=>endSwipe(e,true));
+/* Slide-to-answer handle of the LINE incoming call */
+let lineDrag=null,lineIgnoreUntil=0;
+fs.addEventListener('pointerdown',e=>{const h=e.target.closest&&e.target.closest('.line-handle');if(!h||fs.hidden)return;const pill=h.parentElement,k=pill.getBoundingClientRect().width/pill.offsetWidth||1;lineDrag={h,pill,k,x0:e.clientX,max:Math.max(1,pill.offsetWidth-h.offsetWidth-12),dx:0,id:e.pointerId};h.style.transition='none';try{h.setPointerCapture(e.pointerId)}catch(_){}});
+fs.addEventListener('pointermove',e=>{const d=lineDrag;if(!d||e.pointerId!==d.id)return;d.dx=Math.max(0,Math.min(d.max,(e.clientX-d.x0)/d.k));d.h.style.transform=`translateX(${d.dx}px)`;const t=d.pill.querySelector('.line-st');if(t)t.style.opacity=String(Math.max(0,1-d.dx/(d.max*.6)))});
+function endLineDrag(e,cancel){const d=lineDrag;if(!d||e.pointerId!==d.id)return;lineDrag=null;if(d.dx>3)lineIgnoreUntil=performance.now()+450;try{d.h.releasePointerCapture(d.id)}catch(_){}
+ if(!cancel&&d.dx>d.max*.72){d.h.style.transition='transform .12s';d.h.style.transform=`translateX(${d.max}px)`;setTimeout(()=>goCall('connected'),120)}
+ else{d.h.style.transition='transform .2s';d.h.style.transform='translateX(0)';const t=d.pill.querySelector('.line-st');if(t)t.style.opacity=''}}
+fs.addEventListener('pointerup',e=>endLineDrag(e,false));fs.addEventListener('pointercancel',e=>endLineDrag(e,true));
 fs.addEventListener('click',e=>{
- if(e.target.closest('[data-chat-call]')){callOverride=null;outgoingChatCall='outgoing';layoutFs(false);return;}
+ if(performance.now()<lineIgnoreUntil)return;
+ if(e.target.closest('[data-chat-call-go]')){chatCallMenu=false;callOverride=null;outgoingChatCall='outgoing';layoutFs(false);return;}
+ if(e.target.closest('[data-chat-call]')){chatCallMenu=!chatCallMenu;layoutFs(false);return;}
+ if(chatCallMenu&&!outgoingChatCall){chatCallMenu=false;layoutFs(false);return;}
  if(outgoingChatCall&&e.target.closest('[data-call]')){endChatCall();return;}
  if(outgoingChatCall){if(outgoingChatCall==='outgoing'){outgoingChatCall='connected';startCallTimer();layoutFs(false)}return;}
  const desktopButton=e.target.closest('[data-desktop]');if(desktopButton){desktopApp=desktopButton.dataset.desktop==='home'?null:desktopButton.dataset.desktop;layoutFs(false);return;}
-  const callButton=e.target.closest('[data-call]');if(callButton){const kind=callButton.dataset.call;const next=S.sequence.steps.findIndex((v,i)=>i>play.n&&v.kind===kind);if(next>=0){play.n=next;callOverride=null}else{callOverride={n:play.n,kind}}layoutFs(false);return;}
+  const callButton=e.target.closest('[data-call]');if(callButton){goCall(callButton.dataset.call);return;}
   if(e.target.closest('#fsExit')){exitTap();return}
   if(S.mode==='video'){if(performance.now()<vidSwipeIgnoreUntil)return;
   if(watching){
@@ -1266,6 +1360,7 @@ fs.addEventListener('click',e=>{
   if(play.n!=null&&play.n<maxPosition()){typing={open:false,text:'',goal:'',index:-1};play.n=nextReveal(play.n);layoutFs(true)}
 });
 function advancePlayback(){
+ if(chatCallMenu){chatCallMenu=false;layoutFs(false);return;}
  if(outgoingChatCall){if(outgoingChatCall==='outgoing'){outgoingChatCall='connected';startCallTimer();layoutFs(false)}return;}
  if(S.mode==='desktop'){play.n=(play.n+1)%4;desktopApp=[null,'chat','sms','video'][play.n];layoutFs(false);return;}
   if(S.mode==='sequence'&&sceneAt(play.n).kind!=='lock'){
@@ -1596,14 +1691,14 @@ function validateScript(raw){
   for(const key of ['status','chat','sms','lock','play','export'])if(!raw[key]||typeof raw[key]!=='object'||Array.isArray(raw[key]))throw Error('Invalid section');
   if(raw.phone){const v=raw.phone;d.phone={wall:pic(v.wall),chatName:text(v.chatName,'ことば',40),smsName:text(v.smsName,'メッセージ',40),videoName:text(v.videoName,'ナガメ',40),chatIcon:pic(v.chatIcon),smsIcon:pic(v.smsIcon),videoIcon:pic(v.videoIcon)}}
   let a=raw.status;d.status={time:text(a.time,d.status.time,50),battery:number(a.battery,38,0,100),signal:number(a.signal,3,0,4),wifi:bool(a.wifi,true),show:bool(a.show,true),carrier:text(a.carrier,'',100)};
-  function msgs(list){if(!Array.isArray(list)||list.length>300)throw Error('Invalid messages');return list.map(m=>{if(!m||!['text','image','call','date','system'].includes(m.type))throw Error('Invalid type');return {id:uid(),type:m.type,from:m.from==='me'?'me':'them',text:text(m.text),time:text(m.time,'',100),read:bool(m.read,false),draftOnly:bool(m.draftOnly,false),img:pic(m.img)}})}
-  a=raw.chat;d.chat={name:text(a.name,'',100),duration:text(a.duration,'00:12',20),returnTo:['chat','sms','video','lock'].includes(a.returnTo)?a.returnTo:'chat',unread:number(a.unread,0,0,9999),avatar:pic(a.avatar),avColor:color(a.avColor,d.chat.avColor),accent:color(a.accent,d.chat.accent),bg:Object.hasOwn(CHATBG,a.bg)?a.bg:'sky',bgImg:pic(a.bgImg),showName:bool(a.showName,false),typing:bool(a.typing,false),draft:text(a.draft),messages:msgs(a.messages)};
+  function msgs(list){if(!Array.isArray(list)||list.length>300)throw Error('Invalid messages');return list.map(m=>{if(!m||!['text','image','call','date','system'].includes(m.type))throw Error('Invalid type');return {id:uid(),type:m.type,from:m.from==='me'?'me':'them',text:text(m.text),time:text(m.time,'',100),read:bool(m.read,false),draftOnly:bool(m.draftOnly,false),typingBefore:bool(m.typingBefore,false),dur:text(m.dur,'',20),note:text(m.note,'',60),img:pic(m.img)}})}
+  a=raw.chat;d.chat={name:text(a.name,'',100),duration:text(a.duration,'00:12',20),returnTo:['chat','sms','video','lock'].includes(a.returnTo)?a.returnTo:'chat',unread:number(a.unread,0,0,9999),avatar:pic(a.avatar),avColor:color(a.avColor,d.chat.avColor),accent:color(a.accent,d.chat.accent),bg:Object.hasOwn(CHATBG,a.bg)?a.bg:'sky',bgImg:pic(a.bgImg),showName:bool(a.showName,false),typing:bool(a.typing,false),callDur:text(a.callDur,'',20),callFrom:text(a.callFrom,'',20),draft:text(a.draft),messages:msgs(a.messages)};
   a=raw.sms;d.sms={name:text(a.name,'',100),duration:text(a.duration,'00:12',20),returnTo:['chat','sms','video','lock'].includes(a.returnTo)?a.returnTo:'chat',accent:color(a.accent,d.sms.accent),messages:msgs(a.messages)};
   a=raw.lock;if(!Array.isArray(a.notifs)||a.notifs.length>300)throw Error('Invalid notifications');d.lock={time:text(a.time,'21:47',50),date:text(a.date,'',100),font:Object.hasOwn(FONTS,a.font)?a.font:'sys',wall:Object.hasOwn(WALLS,a.wall)?a.wall:'night',wallImg:pic(a.wallImg),notifs:a.notifs.map(n=>{if(!n||!Object.hasOwn(APPS,n.app))throw Error('Invalid app');return {id:uid(),app:n.app,label:text(n.label,'',100),sender:text(n.sender,'',200),text:text(n.text),when:text(n.when,'',100)}})};
   if(raw.video!==undefined){const v=raw.video;if(!v||!Array.isArray(v.items)||v.items.length>100)throw Error('Invalid videos');d.video={name:text(v.name,'',100),handle:text(v.handle,'',100),subscribers:text(v.subscribers,'',150),description:text(v.description,'',1000),avatar:pic(v.avatar),banner:pic(v.banner),myAvatar:pic(v.myAvatar),videoCount:text(v.videoCount,'',60),labels:(l=>{const o={};if(l&&typeof l==='object'&&!Array.isArray(l))for(const [k,val] of Object.entries(l))if(/^[A-Za-z0-9]{1,30}$/.test(k)&&typeof val==='string'&&val.length<=100)o[k]=val;return o})(v.labels),items:v.items.map(x=>{if(!x||typeof x!=='object')throw Error('Invalid video');return {id:uid(),title:text(x.title,'',300),channel:text(x.channel,'',100),target:bool(x.target,false),meta:text(x.meta,'',200),duration:text(x.duration,'',30),theme:['city','warm','sea','forest','night'].includes(x.theme)?x.theme:'city',img:pic(x.img),avatar:pic(x.avatar),likes:text(x.likes,'',40),...vidFields(x)}})};
     if(Array.isArray(v.shorts)){if(v.shorts.length>100)throw Error('Invalid shorts');d.video.shorts=v.shorts.map(x=>{if(!x||typeof x!=='object')throw Error('Invalid short');return {id:uid(),title:text(x.title,'',300),meta:text(x.meta,'',200),theme:['city','warm','sea','forest','night'].includes(x.theme)?x.theme:'city',img:pic(x.img),...vidFields(x)}})}}
   if(raw.talks!==undefined){if(!raw.talks||!Array.isArray(raw.talks.items)||raw.talks.items.length>100)throw Error('Invalid talks');d.talks.items=raw.talks.items.map(x=>{if(!x||typeof x!=='object')throw Error('Invalid talk');return {id:uid(),name:text(x.name,'',100),text:text(x.text),time:text(x.time,'',100),unread:Math.floor(number(x.unread,0,0,999)),color:color(x.color,'#6d9be5'),target:bool(x.target,false),img:pic(x.img)}})}
-  if(raw.sequence!==undefined){if(!raw.sequence||!Array.isArray(raw.sequence.steps)||!raw.sequence.steps.length||raw.sequence.steps.length>300)throw Error('Invalid scenes');d.sequence.steps=raw.sequence.steps.map(a=>{if(!a||!['lock','call','banner','outgoing','connected','ended'].includes(a.kind))throw Error('Invalid scene');return {kind:a.kind,count:Math.floor(number(a.count,0,0,300)),name:text(a.name,'',100),duration:text(a.duration,'00:12',20),returnTo:['chat','sms','video','lock'].includes(a.returnTo)?a.returnTo:'chat'}})}
+  if(raw.sequence!==undefined){if(!raw.sequence||!Array.isArray(raw.sequence.steps)||!raw.sequence.steps.length||raw.sequence.steps.length>300)throw Error('Invalid scenes');d.sequence.steps=raw.sequence.steps.map(a=>{if(!a||!['lock','call','banner','outgoing','connected','ended'].includes(a.kind))throw Error('Invalid scene');return {kind:a.kind,count:Math.floor(number(a.count,0,0,300)),name:text(a.name,'',100),duration:text(a.duration,'00:12',20),returnTo:['chat','sms','video','lock'].includes(a.returnTo)?a.returnTo:'chat',app:a.app==='line'?'line':'kotoba'}})}
   a=raw.play;d.play={tap:bool(a.tap,true),hide:number(a.hide,2,0,300),nativeBars:bool(a.nativeBars,true)};d.export.size=raw.export.size==='std'?'std':'device';return d;
 }
 function downloadBlob(blob,name){if(window.claude&&window.claude.use){getDl().then(dl=>{if(dl)return dl.save({filename:name,data:blob}).catch(()=>{});legacyDownload(blob,name)});return}legacyDownload(blob,name)}

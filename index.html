@@ -1,4 +1,4 @@
-<!doctype html><!-- build 2026-10-19 callbubble-k --><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><meta name="theme-color" content="#eef0f3"><meta name="description" content="撮影用のチャット・SMS・ロック画面を編集して、タップで再生。"><link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='9' fill='%234f7cff'/%3E%3Cpath d='M8 9h16v11H15l-6 5v-5H8z' fill='white'/%3E%3C/svg%3E"><style>body{margin:0}:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}img{max-width:100%}
+<!doctype html><!-- build 2026-10-21 talkchat-n --><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><meta name="theme-color" content="#eef0f3"><meta name="description" content="撮影用のチャット・SMS・ロック画面を編集して、タップで再生。"><link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='9' fill='%234f7cff'/%3E%3Cpath d='M8 9h16v11H15l-6 5v-5H8z' fill='white'/%3E%3C/svg%3E"><style>body{margin:0}:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}img{max-width:100%}
 body{font-size:16px} .fld>span,.sec h3,.hint,.pv-note{font-size:14px}.btn.sm{font-size:14px}
 .transport{display:flex;flex-wrap:wrap;justify-content:center;gap:8px}#play-count{font-size:14px;color:var(--muted)}
 #fs.native-bars .sb,#fs.native-bars .sb-off,#fs.native-bars .home{display:none}
@@ -158,6 +158,8 @@ textarea.inp{resize:vertical;line-height:1.5}
 .c-icons{display:flex;gap:18px;align-items:center}
 .c-body{flex:1;min-height:0;overflow:auto;display:flex;flex-direction:column;justify-content:safe flex-end;padding:10px 12px 12px;background-size:cover;background-position:center;--meta:rgba(0,0,0,.45);--nm:#4a4f59}
 .c-body.dk{--meta:rgba(255,255,255,.7);--nm:rgba(255,255,255,.85)}
+.c-body.c-start{justify-content:flex-start}
+.talk-row[data-talk-open]{cursor:pointer}.talk-row[data-talk-open]:active{background:#eef1f4}
 .c-date{text-align:center;margin:14px 0 4px;flex:none}
 .c-date span,.c-sys{display:inline-block;background:rgba(0,0,0,.2);color:#fff;font-size:12px;padding:3px 12px;border-radius:12px}
 .c-sys{align-self:center;margin:10px 0 2px;max-width:320px;text-align:center}
@@ -460,7 +462,7 @@ function defaults(){
     mode:'chat',
     phone:{wall:null,chatName:'ことば',smsName:'メッセージ',videoName:'ナガメ',chatIcon:null,smsIcon:null,videoIcon:null},
     status:{time:'21:47',battery:38,signal:3,wifi:true,show:true,carrier:''},
-    chat:{name:'美咲',unread:3,avatar:null,avColor:'#e58a6d',accent:'#4f7cff',bg:'sky',bgImg:null,showName:false,typing:false,callDur:'',callFrom:'',draft:'',
+    chat:{name:'美咲',unread:3,avatar:null,avColor:'#e58a6d',accent:'#4f7cff',bg:'sky',bgImg:null,showName:false,top:false,typing:false,callDur:'',callFrom:'',draft:'',
       messages:[
         {id:uid(),type:'date',text:'9月27日(日)'},
         m('them','今日はありがとう。楽しかった','22:14'),
@@ -561,7 +563,7 @@ function renderPages(){
  if(editing)menu='<div class="adds"><button class="btn pri" data-act="chapter-confirm">この内容で確定</button><button class="btn" data-act="page" data-v="preview">プレビューを見る →</button></div>';
  if(page==='chapter')menu='<button class="btn pri" data-act="page" data-v="modes">画面を選ぶ →</button>';
  if(page==='files')menu='<section class="sec"><h3>iCloud Driveで作品を持ち運ぶ</h3><p class="hint">自動同期ではありません。書き出したファイルを、もう一方の端末で読み込みます。</p><ol class="hint"><li>「全作品を書き出す」を押します。</li><li>共有画面で「ファイルに保存」→「iCloud Drive」を選びます。</li><li>もう一方の端末で「作品ファイルを読み込む」から同じファイルを選びます。</li></ol><p class="hint">読み込んだ章は追加されます。既存の章は上書きされません。繰り返し読み込むと章が増えます。撮影前に内容を確認してください。</p></section>'+ '<div class="file-actions"><button class="page-card" data-act="book-export">全作品を書き出す ↓</button><button class="page-card" data-act="save-script">この章だけを書き出す ↓</button><button class="page-card" data-act="load-script">作品ファイルを読み込む ↑</button><button class="page-card" data-act="ocr-photo">写真から下書きを作る（ロック画面）📷</button><p class="hint">「写真から下書きを作る」は、ロック画面のスクリーンショットの文字を自動で読み取ります（初回のみネット接続が必要）。読み間違いがあるので、できた章で必ず確認してください。この端末に自動保存されます。別の端末へ移すときは、書き出したファイルを読み込んでください。</p></div>';
- const APP_VER='2026.10.19-k';
+ const APP_VER='2026.10.21-n';
  if(page==='home'||page==='files')menu+=`<p class="hint app-ver">アプリのバージョン：${APP_VER}</p>`;
  document.getElementById('page-menu').innerHTML=menu;
  for(const el of document.querySelectorAll('#editor > .sec'))el.hidden=false;
@@ -639,7 +641,7 @@ function chatBubble(m,acc){
 }
 function chatScreen(o){
   const c=o.chat||S.chat, all=c.messages; let list=vis(all,o);
-  if(o.live&&callLog.length){list=list.slice();callLog.forEach((e,k)=>list.splice(Math.min(e.at+k,list.length),0,e.m))}
+  if(o.live&&!o.noCall&&callLog.length){list=list.slice();callLog.forEach((e,k)=>list.splice(Math.min(e.at+k,list.length),0,e.m))}
   const preset=CHATBG[c.bg]||CHATBG.sky;
   const dk=c.bgImg?false:!!preset.dk;
   const bg=c.bgImg?`background-image:url(${c.bgImg})`:`background:${preset.v}`;
@@ -660,9 +662,9 @@ function chatScreen(o){
     out+=`<div class="c-row them${cont?' cont':''}">${cont?'<div class="c-av sp"></div>':avatarHtml(c)}<div class="c-col"><div class="c-line"><div class="bub dots"><i></i><i></i><i></i></div></div></div></div>`;
   }
   const d=o.live?typing.text:c.draft;
-  return `<div class="c-head">${sb(false)}<div class="c-bar"><div class="c-back">${ic('back',26,'#1d1d1f',2.2)}${c.unread?`<span>${esc(c.unread)}</span>`:''}</div><div class="c-title">${esc(c.name)}</div><div class="c-icons">${ic('search',22,'#1d1d1f')}<button data-chat-call aria-label="通話メニューを開く" style="border:0;background:none;padding:8px;color:inherit">${ic('phone',22,'#1d1d1f')}</button>${ic('menu',22,'#1d1d1f')}</div></div></div>`
+  return `<div class="c-head">${sb(false)}<div class="c-bar"><div class="c-back" data-chat-back>${ic('back',26,'#1d1d1f',2.2)}${c.unread?`<span>${esc(c.unread)}</span>`:''}</div><div class="c-title">${esc(c.name)}</div><div class="c-icons">${ic('search',22,'#1d1d1f')}${o.noCall?`<span style="padding:8px;display:inline-flex">${ic('phone',22,'#1d1d1f')}</span>`:`<button data-chat-call aria-label="通話メニューを開く" style="border:0;background:none;padding:8px;color:inherit">${ic('phone',22,'#1d1d1f')}</button>`}${ic('menu',22,'#1d1d1f')}</div></div></div>`
    +(o.live&&chatCallMenu?`<div class="c-callbar${dk?' dk':''}"><button type="button" data-chat-call-go aria-label="音声通話をかける">${ic('phone',26,'currentColor',1.8)}<small>音声通話</small></button><button type="button" data-chat-call-video aria-label="ビデオ通話">${ic('vcam',26,'currentColor',1.8)}<small>ビデオ通話</small></button></div>`:'')
-   +`<div class="c-body${dk?' dk':''}" style="${bg};--acc:${c.accent}">${out}</div>`
+   +`<div class="c-body${dk?' dk':''}${c.top?' c-start':''}" style="${bg};--acc:${c.accent}">${out}</div>`
    +`<div class="c-in"><div class="c-in-row">${ic('plus',24,'#555b66')}${ic('camera',24,'#555b66')}${ic('image',24,'#555b66')}<div class="c-field${d?'':' ph'}${o.live&&typing.open?' typing-active':''}" ${o.live?'role="button" tabindex="0" aria-label="台本を入力"':''}><span class="tx">${d?nl(esc(d)):'メッセージを入力'}</span>${ic('smile',20,'#8a8f99')}</div>${o.live?`<button class="prop-send c-send" aria-label="送信" ${canSend()?'':'disabled'} style="background:${c.accent}">${ic('send',17,'#fff',2)}</button>`:d?`<div class="c-send" style="background:${c.accent}">${ic('send',17,'#fff',2)}</div>`:ic('mic',24,'#555b66')}</div><div class="home"><i></i></div></div>`;
 }
 function smsScreen(o){
@@ -796,12 +798,24 @@ function targetTalk(){return S.talks.items.find(x=>x.target)||S.talks.items[0]}
 function talksScreen(o){
  const n=Math.max(0,Math.min(3,o.reveal||0)),target=targetTalk();
  const items=S.talks.items.filter(x=>!(n===3&&x===target));
- const rows=items.map(x=>`<div class="talk-swipe ${x===target&&n>=1?'is-open':''}">${x===target?'<button class="talk-swipe-delete" data-talk-step="2">削除</button>':''}<div class="talk-row ${x===target&&n===1&&o.fresh?'swipe-reveal':''}" ${x===target?'data-swipe-target="true"':''}><div class="talk-avatar" style="background:${x.color};${x.img?`background-image:url(${x.img})`:''}">${x.img?'':esc(initial(x.name))}</div><div class="talk-copy"><div class="talk-name">${esc(x.name)}</div><div class="talk-last">${esc(x.text)}</div></div><div class="talk-meta"><span>${esc(x.time)}</span>${x.unread?`<b>${x.unread}</b>`:''}</div></div></div>`).join('');
+ const rows=items.map(x=>`<div class="talk-swipe ${x===target&&n>=1?'is-open':''}">${x===target?'<button class="talk-swipe-delete" data-talk-step="2">削除</button>':''}<div class="talk-row ${x===target&&n===1&&o.fresh?'swipe-reveal':''}" ${x===target?'data-swipe-target="true"':''} data-talk-open="${x.id}"><div class="talk-avatar" style="background:${x.color};${x.img?`background-image:url(${x.img})`:''}">${x.img?'':esc(initial(x.name))}</div><div class="talk-copy"><div class="talk-name">${esc(x.name)}</div><div class="talk-last">${esc(x.text)}</div></div><div class="talk-meta"><span>${esc(x.time)}</span>${x.unread?`<b>${x.unread}</b>`:''}</div></div></div>`).join('');
  let overlay='';
  if(target&&n===2)overlay=`<div class="talk-shade"><div class="talk-dialog"><h3>このトークを削除しますか？</h3><p>「${esc(target.name)}」とのトーク履歴が削除されます。</p><div><button data-talk-step="0">キャンセル</button><button class="talk-danger" data-talk-step="3">削除</button></div></div></div>`;
  return `<div class="talk-screen">${sb(false)}<header class="talk-header"><strong>トーク</strong><span>${ic('search',24,'#20242b')}${ic('bubble',25,'#20242b')}</span></header><div class="talk-search">${ic('search',16,'#90969c')} 検索</div><div class="talk-filter"><b>すべて</b><span>未読</span><span>友だち</span><span>グループ</span></div><div class="talk-list">${rows||'<div class="talk-empty">トークはありません</div>'}</div><div class="talk-nav"><span>${ic('person',24,'#8b929a')}<small>ホーム</small></span><span class="active">${ic('bubble',24,'#06b65c')}<small>トーク</small></span><span>${ic('play',24,'#8b929a')}<small>動画</small></span><span>${ic('phone',24,'#8b929a')}<small>通話</small></span></div><div class="home"><i></i></div>${overlay}</div>`;
 }
-function talksEditor(){const target=targetTalk();return `<p class="hint">K キーで「一覧 → 左スワイプ → 削除確認 → 削除後」と進みます。削除する相手の行を左にスワイプすると右側に「削除」が現れます。それをタップすると中央に確認画面が出ます。右に戻すと閉じます。「最初から」で元に戻る撮影用の演出です。保存した台本は消えません。</p><div class="list" data-list="talks.items">${S.talks.items.map((x,i)=>`<div class="it neutral" data-i="${i}"><div class="it-top"><button class="btn sm ${x===target?'pri':''}" data-act="talk-target">${x===target?'この人を削除':'削除する相手に設定'}</button><button class="ib" data-act="up" aria-label="上へ">↑</button><button class="ib" data-act="down" aria-label="下へ">↓</button><button class="ib" data-act="del" aria-label="一覧から外す">×</button></div><label class="fld"><span>名前</span><input class="inp" data-f="name" maxlength="100" value="${esc(x.name)}"></label><label class="fld"><span>最後のメッセージ</span><input class="inp" data-f="text" value="${esc(x.text)}"></label><div class="row"><label class="fld"><span>時刻</span><input class="inp" data-f="time" value="${esc(x.time)}"></label><label class="fld"><span>未読数</span><input class="inp" type="number" min="0" max="999" data-num="1" data-f="unread" value="${x.unread}"></label></div><label class="fld"><span>アイコンの色</span><input type="color" data-f="color" value="${x.color}"></label>${upl('アイコン画像','msgimg')}</div>`).join('')}</div><button class="btn" data-act="talk-add">＋ 相手を追加</button>`}
+function talkMsgs(x){if(!Array.isArray(x.messages))x.messages=[];return x.messages}
+function talkChatOf(item){
+  const own=Array.isArray(item.messages)&&item.messages.length>0;
+  const same=!own&&!!item.name&&item.name===S.chat.name;
+  const list=own?item.messages:same?S.chat.messages:(item.text?[{id:'t0',type:'text',from:'them',text:item.text,time:item.time||'',read:false}]:[]);
+  return {...S.chat,name:item.name,avatar:same?S.chat.avatar:(item.img||null),avColor:same?S.chat.avColor:item.color,unread:0,typing:false,draft:'',top:same?S.chat.top:true,messages:list};
+}
+function talkChatScreen(o){
+  const item=S.talks.items.find(x=>x.id===talkChat);
+  if(!item){talkChat=null;return talksScreen({...o,reveal:0})}
+  return chatScreen({...o,chat:talkChatOf(item),reveal:null,fresh:false,noCall:true});
+}
+function talksEditor(){const target=targetTalk();return `<p class="hint"><b>使い方：</b>撮影で一覧の相手をタップすると、その人のトークが開きます（左上の「‹」か K キーで一覧に戻ります）。会話の内容は、このあと下に並ぶ「○○のトーク内容」で相手ごとに入れます。</p><p class="hint">K キーで「一覧 → 左スワイプ → 削除確認 → 削除後」と進みます。削除する相手の行を左にスワイプすると右側に「削除」が現れます。それをタップすると中央に確認画面が出ます。右に戻すと閉じます。「最初から」で元に戻る撮影用の演出です。保存した台本は消えません。</p><div class="list" data-list="talks.items">${S.talks.items.map((x,i)=>`<div class="it neutral" data-i="${i}"><div class="it-top"><button class="btn sm ${x===target?'pri':''}" data-act="talk-target">${x===target?'この人を削除':'削除する相手に設定'}</button><button class="ib" data-act="up" aria-label="上へ">↑</button><button class="ib" data-act="down" aria-label="下へ">↓</button><button class="ib" data-act="del" aria-label="一覧から外す">×</button></div><label class="fld"><span>名前</span><input class="inp" data-f="name" maxlength="100" value="${esc(x.name)}"></label><label class="fld"><span>最後のメッセージ</span><input class="inp" data-f="text" value="${esc(x.text)}"></label><div class="row"><label class="fld"><span>時刻</span><input class="inp" data-f="time" value="${esc(x.time)}"></label><label class="fld"><span>未読数</span><input class="inp" type="number" min="0" max="999" data-num="1" data-f="unread" value="${x.unread}"></label></div><label class="fld"><span>アイコンの色</span><input type="color" data-f="color" value="${x.color}"></label>${upl('アイコン画像','msgimg')}</div>`).join('')}</div><button class="btn" data-act="talk-add">＋ 相手を追加</button>${S.chat.name&&!S.talks.items.some(x=>x.name===S.chat.name)?`<button class="btn" data-act="talk-add-chat">＋ チャットの相手「${esc(S.chat.name)}」を一覧に入れる</button>`:''}`}
 const CALLBG='linear-gradient(160deg,#182337,#36475a 55%,#15202e)';
 function sceneAt(n){return S.sequence.steps[Math.max(0,Math.min(S.sequence.steps.length-1,n||0))]||{kind:'lock',count:0}}
 let callOverride=null;let outgoingChatCall=null;let chatCallMenu=false;
@@ -867,6 +881,7 @@ if(kind==='banner')return `<div style="height:100%;position:relative">${scene.re
 return `<div class="call-screen">${sb(true)}<div class="call-person"><div class="call-avatar">${esc(initial(scene.name))}</div><div class="call-name">${esc(scene.name)}</div><div class="call-label">${active?'通話中 · '+esc(scene.duration||'00:12'):ended?'通話終了':outgoing?'呼び出し中':esc(S.phone.chatName)+' 音声通話'}</div></div>${active?'<div style="display:flex;justify-content:space-evenly;text-align:center;color:white"><span>マイク<br>オン</span><span>スピーカー<br>オフ</span></div>':''}<div class="call-actions" style="justify-content:${active||ended||outgoing?'center':'space-between'}">${ended?'<div>通話が終了しました</div>':`<div><button type="button" style="border:0" class="call-circle decline" data-call="ended" aria-label="${active?'通話を終了':'拒否'}">${ic('phone',32,'#fff')}</button><span>${active?'終了':'拒否'}</span></div>${active||outgoing?'':`<div><button type="button" style="border:0" class="call-circle accept" data-call="connected" aria-label="応答">${ic('phone',32,'#fff')}</button><span>応答</span></div>`}`}</div><div class="home light"></div></div>`}
 
 let desktopApp=null;
+let talkChat=null;
 function desktopScreen(o){
  const content=desktopApp==='chat'?chatScreen({...o,reveal:null}):desktopApp==='sms'?smsScreen({...o,reveal:null}):desktopApp==='video'?videoScreen({...o,reveal:0}):desktopApp==='lock'?lockScreen({...o,reveal:0}):null;
  if(content)return `<div style="height:100%;position:relative">${content}<button data-desktop="home" style="position:absolute;bottom:0;left:35%;width:30%;height:28px;opacity:.01" aria-label="ホームに戻る">ホーム</button></div>`;
@@ -875,7 +890,7 @@ function desktopScreen(o){
 function renderScreen(o){
   o=o||{}; const h=o.height||H;if(o.live&&outgoingChatCall)return `<div class="scr" style="height:${Math.round(h)}px">${chatCallScreen(outgoingChatCall,o)}</div>`;
   const scene=S.mode==='sequence'?sceneAt(o.reveal):null;
-  const body=S.mode==='desktop'?desktopScreen(o):S.mode==='video'?videoScreen(o):S.mode==='talks'?talksScreen(o):scene?(scene.kind!=='lock'?callScreen(scene,o):lockScreen({...o,reveal:scene.count})):S.mode==='chat'?chatScreen(o):S.mode==='sms'?smsScreen(o):lockScreen(o);
+  const body=(S.mode==='talks'&&o.live&&talkChat)?talkChatScreen(o):S.mode==='desktop'?desktopScreen(o):S.mode==='video'?videoScreen(o):S.mode==='talks'?talksScreen(o):scene?(scene.kind!=='lock'?callScreen(scene,o):lockScreen({...o,reveal:scene.count})):S.mode==='chat'?chatScreen(o):S.mode==='sms'?smsScreen(o):lockScreen(o);
   return `<div class="scr scr-${scene?scene.kind:S.mode}" style="height:${Math.round(h)}px">${body}${o.live&&typing.open?keyboardHtml():''}</div>`;
 }
 
@@ -905,7 +920,7 @@ const SEC_META={
 const sec=(t,b,sub,o)=>{o=o||{};const meta=sub===undefined?(SEC_META[S.mode+'|'+t]||SEC_META[t]):null;let open=!!o.open;
  if(meta){t=meta[0];sub=meta[1];open=!!meta[2]}
  const icon=o.icon||(/メッセージ|通知|会話/.test(t)?'bubble':/相手|プロフィール|チャンネルの情報|トーク一覧/.test(t)?'person':/時計|ステータス|日付/.test(t)?'cal':/撮影|動画|ショート|再生|おすすめ|トップ/.test(t)?'play':/通話|シーン/.test(t)?'phone':/背景|壁紙|見た目|画像|ロゴ|吹き出し/.test(t)?'image':'news');
- const key=S.mode+':'+t;if(secState.has(key))open=secState.get(key);
+ const key=o.key||(S.mode+':'+t);if(secState.has(key))open=secState.get(key);
  return `<details class="sec fold" data-sec="${esc(key)}"${open?' open':''}><summary><span class="section-mark">${ic(icon,19,'currentColor')}</span><span class="sec-t"><b>${t}</b>${sub?`<small>${sub}</small>`:''}</span></summary><div class="sec-body">${b}</div></details>`};
 const grp=(t,sub)=>`<div class="grp"><h2>${t}</h2>${sub?`<p>${sub}</p>`:''}</div>`;
 document.addEventListener('toggle',e=>{const d=e.target;if(d&&d.classList&&d.classList.contains('fold')&&d.dataset.sec)secState.set(d.dataset.sec,d.open)},true);
@@ -921,7 +936,7 @@ function swatches(p,items,clear){
 }
 const TYPES={text:'テキスト',image:'画像',call:'通話',date:'日付',system:'お知らせ'};
 function msgList(key){
-  const list=get(key+'.messages'); const isChat=key==='chat';
+  const list=get(key+'.messages'); const isChat=key==='chat'; const nested=key.indexOf('talks.')===0;
   const items=list.map((m,i)=>{
     const msg=isMsg(m);
     const cls=msg?m.from:'neutral';
@@ -930,7 +945,7 @@ function msgList(key){
     top+=`<select class="inp" data-f="type" aria-label="種類">${Object.entries(TYPES).map(([v,l])=>`<option value="${v}"${m.type===v?' selected':''}>${l}</option>`).join('')}</select>`;
     if(msg) top+=`<input class="inp time" data-f="time" value="${esc(m.time)}" placeholder="時刻" aria-label="時刻">`;
     if(msg&&m.from==='me') top+=`<label class="chk" style="font-size:12px"><input type="checkbox" data-f="read"${m.read?' checked':''}>既読</label>`;
-    if(msg&&m.from==='me'&&m.type==='text')top+=`<button type="button" class="btn sm" data-act="type-scene">入力シーン</button><label class="chk"><input type="checkbox" data-f="draftOnly"${m.draftOnly?' checked':''}>入力後に消す（送信しない）</label>${m.draftOnly?'<button type="button" class="btn sm" data-act="erase-scene">入力済みから削除シーン</button>':''}`;
+    if(msg&&m.from==='me'&&m.type==='text'&&!nested)top+=`<button type="button" class="btn sm" data-act="type-scene">入力シーン</button><label class="chk"><input type="checkbox" data-f="draftOnly"${m.draftOnly?' checked':''}>入力後に消す（送信しない）</label>${m.draftOnly?'<button type="button" class="btn sm" data-act="erase-scene">入力済みから削除シーン</button>':''}`;
     top+=`<span class="grow"></span><button type="button" class="ib" data-act="up" aria-label="上へ">${eic('up')}</button><button type="button" class="ib" data-act="down" aria-label="下へ">${eic('down')}</button><button type="button" class="ib" data-act="del" aria-label="削除">${eic('x')}</button></div>`;
     let body;
     if(m.type==='image') body=`<div class="av-edit"><div class="thumb" style="${m.img?`background-image:url(${m.img})`:''}"></div>${upl('画像を選ぶ','msgimg')}</div>`;
@@ -968,7 +983,7 @@ function renderEditor(){
       +fld('入力欄の文字（空欄で「メッセージを入力」）',txt('chat.draft','打ちかけの文章')));
     h+=sec('通話の時間',row(fld('通話の長さ（通話のあと履歴に残る時間）',txt('chat.callDur','例：3:12（空欄＝実際にかかった時間）')),fld('通話画面のタイマーの開始',txt('chat.callFrom','例：0:00（空欄＝0:00から）')))+`<p class="hint">再生中に、上の電話ボタン →「音声通話」→ 応答 → 終了 と進めると、チャットに通話の履歴が残ります。「通話の長さ」に 3:12 と入れると、実際に何秒話しても「音声通話 3:12」と出ます。「タイマーの開始」に 12:30 と入れると、通話画面の時間が 12:30 から動き出します。</p>`,'電話ボタンを押したときの通話時間',{open:true});
     h+=sec('見た目',fld('自分の吹き出しの色',swatches('chat.accent',ACCENTS.map(([v,l])=>[v,l]))) + fld('背景',`<div class="av-edit">${swatches('chat.bg',Object.entries(CHATBG).map(([k,b])=>[k,b.n,b.v]),'chat.bgImg')}${upl('チャット背景写真を選ぶ','chat.bgImg')}${c.bgImg?'<button class="btn sm ghost" data-act="clear" data-path="chat.bgImg">画像を外す</button>':''}</div>`));
-    h+=sec('メッセージ',`<p class="hint">自分の文字メッセージの「入力シーン」から撮影できます。文字キーで台詞が一文字ずつ現れます。「入力後に消す」を選ぶと送信されません。⌫ または K で一文字ずつ削除し、空欄になったら K で次へ。「入力済みから削除シーン」では完成した文章から始められます。</p><p class="hint">「入力中…」は、相手のメッセージごとに「直前に出す」を選べます（チェックしたものだけ）。一番最後のメッセージのあとに出したいときは、メッセージ一覧の一番下にある「一番最後のメッセージのあと」を選びます。どちらも選ばなければ出ません。</p><p class="hint">再生中に画面上の電話ボタンを押すと、その下に「音声通話／ビデオ通話」の2つのボタンが出ます。左の「音声通話」を押したときだけ発信画面になります。どちらかを押すか、通話が終わると、この2つは消えます。</p>`+msgList('chat'));
+    h+=sec('メッセージ',`<div class="typing-end"><span class="typing-end-t">メッセージの並び</span>${chk('chat.top','画面の上から並べる（トークを始めたばかりで、メッセージが少ないとき）')}<small>チェックしなければ、下から積み上がります。</small></div><p class="hint">自分の文字メッセージの「入力シーン」から撮影できます。文字キーで台詞が一文字ずつ現れます。「入力後に消す」を選ぶと送信されません。⌫ または K で一文字ずつ削除し、空欄になったら K で次へ。「入力済みから削除シーン」では完成した文章から始められます。</p><p class="hint">「入力中…」は、相手のメッセージごとに「直前に出す」を選べます（チェックしたものだけ）。一番最後のメッセージのあとに出したいときは、メッセージ一覧の一番下にある「一番最後のメッセージのあと」を選びます。どちらも選ばなければ出ません。</p><p class="hint">再生中に画面上の電話ボタンを押すと、その下に「音声通話／ビデオ通話」の2つのボタンが出ます。左の「音声通話」を押したときだけ発信画面になります。どちらかを押すか、通話が終わると、この2つは消えます。</p>`+msgList('chat'));
     h+=bulkBox('chat');
   } else if(m==='sms'){
     h+=sec('相手',fld('名前または電話番号',txt('sms.name','090-0000-0000'))+fld('自分の吹き出しの色',swatches('sms.accent',[['#2d6cdf','ブルー'],['#1fa99a','ティール'],['#6b5bd6','インディゴ'],['#3a3f4b','チャコール']])));
@@ -978,6 +993,8 @@ function renderEditor(){
     h+=videoEditor();
   } else if(m==='talks'){
     h+=sec('トーク一覧',talksEditor());
+    S.talks.items.forEach((x,i)=>{talkMsgs(x);const same=!x.messages.length&&x.name&&x.name===S.chat.name;
+      h+=sec(`${i+1}. ${x.name||'名前なし'}のトーク内容`,`<p class="hint">撮影で一覧の「${esc(x.name||'この人')}」をタップすると、ここの会話が開きます。${x.messages.length?'':same?'いまは空なので、「チャット」タブの会話がそのまま開きます。ここに入れた会話があれば、そちらが優先されます。':'いまは空なので、一覧の「最後のメッセージ」1件だけの会話になります。'}</p>`+msgList('talks.items.'+i),'この人をタップしたときに開く会話',{icon:'bubble',key:'talk:'+x.id})});
   } else {
     h+=sec('時計',row(fld('時刻',txt('lock.time','21:47')),fld('日付',txt('lock.date','9月28日 月曜日')))+'<div class="adds"><button class="btn sm" data-act="lock-now">今の日付と時刻にする</button></div>'+fld('文字のフォント（時計・日付・通知）',`<select class="inp" data-path="lock.font">${Object.entries(FONTS).map(([k,v])=>`<option value="${k}"${S.lock.font===k?' selected':''}>${v[0]}</option>`).join('')}</select>`));
     h+=sec('壁紙',`<div class="av-edit">${swatches('lock.wall',Object.entries(WALLS).map(([k,v])=>[k,WALLN[k],v]),'lock.wallImg')}${upl('壁紙画像','lock.wallImg')}${S.lock.wallImg?'<button class="btn sm ghost" data-act="clear" data-path="lock.wallImg">画像を外す</button>':''}</div>`);
@@ -1160,7 +1177,8 @@ document.addEventListener('click',e=>{
     case 'short-add':ensureShorts().push({id:uid(),title:'新しいショート',meta:'1.2万回視聴',theme:'city',img:null});commit(true);break;
     case 'video-clear':list[i].img=null;commit(true);break;
     case 'vidfile-clear':{const x=list[i];if(x&&x.vid){const k=x.vid;delete x.vid;delete x.vidName;delete x.vidSize;commit(true);if(!vidReferenced(k)){vidDelete(k).catch(()=>{});const u=vidUrls.get(k);if(u)URL.revokeObjectURL(u);vidUrls.delete(k)}}break}
-    case 'talk-add':S.talks.items.push({id:uid(),name:'',text:'',time:'',unread:0,color:'#6d9be5',target:false,img:null});commit(true);break;
+    case 'talk-add':S.talks.items.push({id:uid(),name:'',text:'',time:'',unread:0,color:'#6d9be5',target:false,img:null,messages:[]});commit(true);break;
+    case 'talk-add-chat':{const c=S.chat;const seen=c.messages.filter(m=>m.type!=='date'&&m.type!=='system');const m=seen[seen.length-1];S.talks.items.unshift({id:uid(),name:c.name||'',text:m?(m.type==='image'?'写真を送信しました':m.type==='call'?(m.text||'通話'):String(m.text||'').split('\n')[0]):'',time:m?(m.time||''):'',unread:c.unread||0,color:c.avColor,target:false,img:c.avatar||null,messages:[]});commit(true);break}
     case 'talk-target':S.talks.items.forEach((x,j)=>x.target=j===i);previewN=0;commit(true);break;
     case 'chapter-save':toast(save()?'この章を保存しました':'保存できません。「全章を書き出す」を使ってください');break;
     case 'chapter-new':addChapter(false);go('chapter');break;
@@ -1241,7 +1259,7 @@ function maxPosition(){return Math.max(0,modeList().length-(isSceneMode()?1:0))}
 function startPosition(){return isSceneMode()?0:Math.max(0,modeList().length-S.play.hide)}
 function modeList(){if(S.mode==='desktop')return [{},{},{},{}];if(S.mode==='video')return [{},{}];if(S.mode==='talks')return [{},{},{},{}];return S.mode==='sequence'?S.sequence.steps:S.mode==='chat'?S.chat.messages:S.mode==='sms'?S.sms.messages:S.lock.notifs}
 function nextReveal(n){if(isSceneMode())return Math.min(maxPosition(),n+1);const list=modeList();let i=Math.max(0,Math.min(list.length,n));if(S.mode==='lock')return Math.min(list.length,i+1);while(i<list.length&&list[i].type==='date')i++;return Math.min(list.length,i+1)}
-function openFs(){watching=null;outgoingChatCall=null;callLog=[];stopCallTimer();desktopApp=null;callOverride=null;
+function openFs(){talkChat=null;watching=null;outgoingChatCall=null;callLog=[];stopCallTimer();desktopApp=null;callOverride=null;
   typing={open:false,text:S.mode==='chat'?S.chat.draft:'',goal:'',index:-1};
   const len=modeList().length;
   play.n=isSceneMode()?(previewN||0):S.play.tap?(previewN==null?Math.max(0,len-(+S.play.hide||0)):previewN):null;
@@ -1250,7 +1268,7 @@ function openFs(){watching=null;outgoingChatCall=null;callLog=[];stopCallTimer()
   try{const r=fs.requestFullscreen&&fs.requestFullscreen(); if(r&&r.catch) r.catch(()=>{})}catch(e){}
   toast('タップで次へ・左下を3回連続タップで終了',3000);
 }
-function closeFs(){outgoingChatCall=null;chatCallMenu=false;stopCallTimer();stopLineTimer();{const wv=document.getElementById('wvid');if(wv)try{wv.pause()}catch(e){}}watching=null;setThemeColor('#eef0f3');document.documentElement.classList.remove('shoot-lock');document.documentElement.style.removeProperty('--shoot-wallpaper');document.documentElement.style.removeProperty('--fs-top');document.documentElement.style.removeProperty('background');document.body.style.removeProperty('background');previewN=play.n;fs.hidden=true;document.body.classList.remove('playing');renderPreview(); try{if(document.fullscreenElement)document.exitFullscreen()}catch(e){}}
+function closeFs(){talkChat=null;outgoingChatCall=null;chatCallMenu=false;stopCallTimer();stopLineTimer();{const wv=document.getElementById('wvid');if(wv)try{wv.pause()}catch(e){}}watching=null;setThemeColor('#eef0f3');document.documentElement.classList.remove('shoot-lock');document.documentElement.style.removeProperty('--shoot-wallpaper');document.documentElement.style.removeProperty('--fs-top');document.documentElement.style.removeProperty('background');document.body.style.removeProperty('background');previewN=play.n;fs.hidden=true;document.body.classList.remove('playing');renderPreview(); try{if(document.fullscreenElement)document.exitFullscreen()}catch(e){}}
 function setThemeColor(c){const m=document.querySelector('meta[name=theme-color]');if(m)m.setAttribute('content',c)}
 function layoutFs(fresh){
   const lineK=lineState();const callMode=S.mode==='sequence'&&(!!lineK||!['lock','ended','banner'].includes(callOverride?.n===play.n?callOverride.kind:sceneAt(play.n).kind));
@@ -1340,6 +1358,7 @@ fs.addEventListener('click',e=>{
  const desktopButton=e.target.closest('[data-desktop]');if(desktopButton){desktopApp=desktopButton.dataset.desktop==='home'?null:desktopButton.dataset.desktop;layoutFs(false);return;}
   const callButton=e.target.closest('[data-call]');if(callButton){goCall(callButton.dataset.call);return;}
   if(e.target.closest('#fsExit')){exitTap();return}
+  if(talkChat&&e.target.closest('[data-chat-back]')){talkChat=null;layoutFs(false);return}
   if(S.mode==='video'){if(performance.now()<vidSwipeIgnoreUntil)return;
   if(watching){
     if(e.target.closest('[data-watch-land]')){setLand(!(watching&&watching.land));return}
@@ -1348,7 +1367,7 @@ fs.addEventListener('click',e=>{
     if(e.target.closest('[data-watch-toggle]'))toggleWatch();
     return}
   const tb=e.target.closest('[data-vid-tab]');if(tb){setVidTab(tb.dataset.vidTab);layoutFs(false);return}const button=e.target.closest('[data-video-step]');if(button){play.n=Number(button.dataset.videoStep);layoutFs(false);return}const wt=e.target.closest('[data-watch]');if(wt)openWatch(wt.dataset.watch);return}
-  if(S.mode==='talks'){if(performance.now()<swipeIgnoreUntil&&e.target.closest('[data-swipe-target]'))return;const button=e.target.closest('[data-talk-step]');if(button){play.n=Number(button.dataset.talkStep);layoutFs(false)}return}
+  if(S.mode==='talks'){if(talkChat)return;if(performance.now()<swipeIgnoreUntil&&e.target.closest('[data-swipe-target]'))return;const button=e.target.closest('[data-talk-step]');if(button){play.n=Number(button.dataset.talkStep);layoutFs(false);return}const trow=e.target.closest('[data-talk-open]');if(trow&&play.n===0){talkChat=trow.dataset.talkOpen;layoutFs(false)}return}
   if(S.mode==='desktop'){const v=e.target.closest('[data-video-step]');if(v){fsScreen.innerHTML=renderScreen({height:innerHeight/(innerWidth/W),live:true});const container=fsScreen.querySelector('.video-screen');if(container)container.outerHTML=videoScreen({reveal:Number(v.dataset.videoStep)});}return;}
   const key=e.target.closest('[data-prop-key]');if(key){pressPropKey(key.dataset.propKey);return}
   if(e.target.closest('.prop-send')){sendTyped();return}
@@ -1360,6 +1379,7 @@ fs.addEventListener('click',e=>{
   if(play.n!=null&&play.n<maxPosition()){typing={open:false,text:'',goal:'',index:-1};play.n=nextReveal(play.n);layoutFs(true)}
 });
 function advancePlayback(){
+ if(talkChat){talkChat=null;layoutFs(false);return}
  if(chatCallMenu){chatCallMenu=false;layoutFs(false);return;}
  if(outgoingChatCall){if(outgoingChatCall==='outgoing'){outgoingChatCall='connected';startCallTimer();layoutFs(false)}return;}
  if(S.mode==='desktop'){play.n=(play.n+1)%4;desktopApp=[null,'chat','sms','video'][play.n];layoutFs(false);return;}
@@ -1692,12 +1712,12 @@ function validateScript(raw){
   if(raw.phone){const v=raw.phone;d.phone={wall:pic(v.wall),chatName:text(v.chatName,'ことば',40),smsName:text(v.smsName,'メッセージ',40),videoName:text(v.videoName,'ナガメ',40),chatIcon:pic(v.chatIcon),smsIcon:pic(v.smsIcon),videoIcon:pic(v.videoIcon)}}
   let a=raw.status;d.status={time:text(a.time,d.status.time,50),battery:number(a.battery,38,0,100),signal:number(a.signal,3,0,4),wifi:bool(a.wifi,true),show:bool(a.show,true),carrier:text(a.carrier,'',100)};
   function msgs(list){if(!Array.isArray(list)||list.length>300)throw Error('Invalid messages');return list.map(m=>{if(!m||!['text','image','call','date','system'].includes(m.type))throw Error('Invalid type');return {id:uid(),type:m.type,from:m.from==='me'?'me':'them',text:text(m.text),time:text(m.time,'',100),read:bool(m.read,false),draftOnly:bool(m.draftOnly,false),typingBefore:bool(m.typingBefore,false),dur:text(m.dur,'',20),note:text(m.note,'',60),img:pic(m.img)}})}
-  a=raw.chat;d.chat={name:text(a.name,'',100),duration:text(a.duration,'00:12',20),returnTo:['chat','sms','video','lock'].includes(a.returnTo)?a.returnTo:'chat',unread:number(a.unread,0,0,9999),avatar:pic(a.avatar),avColor:color(a.avColor,d.chat.avColor),accent:color(a.accent,d.chat.accent),bg:Object.hasOwn(CHATBG,a.bg)?a.bg:'sky',bgImg:pic(a.bgImg),showName:bool(a.showName,false),typing:bool(a.typing,false),callDur:text(a.callDur,'',20),callFrom:text(a.callFrom,'',20),draft:text(a.draft),messages:msgs(a.messages)};
+  a=raw.chat;d.chat={name:text(a.name,'',100),duration:text(a.duration,'00:12',20),returnTo:['chat','sms','video','lock'].includes(a.returnTo)?a.returnTo:'chat',unread:number(a.unread,0,0,9999),avatar:pic(a.avatar),avColor:color(a.avColor,d.chat.avColor),accent:color(a.accent,d.chat.accent),bg:Object.hasOwn(CHATBG,a.bg)?a.bg:'sky',bgImg:pic(a.bgImg),showName:bool(a.showName,false),top:bool(a.top,false),typing:bool(a.typing,false),callDur:text(a.callDur,'',20),callFrom:text(a.callFrom,'',20),draft:text(a.draft),messages:msgs(a.messages)};
   a=raw.sms;d.sms={name:text(a.name,'',100),duration:text(a.duration,'00:12',20),returnTo:['chat','sms','video','lock'].includes(a.returnTo)?a.returnTo:'chat',accent:color(a.accent,d.sms.accent),messages:msgs(a.messages)};
   a=raw.lock;if(!Array.isArray(a.notifs)||a.notifs.length>300)throw Error('Invalid notifications');d.lock={time:text(a.time,'21:47',50),date:text(a.date,'',100),font:Object.hasOwn(FONTS,a.font)?a.font:'sys',wall:Object.hasOwn(WALLS,a.wall)?a.wall:'night',wallImg:pic(a.wallImg),notifs:a.notifs.map(n=>{if(!n||!Object.hasOwn(APPS,n.app))throw Error('Invalid app');return {id:uid(),app:n.app,label:text(n.label,'',100),sender:text(n.sender,'',200),text:text(n.text),when:text(n.when,'',100)}})};
   if(raw.video!==undefined){const v=raw.video;if(!v||!Array.isArray(v.items)||v.items.length>100)throw Error('Invalid videos');d.video={name:text(v.name,'',100),handle:text(v.handle,'',100),subscribers:text(v.subscribers,'',150),description:text(v.description,'',1000),avatar:pic(v.avatar),banner:pic(v.banner),myAvatar:pic(v.myAvatar),videoCount:text(v.videoCount,'',60),labels:(l=>{const o={};if(l&&typeof l==='object'&&!Array.isArray(l))for(const [k,val] of Object.entries(l))if(/^[A-Za-z0-9]{1,30}$/.test(k)&&typeof val==='string'&&val.length<=100)o[k]=val;return o})(v.labels),items:v.items.map(x=>{if(!x||typeof x!=='object')throw Error('Invalid video');return {id:uid(),title:text(x.title,'',300),channel:text(x.channel,'',100),target:bool(x.target,false),meta:text(x.meta,'',200),duration:text(x.duration,'',30),theme:['city','warm','sea','forest','night'].includes(x.theme)?x.theme:'city',img:pic(x.img),avatar:pic(x.avatar),likes:text(x.likes,'',40),...vidFields(x)}})};
     if(Array.isArray(v.shorts)){if(v.shorts.length>100)throw Error('Invalid shorts');d.video.shorts=v.shorts.map(x=>{if(!x||typeof x!=='object')throw Error('Invalid short');return {id:uid(),title:text(x.title,'',300),meta:text(x.meta,'',200),theme:['city','warm','sea','forest','night'].includes(x.theme)?x.theme:'city',img:pic(x.img),...vidFields(x)}})}}
-  if(raw.talks!==undefined){if(!raw.talks||!Array.isArray(raw.talks.items)||raw.talks.items.length>100)throw Error('Invalid talks');d.talks.items=raw.talks.items.map(x=>{if(!x||typeof x!=='object')throw Error('Invalid talk');return {id:uid(),name:text(x.name,'',100),text:text(x.text),time:text(x.time,'',100),unread:Math.floor(number(x.unread,0,0,999)),color:color(x.color,'#6d9be5'),target:bool(x.target,false),img:pic(x.img)}})}
+  if(raw.talks!==undefined){if(!raw.talks||!Array.isArray(raw.talks.items)||raw.talks.items.length>100)throw Error('Invalid talks');d.talks.items=raw.talks.items.map(x=>{if(!x||typeof x!=='object')throw Error('Invalid talk');return {id:uid(),name:text(x.name,'',100),text:text(x.text),time:text(x.time,'',100),unread:Math.floor(number(x.unread,0,0,999)),color:color(x.color,'#6d9be5'),target:bool(x.target,false),img:pic(x.img),messages:Array.isArray(x.messages)?msgs(x.messages):[]}})}
   if(raw.sequence!==undefined){if(!raw.sequence||!Array.isArray(raw.sequence.steps)||!raw.sequence.steps.length||raw.sequence.steps.length>300)throw Error('Invalid scenes');d.sequence.steps=raw.sequence.steps.map(a=>{if(!a||!['lock','call','banner','outgoing','connected','ended'].includes(a.kind))throw Error('Invalid scene');return {kind:a.kind,count:Math.floor(number(a.count,0,0,300)),name:text(a.name,'',100),duration:text(a.duration,'00:12',20),returnTo:['chat','sms','video','lock'].includes(a.returnTo)?a.returnTo:'chat',app:a.app==='line'?'line':'kotoba'}})}
   a=raw.play;d.play={tap:bool(a.tap,true),hide:number(a.hide,2,0,300),nativeBars:bool(a.nativeBars,true)};d.export.size=raw.export.size==='std'?'std':'device';return d;
 }

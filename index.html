@@ -1,4 +1,4 @@
-<!doctype html><!-- build 2026-10-21 talkchat-n --><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><meta name="theme-color" content="#eef0f3"><meta name="description" content="撮影用のチャット・SMS・ロック画面を編集して、タップで再生。"><link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='9' fill='%234f7cff'/%3E%3Cpath d='M8 9h16v11H15l-6 5v-5H8z' fill='white'/%3E%3C/svg%3E"><style>body{margin:0}:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}img{max-width:100%}
+<!doctype html><!-- build 2026-10-21 talkbulk-o --><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><meta name="theme-color" content="#eef0f3"><meta name="description" content="撮影用のチャット・SMS・ロック画面を編集して、タップで再生。"><link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='9' fill='%234f7cff'/%3E%3Cpath d='M8 9h16v11H15l-6 5v-5H8z' fill='white'/%3E%3C/svg%3E"><style>body{margin:0}:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}img{max-width:100%}
 body{font-size:16px} .fld>span,.sec h3,.hint,.pv-note{font-size:14px}.btn.sm{font-size:14px}
 .transport{display:flex;flex-wrap:wrap;justify-content:center;gap:8px}#play-count{font-size:14px;color:var(--muted)}
 #fs.native-bars .sb,#fs.native-bars .sb-off,#fs.native-bars .home{display:none}
@@ -159,7 +159,7 @@ textarea.inp{resize:vertical;line-height:1.5}
 .c-body{flex:1;min-height:0;overflow:auto;display:flex;flex-direction:column;justify-content:safe flex-end;padding:10px 12px 12px;background-size:cover;background-position:center;--meta:rgba(0,0,0,.45);--nm:#4a4f59}
 .c-body.dk{--meta:rgba(255,255,255,.7);--nm:rgba(255,255,255,.85)}
 .c-body.c-start{justify-content:flex-start}
-.talk-row[data-talk-open]{cursor:pointer}.talk-row[data-talk-open]:active{background:#eef1f4}
+.bulk-inline{margin-top:16px;padding-top:14px;border-top:1px dashed #b9c4de}.bulk-inline h4{margin:0 0 8px;font-size:14px;color:#3c55b5}.talk-row[data-talk-open]{cursor:pointer}.talk-row[data-talk-open]:active{background:#eef1f4}
 .c-date{text-align:center;margin:14px 0 4px;flex:none}
 .c-date span,.c-sys{display:inline-block;background:rgba(0,0,0,.2);color:#fff;font-size:12px;padding:3px 12px;border-radius:12px}
 .c-sys{align-self:center;margin:10px 0 2px;max-width:320px;text-align:center}
@@ -563,7 +563,7 @@ function renderPages(){
  if(editing)menu='<div class="adds"><button class="btn pri" data-act="chapter-confirm">この内容で確定</button><button class="btn" data-act="page" data-v="preview">プレビューを見る →</button></div>';
  if(page==='chapter')menu='<button class="btn pri" data-act="page" data-v="modes">画面を選ぶ →</button>';
  if(page==='files')menu='<section class="sec"><h3>iCloud Driveで作品を持ち運ぶ</h3><p class="hint">自動同期ではありません。書き出したファイルを、もう一方の端末で読み込みます。</p><ol class="hint"><li>「全作品を書き出す」を押します。</li><li>共有画面で「ファイルに保存」→「iCloud Drive」を選びます。</li><li>もう一方の端末で「作品ファイルを読み込む」から同じファイルを選びます。</li></ol><p class="hint">読み込んだ章は追加されます。既存の章は上書きされません。繰り返し読み込むと章が増えます。撮影前に内容を確認してください。</p></section>'+ '<div class="file-actions"><button class="page-card" data-act="book-export">全作品を書き出す ↓</button><button class="page-card" data-act="save-script">この章だけを書き出す ↓</button><button class="page-card" data-act="load-script">作品ファイルを読み込む ↑</button><button class="page-card" data-act="ocr-photo">写真から下書きを作る（ロック画面）📷</button><p class="hint">「写真から下書きを作る」は、ロック画面のスクリーンショットの文字を自動で読み取ります（初回のみネット接続が必要）。読み間違いがあるので、できた章で必ず確認してください。この端末に自動保存されます。別の端末へ移すときは、書き出したファイルを読み込んでください。</p></div>';
- const APP_VER='2026.10.21-n';
+ const APP_VER='2026.10.21-o';
  if(page==='home'||page==='files')menu+=`<p class="hint app-ver">アプリのバージョン：${APP_VER}</p>`;
  document.getElementById('page-menu').innerHTML=menu;
  for(const el of document.querySelectorAll('#editor > .sec'))el.hidden=false;
@@ -957,8 +957,11 @@ function msgList(key){
   const endTyping=isChat?`<div class="typing-end"><span class="typing-end-t">一番最後のメッセージのあと</span>${chk('chat.typing','相手の「入力中…」（・・・）を出す')}<small>チェックしなければ出ません。</small></div>`:'';
   return `<div class="list" data-list="${key}.messages">${items}</div>${endTyping}<div class="adds"><button class="btn sm" data-act="add" data-list="${key}.messages" data-kind="them">＋ 相手</button><button class="btn sm" data-act="add" data-list="${key}.messages" data-kind="me">＋ 自分</button><button class="btn sm" data-act="add" data-list="${key}.messages" data-kind="image">＋ 画像</button><button class="btn sm" data-act="add" data-list="${key}.messages" data-kind="date">＋ 日付</button><button class="btn sm" data-act="add" data-list="${key}.messages" data-kind="call">＋ 通話履歴</button>${isChat?`<button class="btn sm" data-act="add" data-list="${key}.messages" data-kind="system">＋ お知らせ</button>`:''}</div>`;
 }
+function bulkInner(key){
+  return `<p class="hint">1行に1メッセージ。<code>相手: 本文</code> <code>自分: 本文</code>、時刻は末尾に <code>[21:30]</code>、日付の区切りは <code>--- 今日</code>${key==='chat'||key.indexOf('talks.')===0?'、お知らせは <code># 本文</code>':''}${key.indexOf('talks.')===0?`。<code>${esc(String(get(key).name||"相手の名前"))}: 本文</code> と書いても相手の発言になります`:''}。</p><textarea class="inp" id="bulk-${key}" rows="5" placeholder="--- 今日&#10;相手: 今どこ？ [21:32]&#10;自分: もうすぐ着く [21:35]"></textarea><div class="adds"><button class="btn sm" data-act="bulk" data-key="${key}" data-m="append">末尾に追加</button><button class="btn sm" data-act="bulk" data-key="${key}" data-m="replace">全部置き換え</button></div>`;
+}
 function bulkBox(key){
-  return sec('台本からまとめて入力',`<p class="hint">1行に1メッセージ。<code>相手: 本文</code> <code>自分: 本文</code>、時刻は末尾に <code>[21:30]</code>、日付の区切りは <code>--- 今日</code>${key==='chat'?'、お知らせは <code># 本文</code>':''}。</p><textarea class="inp" id="bulk-${key}" rows="5" placeholder="--- 今日&#10;相手: 今どこ？ [21:32]&#10;自分: もうすぐ着く [21:35]"></textarea><div class="adds"><button class="btn sm" data-act="bulk" data-key="${key}" data-m="append">末尾に追加</button><button class="btn sm" data-act="bulk" data-key="${key}" data-m="replace">全部置き換え</button></div>`);
+  return sec('台本からまとめて入力',bulkInner(key));
 }
 function notifList(){
   const items=S.lock.notifs.map((n,i)=>`<div class="it neutral" data-i="${i}"><div class="it-top"><select class="inp" data-f="app" aria-label="アプリ">${Object.entries(APPS).map(([k,a])=>`<option value="${k}"${n.app===k?' selected':''}>${a.n}</option>`).join('')}</select><input class="inp w" data-f="sender" data-hist="sender" list="hl-sender" value="${esc(n.sender)}" placeholder="差出人/タイトル" aria-label="差出人"><input class="inp time" data-f="when" value="${esc(n.when)}" placeholder="今" aria-label="時間表示"><button type="button" class="ib" data-act="up" aria-label="上へ">${eic('up')}</button><button type="button" class="ib" data-act="down" aria-label="下へ">${eic('down')}</button><button type="button" class="ib" data-act="del" aria-label="削除">${eic('x')}</button></div><label class="fld"><span>アプリ名（通知の一番上に出る文字）</span><input class="inp" data-f="label" data-hist="label" list="hl-label" value="${esc(n.label||'')}" placeholder="${esc((APPS[n.app]||APPS.chat).n)}"></label><textarea class="inp" data-f="text" rows="1" placeholder="本文">${esc(n.text)}</textarea></div>`).join('');
@@ -994,7 +997,7 @@ function renderEditor(){
   } else if(m==='talks'){
     h+=sec('トーク一覧',talksEditor());
     S.talks.items.forEach((x,i)=>{talkMsgs(x);const same=!x.messages.length&&x.name&&x.name===S.chat.name;
-      h+=sec(`${i+1}. ${x.name||'名前なし'}のトーク内容`,`<p class="hint">撮影で一覧の「${esc(x.name||'この人')}」をタップすると、ここの会話が開きます。${x.messages.length?'':same?'いまは空なので、「チャット」タブの会話がそのまま開きます。ここに入れた会話があれば、そちらが優先されます。':'いまは空なので、一覧の「最後のメッセージ」1件だけの会話になります。'}</p>`+msgList('talks.items.'+i),'この人をタップしたときに開く会話',{icon:'bubble',key:'talk:'+x.id})});
+      h+=sec(`${i+1}. ${x.name||'名前なし'}のトーク内容`,`<p class="hint">撮影で一覧の「${esc(x.name||'この人')}」をタップすると、ここの会話が開きます。${x.messages.length?'':same?'いまは空なので、「チャット」タブの会話がそのまま開きます。ここに入れた会話があれば、そちらが優先されます。':'いまは空なので、一覧の「最後のメッセージ」1件だけの会話になります。'}</p>`+msgList('talks.items.'+i)+`<div class="bulk-inline"><h4>台本からまとめて入力</h4>${bulkInner('talks.items.'+i)}</div>`,'この人をタップしたときに開く会話',{icon:'bubble',key:'talk:'+x.id})});
   } else {
     h+=sec('時計',row(fld('時刻',txt('lock.time','21:47')),fld('日付',txt('lock.date','9月28日 月曜日')))+'<div class="adds"><button class="btn sm" data-act="lock-now">今の日付と時刻にする</button></div>'+fld('文字のフォント（時計・日付・通知）',`<select class="inp" data-path="lock.font">${Object.entries(FONTS).map(([k,v])=>`<option value="${k}"${S.lock.font===k?' selected':''}>${v[0]}</option>`).join('')}</select>`));
     h+=sec('壁紙',`<div class="av-edit">${swatches('lock.wall',Object.entries(WALLS).map(([k,v])=>[k,WALLN[k],v]),'lock.wallImg')}${upl('壁紙画像','lock.wallImg')}${S.lock.wallImg?'<button class="btn sm ghost" data-act="clear" data-path="lock.wallImg">画像を外す</button>':''}</div>`);
@@ -1013,7 +1016,7 @@ function commit(re){if(editUndo){editUndo=null;document.getElementById('edit-und
 
 /* ---------- bulk parse ---------- */
 function parseBulk(t,key){
-  const out=[]; const name=key==='chat'?String(S.chat.name||'').trim():String(S.sms.name||'').trim();
+  const out=[]; const name=String((key==='chat'?S.chat:key==='sms'?S.sms:get(key)).name||'').trim();
   t.split(/\r?\n/).forEach(line=>{
     let s=line.trim(); if(!s) return;
     let m;
@@ -1213,7 +1216,7 @@ document.addEventListener('click',e=>{
     case 'bulk': {
       const key=b.dataset.key, ta=document.getElementById('bulk-'+key); const arr=parseBulk(ta.value,key);
       if(!arr.length){toast('入力が空です');break}
-      if(b.dataset.m==='replace') S[key].messages=arr; else S[key].messages.push(...arr);
+      if(b.dataset.m==='replace') set(key+'.messages',arr); else get(key+'.messages').push(...arr);
       commit(true); toast(arr.length+'件のメッセージを入れました'); break;
     }
     case 'reset':

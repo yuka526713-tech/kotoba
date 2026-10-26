@@ -1,4 +1,4 @@
-<!doctype html><!-- build 2026-10-25 kana-u --><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><meta name="theme-color" content="#eef0f3"><meta name="description" content="撮影用のチャット・SMS・ロック画面を編集して、タップで再生。"><link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='9' fill='%234f7cff'/%3E%3Cpath d='M8 9h16v11H15l-6 5v-5H8z' fill='white'/%3E%3C/svg%3E"><style>body{margin:0}:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}img{max-width:100%}
+<!doctype html><!-- build 2026-10-26 kana-z --><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><meta name="theme-color" content="#eef0f3"><meta name="description" content="撮影用のチャット・SMS・ロック画面を編集して、タップで再生。"><link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='9' fill='%234f7cff'/%3E%3Cpath d='M8 9h16v11H15l-6 5v-5H8z' fill='white'/%3E%3C/svg%3E"><style>body{margin:0}:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}img{max-width:100%}
 body{font-size:16px} .fld>span,.sec h3,.hint,.pv-note{font-size:14px}.btn.sm{font-size:14px}
 .transport{display:flex;flex-wrap:wrap;justify-content:center;gap:8px}#play-count{font-size:14px;color:var(--muted)}
 #fs.native-bars .sb,#fs.native-bars .sb-off,#fs.native-bars .home{display:none}
@@ -160,7 +160,7 @@ textarea.inp{resize:vertical;line-height:1.5}
 .c-body.dk{--meta:rgba(255,255,255,.7);--nm:rgba(255,255,255,.85)}
 .c-body.c-start{justify-content:flex-start}
 u.comp{text-decoration:underline;text-decoration-thickness:1.6px;text-underline-offset:3px;text-decoration-color:#4b5360}u.comp.sel{background:#cfdcff;border-radius:3px;text-decoration-color:#3b64d8}
-.prop-kb-top .cands{display:flex;flex:1;min-width:0;overflow:hidden;align-items:center;height:100%}.prop-kb-top .cand{border:0;background:none;color:#172132;font:inherit;font-size:16px;padding:0 13px;height:22px;line-height:22px;border-right:1px solid #aeb4c0;white-space:nowrap;max-width:62%;overflow:hidden;text-overflow:ellipsis;cursor:pointer}.prop-kb-top .cand.first{font-weight:600}.prop-kb-top .kb-label{padding:0 4px}
+.prop-kb-top .cands{display:flex;flex:1;min-width:0;overflow:hidden;align-items:center;height:100%}.prop-kb-top .cand{border:0;background:none;color:#000;font:inherit;font-size:19px;padding:0 13px;height:32px;line-height:32px;border-right:1px solid #b9bcc4;flex:0 1 auto;white-space:nowrap;max-width:none;overflow:hidden;text-overflow:ellipsis;cursor:pointer}.prop-kb-top .cand.first{font-weight:600}.prop-kb-top .kb-label{padding:0 4px}
 .bulk-inline{margin-top:16px;padding-top:14px;border-top:1px dashed #b9c4de}.bulk-inline h4{margin:0 0 8px;font-size:14px;color:#3c55b5}.talk-row[data-talk-open]{cursor:pointer}.talk-row[data-talk-open]:active{background:#eef1f4}
 .c-date{text-align:center;margin:14px 0 4px;flex:none}
 .c-date span,.c-sys{display:inline-block;background:rgba(0,0,0,.2);color:#fff;font-size:12px;padding:3px 12px;border-radius:12px}
@@ -254,10 +254,43 @@ body.playing{overflow:hidden}
 .chapter-bar{margin:0 0 20px;padding:18px 20px;background:var(--panel);border:1px solid var(--line);border-radius:14px}.chapter-fields{display:flex;gap:14px;flex-wrap:wrap}.chapter-fields .fld{flex:1;min-width:180px}.chapter-bar .hint{margin:8px 0 0}.chapter-bar #chapter-status{color:var(--muted);min-height:18px}</style><style>
 #fs .c-field,#fs .s-field{cursor:text;height:auto;min-height:38px;max-height:95px;overflow:auto;color:#111}#fs .c-field .tx{white-space:pre-wrap;overflow-wrap:anywhere}#fs .c-in-row{gap:8px}
 #fs .typing-active .tx:after,#fs .typing-active>span:after{content:'';display:inline-block;height:1.1em;width:2px;background:#4f7cff;vertical-align:-2px;margin-left:2px}
+:root{--kbbg:#dcdfe4}
+.prop-keyboard{flex:none;position:relative;background:var(--kbbg);color:#000;touch-action:manipulation;border-radius:30px 30px 0 0;box-shadow:0 -1px 0 rgba(255,255,255,.8),0 -10px 28px rgba(0,0,0,.07);font-family:-apple-system,BlinkMacSystemFont,"Hiragino Sans","Hiragino Kaku Gothic ProN","Noto Sans JP",sans-serif}
+#fs:not(.kb-inset) .prop-keyboard{border-radius:30px}
+.prop-kb-top{height:56px;display:flex;align-items:center;color:#000;padding:0 16px}
+.prop-kb-top .kb-hide{display:none}
+.prop-keys{position:relative;display:grid;grid-template-columns:repeat(5,1fr);grid-template-rows:repeat(4,47px);gap:7px 6px;padding:0 7px 4px}
+.prop-keys button{background:#f8f9fb;color:#000;border:0;border-radius:13px;box-shadow:none;font:inherit;font-size:25px;font-weight:300;padding:0;cursor:pointer;display:grid;place-items:center;touch-action:manipulation;min-width:0;line-height:1;-webkit-tap-highlight-color:transparent;user-select:none;-webkit-user-select:none}
+.prop-keys button:active{background:#e4e6ea}
+.prop-keys button svg{width:26px;height:26px}
+.prop-keys .utility{font-weight:400}
+.prop-keys .sm{font-size:17px;font-weight:400}
+.prop-keys .tall{grid-column:5;grid-row:3/span 2}
+.prop-keys .dis svg{opacity:.36}
+.prop-keys button[data-fl]{touch-action:none}
+.prop-keys .wun{display:block;width:15px;height:1.6px;background:#222;margin:2px auto 0}
+.prop-keys button[data-k="わ"]{display:flex;flex-direction:column;align-items:center;justify-content:center}
+.prop-keys.flicking>button{color:rgba(0,0,0,.3)}.prop-keys.flicking>button svg{opacity:.3}
+.fl-ov{position:absolute;left:0;top:0;width:0;height:0;z-index:6;pointer-events:none}
+.fl-tile{position:absolute;display:grid;place-items:center;background:#fbfbfc;color:#000;font-size:28px;font-weight:300;box-shadow:0 0 0 .5px rgba(0,0,0,.14);border-radius:10px;box-sizing:border-box}
+.fl-tile.on{background:#e3e5e9}
+.fl-tile.up{box-shadow:0 -3px 10px rgba(0,0,0,.15),0 0 0 .5px rgba(0,0,0,.14)}
+.prop-keys.qw{display:flex;flex-direction:column;gap:7px;padding:0 4px 4px}
+.prop-keys .qr{display:flex;gap:6px;height:47px}
+.prop-keys .qr.mid{padding:0 5%}
+.prop-keys .qr button{flex:1 1 0;min-width:0}
+.prop-keys .qr .lt{font-size:23px;font-weight:400}
+.prop-keys .qr .w14{flex:1.45 1 0}.prop-keys .qr .w13{flex:1.3 1 0;font-size:15px}.prop-keys .qr .w2{flex:2 1 0}.prop-keys .qr .sp{flex:4.2 1 0;font-size:17px;font-weight:400}
+.prop-keys .qr .utility.on{background:#c9ccd3}
+.prop-kb-top .cand.on{background:#fff;color:#000;border-radius:7px;border-right-color:transparent}
+.prop-kb-bottom,#kbInset{display:flex;justify-content:space-between;align-items:center;padding:0 30px;box-sizing:border-box}
+.prop-kb-bottom{height:50px}
+#kbInset{align-items:flex-start;padding-top:2px}
+.prop-kb-bottom svg,#kbInset svg{width:28px;height:28px}
+#fs.kb-inset .prop-kb-bottom{display:none}
+#kbInset{position:absolute;left:0;right:0;bottom:0;background:var(--kbbg);z-index:3;pointer-events:none}
+#kbInset[hidden]{display:none}
 #fs .prop-send{padding:0;border:0;cursor:pointer}#fs .prop-send:disabled{opacity:.3}
-.prop-keyboard{flex:none;background:#d5d8de;color:#111;padding:0 6px 4px;touch-action:manipulation}
-.prop-kb-top{height:32px;display:flex;align-items:center;justify-content:space-between;padding:0 10px;color:#4b5360;font-size:14px}.prop-kb-top button{background:none;border:0;font-size:24px;padding:0 10px;cursor:pointer}
-.prop-keys{display:grid;grid-template-columns:repeat(3,1fr) .8fr;gap:6px}.prop-keys button{height:43px;background:#fff;color:#172132;border:0;border-radius:6px;box-shadow:0 1px 1px #858b99;font-size:21px;cursor:pointer;padding:0;touch-action:manipulation}.prop-keys button:active{background:#b7c8ee}.prop-keys .utility{background:#b9bfcb;font-size:14px}.prop-keys .send-key{background:#4f7cff;color:#fff}.prop-keys .send-key:disabled{background:#b9bfcb;color:#657080;box-shadow:none}.prop-kb-bottom{display:flex;justify-content:space-between;align-items:center;height:29px;padding:0 12px;font-size:13px;color:#4f5866}
 .call-screen{height:100%;position:relative;color:#fff;background:linear-gradient(160deg,#182337,#36475a 55%,#15202e);display:flex;flex-direction:column}.call-person{text-align:center;padding:62px 24px 20px}.call-avatar{width:100px;height:100px;border-radius:50%;background:#ffffff20;margin:0 auto 24px;display:grid;place-items:center;font-size:44px}.call-name{font-size:34px;line-height:1.3;overflow-wrap:anywhere}.call-label{font-size:18px;color:#d2dbe5;margin-top:12px}.call-actions{display:flex;justify-content:space-between;text-align:center;margin-top:auto;padding:30px 48px 72px;font-size:14px}.call-circle{width:76px;height:76px;border-radius:50%;display:grid;place-items:center;margin-bottom:14px}.decline{background:#ed4b55;transform:rotate(135deg)}.accept{background:#32be75}#fs.lock-wallpaper .call-screen,#fs.lock-wallpaper .scr-call{background:transparent}.tabs{flex-wrap:wrap}
 .chapter-bar{margin:0 0 20px;padding:18px 20px;background:var(--panel);border:1px solid var(--line);border-radius:14px}.chapter-fields{display:flex;gap:14px;flex-wrap:wrap}.chapter-fields .fld{flex:1;min-width:180px}.chapter-bar .hint{margin:8px 0 0}.chapter-bar #chapter-status{color:var(--muted);min-height:18px}</style><style>
 #fs.lock-wallpaper .scr-lock,#fs.lock-wallpaper .lk{background:transparent !important}
@@ -368,6 +401,7 @@ details.sec.fold>.sec-body{padding:14px 16px 16px;display:flex;flex-direction:co
 .line-call{--lg-in:linear-gradient(180deg,#7d7d7d 0%,#7c7d7d 15%,#7a7b7a 30%,#7a7976 45%,#797773 60%,#767774 75%,#757978 90%,#757a7a 100%);--lg-on:linear-gradient(180deg,#7d7d7d 0%,#7c7d7d 15%,#777878 30%,#6d6d6a 45%,#605f5a 60%,#5a5853 75%,#585853 88%,#545959 100%);height:100%;position:relative;color:#fff;display:flex;flex-direction:column;overflow:hidden;font-family:-apple-system,BlinkMacSystemFont,"Hiragino Sans","Hiragino Kaku Gothic ProN","Noto Sans JP",sans-serif;-webkit-user-select:none;user-select:none;-webkit-touch-callout:none}
 .line-call.call{background:var(--lg-in);padding-bottom:66px}
 .line-call.connected,.line-call.ended{background:var(--lg-on);padding-bottom:50px}
+.line-call.declined{background:var(--lg-in);padding-bottom:50px}
 #fs.native-bars .line-call.call{padding-bottom:35px}#fs.native-bars .line-call.connected,#fs.native-bars .line-call.ended{padding-bottom:19px}
 #fs.native-bars .line-island,#fs.native-bars .line-mic{display:none}
 .line-call .sb{position:relative;z-index:2}.line-call .sb-l{display:flex;align-items:center;gap:6px;min-width:0}
@@ -399,6 +433,7 @@ details.sec.fold>.sec-body{padding:14px 16px 16px;display:flex;flex-direction:co
 .line-call.ended .line-btn svg{opacity:.5}
 .line-call.ended .line-btn.red svg{opacity:.55}
 .line-call.noanswer .line-head{color:rgba(255,255,255,.52)}
+.line-call.declined .line-head{color:rgba(255,255,255,.42)}.line-call.declined .line-name{opacity:.62}
 .call-screen.cc{background:#3f5870;overflow:hidden;align-items:center}#fs.in-call{padding-top:0!important;padding-bottom:0!important}
 .cc>*{position:relative;z-index:1}
 .cc>.cc-bg{position:absolute;inset:-60px;background-size:cover;background-position:center;filter:blur(38px) saturate(1.15);z-index:0}
@@ -443,7 +478,7 @@ details.sec.fold>.sec-body{padding:14px 16px 16px;display:flex;flex-direction:co
   </div>
 </div>
 
-<div id="fs" hidden><div id="fsScreen"></div><button id="fsExit" aria-label="全画面を閉じる" title="編集に戻る">×</button></div>
+<div id="fs" hidden><div id="fsScreen"></div><div id="kbInset" hidden><svg viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="1.5" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><ellipse cx="12" cy="12" rx="4" ry="9"/><path d="M3 12h18M4.4 7.6h15.2M4.4 16.4h15.2"/></svg><svg viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="1.6" stroke-linecap="round"><rect x="9" y="2.8" width="6" height="11.4" rx="3"/><path d="M5.4 11.2a6.6 6.6 0 0 0 13.2 0M12 17.8V21.2"/></svg></div><button id="fsExit" aria-label="全画面を閉じる" title="編集に戻る">×</button></div>
 <div id="modal" hidden><div class="mbox"><p id="mtext"></p><div class="mlist" id="mlist"></div><button class="btn" data-act="mclose">閉じる</button></div></div>
 <div id="stage"></div>
 
@@ -17030,7 +17065,7 @@ function defaults(){
     ]},
     talks:{items:[{id:uid(),name:'美咲',text:'駅の東口で待ってるね。',time:'21:45',unread:2,color:'#e58a6d',target:true,img:null},{id:uid(),name:'高橋 健',text:'了解です。',time:'20:18',unread:0,color:'#6d9be5',target:false,img:null},{id:uid(),name:'お母さん',text:'気をつけて帰ってきてね',time:'昨日',unread:0,color:'#9b7be0',target:false,img:null}]},
     sequence:{steps:[{kind:'lock',count:0,name:'美咲'},{kind:'lock',count:1,name:'美咲'},{kind:'call',count:1,name:'美咲'}]},
-    play:{tap:true,hide:2,nativeBars:true,kana:true},
+    play:{tap:true,hide:2,nativeBars:true,kana:true,script:true},
     export:{size:'device'}
   };
 }
@@ -17088,7 +17123,7 @@ function renderPages(){
  if(editing)menu='<div class="adds"><button class="btn pri" data-act="chapter-confirm">この内容で確定</button><button class="btn" data-act="page" data-v="preview">プレビューを見る →</button></div>';
  if(page==='chapter')menu='<button class="btn pri" data-act="page" data-v="modes">画面を選ぶ →</button>';
  if(page==='files')menu='<section class="sec"><h3>iCloud Driveで作品を持ち運ぶ</h3><p class="hint">自動同期ではありません。書き出したファイルを、もう一方の端末で読み込みます。</p><ol class="hint"><li>「全作品を書き出す」を押します。</li><li>共有画面で「ファイルに保存」→「iCloud Drive」を選びます。</li><li>もう一方の端末で「作品ファイルを読み込む」から同じファイルを選びます。</li></ol><p class="hint">読み込んだ章は追加されます。既存の章は上書きされません。繰り返し読み込むと章が増えます。撮影前に内容を確認してください。</p></section>'+ '<div class="file-actions"><button class="page-card" data-act="book-export">全作品を書き出す ↓</button><button class="page-card" data-act="save-script">この章だけを書き出す ↓</button><button class="page-card" data-act="load-script">作品ファイルを読み込む ↑</button><button class="page-card" data-act="ocr-photo">写真から下書きを作る（ロック画面）📷</button><p class="hint">「写真から下書きを作る」は、ロック画面のスクリーンショットの文字を自動で読み取ります（初回のみネット接続が必要）。読み間違いがあるので、できた章で必ず確認してください。この端末に自動保存されます。別の端末へ移すときは、書き出したファイルを読み込んでください。</p></div>';
- const APP_VER='2026.10.25-u';
+ const APP_VER='2026.10.26-z';
  if(page==='home'||page==='files')menu+=`<p class="hint app-ver">アプリのバージョン：${APP_VER}</p>`;
  document.getElementById('page-menu').innerHTML=menu;
  for(const el of document.querySelectorAll('#editor > .sec'))el.hidden=false;
@@ -17146,7 +17181,10 @@ function sb(light,leftText,after,opt){
 }
 
 /* ---------- visible slice for playback ---------- */
-function vis(list,o){return (o.reveal==null?list:list.slice(0,o.reveal)).filter(m=>!(m.draftOnly&&m.from==='me'&&m.type==='text'))}
+let typedOv={},freeExtra=[],fxN=0;
+function withExtra(base){if(!freeExtra.length)return base;const out=[];for(let k=0;k<=base.length;k++){for(const x of freeExtra)if(x.at===k)out.push(x.msg);if(k<base.length)out.push(base[k])}return out}
+function baseAt(i){return withExtra(S.mode==='sms'?S.sms.messages:S.chat.messages).slice(0,i).filter(m=>!m.x).length}
+function vis(list,o){if(freeExtra.length&&(list===S.chat.messages||list===S.sms.messages))list=withExtra(list);return (o.reveal==null?list:list.slice(0,o.reveal)).filter(m=>!(m.draftOnly&&m.from==='me'&&m.type==='text')).map(m=>m.from==='me'&&typedOv[m.id]!=null?{...m,text:typedOv[m.id]}:m)}
 function isMsg(m){return m.type!=='date'&&m.type!=='system'}
 
 function avatarHtml(c,size){
@@ -17186,11 +17224,11 @@ function chatScreen(o){
     const cont=prev==='them';
     out+=`<div class="c-row them${cont?' cont':''}">${cont?'<div class="c-av sp"></div>':avatarHtml(c)}<div class="c-col"><div class="c-line"><div class="bub dots"><i></i><i></i><i></i></div></div></div></div>`;
   }
-  const d=o.live?(typing.text||(compView()?compView().comp:'')):c.draft;
+  const d=o.live?(typing.text||(compView()?compView().comp:'')||freeCompText()):c.draft;
   return `<div class="c-head">${sb(false)}<div class="c-bar"><div class="c-back" data-chat-back>${ic('back',26,'#1d1d1f',2.2)}${c.unread?`<span>${esc(c.unread)}</span>`:''}</div><div class="c-title">${esc(c.name)}</div><div class="c-icons">${ic('search',22,'#1d1d1f')}${o.noCall?`<span style="padding:8px;display:inline-flex">${ic('phone',22,'#1d1d1f')}</span>`:`<button data-chat-call aria-label="通話メニューを開く" style="border:0;background:none;padding:8px;color:inherit">${ic('phone',22,'#1d1d1f')}</button>`}${ic('menu',22,'#1d1d1f')}</div></div></div>`
    +(o.live&&chatCallMenu?`<div class="c-callbar${dk?' dk':''}"><button type="button" data-chat-call-go aria-label="音声通話をかける">${ic('phone',26,'currentColor',1.8)}<small>音声通話</small></button><button type="button" data-chat-call-video aria-label="ビデオ通話">${ic('vcam',26,'currentColor',1.8)}<small>ビデオ通話</small></button></div>`:'')
    +`<div class="c-body${dk?' dk':''}${c.top?' c-start':''}" style="${bg};--acc:${c.accent}">${out}</div>`
-   +`<div class="c-in"><div class="c-in-row">${ic('plus',24,'#555b66')}${ic('camera',24,'#555b66')}${ic('image',24,'#555b66')}<div class="c-field${d?'':' ph'}${o.live&&typing.open?' typing-active':''}" ${o.live?'role="button" tabindex="0" aria-label="台本を入力"':''}><span class="tx">${d?(o.live?typingHtml():nl(esc(d))):'メッセージを入力'}</span>${ic('smile',20,'#8a8f99')}</div>${o.live?`<button class="prop-send c-send" aria-label="送信" ${canSend()?'':'disabled'} style="background:${c.accent}">${ic('send',17,'#fff',2)}</button>`:d?`<div class="c-send" style="background:${c.accent}">${ic('send',17,'#fff',2)}</div>`:ic('mic',24,'#555b66')}</div><div class="home"><i></i></div></div>`;
+   +`<div class="c-in"><div class="c-in-row">${o.live&&typing.open?ic('chevR',24,'#555b66',2.2):ic('plus',24,'#555b66')+ic('camera',24,'#555b66')+ic('image',24,'#555b66')}<div class="c-field${d?'':' ph'}${o.live&&typing.open?' typing-active':''}" ${o.live?'role="button" tabindex="0" aria-label="台本を入力"':''}><span class="tx">${d?(o.live?typingHtml():nl(esc(d))):'メッセージを入力'}</span>${ic('smile',20,'#8a8f99')}</div>${o.live?`<button class="prop-send c-send" aria-label="送信" ${canSend()?'':'disabled'} style="background:${c.accent}${typing.open&&!d?';display:none':''}">${ic('send',17,'#fff',2)}</button>${typing.open&&!d?ic('mic',24,'#555b66'):''}`:d?`<div class="c-send" style="background:${c.accent}">${ic('send',17,'#fff',2)}</div>`:ic('mic',24,'#555b66')}</div><div class="home"><i></i></div></div>`;
 }
 function smsScreen(o){
   const s=S.sms, list=vis(s.messages,o);
@@ -17210,7 +17248,7 @@ function smsScreen(o){
   const avIn=/^[\d+\-() ]+$/.test(nm)||!nm?ic('person',28,'#fff',1.8):esc(initial(nm));
   return `<div class="s-head">${sb(false)}<div class="s-bar"><div>${ic('back',26,s.accent,2.2)}</div><div class="s-who"><div class="s-av">${avIn}</div><div class="s-name">${esc(nm||'不明')}${ic('chevR',10,'#8a8a8e',2.4)}</div></div><div class="s-right">${ic('phone',22,s.accent)}</div></div></div>`
    +`<div class="s-body" style="--sacc:${s.accent}">${out}</div>`
-   +`<div class="s-in"><div class="s-in-row"><div class="s-plus">${ic('plus',20,'#555',2)}</div><div class="s-field${o.live&&typing.open?' typing-active':''}" ${o.live?'role="button" tabindex="0" aria-label="台本を入力"':''}><span>${o.live&&(typing.text||compView())?typingHtml():'テキストメッセージ'}</span>${ic('mic',18,'#9a9aa0')}</div>${o.live?`<button class="prop-send c-send" aria-label="送信" ${canSend()?'':'disabled'} style="background:${s.accent}">${ic('send',17,'#fff',2)}</button>`:''}</div><div class="home"><i></i></div></div>`;
+   +`<div class="s-in"><div class="s-in-row"><div class="s-plus">${ic('plus',20,'#555',2)}</div><div class="s-field${o.live&&typing.open?' typing-active':''}" ${o.live?'role="button" tabindex="0" aria-label="台本を入力"':''}><span>${o.live&&(typing.text||compView()||freeCompText())?typingHtml():'テキストメッセージ'}</span>${ic('mic',18,'#9a9aa0')}</div>${o.live?`<button class="prop-send c-send" aria-label="送信" ${canSend()?'':'disabled'} style="background:${s.accent}">${ic('send',17,'#fff',2)}</button>`:''}</div><div class="home"><i></i></div></div>`;
 }
 const HIST_KEY='kotoba-hist';
 function histGet(k){try{const o=JSON.parse(localStorage.getItem(HIST_KEY)||'{}');return Array.isArray(o[k])?o[k]:[]}catch(e){return[]}}
@@ -17385,17 +17423,17 @@ const LI={
 };
 function parseClock(s){const m=String(s||'').match(/^(\d{1,3}):(\d{2})$/);return m?(+m[1]*60+ +m[2])*1000:1000}
 function sceneKindOf(sc){return callOverride?.n===play.n&&!fs.hidden?callOverride.kind:sc.kind}
-function lineState(){if(S.mode!=='sequence')return null;const sc=sceneAt(play.n);const k=sceneKindOf(sc);return (sc.app==='line'||k==='noanswer')&&['call','connected','ended','outgoing','noanswer'].includes(k)?k:null}
+function lineState(){if(S.mode!=='sequence')return null;const sc=sceneAt(play.n);const k=sceneKindOf(sc);return (sc.app==='line'||k==='noanswer'||k==='declined')&&['call','connected','ended','outgoing','noanswer','declined'].includes(k)?k:null}
 let lineT0=0,lineTimer=null;
 function stopLineTimer(){if(lineTimer){clearInterval(lineTimer);lineTimer=null}lineT0=0}
 function syncLineTimer(){const sc=sceneAt(play.n);if(fs.hidden||lineState()!=='connected'){stopLineTimer();return}if(!lineTimer){lineT0=Date.now()-parseClock(sc.duration);lineTimer=setInterval(()=>{const el=document.querySelector('.line-timer');if(el)el.textContent=fmtClock(Date.now()-lineT0)},300);const el=document.querySelector('.line-timer');if(el)el.textContent=fmtClock(Date.now()-lineT0)}}
 function lineCallScreen(scene,kind,o={}){
  const name=esc(scene.name||S.chat.name||'');
  const clock=fmtClock(lineTimer&&o.live?Date.now()-lineT0:parseClock(scene.duration));
- const head=kind==='connected'?`オーディオ – <span class="line-timer">${clock}</span>`:kind==='ended'?'オーディオ終了':kind==='outgoing'?'呼び出し中…':kind==='noanswer'?'応答がありません':'オーディオ…';
+ const head=kind==='connected'?`オーディオ – <span class="line-timer">${clock}</span>`:kind==='ended'?'オーディオ終了':kind==='outgoing'?'呼び出し中…':kind==='noanswer'?'応答がありません':kind==='declined'?'オーディオ拒否':'オーディオ…';
  const cls=kind==='outgoing'?'connected outgoing':kind==='noanswer'?'ended noanswer':kind;
  const cell=(btn,label,red)=>`<div class="line-cell">${red&&kind==='connected'?`<button type="button" class="line-btn red" data-call="ended" aria-label="終了">${btn}</button>`:`<div class="line-btn${red?' red':''}">${btn}</div>`}<span class="line-lbl">${label}</span></div>`;
- const body=kind==='call'
+ const body=kind==='declined'?'':kind==='call'
   ?`<div class="line-act"><div class="line-sm"><div class="line-btn">${LI.chat}</div><span class="line-lbl">メッセージを<br>送信</span></div><div class="line-sm"><div class="line-btn">${LI.alarm}</div><span class="line-lbl">あとで通知</span></div></div><div class="line-slide"><div class="line-handle" role="button" aria-label="スライドで応答">${LI.chev}</div><span class="line-st">スライドで応答</span></div>`
   :`<div class="line-grid">${cell(LI.spk,'オーディオ')}${cell(LI.vid,'ビデオ')}${cell(LI.mic,'消音')}${cell(LI.dots,'その他')}${cell(LI.end,'終了',1)}${cell(LI.pad,'キーパッド')}</div>`;
  return `<div class="line-call ${cls}">${sb(true,null,LI.bell,{net:'5G',batNum:1})}<div class="line-island">${LI.lock}${kind==='connected'?'<i></i>':''}</div>${kind==='ended'?'<span class="line-mic"></span>':''}<div class="line-head"><span>${head}</span></div><div class="line-name">${name}</div><div class="line-sp"></div>${body}</div>`;
@@ -17414,7 +17452,7 @@ function missedScreen(scene,o){
 function goCall(kind){const next=S.sequence.steps.findIndex((v,i)=>i>play.n&&v.kind===kind);if(next>=0){play.n=next;callOverride=null}else{callOverride={n:play.n,kind}}layoutFs(false)}
 function callScreen(scene,o={}){const kind=callOverride?.n===play.n&&!fs.hidden?callOverride.kind:scene.kind;const active=kind==='connected',ended=kind==='ended',outgoing=kind==='outgoing';
 if(kind==='noanswer-back')return destScreen(scene,o,{type:'call',from:'me',text:scene.note||'応答なし',time:S.status.time,read:false},null);
-if((scene.app==='line'||kind==='noanswer')&&['call','connected','ended','outgoing','noanswer'].includes(kind))return lineCallScreen(scene,kind,o);
+if((scene.app==='line'||kind==='noanswer'||kind==='declined')&&['call','connected','ended','outgoing','noanswer','declined'].includes(kind))return lineCallScreen(scene,kind,o);
 if(ended){const dest=scene.returnTo||'chat';if(dest==='video')return videoScreen({...o,reveal:0});if(dest==='sms')return smsScreen({...o,reveal:null});if(dest==='lock')return lockScreen({...o,reveal:scene.count});return chatScreen({...o,reveal:null,chat:{...S.chat,name:scene.name||S.chat.name,typing:false,messages:[...S.chat.messages,{type:'call',from:'me',text:'音声通話 '+(scene.duration||'00:12'),time:S.status.time,read:false}]}});}
 if(kind==='banner')return `<div style="height:100%;position:relative">${scene.returnTo==='sms'?smsScreen({...o,reveal:null}):videoScreen({...o,reveal:0})}<div style="position:absolute;top:58px;left:8px;right:8px;padding:14px;background:#f5f5f8;color:#151515;border-radius:22px;box-shadow:0 4px 24px #0003;display:flex;align-items:center;gap:12px"><span style="flex:1"><small>${esc(S.phone.chatName)} 音声通話</small><br><b>${esc(scene.name)}</b></span><button class="call-circle decline" style="width:44px;height:44px;margin:0;border:0" data-call="ended">${ic('phone',24,'white')}</button><button class="call-circle accept" style="width:44px;height:44px;margin:0;border:0" data-call="connected">${ic('phone',24,'white')}</button></div></div>`;
 return `<div class="call-screen">${sb(true)}<div class="call-person"><div class="call-avatar">${esc(initial(scene.name))}</div><div class="call-name">${esc(scene.name)}</div><div class="call-label">${active?'通話中 · '+esc(scene.duration||'00:12'):ended?'通話終了':outgoing?'呼び出し中':esc(S.phone.chatName)+' 音声通話'}</div></div>${active?'<div style="display:flex;justify-content:space-evenly;text-align:center;color:white"><span>マイク<br>オン</span><span>スピーカー<br>オフ</span></div>':''}<div class="call-actions" style="justify-content:${active||ended||outgoing?'center':'space-between'}">${ended?'<div>通話が終了しました</div>':`<div><button type="button" style="border:0" class="call-circle decline" data-call="ended" aria-label="${active?'通話を終了':'拒否'}">${ic('phone',32,'#fff')}</button><span>${active?'終了':'拒否'}</span></div>${active||outgoing?'':`<div><button type="button" style="border:0" class="call-circle accept" data-call="connected" aria-label="応答">${ic('phone',32,'#fff')}</button><span>応答</span></div>`}`}</div><div class="home light"></div></div>`}
@@ -17485,7 +17523,7 @@ function msgList(key){
     if(msg) top+=`<input class="inp time" data-f="time" value="${esc(m.time)}" placeholder="時刻" aria-label="時刻">`;
     if(msg&&m.from==='me') top+=`<label class="chk" style="font-size:12px"><input type="checkbox" data-f="read"${m.read?' checked':''}>既読</label>`;
     if(msg&&m.from==='me'&&m.type==='text'&&!nested){const ay=autoYomi(m.text||'');top+=`<label class="fld" style="flex:1 1 100%"><span>入力シーンで打つ仮名（空欄＝自動で読みを付けます。直したいときだけ入力。改行は台詞と同じ位置で）</span><input class="inp" data-f="yomi" value="${esc(m.yomi||'')}" placeholder="${ay&&ay!==m.text?'自動：'+esc(ay.replace(/\n/g,' / ')):'例：りょうかいです'}"></label>`}
-    if(msg&&m.from==='me'&&m.type==='text'&&!nested)top+=`<button type="button" class="btn sm" data-act="type-scene">入力シーン</button><label class="chk"><input type="checkbox" data-f="draftOnly"${m.draftOnly?' checked':''}>入力後に消す（送信しない）</label>${m.draftOnly?'<button type="button" class="btn sm" data-act="erase-scene">入力済みから削除シーン</button>':''}`;
+    if(msg&&m.from==='me'&&m.type==='text'&&!nested)top+=`<label class="chk" style="flex:1 1 100%;font-size:13px"><input type="checkbox" data-path="play.script"${S.play.script!==false?' checked':''}><span><b>台本どおりに出す</b>　チェックを外す＝普通のキーボード（押したキーの文字が入る）</span></label><button type="button" class="btn sm" data-act="type-scene">入力シーン</button><label class="chk"><input type="checkbox" data-f="draftOnly"${m.draftOnly?' checked':''}>入力後に消す（送信しない）</label>${m.draftOnly?'<button type="button" class="btn sm" data-act="erase-scene">入力済みから削除シーン</button>':''}`;
     top+=`<span class="grow"></span><button type="button" class="ib" data-act="up" aria-label="上へ">${eic('up')}</button><button type="button" class="ib" data-act="down" aria-label="下へ">${eic('down')}</button><button type="button" class="ib" data-act="del" aria-label="削除">${eic('x')}</button></div>`;
     let body;
     if(m.type==='image') body=`<div class="av-edit"><div class="thumb" style="${m.img?`background-image:url(${m.img})`:''}"></div>${upl('画像を選ぶ','msgimg')}</div>`;
@@ -17508,7 +17546,7 @@ function notifList(){
   const dl=k=>`<datalist id="hl-${k}">${histGet(k).map(x=>`<option value="${esc(x)}">`).join('')}</datalist>`;
   return `${dl('label')}${dl('sender')}<p class="hint">台本は上から順に届きます。画面では最新の通知が一番上に表示されます。「アプリ名」は空欄なら標準の名前になります。以前に入力した名前は、入力欄をタップすると候補に出ます。</p><div class="list" data-list="lock.notifs">${items}</div><div class="adds"><button class="btn sm" data-act="nadd">＋ 通知を追加</button></div>`;
 }
-function sequenceEditor(){return `<p class="hint">撮影開始 → 通知なしのロック画面 → K で通知 → K で全画面の着信。下の「通知」で本文や差出人を編集できます。通知数は上から何件を表示するかです。着信は撮影用の表示で、実際の電話は発信しません。</p><div class="list" data-list="sequence.steps">${S.sequence.steps.map((a,i)=>`<div class="it neutral" data-i="${i}"><div class="it-top"><strong>${i+1}</strong><select class="inp" data-f="kind" aria-label="シーンの種類"><option value="lock" ${a.kind==='lock'?'selected':''}>ロック画面</option><option value="call" ${a.kind==='call'?'selected':''}>着信</option><option value="missed" ${a.kind==='missed'?'selected':''}>相手が切った（不在着信）</option><option value="banner" ${a.kind==='banner'?'selected':''}>他のアプリに着信</option><option value="outgoing" ${a.kind==='outgoing'?'selected':''}>自分から発信</option><option value="noanswer" ${a.kind==='noanswer'?'selected':''}>発信して応答なし（自動終了）</option><option value="connected" ${a.kind==='connected'?'selected':''}>通話中</option><option value="ended" ${a.kind==='ended'?'selected':''}>通話終了</option></select><button class="ib" data-act="up" aria-label="上へ">↑</button><button class="ib" data-act="down" aria-label="下へ">↓</button><button class="ib" data-act="del" aria-label="削除">×</button></div>${a.kind==='noanswer'?`<label class="fld"><span>通話相手</span><input class="inp" data-f="name" value="${esc(a.name)}"></label><label class="fld"><span>トークに残る履歴の文言</span><input class="inp" data-f="note" value="${esc(a.note==null?'応答なし':a.note)}"></label><label class="fld"><span>「応答がありません」のあとの画面（Kで進みます）</span><select class="inp" data-f="returnTo">${Object.entries({none:'応答がありません画面のまま',chat:'ことば・チャット（履歴つき）',sms:'SMS',video:'ナガメ・動画',lock:'ロック画面'}).map(([k,v])=>`<option value="${k}" ${(a.returnTo||'chat')===k?'selected':''}>${v}</option>`).join('')}</select></label><label class="fld"><span>ロック画面に出す通知の数</span><input class="inp" type="number" min="0" max="300" data-num="1" data-f="count" value="${a.count}"></label>`:a.kind==='missed'?`<label class="fld"><span>通話相手</span><input class="inp" data-f="name" value="${esc(a.name)}"></label><label class="fld"><span>通知のアプリ名</span><input class="inp" data-f="label" value="${esc(a.label==null?'電話':a.label)}"></label><label class="fld"><span>通知の文面</span><input class="inp" data-f="note" value="${esc(a.note==null?'不在着信':a.note)}"></label><label class="fld"><span>不在着信の回数（2以上だと「不在着信 (3)」のように1つの通知に回数が付きます）</span><input class="inp" type="number" min="1" max="99" data-num="1" data-f="times" value="${a.times||1}"></label><label class="fld"><span>切れたあとの画面</span><select class="inp" data-f="returnTo">${Object.entries({lock:'ロック画面（不在着信の通知つき）',chat:'ことば・チャット（通話の履歴つき）',sms:'SMS',video:'ナガメ・動画'}).map(([k,v])=>`<option value="${k}" ${(a.returnTo||'lock')===k?'selected':''}>${v}</option>`).join('')}</select></label><label class="fld"><span>ロック画面に一緒に出す他の通知の数（0＝不在着信だけ）</span><input class="inp" type="number" min="0" max="300" data-num="1" data-f="count" value="${a.count}"></label>`:a.kind!=='lock'?`${['call','connected','ended','outgoing'].includes(a.kind)?`<label class="fld"><span>画面のデザイン</span><select class="inp" data-f="app"><option value="kotoba" ${a.app!=='line'?'selected':''}>ことば（アプリの着信画面）</option><option value="line" ${a.app==='line'?'selected':''}>LINE（iPhoneがロック中の着信画面）</option></select></label>`:''}<label class="fld"><span>通話相手</span><input class="inp" data-f="name" value="${esc(a.name)}"></label><label class="fld"><span>${a.app==='line'?'通話時間（この数字から動き出す）':'通話時間（台本）'}</span><input class="inp" data-f="duration" value="${esc(a.duration||'00:12')}"></label>${a.app==='line'&&['call','connected','ended','outgoing'].includes(a.kind)?'':`<label class="fld"><span>通話前・終了後の画面</span><select class="inp" data-f="returnTo">${Object.entries({chat:'ことば・チャット',sms:'SMS',video:'ナガメ・動画',lock:'ロック画面'}).map(([k,v])=>`<option value="${k}" ${(a.returnTo||'chat')===k?'selected':''}>${v}</option>`).join('')}</select></label>`}`:`<label class="fld"><span>表示する通知数（0＝通知なし）</span><input class="inp" type="number" min="0" max="300" data-num="1" data-f="count" value="${a.count}"></label>`}<button class="btn sm" data-act="scene-preview">このシーンを確認</button></div>`).join('')}</div><div class="adds"><button class="btn sm" data-act="scene-add" data-kind="lock">＋ ロック画面</button><button class="btn sm" data-act="scene-add" data-kind="call">＋ 着信</button><button class="btn sm" data-act="scene-add" data-kind="missed">＋ 相手が切った（不在着信）</button><button class="btn sm" data-act="scene-add" data-kind="noanswer">＋ 発信して応答なし</button><button class="btn sm" data-act="scene-add" data-kind="connected">＋ 通話中</button><button class="btn sm" data-act="scene-add" data-kind="ended">＋ 通話終了</button></div><div class="adds"><button class="btn sm pri" data-act="scene-add-line">＋ LINEの着信（ロック中）一式</button><button class="btn sm pri" data-act="scene-add-out">＋ 発信 → 応答なし 一式</button></div><p class="hint">「LINEの着信」は、iPhoneがロックされている間にLINE通話が来たときの画面です（着信 → スライドで応答 → 通話中 → 終了）。着信中は「つまみを右へスライド」か「画面中央をタップ」で応答になります。通話中の時間は、通話時間欄の数字から動き出します。</p><p class="hint">応答する前に相手が切るシーンは、「着信」の次に「＋ 相手が切った（不在着信）」を入れます。K を押すと着信画面が消えて、ロック画面に「不在着信」の通知が届きます（応答せずに切れる流れ）。</p><p class="hint">自分からかけて相手が出ないときは「＋ 発信 → 応答なし 一式」を使います。「呼び出し中…」→ K →「応答がありません」→ K → トークに「応答なし」の履歴が残ります（実際のLINEは約60秒でこの画面になります）。</p>`}
+function sequenceEditor(){return `<p class="hint">撮影開始 → 通知なしのロック画面 → K で通知 → K で全画面の着信。下の「通知」で本文や差出人を編集できます。通知数は上から何件を表示するかです。着信は撮影用の表示で、実際の電話は発信しません。</p><div class="list" data-list="sequence.steps">${S.sequence.steps.map((a,i)=>`<div class="it neutral" data-i="${i}"><div class="it-top"><strong>${i+1}</strong><select class="inp" data-f="kind" aria-label="シーンの種類"><option value="lock" ${a.kind==='lock'?'selected':''}>ロック画面</option><option value="call" ${a.kind==='call'?'selected':''}>着信</option><option value="missed" ${a.kind==='missed'?'selected':''}>相手が切った（不在着信）</option><option value="banner" ${a.kind==='banner'?'selected':''}>他のアプリに着信</option><option value="outgoing" ${a.kind==='outgoing'?'selected':''}>自分から発信</option><option value="noanswer" ${a.kind==='noanswer'?'selected':''}>発信して応答なし（自動終了）</option><option value="connected" ${a.kind==='connected'?'selected':''}>通話中</option><option value="ended" ${a.kind==='ended'?'selected':''}>通話終了</option><option value="declined" ${a.kind==='declined'?'selected':''}>着信を拒否した（拒否の画面）</option></select><button class="ib" data-act="up" aria-label="上へ">↑</button><button class="ib" data-act="down" aria-label="下へ">↓</button><button class="ib" data-act="del" aria-label="削除">×</button></div>${a.kind==='noanswer'?`<label class="fld"><span>通話相手</span><input class="inp" data-f="name" value="${esc(a.name)}"></label><label class="fld"><span>トークに残る履歴の文言</span><input class="inp" data-f="note" value="${esc(a.note==null?'応答なし':a.note)}"></label><label class="fld"><span>「応答がありません」のあとの画面（Kで進みます）</span><select class="inp" data-f="returnTo">${Object.entries({none:'応答がありません画面のまま',chat:'ことば・チャット（履歴つき）',sms:'SMS',video:'ナガメ・動画',lock:'ロック画面'}).map(([k,v])=>`<option value="${k}" ${(a.returnTo||'chat')===k?'selected':''}>${v}</option>`).join('')}</select></label><label class="fld"><span>ロック画面に出す通知の数</span><input class="inp" type="number" min="0" max="300" data-num="1" data-f="count" value="${a.count}"></label>`:a.kind==='declined'?`<label class="fld"><span>通話相手（拒否したあとに出る名前）</span><input class="inp" data-f="name" value="${esc(a.name)}"></label>`:a.kind==='missed'?`<label class="fld"><span>通話相手</span><input class="inp" data-f="name" value="${esc(a.name)}"></label><label class="fld"><span>通知のアプリ名</span><input class="inp" data-f="label" value="${esc(a.label==null?'電話':a.label)}"></label><label class="fld"><span>通知の文面</span><input class="inp" data-f="note" value="${esc(a.note==null?'不在着信':a.note)}"></label><label class="fld"><span>不在着信の回数（2以上だと「不在着信 (3)」のように1つの通知に回数が付きます）</span><input class="inp" type="number" min="1" max="99" data-num="1" data-f="times" value="${a.times||1}"></label><label class="fld"><span>切れたあとの画面</span><select class="inp" data-f="returnTo">${Object.entries({lock:'ロック画面（不在着信の通知つき）',chat:'ことば・チャット（通話の履歴つき）',sms:'SMS',video:'ナガメ・動画'}).map(([k,v])=>`<option value="${k}" ${(a.returnTo||'lock')===k?'selected':''}>${v}</option>`).join('')}</select></label><label class="fld"><span>ロック画面に一緒に出す他の通知の数（0＝不在着信だけ）</span><input class="inp" type="number" min="0" max="300" data-num="1" data-f="count" value="${a.count}"></label>`:a.kind!=='lock'?`${['call','connected','ended','outgoing'].includes(a.kind)?`<label class="fld"><span>画面のデザイン</span><select class="inp" data-f="app"><option value="kotoba" ${a.app!=='line'?'selected':''}>ことば（アプリの着信画面）</option><option value="line" ${a.app==='line'?'selected':''}>LINE（iPhoneがロック中の着信画面）</option></select></label>`:''}<label class="fld"><span>通話相手</span><input class="inp" data-f="name" value="${esc(a.name)}"></label><label class="fld"><span>${a.app==='line'?'通話時間（この数字から動き出す）':'通話時間（台本）'}</span><input class="inp" data-f="duration" value="${esc(a.duration||'00:12')}"></label>${a.app==='line'&&['call','connected','ended','outgoing'].includes(a.kind)?'':`<label class="fld"><span>通話前・終了後の画面</span><select class="inp" data-f="returnTo">${Object.entries({chat:'ことば・チャット',sms:'SMS',video:'ナガメ・動画',lock:'ロック画面'}).map(([k,v])=>`<option value="${k}" ${(a.returnTo||'chat')===k?'selected':''}>${v}</option>`).join('')}</select></label>`}`:`<label class="fld"><span>表示する通知数（0＝通知なし）</span><input class="inp" type="number" min="0" max="300" data-num="1" data-f="count" value="${a.count}"></label>`}<button class="btn sm" data-act="scene-preview">このシーンを確認</button></div>`).join('')}</div><div class="adds"><button class="btn sm" data-act="scene-add" data-kind="lock">＋ ロック画面</button><button class="btn sm" data-act="scene-add" data-kind="call">＋ 着信</button><button class="btn sm" data-act="scene-add" data-kind="missed">＋ 相手が切った（不在着信）</button><button class="btn sm" data-act="scene-add" data-kind="noanswer">＋ 発信して応答なし</button><button class="btn sm" data-act="scene-add" data-kind="declined">＋ 着信を拒否</button><button class="btn sm" data-act="scene-add" data-kind="connected">＋ 通話中</button><button class="btn sm" data-act="scene-add" data-kind="ended">＋ 通話終了</button></div><div class="adds"><button class="btn sm pri" data-act="scene-add-line">＋ LINEの着信（ロック中）一式</button><button class="btn sm pri" data-act="scene-add-out">＋ 発信 → 応答なし 一式</button><button class="btn sm pri" data-act="scene-add-decline">＋ 着信 → 拒否 一式</button></div><p class="hint">「LINEの着信」は、iPhoneがロックされている間にLINE通話が来たときの画面です（着信 → スライドで応答 → 通話中 → 終了）。着信中は「つまみを右へスライド」か「画面中央をタップ」で応答になります。通話中の時間は、通話時間欄の数字から動き出します。</p><p class="hint">応答する前に相手が切るシーンは、「着信」の次に「＋ 相手が切った（不在着信）」を入れます。K を押すと着信画面が消えて、ロック画面に「不在着信」の通知が届きます（応答せずに切れる流れ）。</p><p class="hint">かかってきた電話を自分が拒否するシーンは「＋ 着信 → 拒否 一式」を使います。着信画面（スライドで応答）→ K →「オーディオ拒否」と相手の名前だけの暗い画面になります（拒否した直後の画面）。そのあとの画面は、続けて「ロック画面」などのシーンを足してください。</p><p class="hint">自分からかけて相手が出ないときは「＋ 発信 → 応答なし 一式」を使います。「呼び出し中…」→ K →「応答がありません」→ K → トークに「応答なし」の履歴が残ります（実際のLINEは約60秒でこの画面になります）。</p>`}
 function renderEditor(){
   document.getElementById('tabs').innerHTML=[['chat','チャット'],['sms','SMS'],['lock','ロック画面'],['sequence','連続シーン'],['talks','トーク一覧・削除'],['video','動画・チャンネル']].map(([k,l])=>`<button type="button" data-act="tab" data-v="${k}" class="${S.mode===k?'on':''}">${l}</button>`).join('');
   const m=S.mode; let h='';
@@ -17544,14 +17582,14 @@ function renderEditor(){
     h+=sec('通知',notifList());
   }
   if(m==='sequence')h=sec('連続シーン',sequenceEditor())+h;
-  h+=sec('撮影モード（全画面表示のとき）',chk('play.nativeBars','撮影中は模擬ステータスバー・下部バーを隠す（スマホ向け）')+chk('play.kana','入力シーンを本物のかなキーボードに近づける（下線・変換候補つき。どのキーを押しても正しい文字が出ます。漢字の読みは自動で付きます）')+(isSceneMode()?'<p class="hint">K キーまたは画面タップで、次のシーンへ。← キーで戻ります。「最初から」で最初のシーンに戻せます。</p>':chk('play.tap',m==='lock'?'タップすると通知が1件ずつ届く':'タップすると次のメッセージが1件ずつ出る')+fld(m==='lock'?'最初は隠しておく通知の数（最後から）':'最初は隠しておくメッセージの数（最後から）',num('play.hide',0,99)))+`<p class="hint">${m==='lock'||isSceneMode()?'':'相手のメッセージが出る前は「入力中…」が表示されます。'}終了：画面左下を3回連続タップ、または Esc キー。Bluetoothキーボード：K キーで次へ（長押しは1回のみ）、← キーで戻る。「入力後に消す」のシーンでは K で一文字ずつ削除し、空欄で K を押すと次へ進みます。入力欄をタップすると台本どおりに入力できます。</p>`);
+  h+=sec('撮影モード（全画面表示のとき）',chk('play.nativeBars','撮影中は模擬ステータスバー・下部バーを隠す（スマホ向け）')+chk('play.script','台本どおりに出す（どのキーを押しても台本の正しい文字が出ます）。チェックを外すと普通のキーボードになり、押したキーの文字がそのまま入力されます（かな入力・変換候補・ABC・数字つき）')+chk('play.kana','台本どおりのとき、本物のかな入力に近づける（下線・変換候補つき。漢字の読みは自動で付きます）')+(isSceneMode()?'<p class="hint">K キーまたは画面タップで、次のシーンへ。← キーで戻ります。「最初から」で最初のシーンに戻せます。</p>':chk('play.tap',m==='lock'?'タップすると通知が1件ずつ届く':'タップすると次のメッセージが1件ずつ出る')+fld(m==='lock'?'最初は隠しておく通知の数（最後から）':'最初は隠しておくメッセージの数（最後から）',num('play.hide',0,99)))+`<p class="hint">${m==='lock'||isSceneMode()?'':'相手のメッセージが出る前は「入力中…」が表示されます。'}終了：画面左下を3回連続タップ、または Esc キー。Bluetoothキーボード：K キーで次へ（長押しは1回のみ）、← キーで戻る。「入力後に消す」のシーンでは K で一文字ずつ削除し、空欄で K を押すと次へ進みます。入力欄をタップすると台本どおりに入力できます。</p>`);
   h+=sec('撮影・書き出し',`<p class="hint">スマホで撮影する場合は、Safariの共有メニューから「ホーム画面に追加」し、そのアイコンから開いてください。端末の時計・電池・ホームバーはWebアプリでは変更できません。撮影は「撮影を始める」から直接タップして進められます。設定した時計や電池を含む静止画が必要な場合はPNGを書き出せます。書き出しには上の「ステータスバーを表示」の設定が反映されます。</p>`+fld('画像の縦横比',sel('export.size',[['device','この端末の画面に合わせる'],['std','標準（1170×2532）']]))+`<div class="adds"><button class="btn sm" data-act="export">今の画面を保存</button><button class="btn sm" data-act="frames">連番PNGで保存</button></div><p class="hint">編集内容はこの端末に自動保存。別の端末へ移すときは「台本を保存」→「台本・画像を開く」を使ってください。書き出したPNG画像も、「台本・画像を開く」で選ぶと設定を元に戻せます（動画ファイルは含まれません）。</p>`);
   document.getElementById('editor').innerHTML=h;
   for(const hint of document.querySelectorAll('#editor .sec-body > .hint, #editor .sec > .hint')){if(hint.textContent.length<75)continue;const help=document.createElement('details');help.className='editor-help';const summary=document.createElement('summary');summary.textContent='使い方を見る';hint.before(help);help.append(summary,hint);}
 
 }
 function scrollConversation(root){for(const b of root.querySelectorAll('.c-body,.s-body'))b.scrollTop=b.scrollHeight}
-function renderPreview(){previewN=previewN==null?null:Math.min(previewN,maxPosition());document.getElementById('screen').innerHTML=renderScreen({height:H,reveal:previewN});scrollConversation(document.getElementById('screen'));document.querySelector('[data-act=all]').textContent=isSceneMode()?'最後のシーン':'すべて表示';document.getElementById('play-count').textContent=isSceneMode()?`${(previewN||0)+1} / ${modeList().length} シーン`:`${previewN==null?(isSceneMode()?0:modeList().length):previewN} / ${modeList().length} 件を表示`;}
+function renderPreview(){if(fs.hidden)freeExtra=[];previewN=previewN==null?null:Math.min(previewN,maxPosition());document.getElementById('screen').innerHTML=renderScreen({height:H,reveal:previewN});scrollConversation(document.getElementById('screen'));document.querySelector('[data-act=all]').textContent=isSceneMode()?'最後のシーン':'すべて表示';document.getElementById('play-count').textContent=isSceneMode()?`${(previewN||0)+1} / ${modeList().length} シーン`:`${previewN==null?(isSceneMode()?0:modeList().length):previewN} / ${modeList().length} 件を表示`;}
 function commit(re){if(editUndo){editUndo=null;document.getElementById('edit-undo')?.remove();}save();if(re){renderEditor();renderPages()}renderPreview()}
 
 /* ---------- bulk parse ---------- */
@@ -17601,7 +17639,7 @@ document.addEventListener('input',e=>{
  if(editUndo){editUndo=null;document.getElementById('edit-undo')?.remove();}
   const t=e.target;
   if(t.id==='chapter-name'){currentChapter().name=t.value.trim()||'名称未設定';const option=document.querySelector('#chapter-select option:checked');if(option)option.textContent=currentChapter().name;save();return}
-  if(t.dataset.path){set(t.dataset.path,val(t));commit(t.type==='checkbox'&&t.dataset.path==='play.tap'?false:false);return}
+  if(t.dataset.path){set(t.dataset.path,val(t));if(t.type==='checkbox')document.querySelectorAll('input[type=checkbox]').forEach(x=>{if(x!==t&&x.dataset.path===t.dataset.path)x.checked=t.checked});commit(t.type==='checkbox'&&t.dataset.path==='play.tap'?false:false);return}
   if(t.dataset.f){
     const it=t.closest('[data-i]'); if(!it) return;
     const list=get(it.parentElement.dataset.list); const item=list[+it.dataset.i];
@@ -17732,8 +17770,9 @@ document.addEventListener('click',e=>{
     case 'tab': previewN=null; S.mode=b.dataset.v; commit(true); break;
     case 'setv': set(b.dataset.path,b.dataset.v); if(b.dataset.clear) set(b.dataset.clear,null); commit(true); break;
     case 'clear': set(b.dataset.path,null); commit(true); break;
-    case 'scene-add': {const k0=b.dataset.kind,mk=k0==='missed',na=k0==='noanswer';S.sequence.steps.push({kind:k0,count:mk||na?0:1,name:S.chat.name,returnTo:mk?'lock':'chat',duration:'00:12',label:'電話',note:na?'応答なし':'不在着信',times:1,app:'kotoba'});commit(true);break}
+    case 'scene-add': {const k0=b.dataset.kind,mk=k0==='missed',na=k0==='noanswer';S.sequence.steps.push({kind:k0,count:mk||na?0:1,name:S.chat.name,returnTo:mk?'lock':'chat',duration:'00:12',label:'電話',note:na?'応答なし':'不在着信',times:1,app:k0==='declined'?'line':'kotoba'});commit(true);break}
     case 'scene-add-out': {if(S.sequence.steps.length+2>300){toast('シーンは300件までです');break}const nm=S.chat.name||'';S.sequence.steps.push({kind:'outgoing',count:1,name:nm,returnTo:'chat',duration:'00:00',label:'電話',note:'不在着信',times:1,app:'line'},{kind:'noanswer',count:0,name:nm,returnTo:'chat',duration:'00:00',label:'電話',note:'応答なし',times:1,app:'line'});commit(true);break}
+    case 'scene-add-decline': {if(S.sequence.steps.length+2>300){toast('シーンは300件までです');break}const nm=S.chat.name||'';for(const k of ['call','declined'])S.sequence.steps.push({kind:k,count:1,name:nm,returnTo:'lock',duration:'00:01',label:'電話',note:'不在着信',times:1,app:'line'});commit(true);break}
     case 'scene-add-line': {if(S.sequence.steps.length+3>300){toast('シーンは300件までです');break}const nm=S.chat.name||'';for(const k of ['call','connected','ended'])S.sequence.steps.push({kind:k,count:1,name:nm,returnTo:'chat',duration:'00:01',label:'電話',note:'不在着信',times:1,app:'line'});commit(true);break}
     case 'scene-preview':previewN=i;renderPreview();go('preview');break;
     case 'erase-scene':previewN=i;openFs();beginTyping();if(typing.open){typing.text=typing.goal;typing.si=typing.segs?typing.segs.length:0;typing.pos=0;typing.sel=false;layoutFs(false)}break;
@@ -17803,18 +17842,20 @@ let typing={open:false,text:'',goal:'',index:-1};
 function isSceneMode(){return S.mode==='desktop'||S.mode==='sequence'||S.mode==='talks'||S.mode==='video'}
 function maxPosition(){return Math.max(0,modeList().length-(isSceneMode()?1:0))}
 function startPosition(){return isSceneMode()?0:Math.max(0,modeList().length-S.play.hide)}
-function modeList(){if(S.mode==='desktop')return [{},{},{},{}];if(S.mode==='video')return [{},{}];if(S.mode==='talks')return [{},{},{},{}];return S.mode==='sequence'?S.sequence.steps:S.mode==='chat'?S.chat.messages:S.mode==='sms'?S.sms.messages:S.lock.notifs}
+function modeList(){if(S.mode==='desktop')return [{},{},{},{}];if(S.mode==='video')return [{},{}];if(S.mode==='talks')return [{},{},{},{}];return S.mode==='sequence'?S.sequence.steps:S.mode==='chat'?withExtra(S.chat.messages):S.mode==='sms'?withExtra(S.sms.messages):S.lock.notifs}
 function nextReveal(n){if(isSceneMode())return Math.min(maxPosition(),n+1);const list=modeList();let i=Math.max(0,Math.min(list.length,n));if(S.mode==='lock')return Math.min(list.length,i+1);while(i<list.length&&list[i].type==='date')i++;return Math.min(list.length,i+1)}
 function openFs(){talkChat=null;watching=null;outgoingChatCall=null;callLog=[];stopCallTimer();desktopApp=null;callOverride=null;
   typing={open:false,text:S.mode==='chat'?S.chat.draft:'',goal:'',index:-1};
+  if(previewN==null)typedOv={};
+  freeExtra=[];
   const len=modeList().length;
   play.n=isSceneMode()?(previewN||0):S.play.tap?(previewN==null?Math.max(0,len-(+S.play.hide||0)):previewN):null;
   fs.classList.toggle('native-bars',!window.kotobaNative && S.play.nativeBars);document.body.classList.add('playing');
   fs.hidden=false; layoutFs(false);
   try{const r=fs.requestFullscreen&&fs.requestFullscreen(); if(r&&r.catch) r.catch(()=>{})}catch(e){}
-  toast('タップで次へ・左下を3回連続タップで終了',3000);
+  toast((S.mode==='chat'||S.mode==='sms')?'タップで次へ・入力欄をタップでキーボード・左下を3回連続タップで終了':'タップで次へ・左下を3回連続タップで終了',3600);
 }
-function closeFs(){talkChat=null;outgoingChatCall=null;chatCallMenu=false;stopCallTimer();stopLineTimer();{const wv=document.getElementById('wvid');if(wv)try{wv.pause()}catch(e){}}watching=null;setThemeColor('#eef0f3');document.documentElement.classList.remove('shoot-lock');document.documentElement.style.removeProperty('--shoot-wallpaper');document.documentElement.style.removeProperty('--fs-top');document.documentElement.style.removeProperty('background');document.body.style.removeProperty('background');previewN=play.n;fs.hidden=true;document.body.classList.remove('playing');renderPreview(); try{if(document.fullscreenElement)document.exitFullscreen()}catch(e){}}
+function closeFs(){freeExtra=[];talkChat=null;outgoingChatCall=null;chatCallMenu=false;stopCallTimer();stopLineTimer();{const wv=document.getElementById('wvid');if(wv)try{wv.pause()}catch(e){}}watching=null;setThemeColor('#eef0f3');document.documentElement.classList.remove('shoot-lock');document.documentElement.style.removeProperty('--shoot-wallpaper');document.documentElement.style.removeProperty('--fs-top');document.documentElement.style.removeProperty('background');document.body.style.removeProperty('background');previewN=play.n;fs.hidden=true;document.body.classList.remove('playing');renderPreview(); try{if(document.fullscreenElement)document.exitFullscreen()}catch(e){}}
 function setThemeColor(c){const m=document.querySelector('meta[name=theme-color]');if(m)m.setAttribute('content',c)}
 function layoutFs(fresh){
   const lineK=lineState();const callMode=S.mode==='sequence'&&(!!lineK||!['lock','ended','banner','missed','noanswer-back'].includes(callOverride?.n===play.n?callOverride.kind:sceneAt(play.n).kind));
@@ -17825,13 +17866,13 @@ function layoutFs(fresh){
   // Paint the wallpaper on the full viewport, including both safe-area paddings.
   // The inner screen keeps controls clear of the system bars without cropping the wallpaper.
   if(lockMode){
-    const wall=lineK?(lineK==='call'?LINEBG_IN:LINEBG_ON):callMode?CALLBG:S.lock.wallImg?`url("${S.lock.wallImg}")`:(WALLS[S.lock.wall]||WALLS.night);
+    const wall=lineK?(lineK==='call'||lineK==='declined'?LINEBG_IN:LINEBG_ON):callMode?CALLBG:S.lock.wallImg?`url("${S.lock.wallImg}")`:(WALLS[S.lock.wall]||WALLS.night);
     fs.style.backgroundImage=wall;
     fs.style.backgroundSize='cover';fs.style.backgroundPosition='center';fs.style.backgroundColor='#0e1a3a';
     document.documentElement.style.setProperty('--shoot-wallpaper',fs.style.backgroundImage);
     document.documentElement.style.removeProperty('--fs-top');document.documentElement.style.removeProperty('background');document.body.style.removeProperty('background');
   }else{fs.style.backgroundImage='none';const wbg=outgoingChatCall?'#3f5870':watching?(watching.short?'#000':'#0f0f0f'):'#fff';fs.style.backgroundColor=wbg;setThemeColor(outgoingChatCall?'#415a72':watching?wbg:'#eef0f3');{const topC=outgoingChatCall?'#415a72':watching?wbg:S.mode==='sms'?'#f6f6f8':(S.mode==='chat'||S.mode==='talks'||S.mode==='video')?'#fff':'#101827';const hs=document.documentElement.style;hs.setProperty('--fs-top',topC);hs.setProperty('background',wbg,'important');document.body.style.setProperty('background',wbg,'important')}document.documentElement.style.removeProperty('--shoot-wallpaper')}
-  if(!lockMode&&typing.open&&insB>0)fs.style.backgroundImage=`linear-gradient(to bottom,transparent calc(100% - ${insB}px),#d5d8de calc(100% - ${insB}px))`;
+  {const ki=document.getElementById('kbInset'),on=!lockMode&&typing.open&&insB>0;fs.classList.toggle('kb-inset',on);if(ki){ki.hidden=!on;ki.style.height=insB+'px'}}
   const styles=getComputedStyle(fs),top=parseFloat(styles.paddingTop)||0,bottom=parseFloat(styles.paddingBottom)||0;const vw=Math.min(innerWidth,document.documentElement.clientWidth||innerWidth),vh=innerHeight-top-bottom; let k=vw/W,h=vh/k,left=0;fsScreen.style.top=top+'px';
   if(h<640){k=vh/H;h=H;left=(vw-W*k)/2}
   fsScreen.style.setProperty('--native-top',(parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--device-top'))||0)/k+'px');
@@ -17884,8 +17925,8 @@ function compView(){
   if(typing.pos>0)return {comp:Array.from(sg.yomi).slice(0,typing.pos).join(''),sel:false,sg};
   return null;
 }
-function typingHasText(){return !!typing.text||!!compView()}
-function typingHtml(){const cv=compView();return nl(esc(typing.text))+(cv?`<u class="comp${cv.sel?' sel':''}">${nl(esc(cv.comp))}</u>`:'')}
+function typingHasText(){return !!typing.text||!!compView()||!!freeCompText()}
+function typingHtml(){if(typing.free){const c=freeCompText();return nl(esc(typing.text))+(c?`<u class="comp${typing.cs>=0?' sel':''}">${nl(esc(c))}</u>`:'')}const cv=compView();return nl(esc(typing.text))+(cv?`<u class="comp${cv.sel?' sel':''}">${nl(esc(cv.comp))}</u>`:'')}
 function commitSeg(){typing.si++;typing.pos=0;typing.sel=false;skipEmptySegs()}
 function stepTyping(){
   if(!typingSynced()){const t=Array.from(typing.goal),n=Array.from(typing.text).length;typing.text=t.slice(0,Math.min(t.length,n+1)).join('');return}
@@ -17900,7 +17941,8 @@ function deleteTyping(){
   if(typing.segs&&!typing.text){typing.si=0;typing.pos=0;typing.sel=false}
 }
 function candHtml(){
-  const cv=compView();if(!cv)return '<span class="kb-label">かな</span>';
+  if(typing.free)return freeCandHtml();
+  const cv=compView();if(!cv)return `<div class="cands"></div>`;
   const sg=cv.sg,len=Array.from(sg.yomi).length,reading=Array.from(sg.yomi).slice(0,typing.pos).join('');
   let list;
   if(typing.sel)list=[sg.goal,sg.yomi,toKata(sg.yomi)];
@@ -17909,23 +17951,165 @@ function candHtml(){
   const seen=new Set();list=list.filter(t=>t&&!seen.has(t)&&seen.add(t));
   return `<div class="cands">${list.map((t,i)=>`<button type="button" data-prop-key="cand" class="cand${i===0?' first':''}">${esc(t)}</button>`).join('')}</div>`;
 }
-function canSend(){return !modeList()[typing.index]?.draftOnly&&typing.index>=0&&typing.goal.length>0&&typing.text===typing.goal}
+
+/* ---------- 普通のキーボード（押した文字がそのまま入る） ---------- */
+const FLICK={'あ':'あいうえお','か':'かきくけこ','さ':'さしすせそ','た':'たちつてと','な':'なにぬねの','は':'はひふへほ','ま':'まみむめも','や':'や（ゆ）よ','ら':'らりるれろ','わ':'わをんー〜','、。?!':'、。？！…'};
+function kanaKey(c){const lab=c==='わ'?'わ<i class="wun"></i>':esc(c);return `<button type="button" data-prop-key="flick" data-k="${esc(c)}" data-fl="${esc(FLICK[c]||c)}"${c==='、。?!'?' class="sm"':''}>${lab}</button>`}
+function freeFlickType(k,d){const a=Array.from(FLICK[k]||k),ch=a[d]||a[0];if(typing.cs>=0)freeFlush();typing.comp+=ch;typing.last=null}
+const KANA_ROWS={'あ':'あいうえお','か':'かきくけこ','さ':'さしすせそ','た':'たちつてと','な':'なにぬねの','は':'はひふへほ','ま':'まみむめも','や':'やゆよ','ら':'らりるれろ','わ':'わをんー','、。?!':'、。?!'};
+const KANA_MOD=['あぁ','いぃ','うぅゔ','えぇ','おぉ','かが','きぎ','くぐ','けげ','こご','さざ','しじ','すず','せぜ','そぞ','ただ','ちぢ','つっづ','てで','とど','はばぱ','ひびぴ','ふぶぷ','へべぺ','ほぼぽ','やゃ','ゆゅ','よょ','わゎ'];
+const FREE_TAILS=['です','ます','から','まで','より','って','は','が','を','に','で','と','も','の','へ','や','か','よ','ね','だ'];
+let _rev=null;
+function revData(){
+  if(_rev)return _rev;
+  const D=yomiData();_rev=new Map();
+  for(const [w,r] of D.W){if(r===w)continue;let a=_rev.get(r);if(!a)_rev.set(r,a=[]);a.push(w)}
+  return _rev;
+}
+function freeCandList(){
+  const r=typing.comp||'';if(!r)return [];
+  const R=revData(),out=[r];
+  const ex=R.get(r);if(ex)for(const w of ex.slice(0,5))out.push(w);
+  for(const t of FREE_TAILS){if(Array.from(r).length>t.length+1&&r.endsWith(t)){const st=r.slice(0,-t.length),e2=R.get(st);if(e2&&e2[0]){out.push(e2[0]+t);if(out.length>9)break}}}
+  out.push(toKata(r));
+  return [...new Set(out)];
+}
+function freeCompText(){if(!typing.free)return '';if(typing.cs>=0){const L=freeCandList();return L[typing.cs]||typing.comp||''}return typing.comp||''}
+function freeFlush(){const t=freeCompText();if(t)typing.text+=t;typing.comp='';typing.last=null;typing.cs=-1}
+function freeInsert(ch){freeFlush();typing.text+=ch}
+function freeKana(k){
+  const row=Array.from(KANA_ROWS[k]||k);
+  if(typing.cs>=0)freeFlush();
+  if(typing.last&&typing.last.k===k&&typing.comp){const i=(typing.last.i+1)%row.length,a=Array.from(typing.comp);a[a.length-1]=row[i];typing.comp=a.join('');typing.last={k,i}}
+  else{typing.comp+=row[0];typing.last={k,i:0}}
+}
+function freeMod(){
+  if(!typing.comp)return;if(typing.cs>=0)return;
+  const a=Array.from(typing.comp),c=a[a.length-1];
+  for(const cyc of KANA_MOD){const j=cyc.indexOf(c);if(j>=0){a[a.length-1]=cyc[(j+1)%cyc.length];typing.comp=a.join('');typing.last=null;return}}
+}
+function freeSpace(){
+  if(!typing.comp){freeInsert('　');return}
+  const L=freeCandList();
+  if(typing.cs<0)typing.cs=L.length>1?1:0;else typing.cs=(typing.cs+1)%L.length;
+}
+function freeDelete(){
+  if(typing.cs>=0){typing.cs=-1;return}
+  if(typing.comp){typing.comp=Array.from(typing.comp).slice(0,-1).join('');typing.last=null;return}
+  typing.text=Array.from(typing.text).slice(0,-1).join('');
+}
+function freePress(key,ds){
+  switch(key){
+    case 'free':freeKana(ds.k);break;
+    case 'flick':freeFlickType(ds.k,+ds.d||0);break;
+    case 'mod':freeMod();break;
+    case 'space':freeSpace();break;
+    case 'enter':if(typing.comp)freeFlush();else typing.text+='\n';break;
+    case 'delete':freeDelete();break;
+    case 'ins':{let ch=ds.ch||'';if(typing.shift&&/^[a-z]$/.test(ch)){ch=ch.toUpperCase();typing.shift=false}freeInsert(ch);break}
+    case 'word':freeInsert(ds.ch||'');break;
+    case 'shift':typing.shift=!typing.shift;break;
+    case 'layout':freeFlush();typing.layout=ds.v||'kana';break;
+    case 'cand':{const L=freeCandList(),t=L[+ds.ci];if(t!=null){typing.text+=t;typing.comp='';typing.last=null;typing.cs=-1}break}
+    default:break;
+  }
+}
+function freeCandHtml(){
+  if(!typing.comp)return `<div class="cands"></div>`;
+  const L=freeCandList();
+  return `<div class="cands">${L.map((t,i)=>`<button type="button" data-prop-key="cand" data-ci="${i}" class="cand${i===typing.cs?' on':i===0&&typing.cs<0?' first':''}">${esc(t)}</button>`).join('')}</div>`;
+}
+function freeKeyboardHtml(I){
+  const comp=!!typing.comp;
+  const kb=(label,key,at,cls)=>`<button type="button" data-prop-key="${key}"${at?' '+at:''}${cls?` class="${cls}"`:''}>${label}</button>`;
+  const del=`<button type="button" data-prop-key="delete" class="utility" aria-label="削除">${I.del}</button>`;
+  let grid;
+  if(typing.layout==='abc'||typing.layout==='num'){
+    const abc=typing.layout==='abc';
+    const ins=(c,cls)=>kb(abc&&typing.shift&&/^[a-z]$/.test(c)?c.toUpperCase():esc(c),'ins',`data-ch="${esc(c)}"`,cls||'lt');
+    const row=a=>`<div class="qr">${a.map(c=>ins(c)).join('')}</div>`;
+    const shiftSvg=`<svg viewBox="0 0 24 24" fill="${typing.shift?'#000':'none'}" stroke="#000" stroke-width="1.6" stroke-linejoin="round"><path d="M12 3.5 3.5 13h5v7h7v-7h5z"/></svg>`;
+    const r1=abc?row('qwertyuiop'.split('')):row('1234567890'.split(''));
+    const r2=abc?`<div class="qr mid">${'asdfghjkl'.split('').map(c=>ins(c)).join('')}</div>`:row(['-','/',':',';','(',')','¥','&','@','"']);
+    const r3=abc?`<div class="qr">${kb(shiftSvg,'shift','','utility w14'+(typing.shift?' on':''))}${'zxcvbnm'.split('').map(c=>ins(c)).join('')}${del.replace('class="utility"','class="utility w14"')}</div>`
+                :`<div class="qr">${kb('#+=','noop','','utility sm w14')}${['.',',','?','!',"'"].map(c=>ins(c)).join('')}${del.replace('class="utility"','class="utility w14"')}</div>`;
+    const r4=`<div class="qr">${kb('あいう','layout','data-v="kana"','utility sm w13')}${kb(abc?'☆123':'ABC','layout',`data-v="${abc?'num':'abc'}"`,'utility sm w13')}${kb('空白','ins','data-ch=" "','sp')}${kb(comp?'確定':'改行','enter','','utility sm w2')}</div>`;
+    grid=`<div class="prop-keys qw">${r1}${r2}${r3}${r4}</div>`;
+  }else{
+    const dis=comp?'':' dis';
+    const keys=[kb(I.right,'noop','','utility'+dis),kanaKey('あ'),kanaKey('か'),kanaKey('さ'),del,
+      kb(I.undo,'mod','','utility'+dis),kanaKey('た'),kanaKey('な'),kanaKey('は'),kb(comp?'変換':'空白','space','','utility sm'),
+      kb('ABC','layout','data-v="abc"','utility sm'),kanaKey('ま'),kanaKey('や'),kanaKey('ら'),
+      kb(comp?'確定':I.ret,'enter','','utility sm tall'),
+      kb(I.emo,'noop','','utility'),kb(I.kao,'noop','','utility'),kanaKey('わ'),kanaKey('、。?!')];
+    grid=`<div class="prop-keys">${keys.join('')}</div>`;
+  }
+  return `<div class="prop-keyboard" aria-label="撮影用キーボード"><div class="prop-kb-top">${candHtml()}</div>${grid}<div class="prop-kb-bottom">${I.globe}${I.mic}</div></div>`;
+}
+function canSend(){if(typing.free)return !modeList()[typing.index]?.draftOnly&&typing.index>=0&&!!(typing.text||typing.comp);return !modeList()[typing.index]?.draftOnly&&typing.index>=0&&typing.goal.length>0&&typing.text===typing.goal}
 function keyboardHtml(){
-  const rows=[['あ','か','さ','⌫'],['た','な','は','空白'],['ま','や','ら','改行'],['小゛゜','わ','、。?!','送信']];const cv=compView();
-  return `<div class="prop-keyboard" aria-label="撮影用かなキーボード"><div class="prop-kb-top">${candHtml()}<button type="button" data-prop-key="hide" aria-label="キーボードを閉じる">⌄</button></div><div class="prop-keys">${rows.flat().map(k=>`<button type="button" data-prop-key="${k==='⌫'?'delete':k==='送信'?'send':'char'}" ${k==='送信'&&!canSend()?'disabled':''} class="${['⌫','空白','改行','送信'].includes(k)?'utility':''} ${k==='送信'?'send-key':''}">${cv&&k==='空白'?'変換':cv&&k==='改行'?'確定':k}</button>`).join('')}</div><div class="prop-kb-bottom"><span>ABC</span><span>日本語</span><span>かな</span></div></div>`;
+  const cv=compView(),send=!cv&&canSend();
+  const I={del:'<svg viewBox="0 0 26 20" fill="none" stroke="#000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="width:28px;height:22px"><path d="M8.2 1.6h13.3a2.5 2.5 0 0 1 2.5 2.5v11.8a2.5 2.5 0 0 1-2.5 2.5H8.2a2.5 2.5 0 0 1-1.9-.9L1.4 11.1a1.6 1.6 0 0 1 0-2.1l4.9-6.5a2.5 2.5 0 0 1 1.9-.9z"/><path d="M12.6 7l6 6M18.6 7l-6 6"/></svg>',
+   emo:'<svg viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="1.5" stroke-linecap="round"><circle cx="12" cy="12" r="9.2"/><path d="M7.7 14.2c1 1.8 2.5 2.7 4.3 2.7s3.3-.9 4.3-2.7"/><circle cx="9.2" cy="9.8" r=".9" fill="#000" stroke="none"/><circle cx="14.8" cy="9.8" r=".9" fill="#000" stroke="none"/></svg>',
+   left:'<svg viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12H5M11 5.6 4.6 12 11 18.4"/></svg>',
+   right:'<svg viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h15M13 5.6 19.4 12 13 18.4"/></svg>',
+   undo:'<svg viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5.2 8.8A8 8 0 1 1 4.4 13.2M4.6 3.8v5.2h5.2"/></svg>',
+   kao:'<svg viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3.2 12.6 6.2 8.4l3 4.2M14.8 12.6l3-4.2 3 4.2"/></svg>',
+   ret:'<svg viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M19.5 5.5v6.2a2 2 0 0 1-2 2H5M9.6 8.6 4.6 13.7l5 5"/></svg>',
+   chev:'<svg viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5.5 9.5 12 16l6.5-6.5"/></svg>',
+   globe:'<svg viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="1.5" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><ellipse cx="12" cy="12" rx="4" ry="9"/><path d="M3 12h18M4.4 7.6h15.2M4.4 16.4h15.2"/></svg>',
+   mic:'<svg viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="1.6" stroke-linecap="round"><rect x="9" y="2.8" width="6" height="11.4" rx="3"/><path d="M5.4 11.2a6.6 6.6 0 0 0 13.2 0M12 17.8V21.2"/></svg>'};
+  if(typing.free)return freeKeyboardHtml(I);
+  const k=(label,cls)=>`<button type="button" data-prop-key="char"${cls?` class="${cls}"`:''}>${label}</button>`;
+  const dis=cv?'':' dis';
+  const keys=[k(I.right,'utility'+dis),kanaKey('あ'),kanaKey('か'),kanaKey('さ'),`<button type="button" data-prop-key="delete" class="utility" aria-label="削除">${I.del}</button>`,
+   k(I.undo,'utility'+dis),kanaKey('た'),kanaKey('な'),kanaKey('は'),k(cv?'変換':'空白','utility sm'),
+   k('ABC','utility sm'),kanaKey('ま'),kanaKey('や'),kanaKey('ら'),
+   `<button type="button" data-prop-key="${send?'send':'char'}" class="utility sm tall">${cv?'確定':I.ret}</button>`,
+   k(I.emo,'utility'),k(I.kao,'utility'),kanaKey('わ'),kanaKey('、。?!')];
+  return `<div class="prop-keyboard" aria-label="撮影用かなキーボード"><div class="prop-kb-top">${candHtml()}</div><div class="prop-keys">${keys.join('')}</div><div class="prop-kb-bottom">${I.globe}${I.mic}</div></div>`;
 }
 function beginTyping(){
   if(S.mode==='lock'||isSceneMode())return;
-  let i=play.n==null?modeList().length:play.n;const list=modeList();while(i<list.length&&list[i].type==='date')i++;
+  const free=S.play.script===false;
+  const list=modeList();let i=play.n==null?list.length:play.n;while(i<list.length&&list[i].type==='date')i++;
   const m=list[i];
-  if(!m||m.from!=='me'||m.type!=='text'){toast('次が自分の文字メッセージのときに入力できます。編集画面の「入力シーン」からも始められます。');return}
-  if(!m.text){toast('先に台本のセリフを入力してください');return}
-  if(typing.index!==i){typing={open:true,text:'',goal:m.text,index:i,segs:typingPlan(m),si:0,pos:0,sel:false};skipEmptySegs()}else typing.open=true;
+  const ok=!!m&&m.from==='me'&&m.type==='text';
+  if(!ok&&!(free&&(S.mode==='chat'||S.mode==='sms'))){toast('次が自分の文字メッセージのときに入力できます。編集画面の「入力シーン」からも始められます。');return}
+  if(ok&&!free&&!m.text){toast('先に台本のセリフを入力してください');return}
+  if(typing.index!==i||!typing.free!==!free){typing=free?{open:true,text:'',goal:ok?(m.text||''):'',index:i,segs:null,si:0,pos:0,sel:false,free:true,extra:!ok,comp:'',last:null,cs:-1,layout:'kana',shift:false}:{open:true,text:'',goal:m.text,index:i,segs:typingPlan(m),si:0,pos:0,sel:false};if(!free)skipEmptySegs()}else typing.open=true;
   layoutFs(false);
 }
-function pressPropKey(key){
+/* Tapping the input field in the editor preview starts playback with the keyboard open */
+document.getElementById('screen').addEventListener('click',e=>{if(!e.target.closest('.c-field,.s-field')||(S.mode!=='chat'&&S.mode!=='sms'))return;openFs();beginTyping()});
+let flick=null,flickDoneAt=0;
+function flickDir(f,e){const dx=e.clientX-f.x,dy=e.clientY-f.y,th=Math.min(f.rect.width,f.rect.height)*.34;if(Math.hypot(dx,dy)<th)return 0;return Math.abs(dx)>Math.abs(dy)?(dx<0?1:3):(dy<0?2:4)}
+function flickShow(f,dir){
+  const b=f.b,grid=b.parentElement;let ov=grid.querySelector('.fl-ov');
+  if(!ov){ov=document.createElement('div');ov.className='fl-ov';grid.appendChild(ov);grid.classList.add('flicking')}
+  const chars=Array.from(b.dataset.fl||b.dataset.k||''),gx=6,gy=7,w=b.offsetWidth+gx,h=b.offsetHeight+gy,x=b.offsetLeft-gx/2,y=b.offsetTop-gy/2;
+  const pos=[[0,0],[-1,0],[0,-1],[1,0],[0,1]],cls=['','lf','up','rt','dn'];
+  ov.innerHTML=pos.map((q,i)=>chars[i]?`<div class="fl-tile ${cls[i]}${i===dir?' on':''}" style="left:${x+q[0]*w}px;top:${y+q[1]*h}px;width:${w}px;height:${h}px">${esc(chars[i])}</div>`:'').join('');
+}
+fs.addEventListener('pointerdown',e=>{
+  if(fs.hidden||e.button>0)return;const b=e.target.closest&&e.target.closest('.prop-keys button[data-fl]');if(!b)return;
+  e.preventDefault();flick={b,id:e.pointerId,x:e.clientX,y:e.clientY,rect:b.getBoundingClientRect(),dir:0};
+  try{b.setPointerCapture(e.pointerId)}catch(_){}
+  flickShow(flick,0);
+});
+fs.addEventListener('pointermove',e=>{const f=flick;if(!f||e.pointerId!==f.id)return;const d=flickDir(f,e);if(d!==f.dir){f.dir=d;flickShow(f,d)}});
+function endFlick(e,cancel){
+  const f=flick;if(!f||e.pointerId!==f.id)return;flick=null;flickDoneAt=performance.now();
+  try{f.b.releasePointerCapture(f.id)}catch(_){}
+  const g=f.b.parentElement;if(g){g.classList.remove('flicking');g.querySelector('.fl-ov')?.remove()}
+  if(cancel)return;pressPropKey('flick',{k:f.b.dataset.k,d:String(f.dir)});
+}
+fs.addEventListener('pointerup',e=>endFlick(e,false));fs.addEventListener('pointercancel',e=>endFlick(e,true));
+function pressPropKey(key,ds){
+  ds=ds||{};
   if(key==='send'){sendTyped();return}
   if(key==='hide'){typing.open=false;layoutFs(false);return}
+  if(typing.free){freePress(key==='char'?'noop':key,ds);layoutFs(false);return}
   if(key==='delete')deleteTyping();
   else if(key==='cand'){if(typingSynced())commitSeg();else stepTyping()}
   else stepTyping();
@@ -17933,6 +18117,7 @@ function pressPropKey(key){
 }
 function sendTyped(){
   if(!canSend())return;
+  if(typing.free){freeFlush();if(typing.extra){const at=baseAt(typing.index),base=S.mode==='sms'?S.sms.messages:S.chat.messages,d=new Date(),tm=base.some(x=>x.time)?String(d.getHours()).padStart(2,'0')+':'+String(d.getMinutes()).padStart(2,'0'):'';freeExtra.push({at,msg:{id:'fx'+(++fxN),type:'text',from:'me',text:typing.text,time:tm,read:true,x:true}})}else{const m=modeList()[typing.index];if(m&&m.id)typedOv[m.id]=typing.text}}
   play.n=typing.index+1;typing={open:false,text:'',goal:'',index:-1};layoutFs(true);
 }
 
@@ -17986,7 +18171,7 @@ fs.addEventListener('click',e=>{
   const tb=e.target.closest('[data-vid-tab]');if(tb){setVidTab(tb.dataset.vidTab);layoutFs(false);return}const button=e.target.closest('[data-video-step]');if(button){play.n=Number(button.dataset.videoStep);layoutFs(false);return}const wt=e.target.closest('[data-watch]');if(wt)openWatch(wt.dataset.watch);return}
   if(S.mode==='talks'){if(talkChat)return;if(performance.now()<swipeIgnoreUntil&&e.target.closest('[data-swipe-target]'))return;const button=e.target.closest('[data-talk-step]');if(button){play.n=Number(button.dataset.talkStep);layoutFs(false);return}const trow=e.target.closest('[data-talk-open]');if(trow&&play.n===0){talkChat=trow.dataset.talkOpen;layoutFs(false)}return}
   if(S.mode==='desktop'){const v=e.target.closest('[data-video-step]');if(v){fsScreen.innerHTML=renderScreen({height:innerHeight/(innerWidth/W),live:true});const container=fsScreen.querySelector('.video-screen');if(container)container.outerHTML=videoScreen({reveal:Number(v.dataset.videoStep)});}return;}
-  const key=e.target.closest('[data-prop-key]');if(key){pressPropKey(key.dataset.propKey);return}
+  const key=e.target.closest('[data-prop-key]');if(key){if(key.dataset.propKey==='flick'){if(performance.now()-flickDoneAt>700)pressPropKey('flick',{k:key.dataset.k,d:'0'});return}pressPropKey(key.dataset.propKey,key.dataset);return}
   if(e.target.closest('.prop-send')){sendTyped();return}
   if(e.target.closest('.c-field,.s-field')){beginTyping();return}
   if(e.target.closest('.prop-keyboard,.c-in,.s-in'))return;
@@ -18004,7 +18189,7 @@ function advancePlayback(){
     const kind=callOverride?.n===play.n?callOverride.kind:sceneAt(play.n).kind;
     const sc0=sceneAt(play.n);const desired=['call','banner','outgoing'].includes(kind)?'connected':kind==='connected'?'ended':kind==='noanswer'&&sc0.returnTo&&sc0.returnTo!=='none'?'noanswer-back':null;
     const nk=S.sequence.steps[play.n+1]?.kind;
-    if(desired&&nk!==desired&&!(desired==='connected'&&(nk==='missed'||nk==='noanswer'))){callOverride={n:play.n,kind:desired};layoutFs(false);return;}
+    if(desired&&nk!==desired&&!(desired==='connected'&&(nk==='missed'||nk==='noanswer'||nk==='declined'))){callOverride={n:play.n,kind:desired};layoutFs(false);return;}
   }
   if(play.n==null||play.n>=maxPosition())return;
   callOverride=null;
@@ -18016,10 +18201,10 @@ function handlePlaybackKey(e){
   if(e.target?.closest?.('input,textarea,select,[contenteditable]:not([contenteditable="false"])'))return;
   if(watching){if(e.key===' '){e.preventDefault();if(!e.repeat)toggleWatch()}else if(e.key==='Escape')closeFs();else if(e.key==='Backspace'||e.key==='ArrowLeft'){e.preventDefault();closeWatch()}return}
   // Physical KeyK also works when a Japanese keyboard layout reports another character.
-  if(e.code==='KeyK'||e.key==='k'||e.key==='K'){
+  if((e.code==='KeyK'||e.key==='k'||e.key==='K')&&!(typing.open&&typing.free)){
     e.preventDefault();if(!e.repeat){if(typing.open&&modeList()[typing.index]?.draftOnly&&typingHasText())pressPropKey('delete');else advancePlayback()}return;
   }
-  if(typing.open&&e.key!=='Escape'){e.preventDefault();if(e.key==='Enter'){if(compView())pressPropKey('char');else sendTyped()}else if(e.key==='Backspace')pressPropKey('delete');else if(e.key.length===1)pressPropKey('char');return}
+  if(typing.open&&e.key!=='Escape'){e.preventDefault();if(typing.free){if(e.key==='Enter'){if(typing.comp)pressPropKey('enter');else sendTyped()}else if(e.key==='Backspace')pressPropKey('delete');else if(e.key.length===1)pressPropKey('ins',{ch:e.key});return}if(e.key==='Enter'){if(compView())pressPropKey('char');else sendTyped()}else if(e.key==='Backspace')pressPropKey('delete');else if(e.key.length===1)pressPropKey('char');return}
   if(e.key==='Escape')closeFs();
   else if(e.key==='ArrowLeft'){e.preventDefault();if(play.n!=null){callOverride=null;play.n=Math.max(0,play.n-1);layoutFs(false)}}
   else if(e.key===' '||e.key==='ArrowRight'||e.key==='Enter'){e.preventDefault();if(!e.repeat)advancePlayback()}
@@ -18336,8 +18521,8 @@ function validateScript(raw){
   if(raw.video!==undefined){const v=raw.video;if(!v||!Array.isArray(v.items)||v.items.length>100)throw Error('Invalid videos');d.video={name:text(v.name,'',100),handle:text(v.handle,'',100),subscribers:text(v.subscribers,'',150),description:text(v.description,'',1000),avatar:pic(v.avatar),banner:pic(v.banner),myAvatar:pic(v.myAvatar),videoCount:text(v.videoCount,'',60),labels:(l=>{const o={};if(l&&typeof l==='object'&&!Array.isArray(l))for(const [k,val] of Object.entries(l))if(/^[A-Za-z0-9]{1,30}$/.test(k)&&typeof val==='string'&&val.length<=100)o[k]=val;return o})(v.labels),items:v.items.map(x=>{if(!x||typeof x!=='object')throw Error('Invalid video');return {id:uid(),title:text(x.title,'',300),channel:text(x.channel,'',100),target:bool(x.target,false),meta:text(x.meta,'',200),duration:text(x.duration,'',30),theme:['city','warm','sea','forest','night'].includes(x.theme)?x.theme:'city',img:pic(x.img),avatar:pic(x.avatar),likes:text(x.likes,'',40),...vidFields(x)}})};
     if(Array.isArray(v.shorts)){if(v.shorts.length>100)throw Error('Invalid shorts');d.video.shorts=v.shorts.map(x=>{if(!x||typeof x!=='object')throw Error('Invalid short');return {id:uid(),title:text(x.title,'',300),meta:text(x.meta,'',200),theme:['city','warm','sea','forest','night'].includes(x.theme)?x.theme:'city',img:pic(x.img),...vidFields(x)}})}}
   if(raw.talks!==undefined){if(!raw.talks||!Array.isArray(raw.talks.items)||raw.talks.items.length>100)throw Error('Invalid talks');d.talks.items=raw.talks.items.map(x=>{if(!x||typeof x!=='object')throw Error('Invalid talk');return {id:uid(),name:text(x.name,'',100),text:text(x.text),time:text(x.time,'',100),unread:Math.floor(number(x.unread,0,0,999)),color:color(x.color,'#6d9be5'),target:bool(x.target,false),img:pic(x.img),messages:Array.isArray(x.messages)?msgs(x.messages):[]}})}
-  if(raw.sequence!==undefined){if(!raw.sequence||!Array.isArray(raw.sequence.steps)||!raw.sequence.steps.length||raw.sequence.steps.length>300)throw Error('Invalid scenes');d.sequence.steps=raw.sequence.steps.map(a=>{if(!a||!['lock','call','banner','outgoing','connected','ended','missed','noanswer'].includes(a.kind))throw Error('Invalid scene');return {kind:a.kind,count:Math.floor(number(a.count,0,0,300)),name:text(a.name,'',100),duration:text(a.duration,'00:12',20),label:text(a.label,'電話',30),note:text(a.note,a.kind==='noanswer'?'応答なし':'不在着信',60),times:Math.floor(number(a.times,1,1,99)),returnTo:['chat','sms','video','lock','none'].includes(a.returnTo)?a.returnTo:'chat',app:a.app==='line'?'line':'kotoba'}})}
-  a=raw.play;d.play={tap:bool(a.tap,true),hide:number(a.hide,2,0,300),nativeBars:bool(a.nativeBars,true),kana:bool(a.kana,true)};d.export.size=raw.export.size==='std'?'std':'device';return d;
+  if(raw.sequence!==undefined){if(!raw.sequence||!Array.isArray(raw.sequence.steps)||!raw.sequence.steps.length||raw.sequence.steps.length>300)throw Error('Invalid scenes');d.sequence.steps=raw.sequence.steps.map(a=>{if(!a||!['lock','call','banner','outgoing','connected','ended','missed','noanswer','declined'].includes(a.kind))throw Error('Invalid scene');return {kind:a.kind,count:Math.floor(number(a.count,0,0,300)),name:text(a.name,'',100),duration:text(a.duration,'00:12',20),label:text(a.label,'電話',30),note:text(a.note,a.kind==='noanswer'?'応答なし':'不在着信',60),times:Math.floor(number(a.times,1,1,99)),returnTo:['chat','sms','video','lock','none'].includes(a.returnTo)?a.returnTo:'chat',app:a.app==='line'?'line':'kotoba'}})}
+  a=raw.play;d.play={tap:bool(a.tap,true),hide:number(a.hide,2,0,300),nativeBars:bool(a.nativeBars,true),kana:bool(a.kana,true),script:bool(a.script,true)};d.export.size=raw.export.size==='std'?'std':'device';return d;
 }
 function downloadBlob(blob,name){if(window.claude&&window.claude.use){getDl().then(dl=>{if(dl)return dl.save({filename:name,data:blob}).catch(()=>{});legacyDownload(blob,name)});return}legacyDownload(blob,name)}
 function legacyDownload(blob,name){if(window.kotobaNative){const reader=new FileReader();reader.onload=()=>window.webkit.messageHandlers.studio.postMessage({kind:"export",name,data:reader.result});reader.readAsDataURL(blob);return;}const url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download=name;a.click();setTimeout(()=>URL.revokeObjectURL(url),10000)}

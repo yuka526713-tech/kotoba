@@ -1,4 +1,4 @@
-<!doctype html><!-- build 2026-10-27 kana-af --><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><meta name="theme-color" content="#eef0f3"><meta name="description" content="撮影用のチャット・SMS・ロック画面を編集して、タップで再生。"><link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='9' fill='%234f7cff'/%3E%3Cpath d='M8 9h16v11H15l-6 5v-5H8z' fill='white'/%3E%3C/svg%3E"><style>body{margin:0}:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}img{max-width:100%}
+<!doctype html><!-- build 2026-10-27 kana-aj --><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><meta name="theme-color" content="#eef0f3"><meta name="description" content="撮影用のチャット・SMS・ロック画面を編集して、タップで再生。"><link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='9' fill='%234f7cff'/%3E%3Cpath d='M8 9h16v11H15l-6 5v-5H8z' fill='white'/%3E%3C/svg%3E"><style>body{margin:0}:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}img{max-width:100%}
 body{font-size:16px} .fld>span,.sec h3,.hint,.pv-note{font-size:14px}.btn.sm{font-size:14px}
 .transport{display:flex;flex-wrap:wrap;justify-content:center;gap:8px}#play-count{font-size:14px;color:var(--muted)}
 #fs.native-bars .sb,#fs.native-bars .sb-off,#fs.native-bars .home{display:none}
@@ -467,25 +467,23 @@ details.sec.fold>.sec-body{padding:14px 16px 16px;display:flex;flex-direction:co
 .rec-note i{margin-left:auto;font-style:normal;opacity:.6}.rec-nic{width:22px;height:22px;border-radius:7px;background:#18b66a;display:grid;place-items:center;flex:none}
 </style>
 <style id="scn-css">
-:root{--sc-ok:#1f8a5b;--sc-ok-bg:#e1f3ea;--sc-bad:#c23a3a;--sc-bad-bg:#fbe5e5;--sc-dim:#5d6676;--sc-dim-bg:#e8eaee;--sc-lock:#232a3d;--sc-lock-ink:#e8ecf5}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--sc-ok:#5fcf9b;--sc-ok-bg:#1c3a2d;--sc-bad:#f08080;--sc-bad-bg:#432326;--sc-dim:#aab2c3;--sc-dim-bg:#2c3347;--sc-lock:#0d1120}}
-:root[data-theme="dark"]{--sc-ok:#5fcf9b;--sc-ok-bg:#1c3a2d;--sc-bad:#f08080;--sc-bad-bg:#432326;--sc-dim:#aab2c3;--sc-dim-bg:#2c3347;--sc-lock:#0d1120}
+#editor{--sc-ok:#1f8a5b;--sc-ok-bg:#e1f3ea;--sc-bad:#c23a3a;--sc-bad-bg:#fbe5e5;--sc-dim:#5d6676;--sc-dim-bg:#e8eaee;--sc-lock:#232a3d;--sc-lock-ink:#e8ecf5;--sc-panel:#ffffff;--sc-soft:#f8f9fb;--sc-line:#e2e7ef;--sc-ink:#243145;--sc-muted:#7c8798;--sc-accent:#426db2}
 #editor .scn-bar{display:flex;align-items:center;justify-content:space-between;gap:10px;position:relative}
-#editor .scn-seg{display:inline-flex;border:1px solid var(--line);border-radius:10px;overflow:hidden}
-#editor .scn-seg button{border:0;background:var(--panel);color:var(--muted);padding:6px 16px;font:inherit;font-size:13px;cursor:pointer}
-#editor .scn-seg button.on{background:var(--accent);color:var(--accent-ink);font-weight:700}
-#editor .scn-help>summary{list-style:none;cursor:pointer;width:28px;height:28px;border-radius:50%;border:1px solid var(--line);color:var(--muted);display:inline-flex;align-items:center;justify-content:center;font-size:13px;background:var(--panel)}
+#editor .scn-seg{display:inline-flex;border:1px solid var(--sc-line);border-radius:10px;overflow:hidden}
+#editor .scn-seg button{border:0;background:var(--sc-panel);color:var(--sc-muted);padding:6px 16px;font:inherit;font-size:13px;cursor:pointer}
+#editor .scn-seg button.on{background:var(--sc-accent);color:#fff;font-weight:700}
+#editor .scn-help>summary{list-style:none;cursor:pointer;width:28px;height:28px;border-radius:50%;border:1px solid var(--sc-line);color:var(--sc-muted);display:inline-flex;align-items:center;justify-content:center;font-size:13px;background:var(--sc-panel)}
 #editor .scn-help>summary::-webkit-details-marker{display:none}
-#editor .scn-help-b{position:absolute;right:0;top:36px;z-index:5;width:min(300px,100%);background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:10px 12px;box-shadow:0 8px 24px rgba(20,30,50,.16);display:grid;gap:4px}
-#editor .scn-help-b p{margin:0;font-size:12.5px;line-height:1.6;color:var(--ink)}
-#editor .scn.it{padding:0;gap:0;border-left-width:1px;border-style:solid;background:var(--panel)!important;overflow:hidden}
-#editor .scn.it.open{border-color:var(--accent)}
-#editor .scn-row{display:grid;grid-template-columns:22px 70px minmax(0,1fr) 14px;gap:8px;align-items:center;width:100%;text-align:left;border:0;background:none;padding:10px 12px;font:inherit;color:var(--ink);cursor:pointer}
+#editor .scn-help-b{position:absolute;right:0;top:36px;z-index:5;width:min(300px,100%);background:var(--sc-panel);border:1px solid var(--sc-line);border-radius:12px;padding:10px 12px;box-shadow:0 8px 24px rgba(20,30,50,.16);display:grid;gap:4px}
+#editor .scn-help-b p{margin:0;font-size:12.5px;line-height:1.6;color:var(--sc-ink)}
+#editor .scn.it{padding:0;gap:0;border-left-width:1px;border-style:solid;background:var(--sc-panel)!important;overflow:hidden}
+#editor .scn.it.open{border-color:var(--sc-accent)}
+#editor .scn-row{display:grid;grid-template-columns:22px 70px minmax(0,1fr) 14px;gap:8px;align-items:center;width:100%;text-align:left;border:0;background:none;padding:10px 12px;font:inherit;color:var(--sc-ink);cursor:pointer}
 #editor .scn-title{display:grid;grid-template-columns:22px 70px minmax(0,1fr);gap:8px;align-items:center;padding:10px 12px}
-#editor .scn .n{color:var(--muted);font-size:12px;text-align:center;font-variant-numeric:tabular-nums}
+#editor .scn .n{color:var(--sc-muted);font-size:12px;text-align:center;font-variant-numeric:tabular-nums}
 #editor .scn-brief{font-size:14px;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-#editor .scn-brief i{font-style:normal;color:var(--muted);margin-left:7px;font-size:12px;font-variant-numeric:tabular-nums}
-#editor .scn .go{color:var(--muted);text-align:center}
+#editor .scn-brief i{font-style:normal;color:var(--sc-muted);margin-left:7px;font-size:12px;font-variant-numeric:tabular-nums}
+#editor .scn .go{color:var(--sc-muted);text-align:center}
 #editor .sc-chip{font-size:11px;font-weight:700;text-align:center;border-radius:999px;padding:2px 0;white-space:nowrap;display:block}
 #editor .sc-chip.call{background:var(--sc-ok-bg);color:var(--sc-ok)}
 #editor .sc-chip.miss{background:var(--sc-bad-bg);color:var(--sc-bad)}
@@ -494,26 +492,26 @@ details.sec.fold>.sec-body{padding:14px 16px 16px;display:flex;flex-direction:co
 #editor .scn-body{display:flex;flex-direction:column;gap:12px;padding:2px 12px 12px}
 #editor .scn-tools{display:flex;align-items:center;gap:6px;flex-wrap:wrap}
 #editor .scn-tools .grow{flex:1}
-#editor .scn-tools .ib{border:1px solid var(--line);width:30px;height:30px;font-size:14px;color:var(--ink)}
+#editor .scn-tools .ib{border:1px solid var(--sc-line);width:30px;height:30px;font-size:14px;color:var(--sc-ink)}
 #editor .scn-del{color:var(--sc-bad)}
 #editor .scn-main{display:flex;flex-direction:column;gap:10px}
-#editor .scn-more>summary,#editor .scn-other>summary{cursor:pointer;color:var(--accent);font-size:13px;list-style:none;padding:2px 0}
+#editor .scn-more>summary,#editor .scn-other>summary{cursor:pointer;color:var(--sc-accent);font-size:13px;list-style:none;padding:2px 0}
 #editor .scn-more>summary::-webkit-details-marker,#editor .scn-other>summary::-webkit-details-marker{display:none}
 #editor .scn-more>summary::after{content:' ▾'}
 #editor .scn-more[open]>summary::after{content:' ▴'}
-#editor .scn-more-body{display:flex;flex-direction:column;gap:10px;margin-top:8px;padding-top:10px;border-top:1px dashed var(--line)}
+#editor .scn-more-body{display:flex;flex-direction:column;gap:10px;margin-top:8px;padding-top:10px;border-top:1px dashed var(--sc-line)}
 #editor .scn-nhead{display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap;font-size:13px}
 #editor .scn-nbtn{display:flex;gap:6px}
 #editor .scn-notifs{display:flex;flex-direction:column;gap:8px}
 #editor .scn-n{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.6fr);gap:6px;align-items:start}
 #editor .scn-n textarea.inp{min-height:42px}
-#editor .scn-n.miss{grid-template-columns:minmax(0,1.4fr) minmax(0,1fr)}#editor .scn-bd{display:flex;flex-direction:column;gap:4px;font-size:12px;color:var(--muted)}#editor .scn-nmiss{border-color:var(--sc-bad);color:var(--sc-bad)}
+#editor .scn-n.miss{grid-template-columns:minmax(0,1.4fr) minmax(0,1fr)}#editor .scn-bd{display:flex;flex-direction:column;gap:4px;font-size:12px;color:var(--sc-muted)}#editor .scn-nmiss{border-color:var(--sc-bad);color:var(--sc-bad)}
 #editor .scn-n2{display:grid;grid-template-columns:20px minmax(0,1fr) minmax(0,1.3fr) 64px;gap:6px;align-items:center}
-#editor .scn-n2 .num{color:var(--muted);font-size:12px;text-align:center}
+#editor .scn-n2 .num{color:var(--sc-muted);font-size:12px;text-align:center}
 #editor .scn-n2 select.inp{width:100%}
-#editor .scn-empty{margin:0;font-size:12.5px;color:var(--muted)}
+#editor .scn-empty{margin:0;font-size:12.5px;color:var(--sc-muted)}
 #editor .scn-film{display:flex;gap:8px;overflow-x:auto;padding:6px 2px 12px;-webkit-overflow-scrolling:touch}
-#editor .scn-th{flex:none;width:54px;border:0;background:none;display:flex;flex-direction:column;align-items:center;gap:3px;font:inherit;color:var(--muted);cursor:pointer;padding:0}
+#editor .scn-th{flex:none;width:54px;border:0;background:none;display:flex;flex-direction:column;align-items:center;gap:3px;font:inherit;color:var(--sc-muted);cursor:pointer;padding:0}
 #editor .scn-th b{font-size:12px;font-weight:500;font-variant-numeric:tabular-nums}
 #editor .scn-th small{font-size:10.5px;white-space:nowrap}
 #editor .scn-scr{width:46px;height:82px;border-radius:9px;border:2px solid transparent;display:flex;flex-direction:column;justify-content:space-between;align-items:center;padding:7px 4px;position:relative;color:#fff}
@@ -523,20 +521,27 @@ details.sec.fold>.sec-body{padding:14px 16px 16px;display:flex;flex-direction:co
 #editor .scn-scr .bar{width:18px;height:3px;border-radius:2px;background:rgba(255,255,255,.55)}
 #editor .scn-scr .ico{width:14px;height:14px;border-radius:50%;background:rgba(255,255,255,.3)}
 #editor .scn-scr .bdg{position:absolute;top:-6px;right:-6px;background:#d6403d;color:#fff;border-radius:999px;font-size:10px;font-weight:700;min-width:17px;line-height:17px;text-align:center}
-#editor .scn-th.sel .scn-scr{border-color:var(--accent);box-shadow:0 0 0 3px color-mix(in srgb,var(--accent) 25%,transparent)}
-#editor .scn-th.sel,#editor .scn-th.sel b{color:var(--accent);font-weight:700}
-#editor .scn-add{display:flex;flex-direction:column;gap:8px;margin-top:12px;padding-top:12px;border-top:1px solid var(--line)}
+#editor .scn-th.sel .scn-scr{border-color:var(--sc-accent);box-shadow:0 0 0 3px color-mix(in srgb,var(--sc-accent) 25%,transparent)}
+#editor .scn-th.sel,#editor .scn-th.sel b{color:var(--sc-accent);font-weight:700}
+#editor .scn-add{display:flex;flex-direction:column;gap:8px;margin-top:12px;padding-top:12px;border-top:1px solid var(--sc-line)}
 #editor .scn-add-l{font-size:13px;font-weight:700}
-#editor .scn-add-l small{font-weight:400;color:var(--muted);margin-left:6px}
+#editor .scn-add-l small{font-weight:400;color:var(--sc-muted);margin-left:6px}
 #editor .scn-b{border-radius:999px;padding:6px 12px}
-#editor .scn-b::before{content:'＋';margin-right:4px;color:var(--muted)}
+#editor .scn-b::before{content:'＋';margin-right:4px;color:var(--sc-muted)}
 #editor .scn-b.call{border-color:var(--sc-ok)}
 #editor .scn-b.miss{border-color:var(--sc-bad)}
 #editor .scn-b.lock{border-color:var(--sc-lock)}
 #editor .scn-other .adds{margin-top:8px}
 #editor .scn-ocr{align-self:flex-start;cursor:pointer}
-#editor .sub-h{margin:16px 0 8px;font-size:13px;font-weight:700;color:var(--muted)}#editor .sub-h.first{margin-top:0}
+
+#editor .sub-h{margin:16px 0 8px;font-size:13px;font-weight:700;color:var(--sc-muted)}#editor .sub-h.first{margin-top:0}
 @media (max-width:480px){#editor .scn-n,#editor .scn-n.miss{grid-template-columns:minmax(0,1fr)}#editor .scn-n textarea.inp{min-height:48px}#editor .scn-tools .btn:first-child{flex:1 1 100%}#editor .scn-tools .grow{display:none}#editor .scn-tools .ib,#editor .scn-tools .btn:not(:first-child){flex:1;width:auto}#editor .scn-n2{grid-template-columns:20px minmax(0,1fr) minmax(0,1fr)}#editor .scn-n2 .time{grid-column:2/-1}}
+
+#editor .adds .scn-flow{flex:0 0 auto}#editor .adds .scn-flow[open]{flex:1 1 100%}
+#editor .scn-fl{list-style:none;cursor:pointer;display:inline-block;border-radius:999px;padding:6px 12px;border:1px dashed var(--sc-accent);color:var(--sc-accent);background:transparent}
+#editor .scn-fl::-webkit-details-marker{display:none}#editor .scn-fl::after{content:' ▾'}#editor .scn-flow[open]>.scn-fl::after{content:' ▴'}
+#editor .scn-flowbody{display:flex;flex-wrap:wrap;align-items:center;gap:6px;margin-top:8px;padding:10px;border:1px solid var(--sc-line);border-radius:10px;background:var(--sc-soft);font-size:13px;color:var(--sc-ink)}
+#editor .scn-flowbody .inp{width:64px;min-height:34px;text-align:center}
 </style>
 </head><body><div class="app">
   <div id="page-nav"></div><header class="top">
@@ -17204,7 +17209,7 @@ function renderPages(){
  if(editing)menu='<div class="adds"><button class="btn pri" data-act="chapter-confirm">この内容で確定</button><button class="btn" data-act="page" data-v="preview">プレビューを見る →</button></div>';
  if(page==='chapter')menu='<button class="btn pri" data-act="page" data-v="modes">画面を選ぶ →</button>';
  if(page==='files')menu='<section class="sec"><h3>iCloud Driveで作品を持ち運ぶ</h3><p class="hint">自動同期ではありません。書き出したファイルを、もう一方の端末で読み込みます。</p><ol class="hint"><li>「全作品を書き出す」を押します。</li><li>共有画面で「ファイルに保存」→「iCloud Drive」を選びます。</li><li>もう一方の端末で「作品ファイルを読み込む」から同じファイルを選びます。</li></ol><p class="hint">読み込んだ章は追加されます。既存の章は上書きされません。繰り返し読み込むと章が増えます。撮影前に内容を確認してください。</p></section>'+ '<div class="file-actions"><button class="page-card" data-act="book-export">全作品を書き出す ↓</button><button class="page-card" data-act="save-script">この章だけを書き出す ↓</button><button class="page-card" data-act="load-script">作品ファイルを読み込む ↑</button><button class="page-card" data-act="ocr-photo">写真から下書きを作る（ロック画面）📷</button><p class="hint">「写真から下書きを作る」は、ロック画面のスクリーンショットの文字を自動で読み取ります（初回のみネット接続が必要）。読み間違いがあるので、できた章で必ず確認してください。この端末に自動保存されます。別の端末へ移すときは、書き出したファイルを読み込んでください。</p></div>';
- const APP_VER='2026.10.27-af';
+ const APP_VER='2026.10.27-aj';
  if(page==='home'||page==='files')menu+=`<p class="hint app-ver">アプリのバージョン：${APP_VER}</p>`;
  document.getElementById('page-menu').innerHTML=menu;
  for(const el of document.querySelectorAll('#editor > .sec'))el.hidden=false;
@@ -17339,6 +17344,7 @@ function lockScreen(o){
   const L=S.lock; let list=L.notifs;
   if(o.reveal!=null) list=list.slice(0,o.reveal);
   if(o.extra)list=[...list,...o.extra];
+  {const seen=new Set(),keep=[];for(let k=list.length-1;k>=0;k--){const n=list[k];if(n.miss){const key=String(n.sender||'');if(seen.has(key))continue;seen.add(key)}keep.push(n)}list=keep.reverse()}
   list=[...list].reverse();
   const bg=L.wallImg?`background-image:url(${L.wallImg})`:`background:${WALLS[L.wall]||WALLS.night}`;
   const cards=list.map((n,i)=>{
@@ -17532,7 +17538,7 @@ function missedScreen(scene,o){
  return destScreen({...scene,returnTo:scene.returnTo||'lock'},o,{type:'call',from:'them',text:note||'不在着信',time:S.status.time,read:false},[{app:'phone',label:scene.label==null?'電話':scene.label,when:'今',sender:nm,text:note||'不在着信',miss:1,badge:t}]);
 }
 function notifAv(nm){const c=S.chat;if(nm&&nm===c.name)return avatarHtml(c);const cols=['#e58a6c','#6d9be5','#7bc67e','#b58bd6','#e0b050','#5fb7c4'];let h=0;for(const ch of String(nm||''))h=(h*31+ch.charCodeAt(0))>>>0;return `<div class="c-av" style="background:${cols[h%cols.length]}">${esc(initial(nm))}</div>`}
-function goCall(kind){const next=S.sequence.steps.findIndex((v,i)=>i>play.n&&v.kind===kind);if(next>=0){play.n=next;callOverride=null}else{callOverride={n:play.n,kind}}layoutFs(false)}
+function goCall(kind){const A=S.sequence.steps;let next=-1;for(let i=play.n+1;i<A.length;i++){const k=A[i].kind;if(k===kind){next=i;break}if(['call','lock','outgoing','banner'].includes(k))break}if(next>=0){play.n=next;callOverride=null}else{callOverride={n:play.n,kind}}layoutFs(false)}
 function callScreen(scene,o={}){const kind=callOverride?.n===play.n&&!fs.hidden?callOverride.kind:scene.kind;const active=kind==='connected',ended=kind==='ended',outgoing=kind==='outgoing';
 if(kind==='noanswer-back')return destScreen(scene,o,{type:'call',from:'me',text:scene.note||'応答なし',time:S.status.time,read:false},null);
 if((scene.app==='line'||kind==='noanswer'||kind==='declined'||kind==='hungup')&&['call','connected','ended','outgoing','noanswer','declined','hungup'].includes(kind))return lineCallScreen(scene,kind,o);
@@ -17630,7 +17636,7 @@ function notifList(){
   return `${dl('label')}${dl('sender')}<p class="hint">台本は上から順に届きます。画面では最新の通知が一番上に表示されます。「アプリ名」は空欄なら標準の名前になります。以前に入力した名前は、入力欄をタップすると候補に出ます。</p><div class="list" data-list="lock.notifs">${items}</div><div class="adds"><button class="btn sm" data-act="nadd">＋ 通知を追加</button></div>`;
 }
 /* ---- scene editor (list / film views) ---- */
-let seqSel=-1,seqView='list',seqMoreOpen=false;
+let seqSel=-1,seqView='list',seqMoreOpen=false,seqFlowN=7;
 try{if(localStorage.getItem('kotoba-seqview')==='film')seqView='film'}catch(e){}
 const SCN={lock:['ロック','lock'],call:['着信','call'],missed:['不在着信','miss'],banner:['他アプリ着信','dim'],outgoing:['発信','call'],noanswer:['応答なし','miss'],connected:['通話中','call'],ended:['通話終了','dim'],declined:['拒否','dim'],hungup:['切られた','dim']};
 const SCN_KIND_NAMES={lock:'ロック画面',call:'着信',missed:'不在着信（相手が切った）',banner:'他のアプリに着信',outgoing:'自分から発信',noanswer:'発信して応答なし',connected:'通話中',ended:'通話終了',declined:'着信を拒否した',hungup:'相手が切った（オーディオ終了）'};
@@ -17639,20 +17645,26 @@ const SCN_MORE=[['outgoing','自分から発信'],['noanswer','発信して応�
 const SCN_RET={chat:'ことば・チャット',sms:'SMS',video:'ナガメ・動画',lock:'ロック画面'};
 function scnNew(k0){
   const mk=k0==='missed',na=k0==='noanswer',ln=k0==='declined'||k0==='hungup';
-  return {kind:k0,count:mk||na?0:1,name:S.chat.name,returnTo:mk?'lock':'chat',duration:'00:12',label:'電話',note:na?'応答なし':'不在着信',times:1,app:ln?'line':'kotoba'};
+  return {kind:k0,count:mk||na?0:1,name:S.chat.name,returnTo:mk?'lock':'chat',duration:'00:12',label:'電話',note:na?'応答なし':mk?'不在着信（音声通話）':'不在着信',times:1,app:ln||mk?'line':'kotoba'};
 }
 function scnInsert(...sts){
   const A=S.sequence.steps;
   const at=seqSel>=0&&seqSel<A.length?seqSel+1:A.length;
   /* a new lock scene shows one more notification than the previous lock scene (the first one shows none) */
   for(const st of sts){
-    if(st.kind==='lock'){
-      let prev=-1;for(let j=at-1;j>=0;j--)if(A[j].kind==='lock'){prev=Math.min(A[j].count|0,S.lock.notifs.length);break}
-      if(prev<0)st.count=0;else{
-        st.count=prev+1;
-        if(S.lock.notifs.length<st.count&&S.lock.notifs.length<300)S.lock.notifs.push({id:uid(),app:'chat',label:'',sender:S.chat.name||'',text:'',when:'今'});
-        st.count=Math.min(st.count,S.lock.notifs.length);
+    if(st._raw){delete st._raw;continue}
+    if(st.kind==='missed'){
+      let prev=0;
+      for(let j=at-1;j>=0&&!prev;j--){
+        const x=A[j];
+        if(x.kind==='missed'&&x.name===st.name)prev=Math.max(1,x.times|0);
+        else if(x.kind==='lock'){const m=S.lock.notifs.slice(0,Math.min(x.count|0,S.lock.notifs.length)).reverse().find(n=>n.miss&&n.sender===st.name);if(m)prev=Math.max(1,+m.badge||1)}
       }
+      if(prev)st.times=Math.min(99,prev+1);
+    }
+    if(st.kind==='lock'){
+      let prev=0;for(let j=at-1;j>=0;j--)if(A[j].kind==='lock'){prev=Math.min(A[j].count|0,S.lock.notifs.length);break}
+      st.count=prev;
     }
   }
   A.splice(at,0,...sts);seqSel=at+sts.length-1;
@@ -17715,14 +17727,14 @@ function sequenceEditor(){
   const A=S.sequence.steps;
   if(seqSel>=A.length)seqSel=A.length-1;
   if(seqView==='film'&&seqSel<0)seqSel=0;
-  const bar=`<div class="scn-bar"><div class="scn-seg" role="group" aria-label="表示"><button type="button" data-act="seq-view" data-v="list" class="${seqView==='list'?'on':''}">リスト</button><button type="button" data-act="seq-view" data-v="film" class="${seqView==='film'?'on':''}">画面</button></div><details class="scn-help"><summary aria-label="使い方">?</summary><div class="scn-help-b"><p>撮影中は K キーか画面タップで、次の場面へ進みます。</p><p>「▶ この場面を見る」で、その場面だけ確認できます。</p><p>ロック画面の通知は、場面ごとに「＋ 通知を足す」で増やせます。</p><p>着信は撮影用の表示で、実際の電話はかかりません。</p></div></details></div>`;
+  const bar=`<div class="scn-bar"><div class="scn-seg" role="group" aria-label="表示"><button type="button" data-act="seq-view" data-v="list" class="${seqView==='list'?'on':''}">リスト</button><button type="button" data-act="seq-view" data-v="film" class="${seqView==='film'?'on':''}">画面</button></div><details class="scn-help"><summary aria-label="使い方">?</summary><div class="scn-help-b"><p>撮影中は K キーか画面タップで、次の場面へ進みます。</p><p>「▶ この場面を見る」で、その場面だけ確認できます。</p><p>ロック画面の通知は、場面ごとに「＋ 通知を足す」で増やせます。</p><p>着信中：右へスライド＝応答、画面タップ＝拒否、Kキー＝そのまま次の場面（相手が切る）。</p><p>着信は撮影用の表示で、実際の電話はかかりません。</p></div></details></div>`;
   let body='';
   if(seqView==='film'){
     body=`<div class="scn-film" role="list">${A.map(scnThumb).join('')}</div>`+(seqSel>=0?`<div class="list" data-list="sequence.steps"><div class="it scn open" data-i="${seqSel}"><div class="scn-title"><span class="n">${seqSel+1}</span>${scnChip(A[seqSel])}<span class="scn-brief">${scnBrief(A[seqSel])}</span></div><div class="scn-body">${scnTools(seqSel)}${scnForm(A[seqSel],seqSel)}</div></div></div>`:'');
   }else{
     body=`<div class="list" data-list="sequence.steps">${A.map((a,i)=>{const open=i===seqSel;return `<div class="it scn${open?' open':''}" data-i="${i}"><button type="button" class="scn-row" data-act="scene-sel" data-n="${i}" aria-expanded="${open}"><span class="n">${i+1}</span>${scnChip(a)}<span class="scn-brief">${scnBrief(a)}</span><span class="go" aria-hidden="true">${open?'⌄':'›'}</span></button>${open?`<div class="scn-body">${scnTools(i)}${scnForm(a,i)}</div>`:''}</div>`}).join('')}</div>`;
   }
-  const add=`<div class="scn-add"><div class="scn-add-l">場面を足す${seqSel>=0&&seqSel<A.length-1?`<small>（${seqSel+1}番のあとに入ります）</small>`:''}</div><div class="adds">${SCN_ADD.map(([k,l])=>`<button type="button" class="btn sm scn-b ${SCN[k][1]}" data-act="scene-add" data-kind="${k}">${l}</button>`).join('')}</div><details class="scn-other"><summary>その他の場面</summary><div class="adds">${SCN_MORE.map(([k,l])=>`<button type="button" class="btn sm scn-b ${SCN[k][1]}" data-act="scene-add" data-kind="${k}">${l}</button>`).join('')}</div></details><label class="btn sm scn-ocr" for="scn-ocr-file">スクショから入力<input type="file" id="scn-ocr-file" accept="image/*" hidden></label><p class="scn-empty" id="scn-ocr-st" role="status" hidden></p></div>`;
+  const add=`<div class="scn-add"><div class="scn-add-l">場面を足す${seqSel>=0&&seqSel<A.length-1?`<small>（${seqSel+1}番のあとに入ります）</small>`:''}</div><div class="adds">${SCN_ADD.map(([k,l])=>`<button type="button" class="btn sm scn-b ${SCN[k][1]}" data-act="scene-add" data-kind="${k}">${l}</button>`).join('')}<details class="scn-flow"><summary class="btn sm scn-fl">一連の流れ</summary><div class="scn-flowbody"><span>不在着信が</span><input class="inp" type="number" id="scn-flow-n" min="1" max="98" value="${seqFlowN}" aria-label="不在着信の件数"><span>件 → 着信 → 切れて＋1件 → 別の人から着信</span><button type="button" class="btn sm pri" data-act="scene-flow7">入れる</button></div></details></div><details class="scn-other"><summary>その他の場面</summary><div class="adds">${SCN_MORE.map(([k,l])=>`<button type="button" class="btn sm scn-b ${SCN[k][1]}" data-act="scene-add" data-kind="${k}">${l}</button>`).join('')}</div></details><label class="btn sm scn-ocr" for="scn-ocr-file">スクショから入力<input type="file" id="scn-ocr-file" accept="image/*" hidden></label><p class="scn-empty" id="scn-ocr-st" role="status" hidden></p></div>`;
   const dl=k=>`<datalist id="hl-${k}">${histGet(k).map(x=>`<option value="${esc(x)}">`).join('')}</datalist>`;
   return dl('sender')+dl('label')+bar+body+add;
 }
@@ -17833,6 +17845,7 @@ async function ocrRun(file){
     ocrSt('');toast('読み取りできませんでした。インターネットにつながっているか確認してください');
   }finally{ocrBusy=false;ocrSt('')}
 }
+document.addEventListener('input',e=>{if(e.target&&e.target.id==='scn-flow-n')seqFlowN=Math.max(1,Math.min(98,Math.floor(+e.target.value)||7))});
 document.addEventListener('change',e=>{const t=e.target;if(t&&t.id==='scn-ocr-file'&&t.files&&t.files[0]){const f=t.files[0];t.value='';ocrRun(f)}});
 function renderEditor(){
   document.getElementById('tabs').innerHTML=[['chat','チャット'],['sms','SMS'],['lock','ロック画面'],['sequence','連続シーン'],['talks','トーク一覧・削除'],['video','動画・チャンネル']].map(([k,l])=>`<button type="button" data-act="tab" data-v="${k}" class="${S.mode===k?'on':''}">${l}</button>`).join('');
@@ -18071,6 +18084,7 @@ document.addEventListener('click',e=>{
     case 'scene-dup': {if(S.sequence.steps.length>=300){toast('シーンは300件までです');break}S.sequence.steps.splice(i+1,0,JSON.parse(JSON.stringify(list[i])));seqSel=i+1;commit(true);break}
     case 'scene-nadd2': {if(S.lock.notifs.length>=300){toast('通知は300件までです');break}const s=S.sequence.steps[i],cnt=Math.min(s.count|0,S.lock.notifs.length);S.lock.notifs.splice(cnt,0,{id:uid(),app:'chat',label:'',sender:S.chat.name||'',text:'',when:'今'});s.count=cnt+1;S.sequence.steps.forEach((x,j)=>{if(j>i&&['lock','missed','noanswer'].includes(x.kind)&&(x.count|0)>cnt)x.count=(x.count|0)+1});commit(true);break}
     case 'scene-nmiss': {const s=S.sequence.steps[i],cnt=Math.min(s.count|0,S.lock.notifs.length),nm=S.chat.name||'';const ex=S.lock.notifs.slice(0,cnt).find(n=>n.miss&&n.sender===nm);if(ex){ex.badge=Math.min(99,Math.max(1,+ex.badge||1)+1);commit(true);break}if(S.lock.notifs.length>=300){toast('通知は300件までです');break}S.lock.notifs.splice(cnt,0,{id:uid(),app:'phone',label:'電話',sender:nm,text:'不在着信（音声通話）',when:'今',miss:1,badge:1});s.count=cnt+1;S.sequence.steps.forEach((x,j)=>{if(j>i&&['lock','missed','noanswer'].includes(x.kind)&&(x.count|0)>cnt)x.count=(x.count|0)+1});commit(true);break}
+    case 'scene-flow7': {const n=Math.max(1,Math.min(98,Math.floor(+document.getElementById('scn-flow-n')?.value)||7));seqFlowN=n;if(S.sequence.steps.length+4>300||S.lock.notifs.length>=300){toast('上限に達しました');break}const nm=S.chat.name||'',o2=nm==='ほかの人'?'ほかの人2':'ほかの人';S.lock.notifs.push({id:uid(),app:'phone',label:'電話',sender:nm,text:'不在着信（音声通話）',when:'今',miss:1,badge:n});const mk=(kind,name,x)=>Object.assign({kind,count:S.lock.notifs.length,name,returnTo:'lock',duration:'00:01',label:'電話',note:'不在着信（音声通話）',times:1,app:'line',_raw:1},x||{});scnInsert(mk('lock',nm,{app:'kotoba',returnTo:'chat'}),mk('call',nm),mk('missed',nm,{times:n+1}),mk('call',o2,{count:1}));commit(true);toast(`入れました（${n}件 → ${n+1}件）。着信中：右へスライド＝応答、画面タップ＝拒否、Kキー＝相手が切る`);break}
     case 'scene-nless': {const s=S.sequence.steps[i];s.count=Math.max(0,Math.min(s.count|0,S.lock.notifs.length)-1);commit(true);break}
     case 'scene-preview':previewN=i;renderPreview();go('preview');break;
     case 'erase-scene':previewN=i;openFs();beginTyping();if(typing.open){typing.text=typing.goal;typing.si=typing.segs?typing.segs.length:0;typing.pos=0;typing.sel=false;layoutFs(false)}break;
@@ -18474,25 +18488,30 @@ fs.addEventListener('click',e=>{
   if(e.target.closest('.c-field,.s-field')){beginTyping();return}
   if(e.target.closest('.prop-keyboard,.c-in,.s-in'))return;
   if(typing.open){typing.open=false;layoutFs(false);return}
-  if(S.mode==='sequence'){advancePlayback();return;}
+  if(S.mode==='sequence'){advancePlayback(true);return;}
   const len=modeList().length;
   if(play.n!=null&&play.n<maxPosition()){typing={open:false,text:'',goal:'',index:-1};play.n=nextReveal(play.n);layoutFs(true)}
 });
-function advancePlayback(){
+function advancePlayback(tap){
  if(talkChat){talkChat=null;layoutFs(false);return}
  if(chatCallMenu){chatCallMenu=false;layoutFs(false);return;}
  if(outgoingChatCall){if(outgoingChatCall==='outgoing'){outgoingChatCall='connected';startCallTimer();layoutFs(false)}return;}
  if(S.mode==='desktop'){play.n=(play.n+1)%4;desktopApp=[null,'chat','sms','video'][play.n];layoutFs(false);return;}
   if(S.mode==='sequence'&&sceneAt(play.n).kind!=='lock'){
     const kind=callOverride?.n===play.n?callOverride.kind:sceneAt(play.n).kind;
-    const sc0=sceneAt(play.n);const desired=['call','banner','outgoing'].includes(kind)?'connected':kind==='connected'?'ended':kind==='noanswer'&&sc0.returnTo&&sc0.returnTo!=='none'?'noanswer-back':null;
+    const sc0=sceneAt(play.n);
+    if(tap&&kind==='call'&&sc0.app==='line'){goCall('declined');return}
+    const desired=['call','banner','outgoing'].includes(kind)?'connected':kind==='connected'?'ended':kind==='noanswer'&&sc0.returnTo&&sc0.returnTo!=='none'?'noanswer-back':null;
     const nk=S.sequence.steps[play.n+1]?.kind;
     if(desired&&nk!==desired&&!(desired==='connected'&&(nk==='missed'||nk==='noanswer'||nk==='declined'||nk==='hungup'))){callOverride={n:play.n,kind:desired};layoutFs(false);return;}
   }
   if(play.n==null||play.n>=maxPosition())return;
+  const took=S.mode==='sequence'&&callOverride?.n===play.n&&sceneAt(play.n).kind==='call';
   callOverride=null;
   typing={open:false,text:'',goal:'',index:-1};
-  play.n=nextReveal(play.n);layoutFs(true);
+  let nx=nextReveal(play.n);
+  if(took){const A=S.sequence.steps;let j=play.n+1;while(j<A.length&&['missed','declined','hungup'].includes(A[j].kind))j++;if(j>=A.length){layoutFs(false);return}nx=j}
+  play.n=nx;layoutFs(true);
 }
 function handlePlaybackKey(e){
   if(fs.hidden||e.isComposing||e.ctrlKey||e.metaKey||e.altKey)return;

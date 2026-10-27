@@ -1,4 +1,4 @@
-<!doctype html><!-- build 2026-10-27 kana-aj --><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><meta name="theme-color" content="#eef0f3"><meta name="description" content="撮影用のチャット・SMS・ロック画面を編集して、タップで再生。"><link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='9' fill='%234f7cff'/%3E%3Cpath d='M8 9h16v11H15l-6 5v-5H8z' fill='white'/%3E%3C/svg%3E"><style>body{margin:0}:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}img{max-width:100%}
+<!doctype html><!-- build 2026-10-27 kana-ao --><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><meta name="theme-color" content="#eef0f3"><meta name="description" content="撮影用のチャット・SMS・ロック画面を編集して、タップで再生。"><link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='9' fill='%234f7cff'/%3E%3Cpath d='M8 9h16v11H15l-6 5v-5H8z' fill='white'/%3E%3C/svg%3E"><style>body{margin:0}:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}img{max-width:100%}
 body{font-size:16px} .fld>span,.sec h3,.hint,.pv-note{font-size:14px}.btn.sm{font-size:14px}
 .transport{display:flex;flex-wrap:wrap;justify-content:center;gap:8px}#play-count{font-size:14px;color:var(--muted)}
 #fs.native-bars .sb,#fs.native-bars .sb-off,#fs.native-bars .home{display:none}
@@ -170,6 +170,7 @@ u.comp{text-decoration:underline;text-decoration-thickness:1.6px;text-underline-
 .c-row.me{justify-content:flex-end;align-items:flex-end}
 .c-row.them{align-items:flex-start}
 .c-av{width:36px;height:36px;border-radius:50%;flex:none;background-size:cover;background-position:center;color:#fff;font-weight:700;font-size:15px;display:flex;align-items:center;justify-content:center}
+.bn-call .c-av{width:50px;height:50px;font-size:21px}
 .c-av.sp{visibility:hidden;height:1px}
 .c-col{display:flex;flex-direction:column;gap:3px;min-width:0}
 .c-nm{font-size:12px;color:var(--nm);padding-left:3px}
@@ -501,8 +502,15 @@ details.sec.fold>.sec-body{padding:14px 16px 16px;display:flex;flex-direction:co
 #editor .scn-more[open]>summary::after{content:' ▴'}
 #editor .scn-more-body{display:flex;flex-direction:column;gap:10px;margin-top:8px;padding-top:10px;border-top:1px dashed var(--sc-line)}
 #editor .scn-nhead{display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap;font-size:13px}
-#editor .scn-nbtn{display:flex;gap:6px}
+#editor .scn-nbtn{display:flex;gap:6px;flex-wrap:wrap;min-width:0}
+#editor .scn-nbtn .btn{white-space:nowrap}
 #editor .scn-notifs{display:flex;flex-direction:column;gap:8px}
+#editor .scn-m{display:grid;grid-template-columns:86px minmax(0,1fr) 34px;gap:6px;align-items:center;padding:8px;border:1px solid var(--sc-line);border-radius:12px;background:var(--sc-soft)}
+#editor .scn-m.dt{grid-template-columns:auto minmax(0,1fr) 34px}
+#editor .scn-m>textarea.inp,#editor .scn-m>input.inp:last-child{grid-column:1/-1}
+#editor .scn-m textarea.inp{min-height:44px}
+#editor .scn-m .tag{font-size:12px;font-weight:700;color:var(--sc-muted);padding:0 6px}
+#editor .scn-m .ib{border:1px solid var(--sc-line);width:34px;height:34px;font-size:16px;color:var(--sc-ink);background:var(--sc-panel)}
 #editor .scn-n{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.6fr);gap:6px;align-items:start}
 #editor .scn-n textarea.inp{min-height:42px}
 #editor .scn-n.miss{grid-template-columns:minmax(0,1.4fr) minmax(0,1fr)}#editor .scn-bd{display:flex;flex-direction:column;gap:4px;font-size:12px;color:var(--sc-muted)}#editor .scn-nmiss{border-color:var(--sc-bad);color:var(--sc-bad)}
@@ -17209,7 +17217,7 @@ function renderPages(){
  if(editing)menu='<div class="adds"><button class="btn pri" data-act="chapter-confirm">この内容で確定</button><button class="btn" data-act="page" data-v="preview">プレビューを見る →</button></div>';
  if(page==='chapter')menu='<button class="btn pri" data-act="page" data-v="modes">画面を選ぶ →</button>';
  if(page==='files')menu='<section class="sec"><h3>iCloud Driveで作品を持ち運ぶ</h3><p class="hint">自動同期ではありません。書き出したファイルを、もう一方の端末で読み込みます。</p><ol class="hint"><li>「全作品を書き出す」を押します。</li><li>共有画面で「ファイルに保存」→「iCloud Drive」を選びます。</li><li>もう一方の端末で「作品ファイルを読み込む」から同じファイルを選びます。</li></ol><p class="hint">読み込んだ章は追加されます。既存の章は上書きされません。繰り返し読み込むと章が増えます。撮影前に内容を確認してください。</p></section>'+ '<div class="file-actions"><button class="page-card" data-act="book-export">全作品を書き出す ↓</button><button class="page-card" data-act="save-script">この章だけを書き出す ↓</button><button class="page-card" data-act="load-script">作品ファイルを読み込む ↑</button><button class="page-card" data-act="ocr-photo">写真から下書きを作る（ロック画面）📷</button><p class="hint">「写真から下書きを作る」は、ロック画面のスクリーンショットの文字を自動で読み取ります（初回のみネット接続が必要）。読み間違いがあるので、できた章で必ず確認してください。この端末に自動保存されます。別の端末へ移すときは、書き出したファイルを読み込んでください。</p></div>';
- const APP_VER='2026.10.27-aj';
+ const APP_VER='2026.10.27-ao';
  if(page==='home'||page==='files')menu+=`<p class="hint app-ver">アプリのバージョン：${APP_VER}</p>`;
  document.getElementById('page-menu').innerHTML=menu;
  for(const el of document.querySelectorAll('#editor > .sec'))el.hidden=false;
@@ -17342,9 +17350,9 @@ function histAdd(k,v){v=String(v||'').trim();if(!v||v.length>100)return;try{cons
  const dl=document.getElementById('hl-'+k);if(dl)dl.innerHTML=histGet(k).map(x=>`<option value="${esc(x)}">`).join('')}
 function lockScreen(o){
   const L=S.lock; let list=L.notifs;
-  if(o.reveal!=null) list=list.slice(0,o.reveal);
+  if(Array.isArray(o.own))list=o.own;else if(o.reveal!=null) list=list.slice(0,o.reveal);
   if(o.extra)list=[...list,...o.extra];
-  {const seen=new Set(),keep=[];for(let k=list.length-1;k>=0;k--){const n=list[k];if(n.miss){const key=String(n.sender||'');if(seen.has(key))continue;seen.add(key)}keep.push(n)}list=keep.reverse()}
+  {const ex=o.extra||[],ks=new Set(ex.filter(n=>n.miss).map(n=>String(n.sender||'')));if(ks.size)list=list.filter(n=>!(n.miss&&ks.has(String(n.sender||''))&&!ex.includes(n)))}
   list=[...list].reverse();
   const bg=L.wallImg?`background-image:url(${L.wallImg})`:`background:${WALLS[L.wall]||WALLS.night}`;
   const cards=list.map((n,i)=>{
@@ -17534,16 +17542,19 @@ function destScreen(scene,o,bubble,extra){
  return lockScreen({...o,reveal:scene.count,...(extra?{extra}:{})});
 }
 function missedScreen(scene,o){
+ {const pl=scnPrevLock(scene);if(pl)o={...o,own:pl}}
  const nm=scene.name||S.chat.name||'',t=Math.max(1,Math.floor(+scene.times)||1),note=scene.note==null?'不在着信':scene.note;
  return destScreen({...scene,returnTo:scene.returnTo||'lock'},o,{type:'call',from:'them',text:note||'不在着信',time:S.status.time,read:false},[{app:'phone',label:scene.label==null?'電話':scene.label,when:'今',sender:nm,text:note||'不在着信',miss:1,badge:t}]);
 }
 function notifAv(nm){const c=S.chat;if(nm&&nm===c.name)return avatarHtml(c);const cols=['#e58a6c','#6d9be5','#7bc67e','#b58bd6','#e0b050','#5fb7c4'];let h=0;for(const ch of String(nm||''))h=(h*31+ch.charCodeAt(0))>>>0;return `<div class="c-av" style="background:${cols[h%cols.length]}">${esc(initial(nm))}</div>`}
 function goCall(kind){const A=S.sequence.steps;let next=-1;for(let i=play.n+1;i<A.length;i++){const k=A[i].kind;if(k===kind){next=i;break}if(['call','lock','outgoing','banner'].includes(k))break}if(next>=0){play.n=next;callOverride=null}else{callOverride={n:play.n,kind}}layoutFs(false)}
 function callScreen(scene,o={}){const kind=callOverride?.n===play.n&&!fs.hidden?callOverride.kind:scene.kind;const active=kind==='connected',ended=kind==='ended',outgoing=kind==='outgoing';
+if(kind==='chat')return chatScreen({...o,reveal:null,chat:scnChatObj(scene)});
+if(kind==='noanswer-back'){const pl=scnPrevLock(scene);if(pl)o={...o,own:pl}}
 if(kind==='noanswer-back')return destScreen(scene,o,{type:'call',from:'me',text:scene.note||'応答なし',time:S.status.time,read:false},null);
 if((scene.app==='line'||kind==='noanswer'||kind==='declined'||kind==='hungup')&&['call','connected','ended','outgoing','noanswer','declined','hungup'].includes(kind))return lineCallScreen(scene,kind,o);
-if(ended){const dest=scene.returnTo||'chat';if(dest==='video')return videoScreen({...o,reveal:0});if(dest==='sms')return smsScreen({...o,reveal:null});if(dest==='lock')return lockScreen({...o,reveal:scene.count});return chatScreen({...o,reveal:null,chat:{...S.chat,name:scene.name||S.chat.name,typing:false,messages:[...S.chat.messages,{type:'call',from:'me',text:'音声通話 '+(scene.duration||'00:12'),time:S.status.time,read:false}]}});}
-if(kind==='banner')return `<div style="height:100%;position:relative">${scene.returnTo==='sms'?smsScreen({...o,reveal:null}):videoScreen({...o,reveal:0})}<div style="position:absolute;top:58px;left:8px;right:8px;padding:14px;background:#f5f5f8;color:#151515;border-radius:22px;box-shadow:0 4px 24px #0003;display:flex;align-items:center;gap:12px"><span style="flex:1"><small>${esc(S.phone.chatName)} 音声通話</small><br><b>${esc(scene.name)}</b></span><button class="call-circle decline" style="width:44px;height:44px;margin:0;border:0" data-call="ended">${ic('phone',24,'white')}</button><button class="call-circle accept" style="width:44px;height:44px;margin:0;border:0" data-call="connected">${ic('phone',24,'white')}</button></div></div>`;
+if(ended){const dest=scene.returnTo||'chat';if(dest==='video')return videoScreen({...o,reveal:0});if(dest==='sms')return smsScreen({...o,reveal:null});if(dest==='lock'){const pl=scnPrevLock(scene);return lockScreen(pl?{...o,own:pl}:{...o,reveal:scene.count})}return chatScreen({...o,reveal:null,chat:{...S.chat,name:scene.name||S.chat.name,typing:false,messages:[...S.chat.messages,{type:'call',from:'me',text:'音声通話 '+(scene.duration||'00:12'),time:S.status.time,read:false}]}});}
+if(kind==='banner'){const rt=scene.returnTo||'chat';const bgS=rt==='sms'?smsScreen({...o,reveal:null}):rt==='video'?videoScreen({...o,reveal:0}):rt==='lock'?lockScreen({...o,reveal:0}):chatScreen({...o,reveal:null,...(scnPrevChat(scene)?{chat:scnPrevChat(scene)}:{})});return `<div style="height:100%;position:relative">${bgS}<div class="bn-call" style="position:absolute;top:10px;left:10px;right:10px;z-index:5;padding:14px 16px;background:#000;color:#fff;border-radius:46px;box-shadow:0 6px 24px #0006;display:flex;align-items:center;gap:12px"><span style="width:50px;height:50px;flex:none;display:block">${notifAv(scene.name)}</span><span style="flex:1;min-width:0;line-height:1.28"><small style="color:#8e8e93;font-size:14px">オーディオ</small><br><b style="font-size:19px;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;display:block">${esc(scene.name)}</b></span><button type="button" style="width:50px;height:50px;margin:0;padding:0;border:0;border-radius:50%;background:#f23a4e;display:grid;place-items:center;flex:none" data-call="ended" aria-label="拒否"><svg width="26" height="26" viewBox="0 0 26 26" fill="none" stroke="#fff" stroke-width="3.2" stroke-linecap="round"><path d="M6 6l14 14M20 6L6 20"/></svg></button><button type="button" style="width:50px;height:50px;margin:0;padding:0;border:0;border-radius:50%;background:#0a7cf5;display:grid;place-items:center;flex:none" data-call="connected" aria-label="応答"><svg width="28" height="28" viewBox="0 0 28 28" fill="none" stroke="#fff" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 14.5l6.5 6.5L23 8"/></svg></button></div></div>`}
 return `<div class="call-screen">${sb(true)}<div class="call-person"><div class="call-avatar">${esc(initial(scene.name))}</div><div class="call-name">${esc(scene.name)}</div><div class="call-label">${active?'通話中 · '+esc(scene.duration||'00:12'):ended?'通話終了':outgoing?'呼び出し中':esc(S.phone.chatName)+' 音声通話'}</div></div>${active?'<div style="display:flex;justify-content:space-evenly;text-align:center;color:white"><span>マイク<br>オン</span><span>スピーカー<br>オフ</span></div>':''}<div class="call-actions" style="justify-content:${active||ended||outgoing?'center':'space-between'}">${ended?'<div>通話が終了しました</div>':`<div><button type="button" style="border:0" class="call-circle decline" data-call="ended" aria-label="${active?'通話を終了':'拒否'}">${ic('phone',32,'#fff')}</button><span>${active?'終了':'拒否'}</span></div>${active||outgoing?'':`<div><button type="button" style="border:0" class="call-circle accept" data-call="connected" aria-label="応答">${ic('phone',32,'#fff')}</button><span>応答</span></div>`}`}</div><div class="home light"></div></div>`}
 
 let desktopApp=null;
@@ -17556,7 +17567,7 @@ function desktopScreen(o){
 function renderScreen(o){
   o=o||{}; const h=o.height||H;if(o.live&&outgoingChatCall)return `<div class="scr" style="height:${Math.round(h)}px">${chatCallScreen(outgoingChatCall,o)}</div>`;
   const scene=S.mode==='sequence'?sceneAt(o.reveal):null;
-  const body=(S.mode==='talks'&&o.live&&talkChat)?talkChatScreen(o):S.mode==='desktop'?desktopScreen(o):S.mode==='video'?videoScreen(o):S.mode==='talks'?talksScreen(o):scene?(scene.kind==='missed'?missedScreen(scene,o):scene.kind!=='lock'?callScreen(scene,o):lockScreen({...o,reveal:scene.count})):S.mode==='chat'?chatScreen(o):S.mode==='sms'?smsScreen(o):lockScreen(o);
+  const body=(S.mode==='talks'&&o.live&&talkChat)?talkChatScreen(o):S.mode==='desktop'?desktopScreen(o):S.mode==='video'?videoScreen(o):S.mode==='talks'?talksScreen(o):scene?(scene.kind==='missed'?missedScreen(scene,o):scene.kind!=='lock'?callScreen(scene,o):lockScreen(Array.isArray(scene.notifs)?{...o,own:scene.notifs}:{...o,reveal:scene.count})):S.mode==='chat'?chatScreen(o):S.mode==='sms'?smsScreen(o):lockScreen(o);
   return `<div class="scr scr-${scene?(scene.kind==='missed'&&(scene.returnTo||'lock')==='lock'?'lock':scene.kind):S.mode}" style="height:${Math.round(h)}px">${body}${o.live&&typing.open?keyboardHtml():''}</div>`;
 }
 
@@ -17638,43 +17649,54 @@ function notifList(){
 /* ---- scene editor (list / film views) ---- */
 let seqSel=-1,seqView='list',seqMoreOpen=false,seqFlowN=7;
 try{if(localStorage.getItem('kotoba-seqview')==='film')seqView='film'}catch(e){}
-const SCN={lock:['ロック','lock'],call:['着信','call'],missed:['不在着信','miss'],banner:['他アプリ着信','dim'],outgoing:['発信','call'],noanswer:['応答なし','miss'],connected:['通話中','call'],ended:['通話終了','dim'],declined:['拒否','dim'],hungup:['切られた','dim']};
-const SCN_KIND_NAMES={lock:'ロック画面',call:'着信',missed:'不在着信（相手が切った）',banner:'他のアプリに着信',outgoing:'自分から発信',noanswer:'発信して応答なし',connected:'通話中',ended:'通話終了',declined:'着信を拒否した',hungup:'相手が切った（オーディオ終了）'};
-const SCN_ADD=[['lock','ロック画面'],['call','着信'],['missed','不在着信'],['declined','着信を拒否'],['hungup','相手に切られた']];
-const SCN_MORE=[['outgoing','自分から発信'],['noanswer','発信して応答なし'],['connected','通話中'],['ended','通話終了'],['banner','他のアプリに着信']];
+const SCN={lock:['ロック','lock'],chat:['チャット','dim'],call:['着信','call'],missed:['不在着信','miss'],banner:['バナー着信','dim'],outgoing:['発信','call'],noanswer:['応答なし','miss'],connected:['通話中','call'],ended:['通話終了','dim'],declined:['拒否','dim'],hungup:['切られた','dim']};
+const SCN_KIND_NAMES={lock:'ロック画面',chat:'チャット画面（やりとりを見せる）',call:'着信',missed:'不在着信（相手が切った）',banner:'見ている画面に着信（バナー）',outgoing:'自分から発信',noanswer:'発信して応答なし',connected:'通話中',ended:'通話終了',declined:'着信を拒否した',hungup:'相手が切った（オーディオ終了）'};
+const SCN_ADD=[['lock','ロック画面'],['chat','チャット画面'],['call','着信'],['banner','バナー着信'],['missed','不在着信'],['declined','着信を拒否'],['hungup','相手に切られた']];
+const SCN_MORE=[['outgoing','自分から発信'],['noanswer','発信して応答なし'],['connected','通話中'],['ended','通話終了']];
 const SCN_RET={chat:'ことば・チャット',sms:'SMS',video:'ナガメ・動画',lock:'ロック画面'};
+/* each lock scene keeps its OWN list of notifications (a.notifs); legacy scenes copy the shared list the first time they are touched */
+function scnOwn(a){
+  if(!Array.isArray(a.notifs))a.notifs=S.lock.notifs.slice(0,Math.min(a.count|0,S.lock.notifs.length)).map(n=>({...n,id:uid()}));
+  return a.notifs;
+}
+function scnLockList(a){return Array.isArray(a.notifs)?a.notifs:S.lock.notifs.slice(0,Math.min(a.count|0,S.lock.notifs.length))}
+function scnPrevLock(scene){
+  /* the lock screen a call/missed scene falls back to = the nearest earlier lock scene, plus the missed-call cards that happened since then */
+  const A=S.sequence.steps,i=A.indexOf(scene);if(i<0)return null;
+  const mids=[];
+  for(let j=i-1;j>=0;j--){
+    const x=A[j];
+    if(x.kind==='lock'){
+      let L=scnLockList(x).slice();
+      for(const m of mids.reverse()){const nm=m.name||S.chat.name||'';L=L.filter(n=>!(n.miss&&String(n.sender||'')===String(nm)));L.push({id:uid(),app:'phone',label:m.label==null?'電話':m.label,when:'今',sender:nm,text:m.note||'不在着信',miss:1,badge:Math.max(1,Math.floor(+m.times)||1)})}
+      return L;
+    }
+    if(x.kind==='missed'&&(x.returnTo||'lock')==='lock')mids.push(x);
+  }
+  return null;
+}
+/* a chat scene keeps its own list of messages (a.messages) */
+function scnMsgs(a){if(!Array.isArray(a.messages))a.messages=[];return a.messages}
+function scnChatObj(st){return {...S.chat,name:st.name||S.chat.name,messages:Array.isArray(st.messages)?st.messages:S.chat.messages}}
+function scnPrevChat(scene){const A=S.sequence.steps,i=A.indexOf(scene);for(let j=i-1;j>=0;j--)if(A[j].kind==='chat')return scnChatObj(A[j]);return null}
 function scnNew(k0){
   const mk=k0==='missed',na=k0==='noanswer',ln=k0==='declined'||k0==='hungup';
-  return {kind:k0,count:mk||na?0:1,name:S.chat.name,returnTo:mk?'lock':'chat',duration:'00:12',label:'電話',note:na?'応答なし':mk?'不在着信（音声通話）':'不在着信',times:1,app:ln||mk?'line':'kotoba'};
+  return {kind:k0,count:k0==='lock'||mk||na?0:1,name:k0==='banner'?(S.chat.name==='ほかの人'?'ほかの人2':'ほかの人'):S.chat.name,returnTo:mk?'lock':'chat',duration:'00:12',label:'電話',note:na?'応答なし':mk?'不在着信（音声通話）':'不在着信',times:1,app:ln||mk?'line':'kotoba',...(k0==='lock'?{notifs:[]}:{}),...(k0==='chat'?{messages:[]}:{})};
 }
 function scnInsert(...sts){
   const A=S.sequence.steps;
   const at=seqSel>=0&&seqSel<A.length?seqSel+1:A.length;
-  /* a new lock scene shows one more notification than the previous lock scene (the first one shows none) */
-  for(const st of sts){
-    if(st._raw){delete st._raw;continue}
-    if(st.kind==='missed'){
-      let prev=0;
-      for(let j=at-1;j>=0&&!prev;j--){
-        const x=A[j];
-        if(x.kind==='missed'&&x.name===st.name)prev=Math.max(1,x.times|0);
-        else if(x.kind==='lock'){const m=S.lock.notifs.slice(0,Math.min(x.count|0,S.lock.notifs.length)).reverse().find(n=>n.miss&&n.sender===st.name);if(m)prev=Math.max(1,+m.badge||1)}
-      }
-      if(prev)st.times=Math.min(99,prev+1);
-    }
-    if(st.kind==='lock'){
-      let prev=0;for(let j=at-1;j>=0;j--)if(A[j].kind==='lock'){prev=Math.min(A[j].count|0,S.lock.notifs.length);break}
-      st.count=prev;
-    }
-  }
+  /* a new lock scene starts with no notifications of its own */
+  for(const st of sts){if(st._raw)delete st._raw}
   A.splice(at,0,...sts);seqSel=at+sts.length-1;
 }
 function scnBrief(a){
   const nm=esc(a.name||'（名前なし）');
   if(a.kind==='lock'){
-    const n=S.lock.notifs.slice(0,Math.max(0,a.count|0));const last=n[n.length-1];
+    const n=scnLockList(a);const last=n[n.length-1];
     return n.length?`通知 ${n.length}件<i>${esc((last&&last.sender)||'')}${last&&last.miss?` 不在着信×${Math.max(1,+last.badge||1)}`:''}</i>`:'通知なし';
   }
+  if(a.kind==='chat'){const n=Array.isArray(a.messages)?a.messages.length:S.chat.messages.length;return `やりとり<i>${esc(a.name||S.chat.name||'')} ${n}件</i>`}
   if(a.kind==='missed')return `${nm}<i>×${a.times||1}</i>`;
   if(['call','connected','outgoing','ended','banner'].includes(a.kind))return `${nm}<i>${esc(a.duration||'')}</i>`;
   return nm;
@@ -17683,7 +17705,7 @@ function scnChip(a){const k=SCN[a.kind]||['？','dim'];return `<span class="sc-c
 function scnThumb(a,i){
   const k=SCN[a.kind]||['？','dim'];
   const cls={lock:'lockS',miss:'missS',call:'callS',dim:'dimS'}[k[1]];
-  const bdg=a.kind==='lock'?Math.min(a.count|0,S.lock.notifs.length):a.kind==='missed'?(a.times>1?a.times:0):0;
+  const bdg=a.kind==='lock'?scnLockList(a).length:a.kind==='missed'?(a.times>1?a.times:0):0;
   return `<button type="button" class="scn-th${i===seqSel?' sel':''}" data-act="scene-sel" data-n="${i}" aria-label="${i+1}　${k[0]}" aria-pressed="${i===seqSel}"><span class="scn-scr ${cls}"><span class="bar"></span><span class="ico"></span>${bdg?`<span class="bdg">${bdg}</span>`:''}</span><b>${i+1}</b><small>${k[0]}</small></button>`;
 }
 function scnTools(i){
@@ -17698,21 +17720,39 @@ function scnForm(a,i){
   let main='',more='';
   const kindSel=F('場面の種類',SELX('kind',SCN_KIND_NAMES,k));
   if(k==='lock'){
-    const cnt=Math.min(a.count|0,S.lock.notifs.length),shown=S.lock.notifs.slice(0,cnt);
+    const shown=scnOwn(a),cnt=shown.length,LP=`sequence.steps.${i}.notifs`;
     main=`<div class="scn-nhead"><span>この画面の通知 <b>${cnt}</b>件</span><span class="scn-nbtn"><button type="button" class="btn sm" data-act="scene-nless"${cnt?'':' disabled'}>− 減らす</button><button type="button" class="btn sm pri" data-act="scene-nadd2">＋ メッセージ</button><button type="button" class="btn sm scn-nmiss" data-act="scene-nmiss">＋ 不在着信</button></span></div>`
-      +(shown.length?`<div class="scn-notifs" data-list="lock.notifs">${shown.map((n,j)=>n.miss?`<div class="scn-n miss" data-i="${j}"><input class="inp" data-f="sender" data-hist="sender" list="hl-sender" value="${esc(n.sender)}" placeholder="相手" aria-label="相手"><label class="scn-bd"><span>不在着信の回数</span><input class="inp" type="number" min="1" max="99" data-num="1" data-f="badge" value="${Math.max(1,+n.badge||1)}"></label></div>`:`<div class="scn-n" data-i="${j}"><input class="inp" data-f="sender" data-hist="sender" list="hl-sender" value="${esc(n.sender)}" placeholder="差出人" aria-label="差出人"><textarea class="inp" data-f="text" rows="1" placeholder="本文" aria-label="本文">${esc(n.text)}</textarea></div>`).join('')}</div>`:`<p class="scn-empty">通知なし（ロック画面だけが映ります）</p>`);
-    more=kindSel+(shown.length?`<div class="scn-notifs" data-list="lock.notifs">${shown.map((n,j)=>n.miss?`<div class="scn-n2 miss" data-i="${j}"><span class="num">${j+1}</span><span class="sc-chip miss">不在着信</span><input class="inp" data-f="text" value="${esc(n.text)}" placeholder="通知の文面" aria-label="通知の文面"><input class="inp time" data-f="when" value="${esc(n.when)}" placeholder="今" aria-label="時間表示"></div>`:`<div class="scn-n2" data-i="${j}"><span class="num">${j+1}</span><select class="inp" data-f="app" aria-label="アプリ">${Object.entries(APPS).map(([kk,v])=>`<option value="${kk}"${n.app===kk?' selected':''}>${v.n}</option>`).join('')}</select><input class="inp" data-f="label" data-hist="label" list="hl-label" value="${esc(n.label||'')}" placeholder="アプリ名" aria-label="アプリ名"><input class="inp time" data-f="when" value="${esc(n.when)}" placeholder="今" aria-label="時間表示"></div>`).join('')}</div>`:'');
+      +(shown.length?`<div class="scn-notifs" data-list="${LP}">${shown.map((n,j)=>n.miss?`<div class="scn-n miss" data-i="${j}"><input class="inp" data-f="sender" data-hist="sender" list="hl-sender" value="${esc(n.sender)}" placeholder="相手" aria-label="相手"><label class="scn-bd"><span>不在着信の回数</span><input class="inp" type="number" min="1" max="99" data-num="1" data-f="badge" value="${Math.max(1,+n.badge||1)}"></label></div>`:`<div class="scn-n" data-i="${j}"><input class="inp" data-f="sender" data-hist="sender" list="hl-sender" value="${esc(n.sender)}" placeholder="差出人" aria-label="差出人"><textarea class="inp" data-f="text" rows="1" placeholder="本文" aria-label="本文">${esc(n.text)}</textarea></div>`).join('')}</div>`:`<p class="scn-empty">通知なし（「＋」で足せます）</p>`);
+    more=kindSel+(shown.length?`<div class="scn-notifs" data-list="${LP}">${shown.map((n,j)=>n.miss?`<div class="scn-n2 miss" data-i="${j}"><span class="num">${j+1}</span><span class="sc-chip miss">不在着信</span><input class="inp" data-f="text" value="${esc(n.text)}" placeholder="通知の文面" aria-label="通知の文面"><input class="inp time" data-f="when" value="${esc(n.when)}" placeholder="今" aria-label="時間表示"></div>`:`<div class="scn-n2" data-i="${j}"><span class="num">${j+1}</span><select class="inp" data-f="app" aria-label="アプリ">${Object.entries(APPS).map(([kk,v])=>`<option value="${kk}"${n.app===kk?' selected':''}>${v.n}</option>`).join('')}</select><input class="inp" data-f="label" data-hist="label" list="hl-label" value="${esc(n.label||'')}" placeholder="アプリ名" aria-label="アプリ名"><input class="inp time" data-f="when" value="${esc(n.when)}" placeholder="今" aria-label="時間表示"></div>`).join('')}</div>`:'');
+  }else if(k==='chat'){
+    const L=scnMsgs(a),MP=`sequence.steps.${i}.messages`;
+    const MR=(m,j)=>{
+      const del=`<button type="button" class="ib" data-act="del" aria-label="削除">×</button>`;
+      const tm=`<input class="inp time" data-f="time" value="${esc(m.time||'')}" placeholder="21:32" aria-label="時刻">`;
+      if(m.type==='date')return `<div class="scn-m dt" data-i="${j}"><span class="tag">日付</span><input class="inp" data-f="text" value="${esc(m.text||'')}" placeholder="今日" aria-label="日付">${del}</div>`;
+      if(m.type==='call')return `<div class="scn-m" data-i="${j}"><span class="tag">通話</span>${tm}${del}<input class="inp" data-f="text" value="${esc(m.text||'')}" placeholder="不在着信" aria-label="表示する文言"></div>`;
+      if(m.type!=='text')return `<div class="scn-m dt" data-i="${j}"><span class="tag">${m.type==='image'?'画像':'その他'}</span><span class="scn-empty">そのまま映ります</span>${del}</div>`;
+      return `<div class="scn-m" data-i="${j}"><select class="inp" data-f="from" aria-label="だれの発言"><option value="them"${m.from==='me'?'':' selected'}>相手</option><option value="me"${m.from==='me'?' selected':''}>自分</option></select>${tm}${del}<textarea class="inp" data-f="text" rows="1" placeholder="メッセージ" aria-label="メッセージ">${esc(m.text||'')}</textarea></div>`;
+    };
+    main=F('トークの相手（画面の上に出る名前）',IN('name',a.name))
+      +`<div class="scn-nhead"><span>やりとり <b>${L.length}</b>件</span><span class="scn-nbtn"><button type="button" class="btn sm pri" data-act="scene-madd" data-k="them">＋ 相手</button><button type="button" class="btn sm pri" data-act="scene-madd" data-k="me">＋ 自分</button><button type="button" class="btn sm" data-act="scene-madd" data-k="date">＋ 日付</button><button type="button" class="btn sm" data-act="scene-madd" data-k="call">＋ 不在着信</button></span></div>`
+      +(L.length?`<div class="scn-notifs" data-list="${MP}">${L.map(MR).join('')}</div>`:`<p class="scn-empty">まだ何もありません。「＋ 相手」「＋ 自分」で足してください。</p>`)
+      +(!L.length&&S.chat.messages.length?`<button type="button" class="btn sm" data-act="scene-mcopy">「チャット」タブの内容を入れる</button>`:'');
+    more=kindSel;
+  }else if(k==='banner'){
+    main=F('かけてきた人',IN('name',a.name))+F('後ろに映す画面',SELX('returnTo',SCN_RET,a.returnTo||'chat'));
+    more=kindSel+F('応答したあとの通話時間',IN('duration',a.duration||'00:12'));
   }else if(k==='noanswer'){
     main=F('相手',IN('name',a.name));
     const rt=a.returnTo||'chat';
-    more=kindSel+F('トークに残る履歴の文言',IN('note',a.note==null?'応答なし':a.note))+F('「応答がありません」のあとの画面（Kで進みます）',SELX('returnTo',Object.assign({none:'応答がありません画面のまま'},SCN_RET),rt))+(rt==='lock'?F('ロック画面に出す通知の数',NUM('count',a.count,0,300)):'');
+    more=kindSel+F('トークに残る履歴の文言',IN('note',a.note==null?'応答なし':a.note))+F('「応答がありません」のあとの画面（Kで進みます）',SELX('returnTo',Object.assign({none:'応答がありません画面のまま'},SCN_RET),rt))+(rt==='lock'&&!scnPrevLock(a)?F('ロック画面に出す通知の数',NUM('count',a.count,0,300)):'');
   }else if(k==='declined'||k==='hungup'){
     main=F('相手（画面に出る名前）',IN('name',a.name));
     more=kindSel;
   }else if(k==='missed'){
     const rt=a.returnTo||'lock';
     main=F('相手',IN('name',a.name))+F('不在着信の回数（2以上だと、アイコンに数字が付きます）',NUM('times',a.times||1,1,99));
-    more=kindSel+F('通知の文面',IN('note',a.note==null?'不在着信':a.note))+F('切れたあとの画面',SELX('returnTo',Object.assign({},SCN_RET),rt))+(rt==='lock'?F('ロック画面に一緒に出す他の通知の数（0＝不在着信だけ）',NUM('count',a.count,0,300)):'');
+    more=kindSel+F('通知の文面',IN('note',a.note==null?'不在着信':a.note))+F('切れたあとの画面',SELX('returnTo',Object.assign({},SCN_RET),rt))+(rt==='lock'&&!scnPrevLock(a)?F('ロック画面に一緒に出す他の通知の数（0＝不在着信だけ）',NUM('count',a.count,0,300)):'');
   }else{
     const withApp=['call','connected','ended','outgoing'].includes(k);
     main=F('相手',IN('name',a.name))+F(line?'通話時間（この数字から動き出す）':'通話時間（台本）',IN('duration',a.duration||'00:12'))+(withApp?F('画面のデザイン',SELX('app',{kotoba:'ことば（アプリの着信画面）',line:'iPhoneがロック中の着信画面'},line?'line':'kotoba')):'');
@@ -17734,7 +17774,7 @@ function sequenceEditor(){
   }else{
     body=`<div class="list" data-list="sequence.steps">${A.map((a,i)=>{const open=i===seqSel;return `<div class="it scn${open?' open':''}" data-i="${i}"><button type="button" class="scn-row" data-act="scene-sel" data-n="${i}" aria-expanded="${open}"><span class="n">${i+1}</span>${scnChip(a)}<span class="scn-brief">${scnBrief(a)}</span><span class="go" aria-hidden="true">${open?'⌄':'›'}</span></button>${open?`<div class="scn-body">${scnTools(i)}${scnForm(a,i)}</div>`:''}</div>`}).join('')}</div>`;
   }
-  const add=`<div class="scn-add"><div class="scn-add-l">場面を足す${seqSel>=0&&seqSel<A.length-1?`<small>（${seqSel+1}番のあとに入ります）</small>`:''}</div><div class="adds">${SCN_ADD.map(([k,l])=>`<button type="button" class="btn sm scn-b ${SCN[k][1]}" data-act="scene-add" data-kind="${k}">${l}</button>`).join('')}<details class="scn-flow"><summary class="btn sm scn-fl">一連の流れ</summary><div class="scn-flowbody"><span>不在着信が</span><input class="inp" type="number" id="scn-flow-n" min="1" max="98" value="${seqFlowN}" aria-label="不在着信の件数"><span>件 → 着信 → 切れて＋1件 → 別の人から着信</span><button type="button" class="btn sm pri" data-act="scene-flow7">入れる</button></div></details></div><details class="scn-other"><summary>その他の場面</summary><div class="adds">${SCN_MORE.map(([k,l])=>`<button type="button" class="btn sm scn-b ${SCN[k][1]}" data-act="scene-add" data-kind="${k}">${l}</button>`).join('')}</div></details><label class="btn sm scn-ocr" for="scn-ocr-file">スクショから入力<input type="file" id="scn-ocr-file" accept="image/*" hidden></label><p class="scn-empty" id="scn-ocr-st" role="status" hidden></p></div>`;
+  const add=`<div class="scn-add"><div class="scn-add-l">場面を足す${seqSel>=0&&seqSel<A.length-1?`<small>（${seqSel+1}番のあとに入ります）</small>`:''}</div><div class="adds">${SCN_ADD.map(([k,l])=>`<button type="button" class="btn sm scn-b ${SCN[k][1]}" data-act="scene-add" data-kind="${k}">${l}</button>`).join('')}<details class="scn-flow"><summary class="btn sm scn-fl">一連の流れ</summary><div class="scn-flowbody"><span>不在着信が</span><input class="inp" type="number" id="scn-flow-n" min="1" max="98" value="${seqFlowN}" aria-label="不在着信の件数"><span>件 → 着信 → 相手が切る → ＋1件 → 別の人から着信</span><button type="button" class="btn sm pri" data-act="scene-flow7">入れる</button></div></details></div><details class="scn-other"><summary>その他の場面</summary><div class="adds">${SCN_MORE.map(([k,l])=>`<button type="button" class="btn sm scn-b ${SCN[k][1]}" data-act="scene-add" data-kind="${k}">${l}</button>`).join('')}</div></details><label class="btn sm scn-ocr" for="scn-ocr-file">スクショから入力<input type="file" id="scn-ocr-file" accept="image/*" hidden></label><p class="scn-empty" id="scn-ocr-st" role="status" hidden></p></div>`;
   const dl=k=>`<datalist id="hl-${k}">${histGet(k).map(x=>`<option value="${esc(x)}">`).join('')}</datalist>`;
   return dl('sender')+dl('label')+bar+body+add;
 }
@@ -18081,11 +18121,13 @@ document.addEventListener('click',e=>{
     case 'scene-add': {if(S.sequence.steps.length>=300){toast('シーンは300件までです');break}scnInsert(scnNew(b.dataset.kind));commit(true);document.querySelector('#editor .scn.open')?.scrollIntoView({block:'nearest'});break}
     case 'scene-sel': {const n=+b.dataset.n;seqSel=(seqView==='list'&&seqSel===n)?-1:n;renderEditor();document.querySelector('#editor .scn.open')?.scrollIntoView({block:'nearest'});break}
     case 'seq-view': {seqView=b.dataset.v==='film'?'film':'list';try{localStorage.setItem('kotoba-seqview',seqView)}catch(e){}if(seqView==='film'&&seqSel<0)seqSel=0;renderEditor();break}
-    case 'scene-dup': {if(S.sequence.steps.length>=300){toast('シーンは300件までです');break}S.sequence.steps.splice(i+1,0,JSON.parse(JSON.stringify(list[i])));seqSel=i+1;commit(true);break}
-    case 'scene-nadd2': {if(S.lock.notifs.length>=300){toast('通知は300件までです');break}const s=S.sequence.steps[i],cnt=Math.min(s.count|0,S.lock.notifs.length);S.lock.notifs.splice(cnt,0,{id:uid(),app:'chat',label:'',sender:S.chat.name||'',text:'',when:'今'});s.count=cnt+1;S.sequence.steps.forEach((x,j)=>{if(j>i&&['lock','missed','noanswer'].includes(x.kind)&&(x.count|0)>cnt)x.count=(x.count|0)+1});commit(true);break}
-    case 'scene-nmiss': {const s=S.sequence.steps[i],cnt=Math.min(s.count|0,S.lock.notifs.length),nm=S.chat.name||'';const ex=S.lock.notifs.slice(0,cnt).find(n=>n.miss&&n.sender===nm);if(ex){ex.badge=Math.min(99,Math.max(1,+ex.badge||1)+1);commit(true);break}if(S.lock.notifs.length>=300){toast('通知は300件までです');break}S.lock.notifs.splice(cnt,0,{id:uid(),app:'phone',label:'電話',sender:nm,text:'不在着信（音声通話）',when:'今',miss:1,badge:1});s.count=cnt+1;S.sequence.steps.forEach((x,j)=>{if(j>i&&['lock','missed','noanswer'].includes(x.kind)&&(x.count|0)>cnt)x.count=(x.count|0)+1});commit(true);break}
-    case 'scene-flow7': {const n=Math.max(1,Math.min(98,Math.floor(+document.getElementById('scn-flow-n')?.value)||7));seqFlowN=n;if(S.sequence.steps.length+4>300||S.lock.notifs.length>=300){toast('上限に達しました');break}const nm=S.chat.name||'',o2=nm==='ほかの人'?'ほかの人2':'ほかの人';S.lock.notifs.push({id:uid(),app:'phone',label:'電話',sender:nm,text:'不在着信（音声通話）',when:'今',miss:1,badge:n});const mk=(kind,name,x)=>Object.assign({kind,count:S.lock.notifs.length,name,returnTo:'lock',duration:'00:01',label:'電話',note:'不在着信（音声通話）',times:1,app:'line',_raw:1},x||{});scnInsert(mk('lock',nm,{app:'kotoba',returnTo:'chat'}),mk('call',nm),mk('missed',nm,{times:n+1}),mk('call',o2,{count:1}));commit(true);toast(`入れました（${n}件 → ${n+1}件）。着信中：右へスライド＝応答、画面タップ＝拒否、Kキー＝相手が切る`);break}
-    case 'scene-nless': {const s=S.sequence.steps[i];s.count=Math.max(0,Math.min(s.count|0,S.lock.notifs.length)-1);commit(true);break}
+    case 'scene-dup': {if(S.sequence.steps.length>=300){toast('シーンは300件までです');break}{const cp=JSON.parse(JSON.stringify(list[i]));if(Array.isArray(cp.notifs))cp.notifs.forEach(n=>{n.id=uid()});if(Array.isArray(cp.messages))cp.messages.forEach(n=>{n.id=uid()});S.sequence.steps.splice(i+1,0,cp)}seqSel=i+1;commit(true);break}
+    case 'scene-nadd2': {const s=S.sequence.steps[i],L=scnOwn(s);if(L.length>=100){toast('通知は100件までです');break}L.push({id:uid(),app:'chat',label:'',sender:S.chat.name||'',text:'',when:'今'});s.count=L.length;commit(true);break}
+    case 'scene-nmiss': {const s=S.sequence.steps[i],L=scnOwn(s);if(L.length>=100){toast('通知は100件までです');break}L.push({id:uid(),app:'phone',label:'電話',sender:S.chat.name||'',text:'不在着信（音声通話）',when:'今',miss:1,badge:1});s.count=L.length;commit(true);break}
+    case 'scene-flow7': {const n=Math.max(1,Math.min(98,Math.floor(+document.getElementById('scn-flow-n')?.value)||7));seqFlowN=n;if(S.sequence.steps.length+5>300){toast('上限に達しました');break}const nm=S.chat.name||'',o2=nm==='ほかの人'?'ほかの人2':'ほかの人';const mk=(kind,name,x)=>Object.assign({kind,count:0,name,returnTo:'lock',duration:'00:01',label:'電話',note:'不在着信（音声通話）',times:1,app:'line',_raw:1},x||{});scnInsert(mk('lock',nm,{app:'kotoba',returnTo:'chat',count:1,notifs:[{id:uid(),app:'phone',label:'電話',sender:nm,text:'不在着信（音声通話）',when:'今',miss:1,badge:n}]}),mk('call',nm,{count:1}),mk('hungup',nm,{count:1}),mk('missed',nm,{times:n+1}),mk('call',o2,{count:1}));commit(true);toast(`入れました（${n}件 → ${n+1}件）。着信中：右へスライド＝応答、画面タップ＝拒否、Kキー＝相手が切る（オーディオ終了→ロック画面）`);break}
+    case 'scene-madd': {const s=S.sequence.steps[i],L=scnMsgs(s),k=b.dataset.k;if(L.length>=300){toast('やりとりは300件までです');break}const tm=S.status.time||'';L.push(k==='date'?{id:uid(),type:'date',text:'今日'}:k==='call'?{id:uid(),type:'call',from:'them',text:'不在着信',time:tm,read:false}:{id:uid(),type:'text',from:k==='me'?'me':'them',text:'',time:tm,read:k==='me'});commit(true);[...document.querySelectorAll('#editor .scn.open .scn-m textarea')].pop()?.focus();break}
+    case 'scene-mcopy': {const s=S.sequence.steps[i],L=scnMsgs(s);S.chat.messages.slice(0,300-L.length).forEach(m=>L.push({...JSON.parse(JSON.stringify(m)),id:uid()}));commit(true);break}
+    case 'scene-nless': {const s=S.sequence.steps[i],L=scnOwn(s);L.pop();s.count=L.length;commit(true);break}
     case 'scene-preview':previewN=i;renderPreview();go('preview');break;
     case 'erase-scene':previewN=i;openFs();beginTyping();if(typing.open){typing.text=typing.goal;typing.si=typing.segs?typing.segs.length:0;typing.pos=0;typing.sel=false;layoutFs(false)}break;
     case 'type-scene': previewN=i;openFs();beginTyping();break;
@@ -18170,7 +18212,7 @@ function openFs(){talkChat=null;watching=null;outgoingChatCall=null;callLog=[];s
 function closeFs(){freeExtra=[];talkChat=null;outgoingChatCall=null;chatCallMenu=false;stopCallTimer();stopLineTimer();{const wv=document.getElementById('wvid');if(wv)try{wv.pause()}catch(e){}}watching=null;setThemeColor('#eef0f3');document.documentElement.classList.remove('shoot-lock');document.documentElement.style.removeProperty('--shoot-wallpaper');document.documentElement.style.removeProperty('--fs-top');document.documentElement.style.removeProperty('background');document.body.style.removeProperty('background');previewN=play.n;fs.hidden=true;document.body.classList.remove('playing');renderPreview(); try{if(document.fullscreenElement)document.exitFullscreen()}catch(e){}}
 function setThemeColor(c){const m=document.querySelector('meta[name=theme-color]');if(m)m.setAttribute('content',c)}
 function layoutFs(fresh){
-  const lineK=lineState();const callMode=S.mode==='sequence'&&(!!lineK||!['lock','ended','banner','missed','noanswer-back'].includes(callOverride?.n===play.n?callOverride.kind:sceneAt(play.n).kind));
+  const lineK=lineState();const callMode=S.mode==='sequence'&&(!!lineK||!['lock','chat','ended','banner','missed','noanswer-back'].includes(callOverride?.n===play.n?callOverride.kind:sceneAt(play.n).kind));
   const lockMode=S.mode==='lock'||S.mode==='sequence';
   fs.classList.toggle('lock-wallpaper',lockMode);
   fs.classList.remove('in-call');const cs0=getComputedStyle(fs),insT=parseFloat(cs0.paddingTop)||0,insB=parseFloat(cs0.paddingBottom)||0;fs.classList.toggle('in-call',!!outgoingChatCall);
@@ -18834,11 +18876,11 @@ function validateScript(raw){
   function msgs(list){if(!Array.isArray(list)||list.length>300)throw Error('Invalid messages');return list.map(m=>{if(!m||!['text','image','call','date','system'].includes(m.type))throw Error('Invalid type');return {id:uid(),type:m.type,from:m.from==='me'?'me':'them',text:text(m.text),time:text(m.time,'',100),read:bool(m.read,false),draftOnly:bool(m.draftOnly,false),typingBefore:bool(m.typingBefore,false),dur:text(m.dur,'',20),note:text(m.note,'',60),yomi:text(m.yomi,'',500),img:pic(m.img)}})}
   a=raw.chat;d.chat={name:text(a.name,'',100),duration:text(a.duration,'00:12',20),returnTo:['chat','sms','video','lock'].includes(a.returnTo)?a.returnTo:'chat',unread:number(a.unread,0,0,9999),avatar:pic(a.avatar),avColor:color(a.avColor,d.chat.avColor),accent:color(a.accent,d.chat.accent),bg:Object.hasOwn(CHATBG,a.bg)?a.bg:'sky',bgImg:pic(a.bgImg),showName:bool(a.showName,false),top:bool(a.top,false),typing:bool(a.typing,false),callDur:text(a.callDur,'',20),callFrom:text(a.callFrom,'',20),draft:text(a.draft),messages:msgs(a.messages)};
   a=raw.sms;d.sms={name:text(a.name,'',100),duration:text(a.duration,'00:12',20),returnTo:['chat','sms','video','lock'].includes(a.returnTo)?a.returnTo:'chat',accent:color(a.accent,d.sms.accent),messages:msgs(a.messages)};
-  a=raw.lock;if(!Array.isArray(a.notifs)||a.notifs.length>300)throw Error('Invalid notifications');d.lock={time:text(a.time,'21:47',50),date:text(a.date,'',100),font:Object.hasOwn(FONTS,a.font)?a.font:'sys',wall:Object.hasOwn(WALLS,a.wall)?a.wall:'night',wallImg:pic(a.wallImg),notifs:a.notifs.map(n=>{if(!n||!Object.hasOwn(APPS,n.app))throw Error('Invalid app');return {id:uid(),app:n.app,label:text(n.label,'',100),sender:text(n.sender,'',200),text:text(n.text),when:text(n.when,'',100),...(n.miss?{miss:1,badge:Math.max(1,Math.min(99,Math.floor(+n.badge)||1))}:{})}})};
+  a=raw.lock;if(!Array.isArray(a.notifs)||a.notifs.length>300)throw Error('Invalid notifications');const cn=n=>{if(!n||!Object.hasOwn(APPS,n.app))throw Error('Invalid app');return {id:uid(),app:n.app,label:text(n.label,'',100),sender:text(n.sender,'',200),text:text(n.text),when:text(n.when,'',100),...(n.miss?{miss:1,badge:Math.max(1,Math.min(99,Math.floor(+n.badge)||1))}:{})}};d.lock={time:text(a.time,'21:47',50),date:text(a.date,'',100),font:Object.hasOwn(FONTS,a.font)?a.font:'sys',wall:Object.hasOwn(WALLS,a.wall)?a.wall:'night',wallImg:pic(a.wallImg),notifs:a.notifs.map(cn)};
   if(raw.video!==undefined){const v=raw.video;if(!v||!Array.isArray(v.items)||v.items.length>100)throw Error('Invalid videos');d.video={name:text(v.name,'',100),handle:text(v.handle,'',100),subscribers:text(v.subscribers,'',150),description:text(v.description,'',1000),avatar:pic(v.avatar),banner:pic(v.banner),myAvatar:pic(v.myAvatar),videoCount:text(v.videoCount,'',60),labels:(l=>{const o={};if(l&&typeof l==='object'&&!Array.isArray(l))for(const [k,val] of Object.entries(l))if(/^[A-Za-z0-9]{1,30}$/.test(k)&&typeof val==='string'&&val.length<=100)o[k]=val;return o})(v.labels),items:v.items.map(x=>{if(!x||typeof x!=='object')throw Error('Invalid video');return {id:uid(),title:text(x.title,'',300),channel:text(x.channel,'',100),target:bool(x.target,false),meta:text(x.meta,'',200),duration:text(x.duration,'',30),theme:['city','warm','sea','forest','night'].includes(x.theme)?x.theme:'city',img:pic(x.img),avatar:pic(x.avatar),likes:text(x.likes,'',40),...vidFields(x)}})};
     if(Array.isArray(v.shorts)){if(v.shorts.length>100)throw Error('Invalid shorts');d.video.shorts=v.shorts.map(x=>{if(!x||typeof x!=='object')throw Error('Invalid short');return {id:uid(),title:text(x.title,'',300),meta:text(x.meta,'',200),theme:['city','warm','sea','forest','night'].includes(x.theme)?x.theme:'city',img:pic(x.img),...vidFields(x)}})}}
   if(raw.talks!==undefined){if(!raw.talks||!Array.isArray(raw.talks.items)||raw.talks.items.length>100)throw Error('Invalid talks');d.talks.items=raw.talks.items.map(x=>{if(!x||typeof x!=='object')throw Error('Invalid talk');return {id:uid(),name:text(x.name,'',100),text:text(x.text),time:text(x.time,'',100),unread:Math.floor(number(x.unread,0,0,999)),color:color(x.color,'#6d9be5'),target:bool(x.target,false),img:pic(x.img),messages:Array.isArray(x.messages)?msgs(x.messages):[]}})}
-  if(raw.sequence!==undefined){if(!raw.sequence||!Array.isArray(raw.sequence.steps)||!raw.sequence.steps.length||raw.sequence.steps.length>300)throw Error('Invalid scenes');d.sequence.steps=raw.sequence.steps.map(a=>{if(!a||!['lock','call','banner','outgoing','connected','ended','missed','noanswer','declined','hungup'].includes(a.kind))throw Error('Invalid scene');return {kind:a.kind,count:Math.floor(number(a.count,0,0,300)),name:text(a.name,'',100),duration:text(a.duration,'00:12',20),label:text(a.label,'電話',30),note:text(a.note,a.kind==='noanswer'?'応答なし':'不在着信',60),times:Math.floor(number(a.times,1,1,99)),returnTo:['chat','sms','video','lock','none'].includes(a.returnTo)?a.returnTo:'chat',app:a.app==='line'?'line':'kotoba'}})}
+  if(raw.sequence!==undefined){if(!raw.sequence||!Array.isArray(raw.sequence.steps)||!raw.sequence.steps.length||raw.sequence.steps.length>300)throw Error('Invalid scenes');d.sequence.steps=raw.sequence.steps.map(a=>{if(!a||!['lock','chat','call','banner','outgoing','connected','ended','missed','noanswer','declined','hungup'].includes(a.kind))throw Error('Invalid scene');return {kind:a.kind,count:Math.floor(number(a.count,0,0,300)),name:text(a.name,'',100),duration:text(a.duration,'00:12',20),label:text(a.label,'電話',30),note:text(a.note,a.kind==='noanswer'?'応答なし':'不在着信',60),times:Math.floor(number(a.times,1,1,99)),returnTo:['chat','sms','video','lock','none'].includes(a.returnTo)?a.returnTo:'chat',app:a.app==='line'?'line':'kotoba',...(a.kind==='lock'&&Array.isArray(a.notifs)&&a.notifs.length<=100?(l=>({notifs:l,count:l.length}))(a.notifs.map(cn)):{}),...(a.kind==='chat'&&Array.isArray(a.messages)?{messages:msgs(a.messages)}:{})}})}
   a=raw.play;d.play={tap:bool(a.tap,true),hide:number(a.hide,2,0,300),nativeBars:bool(a.nativeBars,true),kana:bool(a.kana,true),script:bool(a.script,true)};d.export.size=raw.export.size==='std'?'std':'device';return d;
 }
 function downloadBlob(blob,name){if(window.claude&&window.claude.use){getDl().then(dl=>{if(dl)return dl.save({filename:name,data:blob}).catch(()=>{});legacyDownload(blob,name)});return}legacyDownload(blob,name)}

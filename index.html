@@ -1,4 +1,4 @@
-<!doctype html><!-- build 2026-10-30 kana-ar --><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><meta name="theme-color" content="#eef0f3"><meta name="description" content="撮影用のチャット・SMS・ロック画面を編集して、タップで再生。"><link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='9' fill='%234f7cff'/%3E%3Cpath d='M8 9h16v11H15l-6 5v-5H8z' fill='white'/%3E%3C/svg%3E"><style>body{margin:0}:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}img{max-width:100%}
+<!doctype html><!-- build 2026-10-31 kana-as --><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><meta name="theme-color" content="#eef0f3"><meta name="description" content="撮影用のチャット・SMS・ロック画面を編集して、タップで再生。"><link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='9' fill='%234f7cff'/%3E%3Cpath d='M8 9h16v11H15l-6 5v-5H8z' fill='white'/%3E%3C/svg%3E"><style>body{margin:0}:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}img{max-width:100%}
 body{font-size:16px} .fld>span,.sec h3,.hint,.pv-note{font-size:14px}.btn.sm{font-size:14px}
 .transport{display:flex;flex-wrap:wrap;justify-content:center;gap:8px}#play-count{font-size:14px;color:var(--muted)}
 #fs.native-bars .sb,#fs.native-bars .sb-off,#fs.native-bars .home{display:none}
@@ -463,7 +463,7 @@ details.sec.fold>.sec-body{padding:14px 16px 16px;display:flex;flex-direction:co
 .bub.rec{padding:0;min-width:210px;overflow:hidden}
 .rec-top{display:flex;align-items:center;gap:12px;padding:12px 14px}
 .rec-ic{width:42px;height:42px;border-radius:50%;background:rgba(0,0,0,.28);display:grid;place-items:center;flex:none}
-.rec-top b{display:block;font-size:15px}.rec-top small{display:block;font-size:13px;opacity:.7;margin-top:2px}
+.bub.rec.nodur .rec-top{min-height:66px;box-sizing:border-box}.them .bub.rec .rec-ic{background:#f1f2f4}.them .bub.rec .rec-note{border-top-color:#eceef1}.c-in-row.c-blocked{justify-content:center;color:#9aa0a8;font-size:15px;min-height:44px}.rec-top b{display:block;font-size:15px}.rec-top small{display:block;font-size:13px;opacity:.7;margin-top:2px}
 .rec-note{display:flex;align-items:center;gap:8px;padding:10px 14px;border-top:1px solid rgba(0,0,0,.14);font-size:13px}
 .rec-note i{margin-left:auto;font-style:normal;opacity:.6}.rec-nic{width:22px;height:22px;border-radius:7px;background:#18b66a;display:grid;place-items:center;flex:none}
 </style>
@@ -17117,7 +17117,7 @@ function defaults(){
     mode:'chat',
     phone:{wall:null,chatName:'ことば',smsName:'メッセージ',videoName:'ナガメ',chatIcon:null,smsIcon:null,videoIcon:null},
     status:{time:'21:47',battery:38,signal:3,wifi:true,show:true,carrier:''},
-    chat:{name:'美咲',unread:3,avatar:null,avColor:'#e58a6d',accent:'#4f7cff',bg:'sky',bgImg:null,showName:false,top:false,typing:false,callDur:'',callFrom:'',draft:'',lockStart:false,lockSender:'',lockText:'',lockNotifs:[],lockAll:false,
+    chat:{name:'美咲',unread:3,avatar:null,avColor:'#e58a6d',accent:'#4f7cff',bg:'sky',bgImg:null,showName:false,top:false,typing:false,callDur:'',callFrom:'',draft:'',lockStart:false,lockSender:'',lockText:'',lockNotifs:[],lockAll:false,callResult:'answer',blocked:false,
       messages:[
         {id:uid(),type:'date',text:'9月27日(日)'},
         m('them','今日はありがとう。楽しかった','22:14'),
@@ -17218,7 +17218,7 @@ function renderPages(){
  if(editing)menu='<div class="adds"><button class="btn pri" data-act="chapter-confirm">この内容で確定</button><button class="btn" data-act="page" data-v="preview">プレビューを見る →</button></div>';
  if(page==='chapter')menu='<button class="btn pri" data-act="page" data-v="modes">画面を選ぶ →</button>';
  if(page==='files')menu='<section class="sec"><h3>iCloud Driveで作品を持ち運ぶ</h3><p class="hint">自動同期ではありません。書き出したファイルを、もう一方の端末で読み込みます。</p><ol class="hint"><li>「全作品を書き出す」を押します。</li><li>共有画面で「ファイルに保存」→「iCloud Drive」を選びます。</li><li>もう一方の端末で「作品ファイルを読み込む」から同じファイルを選びます。</li></ol><p class="hint">読み込んだ章は追加されます。既存の章は上書きされません。繰り返し読み込むと章が増えます。撮影前に内容を確認してください。</p></section>'+ '<div class="file-actions"><button class="page-card" data-act="book-export">全作品を書き出す ↓</button><button class="page-card" data-act="save-script">この章だけを書き出す ↓</button><button class="page-card" data-act="load-script">作品ファイルを読み込む ↑</button><button class="page-card" data-act="ocr-photo">写真から下書きを作る（ロック画面）📷</button><p class="hint">「写真から下書きを作る」は、ロック画面のスクリーンショットの文字を自動で読み取ります（初回のみネット接続が必要）。読み間違いがあるので、できた章で必ず確認してください。この端末に自動保存されます。別の端末へ移すときは、書き出したファイルを読み込んでください。</p></div>';
- const APP_VER='2026.10.30-ar';
+ const APP_VER='2026.10.31-as';
  if(page==='home'||page==='files')menu+=`<p class="hint app-ver">アプリのバージョン：${APP_VER}</p>`;
  document.getElementById('page-menu').innerHTML=menu;
  for(const el of document.querySelectorAll('#editor > .sec'))el.hidden=false;
@@ -17288,8 +17288,9 @@ function avatarHtml(c,size){
 }
 function chatBubble(m,acc){
   if(m.type==='image') return `<div class="bub pic">${m.img?`<img src="${m.img}" alt="">`:'<div class="noimg">画像</div>'}</div>`;
-  if(m.type==='call'&&m.dur!==undefined&&String(m.dur).trim()!==''){
-    return `<div class="bub rec"><div class="rec-top"><span class="rec-ic">${ic('phone',22,'#fff',2)}</span><span><b>${esc(m.text)}</b><small>${esc(normDur(m.dur))}</small></span></div><div class="rec-note"><span class="rec-nic">${ic('note',14,'#fff',2)}</span>${esc(m.note||'着信音・呼出音')}<i>›</i></div></div>`;
+  if(m.type==='call'){
+    const hd=m.dur!==undefined&&String(m.dur).trim()!=='',me=m.from==='me';
+    return `<div class="bub rec${hd?'':' nodur'}"><div class="rec-top"><span class="rec-ic">${ic('phone',22,me?'#fff':'#2b2f36',2)}</span><span><b>${esc(m.text||'不在着信')}</b>${hd?`<small>${esc(normDur(m.dur))}</small>`:''}</span></div><div class="rec-note"><span class="rec-nic">${ic('note',14,'#fff',2)}</span>${esc(m.note||'着信音・呼出音')}<i>›</i></div></div>`;
   }
   if(m.type==='call'){
     const me=m.from==='me';
@@ -17323,7 +17324,7 @@ function chatScreen(o){
   return `<div class="c-head">${sb(false)}<div class="c-bar"><div class="c-back" data-chat-back>${ic('back',26,'#1d1d1f',2.2)}${c.unread?`<span>${esc(c.unread)}</span>`:''}</div><div class="c-title">${esc(c.name)}</div><div class="c-icons">${ic('search',22,'#1d1d1f')}${o.noCall?`<span style="padding:8px;display:inline-flex">${ic('phone',22,'#1d1d1f')}</span>`:`<button data-chat-call aria-label="通話メニューを開く" style="border:0;background:none;padding:8px;color:inherit">${ic('phone',22,'#1d1d1f')}</button>`}${ic('menu',22,'#1d1d1f')}</div></div></div>`
    +(o.live&&chatCallMenu?`<div class="c-callbar${dk?' dk':''}"><button type="button" data-chat-call-go aria-label="音声通話をかける">${ic('phone',26,'currentColor',1.8)}<small>音声通話</small></button><button type="button" data-chat-call-video aria-label="ビデオ通話">${ic('vcam',26,'currentColor',1.8)}<small>ビデオ通話</small></button></div>`:'')
    +`<div class="c-body${dk?' dk':''}${c.top?' c-start':''}" style="${bg};--acc:${c.accent}">${out}</div>`
-   +`<div class="c-in"><div class="c-in-row">${o.live&&typing.open?ic('chevR',24,'#555b66',2.2):ic('plus',24,'#555b66')+ic('camera',24,'#555b66')+ic('image',24,'#555b66')}<div class="c-field${d?'':' ph'}${o.live&&typing.open?' typing-active':''}" ${o.live?'role="button" tabindex="0" aria-label="台本を入力"':''}><span class="tx">${d?(o.live?typingHtml():nl(esc(d))):'メッセージを入力'}</span>${ic('smile',20,'#8a8f99')}</div>${o.live?`<button class="prop-send c-send" aria-label="送信" ${canSend()?'':'disabled'} style="background:${c.accent}${typing.open&&!d?';display:none':''}">${ic('send',17,'#fff',2)}</button>${typing.open&&!d?ic('mic',24,'#555b66'):''}`:d?`<div class="c-send" style="background:${c.accent}">${ic('send',17,'#fff',2)}</div>`:ic('mic',24,'#555b66')}</div><div class="home"><i></i></div></div>`;
+   +`<div class="c-in">${c.blocked?'<div class="c-in-row c-blocked">ブロック中</div>':`<div class="c-in-row">${o.live&&typing.open?ic('chevR',24,'#555b66',2.2):ic('plus',24,'#555b66')+ic('camera',24,'#555b66')+ic('image',24,'#555b66')}<div class="c-field${d?'':' ph'}${o.live&&typing.open?' typing-active':''}" ${o.live?'role="button" tabindex="0" aria-label="台本を入力"':''}><span class="tx">${d?(o.live?typingHtml():nl(esc(d))):'メッセージを入力'}</span>${ic('smile',20,'#8a8f99')}</div>${o.live?`<button class="prop-send c-send" aria-label="送信" ${canSend()?'':'disabled'} style="background:${c.accent}${typing.open&&!d?';display:none':''}">${ic('send',17,'#fff',2)}</button>${typing.open&&!d?ic('mic',24,'#555b66'):''}`:d?`<div class="c-send" style="background:${c.accent}">${ic('send',17,'#fff',2)}</div>`:ic('mic',24,'#555b66')}</div>`}<div class="home"><i></i></div></div>`;
 }
 function smsScreen(o){
   const s=S.sms, list=vis(s.messages,o);
@@ -17498,16 +17499,17 @@ function parseDurMs(v){const m=String(v||'').trim().match(/^(\d{1,3})[:：](\d{1
 function normDur(v){v=String(v||'').trim();const m=v.match(/^(\d{1,3})[:：](\d{1,2})$/);return m?(+m[1])+':'+String(+m[2]).padStart(2,'0'):v}
 function startCallTimer(){stopCallTimer();callStart=Date.now()-parseDurMs(S.chat.callFrom);callTimer=setInterval(()=>{const el=document.querySelector('.call-timer');if(el)el.textContent=fmtClock(Date.now()-callStart)},400)}
 function endChatCall(){
-  const st=outgoingChatCall;
-  const m=st==='connected'?{type:'call',from:'me',text:'音声通話',dur:(S.chat.callDur&&S.chat.callDur.trim()?normDur(S.chat.callDur):fmtDur(Date.now()-callStart)),time:S.status.time,read:true,note:'着信音・呼出音'}:{type:'call',from:'me',text:'キャンセル',cancel:1,time:S.status.time};
+  const st=outgoingChatCall,fo='着信音・呼出音';
+  const m=st==='connected'?{type:'call',from:'me',text:'音声通話',dur:(S.chat.callDur&&S.chat.callDur.trim()?normDur(S.chat.callDur):fmtDur(Date.now()-callStart)),time:S.status.time,read:true,note:fo}:st==='noanswer'?{type:'call',from:'me',text:'応答なし',time:S.status.time,read:false,note:fo}:{type:'call',from:'me',text:'キャンセル',cancel:1,time:S.status.time,read:false,note:fo};
   callLog.push({m,at:vis(S.chat.messages,{reveal:play.n}).length});
   stopCallTimer();callStart=0;outgoingChatCall=null;layoutFs(false);
 }
+function chatCallStep(byTap){const st=outgoingChatCall;if(st==='outgoing'){if(!byTap||S.chat.callResult==='noanswer'){outgoingChatCall='noanswer';layoutFs(false)}else{outgoingChatCall='connected';startCallTimer();layoutFs(false)}}else if(st==='noanswer')endChatCall()}
 function chatCallScreen(state,o){
   const c=S.chat,av=c.avatar?`background-image:url(${c.avatar});background-size:cover;background-position:center`:`background:${c.avColor||'#6b7a90'}`;
   const clock=state==='connected'?fmtClock(Date.now()-callStart):'';
   return `<div class="call-screen cc">${c.avatar?`<div class="cc-bg" style="background-image:url(${c.avatar})"></div>`:''}<div class="cc-veil"></div>${sb(true)}
-  <div class="cc-person"><div class="cc-av" style="${av}">${c.avatar?'':esc(initial(c.name))}</div><div class="cc-name">${esc(c.name)}</div><div class="cc-sub">${state==='connected'?`<span class="call-timer">${clock}</span>`:'呼び出し中…'}</div>${state==='connected'?'<div class="cc-dots">'+'<i></i>'.repeat(9)+'</div>':''}</div>
+  <div class="cc-person"><div class="cc-av" style="${av}">${c.avatar?'':esc(initial(c.name))}</div><div class="cc-name">${esc(c.name)}</div><div class="cc-sub">${state==='connected'?`<span class="call-timer">${clock}</span>`:state==='noanswer'?'応答がありません':'呼び出し中…'}</div>${state==='connected'?'<div class="cc-dots">'+'<i></i>'.repeat(9)+'</div>':''}</div>
   <div class="cc-ctrl"><div>${ic('mic',30,'#fff',1.8)}<small>マイクを<br>オフ</small></div><div>${ic('vcam',30,'#fff',1.8)}<small>ビデオ通話を<br>開始</small></div><div>${ic('spk',30,'#fff',1.8)}<small>スピーカーを<br>オン</small></div></div>
   <button type="button" class="cc-end" data-call="ended" aria-label="通話を終了">${ic('x',34,'#fff',2.4)}</button><div class="home light"></div></div>`;
 }
@@ -17555,14 +17557,14 @@ function destScreen(scene,o,bubble,extra){
 function missedScreen(scene,o){
  {const pl=scnPrevLock(scene);if(pl)o={...o,own:pl}}
  const nm=scene.name||S.chat.name||'',t=Math.max(1,Math.floor(+scene.times)||1),note=scene.note==null?'不在着信':scene.note;
- return destScreen({...scene,returnTo:scene.returnTo||'lock'},o,{type:'call',from:'them',text:note||'不在着信',time:S.status.time,read:false},[{app:'phone',label:scene.label==null?'電話':scene.label,when:'今',sender:nm,text:note||'不在着信',miss:1,badge:t}]);
+ return destScreen({...scene,returnTo:scene.returnTo||'lock'},o,{type:'call',from:'them',text:note||'不在着信',time:S.status.time,read:false,note:'着信音・呼出音'},[{app:'phone',label:scene.label==null?'電話':scene.label,when:'今',sender:nm,text:note||'不在着信',miss:1,badge:t}]);
 }
 function notifAv(nm){const c=S.chat;if(nm&&nm===c.name)return avatarHtml(c);const cols=['#e58a6c','#6d9be5','#7bc67e','#b58bd6','#e0b050','#5fb7c4'];let h=0;for(const ch of String(nm||''))h=(h*31+ch.charCodeAt(0))>>>0;return `<div class="c-av" style="background:${cols[h%cols.length]}">${esc(initial(nm))}</div>`}
 function goCall(kind){const A=S.sequence.steps;let next=-1;for(let i=play.n+1;i<A.length;i++){const k=A[i].kind;if(k===kind){next=i;break}if(['call','lock','outgoing','banner'].includes(k))break}if(next>=0){play.n=next;callOverride=null}else{callOverride={n:play.n,kind}}layoutFs(false)}
 function callScreen(scene,o={}){const kind=callOverride?.n===play.n&&!fs.hidden?callOverride.kind:scene.kind;const active=kind==='connected',ended=kind==='ended',outgoing=kind==='outgoing';
 if(kind==='chat')return chatScreen({...o,reveal:null,chat:scnChatObj(scene)});
 if(kind==='noanswer-back'){const pl=scnPrevLock(scene);if(pl)o={...o,own:pl}}
-if(kind==='noanswer-back')return destScreen(scene,o,{type:'call',from:'me',text:scene.note||'応答なし',time:S.status.time,read:false},null);
+if(kind==='noanswer-back')return destScreen(scene,o,{type:'call',from:'me',text:scene.note||'応答なし',time:S.status.time,read:false,note:'着信音・呼出音'},null);
 if((scene.app==='line'||kind==='noanswer'||kind==='declined'||kind==='hungup')&&['call','connected','ended','outgoing','noanswer','declined','hungup'].includes(kind))return lineCallScreen(scene,kind,o);
 if(ended){const dest=scene.returnTo||'chat';if(dest==='video')return videoScreen({...o,reveal:0});if(dest==='sms')return smsScreen({...o,reveal:null});if(dest==='lock'){const pl=scnPrevLock(scene);return lockScreen(pl?{...o,own:pl}:{...o,reveal:scene.count})}return chatScreen({...o,reveal:null,chat:{...S.chat,name:scene.name||S.chat.name,typing:false,messages:[...S.chat.messages,{type:'call',from:'me',text:'音声通話 '+(scene.duration||'00:12'),time:S.status.time,read:false}]}});}
 if(kind==='banner'){const rt=scene.returnTo||'chat';const bgS=rt==='sms'?smsScreen({...o,reveal:null}):rt==='video'?videoScreen({...o,reveal:0}):rt==='lock'?lockScreen({...o,reveal:0}):chatScreen({...o,reveal:null,...(scnPrevChat(scene)?{chat:scnPrevChat(scene)}:{})});return `<div style="height:100%;position:relative">${bgS}<div class="bn-call" style="position:absolute;top:10px;left:10px;right:10px;z-index:5;padding:14px 16px;background:#000;color:#fff;border-radius:46px;box-shadow:0 6px 24px #0006;display:flex;align-items:center;gap:12px"><span style="width:50px;height:50px;flex:none;display:block">${notifAv(scene.name)}</span><span style="flex:1;min-width:0;line-height:1.28"><small style="color:#8e8e93;font-size:14px">オーディオ</small><br><b style="font-size:19px;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;display:block">${esc(scene.name)}</b></span><button type="button" style="width:50px;height:50px;margin:0;padding:0;border:0;border-radius:50%;background:#f23a4e;display:grid;place-items:center;flex:none" data-call="ended" aria-label="拒否"><svg width="26" height="26" viewBox="0 0 26 26" fill="none" stroke="#fff" stroke-width="3.2" stroke-linecap="round"><path d="M6 6l14 14M20 6L6 20"/></svg></button><button type="button" style="width:50px;height:50px;margin:0;padding:0;border:0;border-radius:50%;background:#0a7cf5;display:grid;place-items:center;flex:none" data-call="connected" aria-label="応答"><svg width="28" height="28" viewBox="0 0 28 28" fill="none" stroke="#fff" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 14.5l6.5 6.5L23 8"/></svg></button></div></div>`}
@@ -17641,7 +17643,7 @@ function msgList(key){
     let body;
     if(m.type==='image') body=`<div class="av-edit"><div class="thumb" style="${m.img?`background-image:url(${m.img})`:''}"></div>${upl('画像を選ぶ','msgimg')}</div>`;
     else body=`<textarea class="inp" data-f="text" rows="${Math.min(4,Math.max(1,String(m.text||'').split('\n').length))}" placeholder="${m.type==='date'?'例：今日 / 9月28日(月)':m.type==='system'?'例：メッセージの送信を取り消しました':m.type==='call'?'例：不在着信 / 音声通話 3:12':'メッセージ'}">${esc(m.text)}</textarea>`;
-    if(m.type==='call')body+=`<div class="row call-opt"><label class="fld"><span>通話時間（例 3:12）</span><input class="inp" data-f="dur" value="${esc(m.dur||'')}" placeholder="例：3:12"></label><label class="fld"><span>下の小さな表示</span><input class="inp" data-f="note" value="${esc(m.note||'')}" placeholder="着信音・呼出音"></label></div>`;
+    if(m.type==='call')body+=`<div class="adds call-pre"><button type="button" class="btn sm" data-act="call-preset" data-v="noanswer">応答なし</button><button type="button" class="btn sm" data-act="call-preset" data-v="cancel">キャンセル</button><button type="button" class="btn sm" data-act="call-preset" data-v="missed">不在着信</button><button type="button" class="btn sm" data-act="call-preset" data-v="talk">通話 3:12</button></div><p class="hint call-pre-h">押すと、応答なし・通話は自分（右・色つき）、キャンセル・不在着信は相手（左・白）の吹き出しになります。</p><div class="row call-opt"><label class="fld"><span>通話時間（例 3:12）</span><input class="inp" data-f="dur" value="${esc(m.dur||'')}" placeholder="例：3:12"></label><label class="fld"><span>下の小さな表示</span><input class="inp" data-f="note" value="${esc(m.note||'')}" placeholder="着信音・呼出音"></label></div>`;
     if(isChat&&msg&&m.from==='them'&&m.type==='text')body+=`<label class="chk typing-opt"><input type="checkbox" data-f="typingBefore"${m.typingBefore?' checked':''}>このメッセージの直前に「入力中…」（・・・）を出す</label>`;
     return `<div class="it message-item ${cls}" data-i="${i}"><div class="message-heading"><span>${ic(msg?'bubble':'cal',17,'currentColor')} ${i+1} · ${msg?(m.from==='me'?'自分':'相手'):esc(TYPES[m.type])}</span><small>${esc(m.time||'')} <span aria-label="長押しで並べ替え">⠿</span></small></div>${body}<details class="message-options"><summary>${ic('menu',16,'currentColor')} メッセージの設定</summary>${top}</details></div>`;
   }).join('');
@@ -17925,7 +17927,7 @@ function renderEditor(){
       +'<p class="hint">撮影の流れ：ロック画面 → Kキーか画面タップで通知が届く（1件ずつ）→ 全部届いたらもう一度でチャットが開きます。メッセージを3件足せば3件、「＋ 不在着信」は電話の不在着信（回数つき）です。下の時計と壁紙は「ロック画面」タブの設定と同じものです。</p>'
       +'<h4 class="sub-h">ロック画面の大きな時計</h4>'+row(fld('時刻',txt('lock.time','21:47')),fld('日付',txt('lock.date','9月28日 月曜日')))+'<div class="adds"><button class="btn sm" data-act="lock-now">今の日付と時刻にする</button></div>'+fld('文字のフォント（時計・日付・通知）',`<select class="inp" data-path="lock.font">${Object.entries(FONTS).map(([k,v])=>`<option value="${k}"${S.lock.font===k?' selected':''}>${v[0]}</option>`).join('')}</select>`)
       +'<h4 class="sub-h">壁紙（ロック画面の写真）</h4>'+`<div class="av-edit">${swatches('lock.wall',Object.entries(WALLS).map(([k,v])=>[k,WALLN[k],v]),'lock.wallImg')}${upl('壁紙画像','lock.wallImg')}${S.lock.wallImg?'<button class="btn sm ghost" data-act="clear" data-path="lock.wallImg">画像を外す</button>':''}</div>`)}
-    h+=sec('通話の時間',row(fld('通話の長さ（通話のあと履歴に残る時間）',txt('chat.callDur','例：3:12（空欄＝実際にかかった時間）')),fld('通話画面のタイマーの開始',txt('chat.callFrom','例：0:00（空欄＝0:00から）')))+`<p class="hint">再生中に、上の電話ボタン →「音声通話」→ 応答 → 終了 と進めると、チャットに通話の履歴が残ります。「通話の長さ」に 3:12 と入れると、実際に何秒話しても「音声通話 3:12」と出ます。「タイマーの開始」に 12:30 と入れると、通話画面の時間が 12:30 から動き出します。</p>`,'電話ボタンを押したときの通話時間',{open:true});
+    h+=sec('電話ボタン（発信）',fld('画面をタップしたときの結果（Kキーは常に「応答なし」）',sel('chat.callResult',[['answer','相手が出る（通話中になる）'],['noanswer','応答なし']]))+row(fld('通話の長さ（通話のあと履歴に残る時間）',txt('chat.callDur','例：3:12（空欄＝実際にかかった時間）')),fld('通話画面のタイマーの開始',txt('chat.callFrom','例：0:00（空欄＝0:00から）')))+`<p class="hint">再生中に、上の電話ボタン →「音声通話」→ 呼び出し中の画面になります。ここで <b>Kキー（Space・Enterも同じ）を押すと「応答がありません」→ もう一度でチャットに戻り、自分の側に「応答なし」が残ります</b>（相手が切った・出なかった・ブロックされている、のどれでも自分の画面は同じ「応答なし」です）。画面をタップしたときは、上で選んだ結果になります：「相手が出る」なら通話中になり、赤い終了ボタンで「音声通話 3:12」が残ります。「応答なし」を選ぶと、タップでもKキーと同じ流れです（iPhoneで撮るときはこちら）。呼び出し中に赤いボタンを押すと「キャンセル」になります。「通話の長さ」に 3:12 と入れると、実際に何秒話しても「音声通話 3:12」と出ます。</p>`+'<h4 class="sub-h">相手の画面にしたいとき</h4>'+chk('chat.blocked','入力欄を「ブロック中」にする（相手をブロックしている側の画面）')+'<p class="hint">相手側の履歴は、やりとりの「＋ 通話履歴」から出せます。切られた側は「キャンセル」、出なかった側は「不在着信」（白い吹き出し）になります。</p>','通話がつながる／応答なし／ブロック中',{open:true});
     h+=sec('見た目',fld('自分の吹き出しの色',swatches('chat.accent',ACCENTS.map(([v,l])=>[v,l]))) + fld('背景',`<div class="av-edit">${swatches('chat.bg',Object.entries(CHATBG).map(([k,b])=>[k,b.n,b.v]),'chat.bgImg')}${upl('チャット背景写真を選ぶ','chat.bgImg')}${c.bgImg?'<button class="btn sm ghost" data-act="clear" data-path="chat.bgImg">画像を外す</button>':''}</div>`));
     h+=sec('メッセージ',`<div class="typing-end"><span class="typing-end-t">メッセージの並び</span>${chk('chat.top','画面の上から並べる（トークを始めたばかりで、メッセージが少ないとき）')}<small>チェックしなければ、下から積み上がります。</small></div><p class="hint">自分の文字メッセージの「入力シーン」から撮影できます。文字キーで台詞が一文字ずつ現れます。「入力後に消す」を選ぶと送信されません。⌫ または K で一文字ずつ削除し、空欄になったら K で次へ。「入力済みから削除シーン」では完成した文章から始められます。</p><p class="hint">「入力中…」は、相手のメッセージごとに「直前に出す」を選べます（チェックしたものだけ）。一番最後のメッセージのあとに出したいときは、メッセージ一覧の一番下にある「一番最後のメッセージのあと」を選びます。どちらも選ばなければ出ません。</p><p class="hint">再生中に画面上の電話ボタンを押すと、その下に「音声通話／ビデオ通話」の2つのボタンが出ます。左の「音声通話」を押したときだけ発信画面になります。どちらかを押すか、通話が終わると、この2つは消えます。</p>`+msgList('chat'));
     h+=bulkBox('chat');
@@ -18160,6 +18162,12 @@ document.addEventListener('click',e=>{
     case 'up': if(i>0){[list[i-1],list[i]]=[list[i],list[i-1]];if(listEl.dataset.list==='sequence.steps')seqSel=i-1;commit(true)} break;
     case 'down': if(i<list.length-1){[list[i+1],list[i]]=[list[i],list[i+1]];if(listEl.dataset.list==='sequence.steps')seqSel=i+1;commit(true)} break;
     case 'del': if(listEl.dataset.list==='sequence.steps'&&list.length===1){toast('シーンは1つ以上必要です');break} list.splice(i,1); if(listEl.dataset.list==='sequence.steps')seqSel=seqView==='film'?Math.min(i,list.length-1):-1; commit(true); break;
+    case 'call-preset': {const item=list&&list[i];if(!item)break;const fo='着信音・呼出音',v=b.dataset.v;
+      if(v==='noanswer')Object.assign(item,{type:'call',from:'me',text:'応答なし',dur:'',note:fo,read:false});
+      else if(v==='cancel')Object.assign(item,{type:'call',from:'them',text:'キャンセル',dur:'',note:fo,read:false});
+      else if(v==='missed')Object.assign(item,{type:'call',from:'them',text:'不在着信',dur:'',note:fo,read:false});
+      else Object.assign(item,{type:'call',from:'me',text:'音声通話',dur:'3:12',note:fo,read:true});
+      commit(true);break}
     case 'add': {
       const L=get(b.dataset.list),k=b.dataset.kind;
       const n={id:uid(),type:'text',from:'them',text:'',time:'',read:false};
@@ -18536,7 +18544,7 @@ fs.addEventListener('click',e=>{
  if(e.target.closest('[data-chat-call]')){chatCallMenu=!chatCallMenu;layoutFs(false);return;}
  if(chatCallMenu&&!outgoingChatCall){chatCallMenu=false;layoutFs(false);return;}
  if(outgoingChatCall&&e.target.closest('[data-call]')){endChatCall();return;}
- if(outgoingChatCall){if(outgoingChatCall==='outgoing'){outgoingChatCall='connected';startCallTimer();layoutFs(false)}return;}
+ if(outgoingChatCall){chatCallStep(true);return;}
  const desktopButton=e.target.closest('[data-desktop]');if(desktopButton){desktopApp=desktopButton.dataset.desktop==='home'?null:desktopButton.dataset.desktop;layoutFs(false);return;}
   const callButton=e.target.closest('[data-call]');if(callButton){goCall(callButton.dataset.call);return;}
   if(e.target.closest('#fsExit')){exitTap();return}
@@ -18563,7 +18571,7 @@ fs.addEventListener('click',e=>{
 function advancePlayback(tap){
  if(talkChat){talkChat=null;layoutFs(false);return}
  if(chatCallMenu){chatCallMenu=false;layoutFs(false);return;}
- if(outgoingChatCall){if(outgoingChatCall==='outgoing'){outgoingChatCall='connected';startCallTimer();layoutFs(false)}return;}
+ if(outgoingChatCall){chatCallStep(!!tap);return;}
  if(S.mode==='desktop'){play.n=(play.n+1)%4;desktopApp=[null,'chat','sms','video'][play.n];layoutFs(false);return;}
  if(S.mode==='chat'&&lockPh){lockStep();layoutFs(lockPh>=2);return}
   if(S.mode==='sequence'&&sceneAt(play.n).kind!=='lock'){
@@ -18903,7 +18911,7 @@ function validateScript(raw){
   function msgs(list){if(!Array.isArray(list)||list.length>300)throw Error('Invalid messages');return list.map(m=>{if(!m||!['text','image','call','date','system'].includes(m.type))throw Error('Invalid type');return {id:uid(),type:m.type,from:m.from==='me'?'me':'them',text:text(m.text),time:text(m.time,'',100),read:bool(m.read,false),draftOnly:bool(m.draftOnly,false),typingBefore:bool(m.typingBefore,false),dur:text(m.dur,'',20),note:text(m.note,'',60),yomi:text(m.yomi,'',500),img:pic(m.img)}})}
   a=raw.chat;d.chat={name:text(a.name,'',100),duration:text(a.duration,'00:12',20),returnTo:['chat','sms','video','lock'].includes(a.returnTo)?a.returnTo:'chat',unread:number(a.unread,0,0,9999),avatar:pic(a.avatar),avColor:color(a.avColor,d.chat.avColor),accent:color(a.accent,d.chat.accent),bg:Object.hasOwn(CHATBG,a.bg)?a.bg:'sky',bgImg:pic(a.bgImg),showName:bool(a.showName,false),top:bool(a.top,false),typing:bool(a.typing,false),callDur:text(a.callDur,'',20),callFrom:text(a.callFrom,'',20),draft:text(a.draft),lockStart:bool(a.lockStart,false),lockSender:text(a.lockSender,'',100),lockText:text(a.lockText,'',500),messages:msgs(a.messages)};
   a=raw.sms;d.sms={name:text(a.name,'',100),duration:text(a.duration,'00:12',20),returnTo:['chat','sms','video','lock'].includes(a.returnTo)?a.returnTo:'chat',accent:color(a.accent,d.sms.accent),messages:msgs(a.messages)};
-  a=raw.lock;if(!Array.isArray(a.notifs)||a.notifs.length>300)throw Error('Invalid notifications');const cn=n=>{if(!n||!Object.hasOwn(APPS,n.app))throw Error('Invalid app');return {id:uid(),app:n.app,label:text(n.label,'',100),sender:text(n.sender,'',200),text:text(n.text),when:text(n.when,'',100),...(n.miss?{miss:1,badge:Math.max(1,Math.min(99,Math.floor(+n.badge)||1))}:{})}};d.lock={time:text(a.time,'21:47',50),date:text(a.date,'',100),font:Object.hasOwn(FONTS,a.font)?a.font:'sys',wall:Object.hasOwn(WALLS,a.wall)?a.wall:'night',wallImg:pic(a.wallImg),notifs:a.notifs.map(cn)};{const rc=raw.chat||{};d.chat.lockNotifs=Array.isArray(rc.lockNotifs)?rc.lockNotifs.slice(0,50).map(cn):[];d.chat.lockAll=bool(rc.lockAll,false)}
+  a=raw.lock;if(!Array.isArray(a.notifs)||a.notifs.length>300)throw Error('Invalid notifications');const cn=n=>{if(!n||!Object.hasOwn(APPS,n.app))throw Error('Invalid app');return {id:uid(),app:n.app,label:text(n.label,'',100),sender:text(n.sender,'',200),text:text(n.text),when:text(n.when,'',100),...(n.miss?{miss:1,badge:Math.max(1,Math.min(99,Math.floor(+n.badge)||1))}:{})}};d.lock={time:text(a.time,'21:47',50),date:text(a.date,'',100),font:Object.hasOwn(FONTS,a.font)?a.font:'sys',wall:Object.hasOwn(WALLS,a.wall)?a.wall:'night',wallImg:pic(a.wallImg),notifs:a.notifs.map(cn)};{const rc=raw.chat||{};d.chat.lockNotifs=Array.isArray(rc.lockNotifs)?rc.lockNotifs.slice(0,50).map(cn):[];d.chat.lockAll=bool(rc.lockAll,false);d.chat.callResult=rc.callResult==='noanswer'?'noanswer':'answer';d.chat.blocked=bool(rc.blocked,false)}
   if(raw.video!==undefined){const v=raw.video;if(!v||!Array.isArray(v.items)||v.items.length>100)throw Error('Invalid videos');d.video={name:text(v.name,'',100),handle:text(v.handle,'',100),subscribers:text(v.subscribers,'',150),description:text(v.description,'',1000),avatar:pic(v.avatar),banner:pic(v.banner),myAvatar:pic(v.myAvatar),videoCount:text(v.videoCount,'',60),labels:(l=>{const o={};if(l&&typeof l==='object'&&!Array.isArray(l))for(const [k,val] of Object.entries(l))if(/^[A-Za-z0-9]{1,30}$/.test(k)&&typeof val==='string'&&val.length<=100)o[k]=val;return o})(v.labels),items:v.items.map(x=>{if(!x||typeof x!=='object')throw Error('Invalid video');return {id:uid(),title:text(x.title,'',300),channel:text(x.channel,'',100),target:bool(x.target,false),meta:text(x.meta,'',200),duration:text(x.duration,'',30),theme:['city','warm','sea','forest','night'].includes(x.theme)?x.theme:'city',img:pic(x.img),avatar:pic(x.avatar),likes:text(x.likes,'',40),...vidFields(x)}})};
     if(Array.isArray(v.shorts)){if(v.shorts.length>100)throw Error('Invalid shorts');d.video.shorts=v.shorts.map(x=>{if(!x||typeof x!=='object')throw Error('Invalid short');return {id:uid(),title:text(x.title,'',300),meta:text(x.meta,'',200),theme:['city','warm','sea','forest','night'].includes(x.theme)?x.theme:'city',img:pic(x.img),...vidFields(x)}})}}
   if(raw.talks!==undefined){if(!raw.talks||!Array.isArray(raw.talks.items)||raw.talks.items.length>100)throw Error('Invalid talks');d.talks.items=raw.talks.items.map(x=>{if(!x||typeof x!=='object')throw Error('Invalid talk');return {id:uid(),name:text(x.name,'',100),text:text(x.text),time:text(x.time,'',100),unread:Math.floor(number(x.unread,0,0,999)),color:color(x.color,'#6d9be5'),target:bool(x.target,false),img:pic(x.img),messages:Array.isArray(x.messages)?msgs(x.messages):[]}})}

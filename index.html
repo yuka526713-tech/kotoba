@@ -1,4 +1,4 @@
-<!doctype html><!-- build 2026-10-27 kana-ao --><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><meta name="theme-color" content="#eef0f3"><meta name="description" content="撮影用のチャット・SMS・ロック画面を編集して、タップで再生。"><link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='9' fill='%234f7cff'/%3E%3Cpath d='M8 9h16v11H15l-6 5v-5H8z' fill='white'/%3E%3C/svg%3E"><style>body{margin:0}:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}img{max-width:100%}
+<!doctype html><!-- build 2026-10-30 kana-ar --><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><meta name="theme-color" content="#eef0f3"><meta name="description" content="撮影用のチャット・SMS・ロック画面を編集して、タップで再生。"><link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='9' fill='%234f7cff'/%3E%3Cpath d='M8 9h16v11H15l-6 5v-5H8z' fill='white'/%3E%3C/svg%3E"><style>body{margin:0}:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}img{max-width:100%}
 body{font-size:16px} .fld>span,.sec h3,.hint,.pv-note{font-size:14px}.btn.sm{font-size:14px}
 .transport{display:flex;flex-wrap:wrap;justify-content:center;gap:8px}#play-count{font-size:14px;color:var(--muted)}
 #fs.native-bars .sb,#fs.native-bars .sb-off,#fs.native-bars .home{display:none}
@@ -517,6 +517,7 @@ details.sec.fold>.sec-body{padding:14px 16px 16px;display:flex;flex-direction:co
 #editor .scn-n2{display:grid;grid-template-columns:20px minmax(0,1fr) minmax(0,1.3fr) 64px;gap:6px;align-items:center}
 #editor .scn-n2 .num{color:var(--sc-muted);font-size:12px;text-align:center}
 #editor .scn-n2 select.inp{width:100%}
+#editor [data-list="chat.lockNotifs"]>.scn-n{padding:8px;border:1px solid var(--sc-line);border-radius:10px;background:var(--sc-soft)}
 #editor .scn-empty{margin:0;font-size:12.5px;color:var(--sc-muted)}
 #editor .scn-film{display:flex;gap:8px;overflow-x:auto;padding:6px 2px 12px;-webkit-overflow-scrolling:touch}
 #editor .scn-th{flex:none;width:54px;border:0;background:none;display:flex;flex-direction:column;align-items:center;gap:3px;font:inherit;color:var(--sc-muted);cursor:pointer;padding:0}
@@ -17116,7 +17117,7 @@ function defaults(){
     mode:'chat',
     phone:{wall:null,chatName:'ことば',smsName:'メッセージ',videoName:'ナガメ',chatIcon:null,smsIcon:null,videoIcon:null},
     status:{time:'21:47',battery:38,signal:3,wifi:true,show:true,carrier:''},
-    chat:{name:'美咲',unread:3,avatar:null,avColor:'#e58a6d',accent:'#4f7cff',bg:'sky',bgImg:null,showName:false,top:false,typing:false,callDur:'',callFrom:'',draft:'',
+    chat:{name:'美咲',unread:3,avatar:null,avColor:'#e58a6d',accent:'#4f7cff',bg:'sky',bgImg:null,showName:false,top:false,typing:false,callDur:'',callFrom:'',draft:'',lockStart:false,lockSender:'',lockText:'',lockNotifs:[],lockAll:false,
       messages:[
         {id:uid(),type:'date',text:'9月27日(日)'},
         m('them','今日はありがとう。楽しかった','22:14'),
@@ -17217,7 +17218,7 @@ function renderPages(){
  if(editing)menu='<div class="adds"><button class="btn pri" data-act="chapter-confirm">この内容で確定</button><button class="btn" data-act="page" data-v="preview">プレビューを見る →</button></div>';
  if(page==='chapter')menu='<button class="btn pri" data-act="page" data-v="modes">画面を選ぶ →</button>';
  if(page==='files')menu='<section class="sec"><h3>iCloud Driveで作品を持ち運ぶ</h3><p class="hint">自動同期ではありません。書き出したファイルを、もう一方の端末で読み込みます。</p><ol class="hint"><li>「全作品を書き出す」を押します。</li><li>共有画面で「ファイルに保存」→「iCloud Drive」を選びます。</li><li>もう一方の端末で「作品ファイルを読み込む」から同じファイルを選びます。</li></ol><p class="hint">読み込んだ章は追加されます。既存の章は上書きされません。繰り返し読み込むと章が増えます。撮影前に内容を確認してください。</p></section>'+ '<div class="file-actions"><button class="page-card" data-act="book-export">全作品を書き出す ↓</button><button class="page-card" data-act="save-script">この章だけを書き出す ↓</button><button class="page-card" data-act="load-script">作品ファイルを読み込む ↑</button><button class="page-card" data-act="ocr-photo">写真から下書きを作る（ロック画面）📷</button><p class="hint">「写真から下書きを作る」は、ロック画面のスクリーンショットの文字を自動で読み取ります（初回のみネット接続が必要）。読み間違いがあるので、できた章で必ず確認してください。この端末に自動保存されます。別の端末へ移すときは、書き出したファイルを読み込んでください。</p></div>';
- const APP_VER='2026.10.27-ao';
+ const APP_VER='2026.10.30-ar';
  if(page==='home'||page==='files')menu+=`<p class="hint app-ver">アプリのバージョン：${APP_VER}</p>`;
  document.getElementById('page-menu').innerHTML=menu;
  for(const el of document.querySelectorAll('#editor > .sec'))el.hidden=false;
@@ -17478,6 +17479,16 @@ function talkChatScreen(o){
 function talksEditor(){const target=targetTalk();return `<p class="hint"><b>使い方：</b>撮影で一覧の相手をタップすると、その人のトークが開きます（左上の「‹」か K キーで一覧に戻ります）。会話の内容は、このあと下に並ぶ「○○のトーク内容」で相手ごとに入れます。</p><p class="hint">K キーで「一覧 → 左スワイプ → 削除確認 → 削除後」と進みます。削除する相手の行を左にスワイプすると右側に「削除」が現れます。それをタップすると中央に確認画面が出ます。右に戻すと閉じます。「最初から」で元に戻る撮影用の演出です。保存した台本は消えません。</p><div class="list" data-list="talks.items">${S.talks.items.map((x,i)=>`<div class="it neutral" data-i="${i}"><div class="it-top"><button class="btn sm ${x===target?'pri':''}" data-act="talk-target">${x===target?'この人を削除':'削除する相手に設定'}</button><button class="ib" data-act="up" aria-label="上へ">↑</button><button class="ib" data-act="down" aria-label="下へ">↓</button><button class="ib" data-act="del" aria-label="一覧から外す">×</button></div><label class="fld"><span>名前</span><input class="inp" data-f="name" maxlength="100" value="${esc(x.name)}"></label><label class="fld"><span>最後のメッセージ</span><input class="inp" data-f="text" value="${esc(x.text)}"></label><div class="row"><label class="fld"><span>時刻</span><input class="inp" data-f="time" value="${esc(x.time)}"></label><label class="fld"><span>未読数</span><input class="inp" type="number" min="0" max="999" data-num="1" data-f="unread" value="${x.unread}"></label></div><label class="fld"><span>アイコンの色</span><input type="color" data-f="color" value="${x.color}"></label>${upl('アイコン画像','msgimg')}</div>`).join('')}</div><button class="btn" data-act="talk-add">＋ 相手を追加</button>${S.chat.name&&!S.talks.items.some(x=>x.name===S.chat.name)?`<button class="btn" data-act="talk-add-chat">＋ チャットの相手「${esc(S.chat.name)}」を一覧に入れる</button>`:''}`}
 const CALLBG='linear-gradient(160deg,#182337,#36475a 55%,#15202e)';
 function sceneAt(n){return S.sequence.steps[Math.max(0,Math.min(S.sequence.steps.length-1,n||0))]||{kind:'lock',count:0}}
+/* チャット・入力: optional lock-screen prelude (1 = plain lock screen, 2 = the message notification has arrived, 0 = chat open) */
+let lockPh=0;
+function chatLockOn(){return S.mode==='chat'&&!!S.chat.lockStart}
+function chatLockAutoText(){const A=S.chat.messages,st=Math.min(A.length,startPosition());for(let j=st-1;j>=0;j--)if(A[j].type==='text'&&A[j].from==='them'&&A[j].text)return A[j].text;for(let j=st;j<A.length;j++)if(A[j].type==='text'&&A[j].from==='them'&&A[j].text)return A[j].text;return ''}
+function chatLockNotif(){return [{id:'chat-lock',app:'chat',label:'',sender:S.chat.lockSender||S.chat.name||'',text:S.chat.lockText||chatLockAutoText(),when:'今'}]}
+function chatLockList(){const L=S.chat.lockNotifs;return Array.isArray(L)&&L.length?L:chatLockNotif()}
+function lockMax(){return S.chat.lockAll?2:1+chatLockList().length}
+function lockShown(p){const L=chatLockList();return p<=1?[]:(S.chat.lockAll?L:L.slice(0,p-1))}
+function lockStep(){lockPh=lockPh>=lockMax()?0:lockPh+1}
+function lockBack(pos){if(!chatLockOn())return false;if(lockPh>1){lockPh=Math.min(lockPh,lockMax())-1;return true}if(lockPh===1)return true;if(lockPh===0&&pos!=null&&pos<=startPosition()){lockPh=lockMax();return true}return false}
 let callOverride=null;let outgoingChatCall=null;let chatCallMenu=false;
 let callLog=[],callStart=0,callTimer=null;
 function fmtDur(ms){const s=Math.max(1,Math.round(ms/1000));return Math.floor(s/60)+':'+String(s%60).padStart(2,'0')}
@@ -17567,8 +17578,9 @@ function desktopScreen(o){
 function renderScreen(o){
   o=o||{}; const h=o.height||H;if(o.live&&outgoingChatCall)return `<div class="scr" style="height:${Math.round(h)}px">${chatCallScreen(outgoingChatCall,o)}</div>`;
   const scene=S.mode==='sequence'?sceneAt(o.reveal):null;
-  const body=(S.mode==='talks'&&o.live&&talkChat)?talkChatScreen(o):S.mode==='desktop'?desktopScreen(o):S.mode==='video'?videoScreen(o):S.mode==='talks'?talksScreen(o):scene?(scene.kind==='missed'?missedScreen(scene,o):scene.kind!=='lock'?callScreen(scene,o):lockScreen(Array.isArray(scene.notifs)?{...o,own:scene.notifs}:{...o,reveal:scene.count})):S.mode==='chat'?chatScreen(o):S.mode==='sms'?smsScreen(o):lockScreen(o);
-  return `<div class="scr scr-${scene?(scene.kind==='missed'&&(scene.returnTo||'lock')==='lock'?'lock':scene.kind):S.mode}" style="height:${Math.round(h)}px">${body}${o.live&&typing.open?keyboardHtml():''}</div>`;
+  const lkp=S.mode==='chat'&&lockPh>0;
+  const body=lkp?lockScreen({...o,own:lockShown(lockPh),reveal:null}):(S.mode==='talks'&&o.live&&talkChat)?talkChatScreen(o):S.mode==='desktop'?desktopScreen(o):S.mode==='video'?videoScreen(o):S.mode==='talks'?talksScreen(o):scene?(scene.kind==='missed'?missedScreen(scene,o):scene.kind!=='lock'?callScreen(scene,o):lockScreen(Array.isArray(scene.notifs)?{...o,own:scene.notifs}:{...o,reveal:scene.count})):S.mode==='chat'?chatScreen(o):S.mode==='sms'?smsScreen(o):lockScreen(o);
+  return `<div class="scr scr-${lkp?'lock':scene?(scene.kind==='missed'&&(scene.returnTo||'lock')==='lock'?'lock':scene.kind):S.mode}" style="height:${Math.round(h)}px">${body}${o.live&&typing.open?keyboardHtml():''}</div>`;
 }
 
 /* ---------- editor ---------- */
@@ -17579,6 +17591,7 @@ const SEC_META={
  '撮影・書き出し':['画像として保存','今の画面をPNG画像にして保存します'],
  'chat|トーク相手':['相手の名前とアイコン','チャット画面の一番上に出る相手の情報',1],
  'chat|見た目':['吹き出しと背景','チャット画面の色と背景写真'],
+ 'chat|ロック画面から始める':['ロック画面から始める','最初にロック画面を見せて、通知が届いたらチャットを開く。時計・壁紙もここで',1],
  'chat|メッセージ':['会話の内容','チャット画面に出る台詞。1件ずつ追加・並べ替え',1],
  'sms|メッセージ':['会話の内容','SMS画面に出る台詞。1件ずつ追加・並べ替え',1],
  '台本からまとめて入力':['会話をまとめて入力','文章を貼り付けて、会話を一気に作ります'],
@@ -17903,6 +17916,15 @@ function renderEditor(){
       +`<div class="av-edit"><div class="av-prev" style="${av}">${c.avatar?'':esc(initial(c.name))}</div>${upl('アイコン画像','chat.avatar')}${c.avatar?'<button class="btn sm ghost" data-act="clear" data-path="chat.avatar">画像を外す</button>':swatches('chat.avColor',AVCOL.map(v=>[v,v]))}</div>`
       +row(chk('chat.showName','吹き出しの上に名前'))
       +fld('入力欄の文字（空欄で「メッセージを入力」）',txt('chat.draft','打ちかけの文章')));
+    {const LN=S.chat.lockNotifs||[],cnt=LN.length,dls=k=>`<datalist id="hl-${k}">${histGet(k).map(x=>`<option value="${esc(x)}">`).join('')}</datalist>`;
+      h+=sec('ロック画面から始める',chk('chat.lockStart','撮影をロック画面から始める（通知が届く → チャットを開く）')
+      +`<div class="scn-nhead"><span>届く通知 <b>${cnt}</b>件</span><span class="scn-nbtn"><button type="button" class="btn sm" data-act="chat-nless"${cnt?'':' disabled'}>− 減らす</button><button type="button" class="btn sm pri" data-act="chat-nadd">＋ メッセージ</button><button type="button" class="btn sm scn-nmiss" data-act="chat-nmiss">＋ 不在着信</button></span></div>`
+      +dls('sender')
+      +(cnt?`<div class="scn-notifs" data-list="chat.lockNotifs">${LN.map((n,j)=>n.miss?`<div class="scn-n miss" data-i="${j}"><input class="inp" data-f="sender" data-hist="sender" list="hl-sender" value="${esc(n.sender)}" placeholder="相手" aria-label="相手"><label class="scn-bd"><span>不在着信の回数</span><input class="inp" type="number" min="1" max="99" data-num="1" data-f="badge" value="${Math.max(1,+n.badge||1)}"></label></div>`:`<div class="scn-n" data-i="${j}"><input class="inp" data-f="sender" data-hist="sender" list="hl-sender" value="${esc(n.sender)}" placeholder="差出人" aria-label="差出人"><textarea class="inp" data-f="text" rows="1" placeholder="本文" aria-label="本文">${esc(n.text)}</textarea></div>`).join('')}</div>`:`<p class="scn-empty">まだ足していません。このままだと「${esc(c.name||'相手')}」からチャットの最後のメッセージが1件届きます。「＋」で自分の通知を足せます。</p>`)
+      +chk('chat.lockAll','通知をまとめて一度に届かせる（オフ：Kキーかタップで1件ずつ届く）')
+      +'<p class="hint">撮影の流れ：ロック画面 → Kキーか画面タップで通知が届く（1件ずつ）→ 全部届いたらもう一度でチャットが開きます。メッセージを3件足せば3件、「＋ 不在着信」は電話の不在着信（回数つき）です。下の時計と壁紙は「ロック画面」タブの設定と同じものです。</p>'
+      +'<h4 class="sub-h">ロック画面の大きな時計</h4>'+row(fld('時刻',txt('lock.time','21:47')),fld('日付',txt('lock.date','9月28日 月曜日')))+'<div class="adds"><button class="btn sm" data-act="lock-now">今の日付と時刻にする</button></div>'+fld('文字のフォント（時計・日付・通知）',`<select class="inp" data-path="lock.font">${Object.entries(FONTS).map(([k,v])=>`<option value="${k}"${S.lock.font===k?' selected':''}>${v[0]}</option>`).join('')}</select>`)
+      +'<h4 class="sub-h">壁紙（ロック画面の写真）</h4>'+`<div class="av-edit">${swatches('lock.wall',Object.entries(WALLS).map(([k,v])=>[k,WALLN[k],v]),'lock.wallImg')}${upl('壁紙画像','lock.wallImg')}${S.lock.wallImg?'<button class="btn sm ghost" data-act="clear" data-path="lock.wallImg">画像を外す</button>':''}</div>`)}
     h+=sec('通話の時間',row(fld('通話の長さ（通話のあと履歴に残る時間）',txt('chat.callDur','例：3:12（空欄＝実際にかかった時間）')),fld('通話画面のタイマーの開始',txt('chat.callFrom','例：0:00（空欄＝0:00から）')))+`<p class="hint">再生中に、上の電話ボタン →「音声通話」→ 応答 → 終了 と進めると、チャットに通話の履歴が残ります。「通話の長さ」に 3:12 と入れると、実際に何秒話しても「音声通話 3:12」と出ます。「タイマーの開始」に 12:30 と入れると、通話画面の時間が 12:30 から動き出します。</p>`,'電話ボタンを押したときの通話時間',{open:true});
     h+=sec('見た目',fld('自分の吹き出しの色',swatches('chat.accent',ACCENTS.map(([v,l])=>[v,l]))) + fld('背景',`<div class="av-edit">${swatches('chat.bg',Object.entries(CHATBG).map(([k,b])=>[k,b.n,b.v]),'chat.bgImg')}${upl('チャット背景写真を選ぶ','chat.bgImg')}${c.bgImg?'<button class="btn sm ghost" data-act="clear" data-path="chat.bgImg">画像を外す</button>':''}</div>`));
     h+=sec('メッセージ',`<div class="typing-end"><span class="typing-end-t">メッセージの並び</span>${chk('chat.top','画面の上から並べる（トークを始めたばかりで、メッセージが少ないとき）')}<small>チェックしなければ、下から積み上がります。</small></div><p class="hint">自分の文字メッセージの「入力シーン」から撮影できます。文字キーで台詞が一文字ずつ現れます。「入力後に消す」を選ぶと送信されません。⌫ または K で一文字ずつ削除し、空欄になったら K で次へ。「入力済みから削除シーン」では完成した文章から始められます。</p><p class="hint">「入力中…」は、相手のメッセージごとに「直前に出す」を選べます（チェックしたものだけ）。一番最後のメッセージのあとに出したいときは、メッセージ一覧の一番下にある「一番最後のメッセージのあと」を選びます。どちらも選ばなければ出ません。</p><p class="hint">再生中に画面上の電話ボタンを押すと、その下に「音声通話／ビデオ通話」の2つのボタンが出ます。左の「音声通話」を押したときだけ発信画面になります。どちらかを押すか、通話が終わると、この2つは消えます。</p>`+msgList('chat'));
@@ -17936,7 +17958,7 @@ function renderEditor(){
 
 }
 function scrollConversation(root){for(const b of root.querySelectorAll('.c-body,.s-body'))b.scrollTop=b.scrollHeight}
-function renderPreview(){if(fs.hidden)freeExtra=[];previewN=previewN==null?null:Math.min(previewN,maxPosition());document.getElementById('screen').innerHTML=renderScreen({height:H,reveal:previewN});scrollConversation(document.getElementById('screen'));document.querySelector('[data-act=all]').textContent=isSceneMode()?'最後のシーン':'すべて表示';document.getElementById('play-count').textContent=isSceneMode()?`${(previewN||0)+1} / ${modeList().length} シーン`:`${previewN==null?(isSceneMode()?0:modeList().length):previewN} / ${modeList().length} 件を表示`;}
+function renderPreview(){if(fs.hidden)freeExtra=[];previewN=previewN==null?null:Math.min(previewN,maxPosition());document.getElementById('screen').innerHTML=renderScreen({height:H,reveal:previewN});scrollConversation(document.getElementById('screen'));document.querySelector('[data-act=all]').textContent=isSceneMode()?'最後のシーン':'すべて表示';document.getElementById('play-count').textContent=isSceneMode()?`${(previewN||0)+1} / ${modeList().length} シーン`:`${previewN==null?(isSceneMode()?0:modeList().length):previewN} / ${modeList().length} 件を表示`;if(S.mode==='chat'&&lockPh){const mx=lockMax();document.getElementById('play-count').textContent=lockPh===1?'ロック画面（通知が届く前）':lockPh<mx?`通知 ${S.chat.lockAll?chatLockList().length:lockPh-1} / ${chatLockList().length} 件が届いた`:(S.chat.lockAll?`通知が届いた（次でチャットを開く）`:`通知が全部届いた（次でチャットを開く）`)}}
 function commit(re){if(editUndo){editUndo=null;document.getElementById('edit-undo')?.remove();}save();if(re){renderEditor();renderPages()}renderPreview()}
 
 /* ---------- bulk parse ---------- */
@@ -18127,6 +18149,9 @@ document.addEventListener('click',e=>{
     case 'scene-flow7': {const n=Math.max(1,Math.min(98,Math.floor(+document.getElementById('scn-flow-n')?.value)||7));seqFlowN=n;if(S.sequence.steps.length+5>300){toast('上限に達しました');break}const nm=S.chat.name||'',o2=nm==='ほかの人'?'ほかの人2':'ほかの人';const mk=(kind,name,x)=>Object.assign({kind,count:0,name,returnTo:'lock',duration:'00:01',label:'電話',note:'不在着信（音声通話）',times:1,app:'line',_raw:1},x||{});scnInsert(mk('lock',nm,{app:'kotoba',returnTo:'chat',count:1,notifs:[{id:uid(),app:'phone',label:'電話',sender:nm,text:'不在着信（音声通話）',when:'今',miss:1,badge:n}]}),mk('call',nm,{count:1}),mk('hungup',nm,{count:1}),mk('missed',nm,{times:n+1}),mk('call',o2,{count:1}));commit(true);toast(`入れました（${n}件 → ${n+1}件）。着信中：右へスライド＝応答、画面タップ＝拒否、Kキー＝相手が切る（オーディオ終了→ロック画面）`);break}
     case 'scene-madd': {const s=S.sequence.steps[i],L=scnMsgs(s),k=b.dataset.k;if(L.length>=300){toast('やりとりは300件までです');break}const tm=S.status.time||'';L.push(k==='date'?{id:uid(),type:'date',text:'今日'}:k==='call'?{id:uid(),type:'call',from:'them',text:'不在着信',time:tm,read:false}:{id:uid(),type:'text',from:k==='me'?'me':'them',text:'',time:tm,read:k==='me'});commit(true);[...document.querySelectorAll('#editor .scn.open .scn-m textarea')].pop()?.focus();break}
     case 'scene-mcopy': {const s=S.sequence.steps[i],L=scnMsgs(s);S.chat.messages.slice(0,300-L.length).forEach(m=>L.push({...JSON.parse(JSON.stringify(m)),id:uid()}));commit(true);break}
+    case 'chat-nadd': {const L=S.chat.lockNotifs=S.chat.lockNotifs||[];if(L.length>=50){toast('通知は50件までです');break}L.push({id:uid(),app:'chat',label:'',sender:S.chat.name||'',text:'',when:'今'});commit(true);{const el=document.querySelector(`[data-list="chat.lockNotifs"] > [data-i="${L.length-1}"] textarea`);if(el)el.focus()}break}
+    case 'chat-nmiss': {const L=S.chat.lockNotifs=S.chat.lockNotifs||[];if(L.length>=50){toast('通知は50件までです');break}L.push({id:uid(),app:'phone',label:'電話',sender:S.chat.name||'',text:'不在着信（音声通話）',when:'今',miss:1,badge:1});commit(true);break}
+    case 'chat-nless': {const L=S.chat.lockNotifs||[];L.pop();commit(true);break}
     case 'scene-nless': {const s=S.sequence.steps[i],L=scnOwn(s);L.pop();s.count=L.length;commit(true);break}
     case 'scene-preview':previewN=i;renderPreview();go('preview');break;
     case 'erase-scene':previewN=i;openFs();beginTyping();if(typing.open){typing.text=typing.goal;typing.si=typing.segs?typing.segs.length:0;typing.pos=0;typing.sel=false;layoutFs(false)}break;
@@ -18163,10 +18188,10 @@ document.addEventListener('click',e=>{
     case 'lock-now': Object.assign(S.lock,nowLock()); commit(true); toast('今の日付と時刻にしました'); break;
     case 'ocr-photo': document.getElementById('photo-file').click(); break;
     case 'load-script': document.getElementById('script-file').click(); break;
-    case 'rewind': previewN=0;renderPreview();break;
-    case 'previous': previewN=Math.max(0,(previewN==null?(isSceneMode()?0:modeList().length):previewN)-1);renderPreview();break;
-    case 'next': previewN=nextReveal(previewN==null?startPosition():previewN);renderPreview();break;
-    case 'all': previewN=isSceneMode()?maxPosition():null;renderPreview();break;
+    case 'rewind': if(chatLockOn()){previewN=null;lockPh=1}else{previewN=0;lockPh=0}renderPreview();break;
+    case 'previous': if(lockBack(previewN)){renderPreview();break}previewN=Math.max(0,(previewN==null?(isSceneMode()?0:modeList().length):previewN)-1);renderPreview();break;
+    case 'next': if(chatLockOn()&&lockPh){lockStep();if(!lockPh)previewN=startPosition();renderPreview();break}previewN=nextReveal(previewN==null?startPosition():previewN);renderPreview();break;
+    case 'all': lockPh=0;previewN=isSceneMode()?maxPosition():null;renderPreview();break;
     case 'export': exportPng(b); break;
     case 'frames': exportFrames(b); break;
     case 'saveall': saveAll(b); break;
@@ -18204,6 +18229,7 @@ function openFs(){talkChat=null;watching=null;outgoingChatCall=null;callLog=[];s
   freeExtra=[];
   const len=modeList().length;
   play.n=isSceneMode()?(previewN||0):S.play.tap?(previewN==null?Math.max(0,len-(+S.play.hide||0)):previewN):null;
+  lockPh=(S.mode==='chat'&&S.chat.lockStart)?(previewN==null?1:lockPh):0;
   fs.classList.toggle('native-bars',!window.kotobaNative && S.play.nativeBars);document.body.classList.add('playing');
   fs.hidden=false; layoutFs(false);
   try{const r=fs.requestFullscreen&&fs.requestFullscreen(); if(r&&r.catch) r.catch(()=>{})}catch(e){}
@@ -18213,7 +18239,7 @@ function closeFs(){freeExtra=[];talkChat=null;outgoingChatCall=null;chatCallMenu
 function setThemeColor(c){const m=document.querySelector('meta[name=theme-color]');if(m)m.setAttribute('content',c)}
 function layoutFs(fresh){
   const lineK=lineState();const callMode=S.mode==='sequence'&&(!!lineK||!['lock','chat','ended','banner','missed','noanswer-back'].includes(callOverride?.n===play.n?callOverride.kind:sceneAt(play.n).kind));
-  const lockMode=S.mode==='lock'||S.mode==='sequence';
+  const lockMode=S.mode==='lock'||S.mode==='sequence'||(S.mode==='chat'&&lockPh>0);
   fs.classList.toggle('lock-wallpaper',lockMode);
   fs.classList.remove('in-call');const cs0=getComputedStyle(fs),insT=parseFloat(cs0.paddingTop)||0,insB=parseFloat(cs0.paddingBottom)||0;fs.classList.toggle('in-call',!!outgoingChatCall);
   document.documentElement.classList.toggle('shoot-lock',lockMode);
@@ -18530,7 +18556,7 @@ fs.addEventListener('click',e=>{
   if(e.target.closest('.c-field,.s-field')){beginTyping();return}
   if(e.target.closest('.prop-keyboard,.c-in,.s-in'))return;
   if(typing.open){typing.open=false;layoutFs(false);return}
-  if(S.mode==='sequence'){advancePlayback(true);return;}
+  if(S.mode==='sequence'||(S.mode==='chat'&&lockPh)){advancePlayback(true);return;}
   const len=modeList().length;
   if(play.n!=null&&play.n<maxPosition()){typing={open:false,text:'',goal:'',index:-1};play.n=nextReveal(play.n);layoutFs(true)}
 });
@@ -18539,6 +18565,7 @@ function advancePlayback(tap){
  if(chatCallMenu){chatCallMenu=false;layoutFs(false);return;}
  if(outgoingChatCall){if(outgoingChatCall==='outgoing'){outgoingChatCall='connected';startCallTimer();layoutFs(false)}return;}
  if(S.mode==='desktop'){play.n=(play.n+1)%4;desktopApp=[null,'chat','sms','video'][play.n];layoutFs(false);return;}
+ if(S.mode==='chat'&&lockPh){lockStep();layoutFs(lockPh>=2);return}
   if(S.mode==='sequence'&&sceneAt(play.n).kind!=='lock'){
     const kind=callOverride?.n===play.n?callOverride.kind:sceneAt(play.n).kind;
     const sc0=sceneAt(play.n);
@@ -18565,7 +18592,7 @@ function handlePlaybackKey(e){
   }
   if(typing.open&&e.key!=='Escape'){e.preventDefault();if(typing.free){if(e.key==='Enter'){if(typing.comp)pressPropKey('enter');else sendTyped()}else if(e.key==='Backspace')pressPropKey('delete');else if(e.key.length===1)pressPropKey('ins',{ch:e.key});return}if(e.key==='Enter'){if(compView())pressPropKey('char');else sendTyped()}else if(e.key==='Backspace')pressPropKey('delete');else if(e.key.length===1)pressPropKey('char');return}
   if(e.key==='Escape')closeFs();
-  else if(e.key==='ArrowLeft'){e.preventDefault();if(play.n!=null){callOverride=null;play.n=Math.max(0,play.n-1);layoutFs(false)}}
+  else if(e.key==='ArrowLeft'){e.preventDefault();if(lockBack(play.n)){layoutFs(false);return}if(play.n!=null){callOverride=null;play.n=Math.max(0,play.n-1);layoutFs(false)}}
   else if(e.key===' '||e.key==='ArrowRight'||e.key==='Enter'){e.preventDefault();if(!e.repeat)advancePlayback()}
 }
 document.addEventListener('keydown',handlePlaybackKey);
@@ -18874,9 +18901,9 @@ function validateScript(raw){
   if(raw.phone){const v=raw.phone;d.phone={wall:pic(v.wall),chatName:text(v.chatName,'ことば',40),smsName:text(v.smsName,'メッセージ',40),videoName:text(v.videoName,'ナガメ',40),chatIcon:pic(v.chatIcon),smsIcon:pic(v.smsIcon),videoIcon:pic(v.videoIcon)}}
   let a=raw.status;d.status={time:text(a.time,d.status.time,50),battery:number(a.battery,38,0,100),signal:number(a.signal,3,0,4),wifi:bool(a.wifi,true),show:bool(a.show,true),carrier:text(a.carrier,'',100)};
   function msgs(list){if(!Array.isArray(list)||list.length>300)throw Error('Invalid messages');return list.map(m=>{if(!m||!['text','image','call','date','system'].includes(m.type))throw Error('Invalid type');return {id:uid(),type:m.type,from:m.from==='me'?'me':'them',text:text(m.text),time:text(m.time,'',100),read:bool(m.read,false),draftOnly:bool(m.draftOnly,false),typingBefore:bool(m.typingBefore,false),dur:text(m.dur,'',20),note:text(m.note,'',60),yomi:text(m.yomi,'',500),img:pic(m.img)}})}
-  a=raw.chat;d.chat={name:text(a.name,'',100),duration:text(a.duration,'00:12',20),returnTo:['chat','sms','video','lock'].includes(a.returnTo)?a.returnTo:'chat',unread:number(a.unread,0,0,9999),avatar:pic(a.avatar),avColor:color(a.avColor,d.chat.avColor),accent:color(a.accent,d.chat.accent),bg:Object.hasOwn(CHATBG,a.bg)?a.bg:'sky',bgImg:pic(a.bgImg),showName:bool(a.showName,false),top:bool(a.top,false),typing:bool(a.typing,false),callDur:text(a.callDur,'',20),callFrom:text(a.callFrom,'',20),draft:text(a.draft),messages:msgs(a.messages)};
+  a=raw.chat;d.chat={name:text(a.name,'',100),duration:text(a.duration,'00:12',20),returnTo:['chat','sms','video','lock'].includes(a.returnTo)?a.returnTo:'chat',unread:number(a.unread,0,0,9999),avatar:pic(a.avatar),avColor:color(a.avColor,d.chat.avColor),accent:color(a.accent,d.chat.accent),bg:Object.hasOwn(CHATBG,a.bg)?a.bg:'sky',bgImg:pic(a.bgImg),showName:bool(a.showName,false),top:bool(a.top,false),typing:bool(a.typing,false),callDur:text(a.callDur,'',20),callFrom:text(a.callFrom,'',20),draft:text(a.draft),lockStart:bool(a.lockStart,false),lockSender:text(a.lockSender,'',100),lockText:text(a.lockText,'',500),messages:msgs(a.messages)};
   a=raw.sms;d.sms={name:text(a.name,'',100),duration:text(a.duration,'00:12',20),returnTo:['chat','sms','video','lock'].includes(a.returnTo)?a.returnTo:'chat',accent:color(a.accent,d.sms.accent),messages:msgs(a.messages)};
-  a=raw.lock;if(!Array.isArray(a.notifs)||a.notifs.length>300)throw Error('Invalid notifications');const cn=n=>{if(!n||!Object.hasOwn(APPS,n.app))throw Error('Invalid app');return {id:uid(),app:n.app,label:text(n.label,'',100),sender:text(n.sender,'',200),text:text(n.text),when:text(n.when,'',100),...(n.miss?{miss:1,badge:Math.max(1,Math.min(99,Math.floor(+n.badge)||1))}:{})}};d.lock={time:text(a.time,'21:47',50),date:text(a.date,'',100),font:Object.hasOwn(FONTS,a.font)?a.font:'sys',wall:Object.hasOwn(WALLS,a.wall)?a.wall:'night',wallImg:pic(a.wallImg),notifs:a.notifs.map(cn)};
+  a=raw.lock;if(!Array.isArray(a.notifs)||a.notifs.length>300)throw Error('Invalid notifications');const cn=n=>{if(!n||!Object.hasOwn(APPS,n.app))throw Error('Invalid app');return {id:uid(),app:n.app,label:text(n.label,'',100),sender:text(n.sender,'',200),text:text(n.text),when:text(n.when,'',100),...(n.miss?{miss:1,badge:Math.max(1,Math.min(99,Math.floor(+n.badge)||1))}:{})}};d.lock={time:text(a.time,'21:47',50),date:text(a.date,'',100),font:Object.hasOwn(FONTS,a.font)?a.font:'sys',wall:Object.hasOwn(WALLS,a.wall)?a.wall:'night',wallImg:pic(a.wallImg),notifs:a.notifs.map(cn)};{const rc=raw.chat||{};d.chat.lockNotifs=Array.isArray(rc.lockNotifs)?rc.lockNotifs.slice(0,50).map(cn):[];d.chat.lockAll=bool(rc.lockAll,false)}
   if(raw.video!==undefined){const v=raw.video;if(!v||!Array.isArray(v.items)||v.items.length>100)throw Error('Invalid videos');d.video={name:text(v.name,'',100),handle:text(v.handle,'',100),subscribers:text(v.subscribers,'',150),description:text(v.description,'',1000),avatar:pic(v.avatar),banner:pic(v.banner),myAvatar:pic(v.myAvatar),videoCount:text(v.videoCount,'',60),labels:(l=>{const o={};if(l&&typeof l==='object'&&!Array.isArray(l))for(const [k,val] of Object.entries(l))if(/^[A-Za-z0-9]{1,30}$/.test(k)&&typeof val==='string'&&val.length<=100)o[k]=val;return o})(v.labels),items:v.items.map(x=>{if(!x||typeof x!=='object')throw Error('Invalid video');return {id:uid(),title:text(x.title,'',300),channel:text(x.channel,'',100),target:bool(x.target,false),meta:text(x.meta,'',200),duration:text(x.duration,'',30),theme:['city','warm','sea','forest','night'].includes(x.theme)?x.theme:'city',img:pic(x.img),avatar:pic(x.avatar),likes:text(x.likes,'',40),...vidFields(x)}})};
     if(Array.isArray(v.shorts)){if(v.shorts.length>100)throw Error('Invalid shorts');d.video.shorts=v.shorts.map(x=>{if(!x||typeof x!=='object')throw Error('Invalid short');return {id:uid(),title:text(x.title,'',300),meta:text(x.meta,'',200),theme:['city','warm','sea','forest','night'].includes(x.theme)?x.theme:'city',img:pic(x.img),...vidFields(x)}})}}
   if(raw.talks!==undefined){if(!raw.talks||!Array.isArray(raw.talks.items)||raw.talks.items.length>100)throw Error('Invalid talks');d.talks.items=raw.talks.items.map(x=>{if(!x||typeof x!=='object')throw Error('Invalid talk');return {id:uid(),name:text(x.name,'',100),text:text(x.text),time:text(x.time,'',100),unread:Math.floor(number(x.unread,0,0,999)),color:color(x.color,'#6d9be5'),target:bool(x.target,false),img:pic(x.img),messages:Array.isArray(x.messages)?msgs(x.messages):[]}})}
